@@ -1,0 +1,23 @@
+{
+  "name": "tpi-dacs",
+  "version": "1.0.0",
+  "description": "Trabajo práctico integrador de Desarrollo de Aplicaciones Cliente Servidor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martinejaw/TPI-DACS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martinejaw/TPI-DACS/issues"
+  },
+  "homepage": "https://github.com/martinejaw/TPI-DACS#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
