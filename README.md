@@ -10,3 +10,34 @@ Los pacientes podrán recibir información sobre el estado de la pandemia y reco
 Los médicos de los centros hospitalarios puede tomar las consultas realizadas por los pacientes y, en base a los síntomas y su experiencia médica determinar si es un caso sospechoso de COVID-19. Si el ministerio así lo terminase, un profesional puede ser asignado al seguimiento de los caso confirmados de COVID-19.
 ### Ministerio de salud de la provincia
 El ministerio recibe de todos los centros hospitalarios los reportes de casos sospechosos reportados por los pacientes y validados por los profesionales de la salud. En base a esta información, y la disponibilidad de recursos, el ministerio asigna recursos de los centros hospitalarios para el seguimiento y detección de casos de COVID-19. Por otro lado, genera reportes sobre el estado y evolución de casos positivos y sospechosos en forma diaria y en tiempo real.
+
+
+# Instalación
+### Iniciar el py **(ya se hizo)**:
+npm init --yes
+
+### Instalar dependencias **(hacer siempre para confirmar)**:
+npm i express sqlite3 sequelize
+
+### Para que se compile y corra cada vez que guardo el codigo:
+npm i nodemon -D
+
+### Para estructurar el proyecto:
+npm i consign
+
+### Correr el proyecto (fase de desarrollo):
+npm run dev
+
+
+**Construir el proyecto (version con soporte en navegadores):**
+npm run build
+
+
+**Correr el proyecto (el de produccion):**
+npm run start
+
+
+Anotaciones:
+
+npm i @babel/core @babel/cli @babel/preset-env @babel/node -D
+-D para usar solo en desarrollo
