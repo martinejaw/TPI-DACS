@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataType) => {
 
-    const Calle = sequelize.define('Calle', {
+    const Calle = {
       nombre: {
         type: DataType.STRING,
         primaryKey:true,
@@ -9,7 +9,7 @@ module.exports = (sequelize, DataType) => {
           notEmpty: true
         }
       },
-    });
+    }
 
     //TABLA
     const Calle = sequelize.define('Calle', modeloCalle);
