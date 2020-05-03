@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataType) => {
 
-    const Prueba = sequelize.define('Prueba', {
+    const Prueba = {
       resultado: {
         type: DataType.BOOLEAN,
         allowNull: false,
@@ -20,7 +20,7 @@ module.exports = (sequelize, DataType) => {
       fechaResultado: {
         type: DataType.DATE,
       }
-    });
+    }
 
     //TABLA
     const Prueba = sequelize.define('Prueba', modeloPruebas);
