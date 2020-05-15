@@ -26,6 +26,14 @@ module.exports = (sequelize, DataType) => {
             validate: {
                 notEmpty: true
             }
+        },
+        fecha: {
+            type: DataType.DATE,
+            allowNull: false,
+            validate: {
+                isDate: true
+            },
+            defaultValue: newDate() 
         }
     }
     // NOMBRE TABLA, Y SUS FILAS
