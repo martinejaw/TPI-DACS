@@ -29,7 +29,7 @@ module.exports = (sequelize, DataType) => {
         }
     }
     // NOMBRE TABLA, Y SUS FILAS
-    const ParteMedico = sequelize.define('ParteMedico', modeloParteMedico);
+    const ParteMedico = sequelize.define('PartesMedicos', modeloParteMedico);
 
     // Relacion uno a muchos
     /*ParteMedico.associate = (models) => {

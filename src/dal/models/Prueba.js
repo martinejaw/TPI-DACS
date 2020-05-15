@@ -23,7 +23,7 @@ module.exports = (sequelize, DataType) => {
     }
 
     //TABLA
-    const Prueba = sequelize.define('Prueba', modeloPruebas);
+    const Prueba = sequelize.define('Pruebas', modeloPruebas);
 
     //RELACION
     Users.associate = (models) => {

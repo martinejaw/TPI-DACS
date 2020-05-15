@@ -12,7 +12,7 @@ module.exports = (sequelize, DataType) => {
     }
 
     //TABLA
-    const Calle = sequelize.define('Calle', modeloCalle);
+    const Calle = sequelize.define('Calles', modeloCalle);
 
     //RELACION
     Calle.associate = (models) => {

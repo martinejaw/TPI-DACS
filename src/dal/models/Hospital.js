@@ -21,7 +21,7 @@ module.exports = (sequelize, DataType) => {
     }
 
     // NOMBRE TABLA, Y SUS FILAS
-    const Hospital = sequelize.define('Hospital', modeloHospital);
+    const Hospital = sequelize.define('Hospitales', modeloHospital);
 
     /* Relacion uno a muchos
     Tasks.associate = (models) => {
