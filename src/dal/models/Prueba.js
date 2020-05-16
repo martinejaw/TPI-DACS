@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataType) => {
 
-    const Prueba = {
+    const modeloPrueba = {
       resultado: {
         type: DataType.BOOLEAN,
         allowNull: false,
