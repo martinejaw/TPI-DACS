@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataType) => {
 
-    const Prueba = {
+    const modeloPrueba = {
       resultado: {
         type: DataType.BOOLEAN,
         allowNull: false,
@@ -23,12 +23,13 @@ module.exports = (sequelize, DataType) => {
     }
 
     //TABLA
-    const Prueba = sequelize.define('Pruebas', modeloPruebas);
+    const Prueba = sequelize.define('Pruebas', modeloPrueba);
 
     //RELACION
+    /*
     Users.associate = (models) => {
       Prueba.hasOne(models.Caso);
-    };
+    };*/
   
     return Prueba;
   

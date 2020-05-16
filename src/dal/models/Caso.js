@@ -12,7 +12,7 @@ module.exports = (sequelize, DataType) => {
             validate: {
                 isDate: true
             },
-            defaultValue: newDate() 
+            defaultValue: new Date() 
         }
     }
 
@@ -20,9 +20,10 @@ module.exports = (sequelize, DataType) => {
     const Caso = sequelize.define('Casos', modeloCasos);
 
     // Relacion uno a muchos
+    /*
     Tasks.associate = (models) => {
         Caso.belongsTo(models.Users);
-    };
+    };*/
 
     return Caso;
 

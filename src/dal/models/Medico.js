@@ -22,7 +22,7 @@ module.exports = (sequelize, DataType) => {
     }
 
     // NOMBRE TABLA, Y SUS FILAS
-    const Medico = sequelize.define('Medicos', modeloMedicos);
+    const Medico = sequelize.define('Medicos', modeloMedico);
 
     // Relaciones
 

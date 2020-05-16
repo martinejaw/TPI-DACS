@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataType) => {
 
-    const Calle = {
+    const modeloCalle = {
       nombre: {
         type: DataType.STRING,
         primaryKey:true,

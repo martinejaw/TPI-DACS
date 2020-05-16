@@ -26,7 +26,7 @@ module.exports = (sequelize, DataType) => {
             validate: {
                 isDate: true
             },
-            defaultValue: newDate() 
+            defaultValue: new Date() 
         }
     }
 
@@ -34,9 +34,10 @@ module.exports = (sequelize, DataType) => {
     const Consulta = sequelize.define('Consultas', modeloConsultas);
 
     // Relacion uno a muchos
+    /*
     Tasks.associate = (models) => {
         Consulta.belongsTo(models.Users);
-    };
+    };*/
 
     return Consulta;
 

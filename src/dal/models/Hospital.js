@@ -28,6 +28,6 @@ module.exports = (sequelize, DataType) => {
         Tasks.belongsTo(models.Users);
     };
     */
-    return Tasks;
+    return Hospital;
 
 }
