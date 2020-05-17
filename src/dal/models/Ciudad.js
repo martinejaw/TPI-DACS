@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataType) => {
 
-    const Ciudad ={
+    const modeloCiudad ={
       nombre: {
         type: DataType.STRING,
         primaryKey:true,
