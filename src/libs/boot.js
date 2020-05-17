@@ -2,7 +2,7 @@
 module.exports = app => {
 
     //ejecuta la conexion, crea las tablas y luego continua con el server
-    console.log(app.dal.models.ModelosDB.sequelize);
+    //console.log(app.dal.models.ModelosDB.sequelize);
 
     app.dal.models.ModelosDB.sequelize.sync().done(() => {
         //Iniciar el server

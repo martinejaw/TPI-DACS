@@ -2,7 +2,6 @@ module.exports = app => {
 
     const Hospitales = app.dal.models.ModelosDB.models.Hospitales;
 
-
     app.route('/hospitales')
         .get((req, res) => {
             Hospitales.findAll({})
