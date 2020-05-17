@@ -1,10 +1,10 @@
 module.exports = {
-    database: 'tasks', //nombre bbdd
+    database: 'hospitales', //nombre bbdd
     username: '',
     password: '',
     params: {
         dialect: 'sqlite',
-        storage: 'tasks-db.sqlite',
+        storage: 'hospitales.sqlite',
         define: {
             underscore: true
         },

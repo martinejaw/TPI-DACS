@@ -12,11 +12,6 @@ module.exports = (sequelize, DataType) => {
             validate: {
                 notEmpty: true
             }
-        },
-        done: {
-            type: DataType.BOOLEAN,
-            allowNull: false,
-            defaultValue: false
         }
     }
 
