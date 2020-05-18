@@ -13,17 +13,3 @@ application
     process.exit();
     });
 
-/*const express = require("express");
-const app = express();
-const rutas = require('./presentation/routes/index');
-const db = require('./db');
-
-db();
-
-app.set('port', process.env.PORT || 3000);
-
-app.listen(app.get('port'), () => {
-    console.log("Server on port ", app.get('port'));
-});
-
-app.use(rutas());*/

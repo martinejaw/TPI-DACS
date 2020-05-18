@@ -5,7 +5,6 @@ class BaseRepository {
     }
   
     getAll() {
-      //return {"Title": "JUAN"};
       return this._db.models[this.entity].findAll();
     }
     

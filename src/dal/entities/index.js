@@ -38,16 +38,6 @@ module.exports = app => {
                 }
             });
 
-        db.sequelize = sequelize;
-        db.Sequelize = Sequelize;
-        
-        /*const dir = __dirname;
-        fs.readdirSync(dir).forEach(filename => {
-            const entityDir = filename;
-            const model = sequelize.import(entityDir);
-            db.models[model.name] = model;
-        });*/
-
         sequelize.sync();
 
     }

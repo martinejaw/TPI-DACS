@@ -29,8 +29,6 @@ module.exports = app => {
             db.models[model.name] = model;
         });
 
-        sequelize.sync();
-
     }
     return db;
 }
