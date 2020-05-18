@@ -1,6 +1,7 @@
 module.exports = (sequelize, DataType) => {
 
-    const Prueba = {
+    //TABLA
+    const Prueba = sequelize.define('Pruebas', {
       resultado: {
         type: DataType.BOOLEAN,
         allowNull: false,
@@ -10,7 +11,7 @@ module.exports = (sequelize, DataType) => {
         }
       },
       fecha: {
-        type: DataType.DATE,
+        type: DataType.DATEONLY,
         allowNull: false,
         defaultValue: new Date(),
         validate: {
@@ -19,16 +20,18 @@ module.exports = (sequelize, DataType) => {
       },
       fechaResultado: {
         type: DataType.DATE,
+        allowNull: false,
+        validate: {
+            isDate: true
+        },
+        defaultValue: new Date() 
       }
-    }
-
-    //TABLA
-    const Prueba = sequelize.define('Pruebas', modeloPruebas);
+    });
 
     //RELACION
-    Users.associate = (models) => {
+    /*Users.associate = (models) => {
       Prueba.hasOne(models.Caso);
-    };
+    };*/
   
     return Prueba;
   

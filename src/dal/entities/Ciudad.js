@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataType) => {
-
-    const Ciudad ={
+    //TABLA
+    const Ciudad = sequelize.define('Ciudades', {
       nombre: {
         type: DataType.STRING,
         primaryKey:true,
@@ -9,15 +9,12 @@ module.exports = (sequelize, DataType) => {
           notEmpty: true
         }
       },
-    }
-
-    //TABLA
-    const Ciudad = sequelize.define('Ciudades', modeloCiudad);
+    });
 
     //RELACION
-    Ciudad.associate = (models) => {
+    /*Ciudad.associate = (models) => {
       Ciudad.hasMany(models.Calle);
-    };
+    };*/
  
     return Ciudad;
   

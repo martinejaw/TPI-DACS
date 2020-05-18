@@ -1,27 +1,20 @@
 module.exports = (sequelize, DataType) => {
-
-    const modeloParteMedico= {
+    // NOMBRE TABLA, Y SUS FILAS
+    const Consulta = sequelize.define('Consultas', {
         id: {
             type: DataType.INTEGER,
             primaryKey:true,
             autoIncrement: true
         },
-        estadoVital: {
-            type: DataType.STRING,
+        consulta: {
+            type: DataType.TEXT,
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
-        tratamientos: {
-            type: DataType.STRING,
-            allowNull: false,
-            validate: {
-                notEmpty: true
-            }
-        },
-        sintomas: {
-            type: DataType.STRING,
+        diagnostico: {
+            type: DataType.TEXT,
             allowNull: false,
             validate: {
                 notEmpty: true
@@ -33,15 +26,15 @@ module.exports = (sequelize, DataType) => {
             validate: {
                 isDate: true
             },
-            defaultValue: newDate() 
+            defaultValue: new Date() 
         }
-    }
-    // NOMBRE TABLA, Y SUS FILAS
-    const ParteMedico = sequelize.define('PartesMedicos', modeloParteMedico);
+    });
 
     // Relacion uno a muchos
-    /*ParteMedico.associate = (models) => {
-        Tasks.belongsTo(models.Users);
+    /*Tasks.associate = (models) => {
+        Consulta.belongsTo(models.Users);
     };*/
-    return ParteMedico;
-}
+
+    return Consulta;
+
+};

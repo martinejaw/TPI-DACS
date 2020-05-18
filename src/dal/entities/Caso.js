@@ -1,6 +1,7 @@
 module.exports = (sequelize, DataType) => {
 
-    const modeloCasos = {
+    // NOMBRE TABLA, Y SUS FILAS
+    const Caso = sequelize.define('Casos', {
         id: {
             type: DataType.INTEGER,
             primaryKey:true,
@@ -12,17 +13,14 @@ module.exports = (sequelize, DataType) => {
             validate: {
                 isDate: true
             },
-            defaultValue: newDate() 
+            defaultValue: new Date() 
         }
-    }
-
-    // NOMBRE TABLA, Y SUS FILAS
-    const Caso = sequelize.define('Casos', modeloCasos);
+    });
 
     // Relacion uno a muchos
-    Tasks.associate = (models) => {
+    /*Tasks.associate = (models) => {
         Caso.belongsTo(models.Users);
-    };
+    };*/
 
     return Caso;
 

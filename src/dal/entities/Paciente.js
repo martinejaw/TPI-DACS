@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataType) => {
-
-    const modeloMedico = {
-        matricula: {
+    // NOMBRE TABLA, Y SUS FILAS
+    const Paciente = sequelize.define("Pacientes", {
+        dni: {
             type: DataType.INTEGER,
             primaryKey:true,
         },
@@ -19,13 +19,18 @@ module.exports = (sequelize, DataType) => {
                 notEmpty: true
             }    
         },
-    }
-
-    // NOMBRE TABLA, Y SUS FILAS
-    const Medico = sequelize.define('Medicos', modeloMedicos);
+        fechaNacimiento: {
+            type: DataType.DATE,
+            allowNull: false,
+            validate: {
+                isDate: true
+            },
+            defaultValue: new Date() 
+        }
+    });
 
     // Relaciones
 
-    return Medico;
+    return Paciente;
 
 };

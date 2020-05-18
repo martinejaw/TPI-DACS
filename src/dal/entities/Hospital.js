@@ -1,6 +1,7 @@
 module.exports = (sequelize, DataType) => {
 
-    const modeloHospital = {
+    // NOMBRE TABLA, Y SUS FILAS
+    const Hospital = sequelize.define('Hospitales', {
         id: {
             type: DataType.INTEGER,
             primaryKey:true,
@@ -18,16 +19,13 @@ module.exports = (sequelize, DataType) => {
             allowNull: false,
             defaultValue: false
         }
-    }
-
-    // NOMBRE TABLA, Y SUS FILAS
-    const Hospital = sequelize.define('Hospitales', modeloHospital);
+    });
 
     /* Relacion uno a muchos
     Tasks.associate = (models) => {
         Tasks.belongsTo(models.Users);
     };
     */
-    return Tasks;
+    return Hospital;
 
 }
