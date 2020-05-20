@@ -3,12 +3,12 @@ class HospitalController {
         this._hospitalService = HospitalService;
     }
 
-    async getPacientes(req,res){
+    async getHospitales(req,res){
         let hospitales = await this._hospitalService.getAll();
         res.json(hospitales);
     }
 
-    async createPaciente(req, res) {
+    async createHospital(req, res) {
         const body = req.body;
         console.log(body);
         const createdHospital = await this._hospitalService.create(body);
