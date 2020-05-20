@@ -1,6 +1,10 @@
 module.exports = (sequelize, DataType) => {
 
+<<<<<<< HEAD
     const modeloCall = {
+=======
+    const modeloCalle = {
+>>>>>>> c5772cd32ef4722dff8be7071b4dfbbb0db36afe
       nombre: {
         type: DataType.STRING,
         primaryKey:true,

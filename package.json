@@ -4,6 +4,7 @@
   "description": "Trabajo práctico integrador de Desarrollo de Aplicaciones Cliente Servidor",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon src/ejemploIndex.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,12 @@
   "homepage": "https://github.com/martinejaw/TPI-DACS#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "sequelize": "^5.21.7"
+    "sequelize": "^5.21.7",
+    "sqlite3": "^4.2.0",
+    "consign":"^0.1.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "swagger-ui-express":"^4.1.4"
   }
 }

@@ -33,7 +33,7 @@ module.exports = (sequelize, DataType) => {
             validate: {
                 isDate: true
             },
-            defaultValue: newDate() 
+            defaultValue: new Date() 
         }
     }
     // NOMBRE TABLA, Y SUS FILAS
