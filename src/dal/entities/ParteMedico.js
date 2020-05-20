@@ -20,13 +20,6 @@ module.exports = (sequelize, DataType) => {
                 notEmpty: true
             }
         },
-        sintomas: {
-            type: DataType.STRING,
-            allowNull: false,
-            validate: {
-                notEmpty: true
-            }
-        },
         fecha: {
             type: DataType.DATE,
             allowNull: false,
@@ -38,8 +31,10 @@ module.exports = (sequelize, DataType) => {
     });
 
     // Relacion uno a muchos
-    /*ParteMedico.associate = (models) => {
-        Tasks.belongsTo(models.Users);
-    };*/
+    ParteMedico.associate = (models) => {
+        ParteMedico.belongsTo(models.Casos);
+        ParteMedico.belongsToMany(models.Sintomas, {through: 'SintomasParteMedico'});
+    };
+
     return ParteMedico;
 }

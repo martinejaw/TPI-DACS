@@ -6,12 +6,9 @@ module.exports = (sequelize, DataType) => {
             primaryKey:true,
             autoIncrement: true
         },
-        consulta: {
+        comentario: {
             type: DataType.TEXT,
-            allowNull: false,
-            validate: {
-                notEmpty: true
-            }
+            allowNull: true
         },
         diagnostico: {
             type: DataType.TEXT,
@@ -31,9 +28,12 @@ module.exports = (sequelize, DataType) => {
     });
 
     // Relacion uno a muchos
-    /*Tasks.associate = (models) => {
-        Consulta.belongsTo(models.Users);
-    };*/
+    Consulta.associate = (models) => {
+        Consulta.belongsTo(models.Pacientes);
+        Consulta.belongsToMany(models.Sintomas,{through: 'SintomasPaciente'});
+        //Consulta.belongsToMany(models.AntecedentesEpidemiologicos);
+        //Consulta.belongsTo(models.Casos);CHECK
+    };
 
     return Consulta;
 

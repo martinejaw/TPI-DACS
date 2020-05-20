@@ -7,7 +7,7 @@ const config = require("../config/environments/dev");
 
 // routes
 const Routes = require("../presentation/routes");
-const PacienteRoutes = require("../presentation/routes/paciente.routes");
+const PacienteRoutes = require("../presentation/routes/PacienteRoutes");
 
 // controllers
 const { PacienteController } = require("../presentation/controllers/index");
@@ -35,7 +35,7 @@ container
     config: asValue(config)
   })
   .register({
-    db: asFunction(db)
+    db: asValue(db)
   })
   .register({
     PacienteService: asClass(PacienteService).singleton(),

@@ -14,13 +14,23 @@ module.exports = (sequelize, DataType) => {
                 isDate: true
             },
             defaultValue: new Date() 
+        },
+        estado: {
+            type: DataType.TEXT,
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
         }
     });
 
     // Relacion uno a muchos
-    /*Tasks.associate = (models) => {
-        Caso.belongsTo(models.Users);
-    };*/
+    Caso.associate = (models) => {
+        Caso.belongsTo(models.Pacientes);
+        Caso.belongsTo(models.Medicos);
+        //Caso.hasOne(models.Consultas); CHECK
+        Caso.hasMany(models.PartesMedicos);
+    };
 
     return Caso;
 

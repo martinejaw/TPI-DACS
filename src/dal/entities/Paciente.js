@@ -24,12 +24,31 @@ module.exports = (sequelize, DataType) => {
             allowNull: false,
             validate: {
                 isDate: true
-            },
-            defaultValue: new Date() 
+            }
+        },
+        email: {
+            type: DataType.STRING,
+            allowNull: true
+        },
+        telefono: {
+            type: DataType.STRING,
+            allowNull: false
+        },
+        sexo: {
+            type: DataType.STRING,
+            allowNull: false
         }
+        //createdAt: sequelize.DATE,
+        //updatedAt: sequelize.DATE
     });
 
     // Relaciones
+    Paciente.associate = (models) => {
+        Paciente.hasMany(models.Consultas);
+        Paciente.hasMany(models.Casos);
+        Paciente.belongsToMany(models.EnfermedadesPrevias, {through: 'PacientesEnfermos'});
+        //Paciente.belongsTo(models.Direcciones);
+    }
 
     return Paciente;
 

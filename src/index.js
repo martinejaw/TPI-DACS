@@ -1,4 +1,4 @@
-const container = require("./presentation/container");
+const container = require("./libs/container");
 
 const application = container.resolve("app");
 const db = container.resolve("db");

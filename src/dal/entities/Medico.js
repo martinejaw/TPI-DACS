@@ -23,6 +23,9 @@ module.exports = (sequelize, DataType) => {
     });
 
     // Relaciones
+    Medico.associate = (models) => {
+        Medico.hasMany(models.Casos);
+    };
 
     return Medico;
 

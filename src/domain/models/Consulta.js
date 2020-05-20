@@ -1,9 +1,10 @@
 class Consulta {
-    constructor(id,consulta,diagnostico,fecha) {
+    constructor(id,comentario,diagnostico,fecha,sintomas) {
       this.fecha = fecha;
       this.id = id;
-      this.consulta = consulta;
+      this.comentario = comentario;
       this.diagnostico = diagnostico;
+      this.sintomas = sintomas
     }
   }
-  module.exports = Consulta;
+module.exports = Consulta;

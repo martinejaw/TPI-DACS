@@ -1,3 +1,3 @@
 module.exports = {
-    PacienteService: require("./paciente.service")
+    PacienteService: require("./PacienteService")
 }
