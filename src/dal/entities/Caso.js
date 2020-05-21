@@ -28,10 +28,10 @@ module.exports = (sequelize, DataType) => {
     Caso.associate = (models) => {
         Caso.belongsTo(models.Pacientes);
         Caso.belongsTo(models.Medicos);
-        //Caso.hasOne(models.Consultas); CHECK
+        Caso.hasOne(models.Consultas);
         Caso.hasMany(models.PartesMedicos);
+        Caso.hasMany(models.Pruebas);
     };
-
     return Caso;
 
 };

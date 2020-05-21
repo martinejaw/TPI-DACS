@@ -2,6 +2,11 @@ module.exports = (sequelize, DataType) => {
 
     //TABLA
     const Prueba = sequelize.define('Pruebas', {
+      id: {
+        type: DataType.INTEGER,
+        primaryKey:true,
+        autoIncrement: true
+      },
       resultado: {
         type: DataType.BOOLEAN,
         allowNull: false,
@@ -29,9 +34,9 @@ module.exports = (sequelize, DataType) => {
     });
 
     //RELACION
-    /*Users.associate = (models) => {
-      Prueba.hasOne(models.Caso);
-    };*/
+    Prueba.associate = (models) => {
+      Prueba.hasOne(models.Casos);
+    };
   
     return Prueba;
   

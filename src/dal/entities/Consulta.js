@@ -32,7 +32,7 @@ module.exports = (sequelize, DataType) => {
         Consulta.belongsTo(models.Pacientes);
         Consulta.belongsToMany(models.Sintomas,{through: 'SintomasPaciente'});
         //Consulta.belongsToMany(models.AntecedentesEpidemiologicos);
-        //Consulta.belongsTo(models.Casos);CHECK
+        Consulta.belongsTo(models.Casos);CHECK
     };
 
     return Consulta;
