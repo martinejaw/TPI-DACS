@@ -8,15 +8,16 @@ const config = require("../config/environments/dev");
 // routes
 const Routes = require("../presentation/routes");
 const PacienteRoutes = require("../presentation/routes/PacienteRoutes");
+const MedicoRoutes = require("../presentation/routes/MedicoRoutes");
 
 // controllers
-const { PacienteController } = require("../presentation/controllers/index");
+const { PacienteController, MedicoController } = require("../presentation/controllers/index");
 
 // services
-const { PacienteService } = require("../service");
+const { PacienteService, MedicoService } = require("../service");
 
 // repositories
-const { PacienteRepository} = require("../dal/repositories");
+const { PacienteRepository, MedicoRepository } = require("../dal/repositories");
 
 // db
 const db = require("../dal/entities/index");
@@ -30,6 +31,8 @@ container
     server: asClass(Server).singleton(),
     PacienteController: asClass(PacienteController).singleton(),
     PacienteRoutes: asFunction(PacienteRoutes).singleton(),
+    MedicoController: asClass(MedicoController).singleton(),
+    MedicoRoutes: asFunction(MedicoRoutes).singleton(),
   })
   .register({
     config: asValue(config)
@@ -39,9 +42,11 @@ container
   })
   .register({
     PacienteService: asClass(PacienteService).singleton(),
+    MedicoService: asClass(MedicoService).singleton(),
   })
   .register({
     PacienteRepository: asClass(PacienteRepository).singleton(),
+    MedicoRepository: asClass(MedicoRepository).singleton(),
   });
 
 module.exports = container;

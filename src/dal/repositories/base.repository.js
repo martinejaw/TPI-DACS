@@ -4,8 +4,10 @@ class BaseRepository {
       this.entity = entity;
     }
   
-    getAll() {
-      return this._db.models[this.entity].findAll();
+    async getAll() {
+      let todos;
+      todos = await this._db.models[this.entity].findAll();
+      return todos;
     }
     
     create(entity) {

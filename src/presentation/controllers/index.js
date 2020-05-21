@@ -1,3 +1,4 @@
 module.exports = {
-    PacienteController: require("./PacienteController")
+    PacienteController: require("./PacienteController"),
+    MedicoController: require("./MedicoController")
 }

@@ -7,6 +7,12 @@ class Server {
     this._express.use(express.json());
     this._express.use(router);
 
+    // Devolver todos los errores como json
+    const jsonErrorHandler = async (err, req, res, next) => {
+      res.status(500).send({ msg: err.type });
+    }
+    this._express.use(jsonErrorHandler);
+
   }
 
   start() {

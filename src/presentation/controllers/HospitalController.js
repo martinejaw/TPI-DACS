@@ -10,7 +10,6 @@ class HospitalController {
 
     async createHospital(req, res) {
         const body = req.body;
-        console.log(body);
         const createdHospital = await this._hospitalService.create(body);
         return res.status(201).json(createdHospital);
     }

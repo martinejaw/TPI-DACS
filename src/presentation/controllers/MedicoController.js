@@ -10,7 +10,6 @@ class MedicoController {
 
     async createMedico(req, res) {
         const body = req.body;
-        console.log(body);
         const createdMedico = await this._medicoService.create(body);
         return res.status(201).json(createdMedico);
     }

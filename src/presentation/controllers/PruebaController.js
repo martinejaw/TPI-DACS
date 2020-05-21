@@ -10,7 +10,6 @@ class PruebaController {
 
     async createPrueba(req, res) {
         const body = req.body;
-        console.log(body);
         const createdPrueba = await this._pruebaService.create(body);
         return res.status(201).json(createdPrueba);
     }

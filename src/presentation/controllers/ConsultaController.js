@@ -10,7 +10,6 @@ class ConsultaController {
 
     async createConsulta(req, res) {
         const body = req.body;
-        console.log(body);
         const createdConsulta = await this._consultaService.create(body);
         return res.status(201).json(createdConsulta);
     }
