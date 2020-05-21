@@ -34,9 +34,9 @@ module.exports = (sequelize, DataType) => {
     });
 
     //RELACION
-    /*Users.associate = (models) => {
-      Prueba.hasOne(models.Caso);
-    };*/
+    Prueba.associate = (models) => {
+      Prueba.belongsTo(models.Casos);
+    };
   
     return Prueba;
   
