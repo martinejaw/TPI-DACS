@@ -12,13 +12,10 @@ module.exports = (sequelize, DataType) => {
     });
 
     //RELACION
-    /*Calle.associate = (models) => {
-      Calle.hasMany(models.Direccion);
-    };
     
     Calle.associate = (models) => {
-        Calle.BelongsTo(models.Ciudad);
-    };*/
+        Calle.belongsTo(models.Ciudades);
+    };
 
     return Calle;
   

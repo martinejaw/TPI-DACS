@@ -12,9 +12,9 @@ module.exports = (sequelize, DataType) => {
     });
 
     //RELACION
-    /*Ciudad.associate = (models) => {
-      Ciudad.hasMany(models.Calle);
-    };*/
+    Ciudad.associate = (models) => {
+      Ciudad.hasMany(models.Calles,{as:'CiudaddeCalle'});
+    };
  
     return Ciudad;
   
