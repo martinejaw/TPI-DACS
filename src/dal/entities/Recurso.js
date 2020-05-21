@@ -26,7 +26,7 @@ module.exports = (sequelize, DataType) => {
 
     //RELACION
     Recurso.associate = (models) => {
-      Recurso.hasOne(models.Hospitales);
+      Recurso.belongsTo(models.Hospitales);
     };
   
     return Recurso;

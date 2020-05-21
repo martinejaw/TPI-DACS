@@ -35,7 +35,7 @@ module.exports = (sequelize, DataType) => {
 
     //RELACION
     Prueba.associate = (models) => {
-      Prueba.hasOne(models.Casos);
+      Prueba.belongsTo(models.Casos);
     };
   
     return Prueba;
