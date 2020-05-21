@@ -4,14 +4,19 @@ class PruebaController {
     }
 
     async getPruebas(req,res){
-        let pruebas = await this._pruebaService.getAll();
-        res.json(pruebas);
+        await this._pruebaService.getAll()
+            .then(pruebas => res.status(200).json(pruebas))
+            .catch(error => {
+                res.status(404).json({msg: error.message});  
+            });
     }
 
     async createPrueba(req, res) {
-        const body = req.body;
-        const createdPrueba = await this._pruebaService.create(body);
-        return res.status(201).json(createdPrueba);
+        await this._pruebaService.create(req.body)
+            .then(pruebaCreated => res.status(201).json(pruebaCreated))
+            .catch(error => {
+                res.status(412).json({msg: error.message});  
+        });
     }
 }
 

@@ -4,14 +4,19 @@ class CasoController {
     }
 
     async getCasos(req,res){
-        let casos = await this._casoService.getAll();
-        res.json(casos);
+        await this._casoService.getAll()
+            .then(casos => res.status(200).json(casos))
+            .catch(error => {
+                res.status(404).json({msg: error.message});  
+            });
     }
 
     async createCaso(req, res) {
-        const body = req.body;
-        const createdCaso = await this._casoService.create(body);
-        return res.status(201).json(createdCaso);
+        await this._casoService.create(req.body)
+            .then(casoCreated => res.status(201).json(casoCreated))
+            .catch(error => {
+                res.status(412).json({msg: error.message});  
+        });
     }
 }
 

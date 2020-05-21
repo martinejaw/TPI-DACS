@@ -12,7 +12,7 @@ class PacienteController {
     }
 
     async createPaciente(req, res) {
-        await this._pacienteService.create(body)
+        await this._pacienteService.create(req.body)
             .then(pacienteCreated => res.status(201).json(pacienteCreated))
             .catch(error => {
                 res.status(412).json({msg: error.message});  

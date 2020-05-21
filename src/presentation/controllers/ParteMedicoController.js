@@ -4,14 +4,19 @@ class ParteMedicoController {
     }
 
     async getPartesMedicos(req,res){
-        let partesmedicos = await this._partemedicoService.getAll();
-        res.json(partesmedicos);
+        await this._partemedicoService.getAll()
+            .then(partesMedicos => res.status(200).json(partesMedicos))
+            .catch(error => {
+                res.status(404).json({msg: error.message});  
+            });
     }
 
     async createParteMedico(req, res) {
-        const body = req.body;
-        const createdParteMedico = await this._partemedicoService.create(body);
-        return res.status(201).json(createdParteMedico);
+        await this._partemedicoService.create(req.body)
+            .then(parteMedicoCreated => res.status(201).json(parteMedicoCreated))
+            .catch(error => {
+                res.status(412).json({msg: error.message});  
+        });
     }
 }
 
