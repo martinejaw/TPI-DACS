@@ -13,7 +13,6 @@ const ConsultaRoutes = require("../presentation/routes/ConsultaRoutes");
 const HospitalRoutes = require("../presentation/routes/HospitalRoutes");
 const MedicoRoutes = require("../presentation/routes/MedicoRoutes");
 const PacienteRoutes = require("../presentation/routes/PacienteRoutes");
-<<<<<<< HEAD
 const ParteMedicoRoutes = require("../presentation/routes/ParteMedicoRoutes");
 const PruebaRoutes = require("../presentation/routes/PruebaRoutes");
 const RecursoRoutes = require("../presentation/routes/RecursoRoutes");
@@ -26,18 +25,6 @@ const Service  = require("../service");
 
 // repositories
 const Repository = require("../dal/repositories");
-=======
-const MedicoRoutes = require("../presentation/routes/MedicoRoutes");
-
-// controllers
-const { PacienteController, MedicoController } = require("../presentation/controllers/index");
-
-// services
-const { PacienteService, MedicoService } = require("../service");
-
-// repositories
-const { PacienteRepository, MedicoRepository } = require("../dal/repositories");
->>>>>>> ff7867093243797591ce596c3b5e60510cbf04d6
 
 // db
 const db = require("../dal/entities/index");
@@ -64,14 +51,9 @@ container
     HospitalRoutes: asFunction(HospitalRoutes).singleton(),
     MedicoRoutes: asFunction(MedicoRoutes).singleton(),
     PacienteRoutes: asFunction(PacienteRoutes).singleton(),
-<<<<<<< HEAD
     ParteMedicoRoutes: asFunction(ParteMedicoRoutes).singleton(),
     PruebaRoutes: asFunction(PruebaRoutes).singleton(),
     RecursoRoutes: asFunction(RecursoRoutes).singleton(),
-=======
-    MedicoController: asClass(MedicoController).singleton(),
-    MedicoRoutes: asFunction(MedicoRoutes).singleton(),
->>>>>>> ff7867093243797591ce596c3b5e60510cbf04d6
   })
   .register({
     config: asValue(config)
@@ -80,7 +62,6 @@ container
     db: asValue(db)
   })
   .register({
-<<<<<<< HEAD
     CalleService: asClass(Service.CalleService).singleton(),
     CasoService: asClass(Service.CasoService).singleton(),
     ConsultaService: asClass(Service.ConsultaService).singleton(),
@@ -101,14 +82,6 @@ container
     ParteMedicoRepository: asClass(Repository.ParteMedicoRepository).singleton(),
     PruebaRepository: asClass(Repository.PruebaRepository).singleton(),
     RecursoRepository: asClass(Repository.RecursoRepository).singleton(),
-=======
-    PacienteService: asClass(PacienteService).singleton(),
-    MedicoService: asClass(MedicoService).singleton(),
-  })
-  .register({
-    PacienteRepository: asClass(PacienteRepository).singleton(),
-    MedicoRepository: asClass(MedicoRepository).singleton(),
->>>>>>> ff7867093243797591ce596c3b5e60510cbf04d6
   });
 
 module.exports = container;
