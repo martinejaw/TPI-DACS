@@ -30,8 +30,8 @@ module.exports = (sequelize, DataType) => {
         Caso.belongsTo(models.Medicos, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
         Caso.belongsTo(models.Consultas, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' }); 
         Caso.hasMany(models.PartesMedicos, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
+        Caso.hasMany(models.Pruebas, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
     };
-
     return Caso;
 
 };
