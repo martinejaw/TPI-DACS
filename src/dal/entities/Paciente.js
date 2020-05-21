@@ -47,7 +47,7 @@ module.exports = (sequelize, DataType) => {
         Paciente.hasMany(models.Consultas);
         Paciente.hasMany(models.Casos);
         Paciente.belongsToMany(models.EnfermedadesPrevias, {through: 'PacientesEnfermos'});
-        //Paciente.belongsTo(models.Direcciones);
+        Paciente.belongsTo(models.Direcciones,{as:'DireccionPaciente'});
     }
 
     return Paciente;

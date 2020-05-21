@@ -2,7 +2,7 @@ module.exports = (sequelize, DataType) => {
 
     // NOMBRE TABLA, Y SUS FILAS
     const Hospital = sequelize.define('Hospitales', {
-        id: {
+        cuit: {
             type: DataType.INTEGER,
             primaryKey:true,
             autoIncrement: true
@@ -21,11 +21,12 @@ module.exports = (sequelize, DataType) => {
         }
     });
 
-    /* Relacion uno a muchos
-    Tasks.associate = (models) => {
-        Tasks.belongsTo(models.Users);
+    Hospital.associate = (models) => {
+        Hospital.belongsTo(models.Direcciones,{as:'DireccionHospital'});
+        //Hospital.hasMany(models.Recursos);
+        Hospital.belongsToMany(models.Medicos, {through: 'Medicos_Hospitales'});
     };
-    */
+    
     return Hospital;
 
 }
