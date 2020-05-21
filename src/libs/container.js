@@ -28,7 +28,7 @@ const Repository = require("../dal/repositories");
 
 // db
 const db = require("../dal/entities/index");
-const uow = require("../dal/unitOfWork");
+//const uow = require("../dal/unitOfWork");
 
 const container = createContainer();
 
@@ -83,7 +83,7 @@ container
     ParteMedicoRepository: asClass(Repository.ParteMedicoRepository).singleton(),
     PruebaRepository: asClass(Repository.PruebaRepository).singleton(),
     RecursoRepository: asClass(Repository.RecursoRepository).singleton(),
-    UnitOfWork: asClass(uow).singleton(),
+    //UnitOfWork: asClass(uow).singleton(),
   });
 
 module.exports = container;

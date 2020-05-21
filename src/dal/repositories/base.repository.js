@@ -10,22 +10,22 @@ class BaseRepository {
       return todos;
     }
 
-    get(dni) {
-      return this._db.models[this.entity].findOne({ where: { dni } });
+    get(id) {
+      return this._db.models[this.entity].findByPk( id );
     }
   
     create(entity) {
       return this._db.models[this.entity].create(entity);
     }
   
-    update(dni, entity) {
+    update(id, entity) {
       delete entity.createdAt;
       delete entity.updatedAt;
-      return this._db.models[this.entity].update(entity, { where: { dni } });
+      return this._db.models[this.entity].update(entity, { where: { id } });
     }
   
-    delete(dni) {
-      return this._db.models[this.entity].destroy({ where: { dni } });
+    delete(id) {
+      return this._db.models[this.entity].destroy({ where: { id } });
     }
 
 }
