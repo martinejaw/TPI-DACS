@@ -4,15 +4,19 @@ class MedicoController {
     }
 
     async getMedicos(req,res){
-        let medicos = await this._medicoService.getAll();
-        res.json(medicos);
+        await this._pacienteService.getAll()
+            .then(medicos => res.status(200).json(medicos))
+            .catch(error => {
+                res.status(404).json({msg: error.message});  
+            });
     }
 
     async createMedico(req, res) {
-        const body = req.body;
-        console.log(body);
-        const createdMedico = await this._medicoService.create(body);
-        return res.status(201).json(createdMedico);
+        await this._medicoService.create(req.body)
+            .then(medicoCreated => res.status(201).json(medicoCreated))
+            .catch(error => {
+                res.status(412).json({msg: error.message});  
+        });
     }
 }
 

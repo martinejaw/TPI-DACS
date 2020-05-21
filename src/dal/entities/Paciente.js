@@ -38,15 +38,13 @@ module.exports = (sequelize, DataType) => {
             type: DataType.STRING,
             allowNull: false
         }
-        //createdAt: sequelize.DATE,
-        //updatedAt: sequelize.DATE
     });
 
     // Relaciones
     Paciente.associate = (models) => {
-        Paciente.hasMany(models.Consultas);
+        Paciente.hasMany(models.Consultas, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
         Paciente.hasMany(models.Casos);
-        Paciente.belongsToMany(models.EnfermedadesPrevias, {through: 'PacientesEnfermos'});
+        Paciente.belongsToMany(models.EnfermedadesPrevias, {through: 'Pacientes_EnfermedadesPrevias'});
         //Paciente.belongsTo(models.Direcciones);
     }
 

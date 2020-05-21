@@ -1,10 +1,14 @@
 module.exports = (sequelize, DataType) => {
     //TABLA
     const Calle = sequelize.define('Calles', {
+      id: {
+        type: DataType.INTEGER,
+        primaryKey:true,
+        autoIncrement: true
+      },
       nombre: {
         type: DataType.STRING,
-        primaryKey:true,
-        defaultValue: false,
+        allowNull: false,
         validate: {
           notEmpty: true
         }
@@ -12,13 +16,10 @@ module.exports = (sequelize, DataType) => {
     });
 
     //RELACION
-    /*Calle.associate = (models) => {
-      Calle.hasMany(models.Direccion);
-    };
     
     Calle.associate = (models) => {
-        Calle.BelongsTo(models.Ciudad);
-    };*/
+        Calle.belongsTo(models.Ciudades);
+    };
 
     return Calle;
   
