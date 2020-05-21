@@ -14,7 +14,7 @@ module.exports = (sequelize, DataType) => {
     });
 
     Direccion.associate = (models) => {
-        //Direccion.hasOne(models.Calles_Ciudades);
+        Direccion.hasOne(models.Calles);
         Direccion.hasOne(models.Hospitales,{as:'DireccionHospital'});
         Direccion.hasOne(models.Pacientes,{as:'DireccionPaciente'});
         Direccion.hasOne(models.Medicos,{as:'DireccionMedico'});
