@@ -4,8 +4,8 @@ const { Router } = require("express");
 module.exports = ( { RecursoController } ) => {
     const router = Router();
     
-    router.get('/', RecursoController.getCasos.bind(RecursoController));
-    router.post("/", RecursoController.createCaso.bind(RecursoController));
+    router.get('/', RecursoController.getRecursos.bind(RecursoController));
+    router.post("/", RecursoController.createRecurso.bind(RecursoController));
 
     return router;
 }

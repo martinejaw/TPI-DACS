@@ -17,7 +17,7 @@ module.exports = (sequelize, DataType) => {
 
     // Relaciones
     EnfermedadesPrevias.associate = (models) => {
-        EnfermedadesPrevias.belongsToMany(models.Pacientes, {through: 'PacientesEnfermos'});
+        EnfermedadesPrevias.belongsToMany(models.Pacientes, {through: 'Pacientes_EnfermedadesPrevias'});
     }
 
     return EnfermedadesPrevias;

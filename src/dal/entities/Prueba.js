@@ -2,6 +2,11 @@ module.exports = (sequelize, DataType) => {
 
     //TABLA
     const Prueba = sequelize.define('Pruebas', {
+      id: {
+        type: DataType.INTEGER,
+        primaryKey:true,
+        autoIncrement: true
+      },
       resultado: {
         type: DataType.BOOLEAN,
         allowNull: false,
