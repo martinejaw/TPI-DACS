@@ -4,14 +4,19 @@ class RecursoController {
     }
 
     async getRecursos(req,res){
-        let recursos = await this._recursoService.getAll();
-        res.json(recursos);
+        await this._recursoService.getAll()
+            .then(recursos => res.status(200).json(recursos))
+            .catch(error => {
+                res.status(404).json({msg: error.message});  
+            });
     }
 
     async createRecurso(req, res) {
-        const body = req.body;
-        const createdRecurso = await this._recursoService.create(body);
-        return res.status(201).json(createdRecurso);
+        await this._recursoService.create(req.body)
+            .then(recursoCreated => res.status(201).json(recursoCreated))
+            .catch(error => {
+                res.status(412).json({msg: error.message});  
+        });
     }
 }
 
