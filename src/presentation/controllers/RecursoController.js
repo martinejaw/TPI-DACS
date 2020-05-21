@@ -10,7 +10,6 @@ class RecursoController {
 
     async createRecurso(req, res) {
         const body = req.body;
-        console.log(body);
         const createdRecurso = await this._recursoService.create(body);
         return res.status(201).json(createdRecurso);
     }

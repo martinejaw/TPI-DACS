@@ -10,7 +10,6 @@ class CalleController {
 
     async createCalle(req, res) {
         const body = req.body;
-        console.log(body);
         const createdCalle = await this._calleService.create(body);
         return res.status(201).json(createdCalle);
     }

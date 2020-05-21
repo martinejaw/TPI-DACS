@@ -10,7 +10,7 @@ class ParteMedicoController {
 
     async createParteMedico(req, res) {
         const body = req.body;
-        console.log(body);
+
         const createdParteMedico = await this._partemedicoService.create(body);
         return res.status(201).json(createdParteMedico);
     }

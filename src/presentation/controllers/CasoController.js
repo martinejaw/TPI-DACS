@@ -10,7 +10,6 @@ class CasoController {
 
     async createCaso(req, res) {
         const body = req.body;
-        console.log(body);
         const createdCaso = await this._casoService.create(body);
         return res.status(201).json(createdCaso);
     }
