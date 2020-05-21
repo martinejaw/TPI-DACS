@@ -20,6 +20,10 @@ module.exports = (sequelize, DataType) => {
                 notEmpty: true
             }
         },
+        comentario: {
+            type: DataType.STRING,
+            allowNull: true,
+        }, 
         fecha: {
             type: DataType.DATE,
             allowNull: false,
@@ -32,8 +36,8 @@ module.exports = (sequelize, DataType) => {
 
     // Relacion uno a muchos
     ParteMedico.associate = (models) => {
-        ParteMedico.belongsTo(models.Casos);
-        ParteMedico.belongsToMany(models.Sintomas, {through: 'SintomasParteMedico'});
+        ParteMedico.belongsTo(models.Casos, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
+        ParteMedico.belongsToMany(models.Sintomas, {through: 'Sintomas_PartesMedicos'});
     };
 
     return ParteMedico;

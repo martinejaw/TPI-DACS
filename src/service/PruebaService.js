@@ -1,5 +1,5 @@
 const BaseService = require("./base.service");
-const { Hospital } = require("../domain/models");
+const { Prueba } = require("../domain/models");
 
 class PruebaService extends BaseService {
     constructor({ PruebaRepository }){

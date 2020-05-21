@@ -1,10 +1,14 @@
 module.exports = (sequelize, DataType) => {
     //TABLA
     const Calle = sequelize.define('Calles', {
+      id: {
+        type: DataType.INTEGER,
+        primaryKey:true,
+        autoIncrement: true
+      },
       nombre: {
         type: DataType.STRING,
-        primaryKey:true,
-        defaultValue: false,
+        allowNull: false,
         validate: {
           notEmpty: true
         }
