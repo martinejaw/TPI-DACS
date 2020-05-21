@@ -35,11 +35,11 @@ module.exports = (sequelize, DataType) => {
 
     //RELACION
     Prueba.associate = (models) => {
-      Prueba.belongsTo(models.Casos);
+      Prueba.belongsTo(models.Casos, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
     };
   
     return Prueba;
   
   };
 
-  //https://sequelize.org/master/manual/model-basics.html#data-types
+ 

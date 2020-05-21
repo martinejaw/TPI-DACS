@@ -19,6 +19,7 @@ module.exports = (sequelize, DataType) => {
     
     Calle.associate = (models) => {
         Calle.belongsTo(models.Ciudades);
+        Calle.hasMany(models.Direcciones);
     };
 
     return Calle;

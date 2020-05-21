@@ -17,7 +17,7 @@ module.exports = (sequelize, DataType) => {
 
     //RELACION
     Ciudad.associate = (models) => {
-      Ciudad.hasMany(models.Calles,{as:'CiudadId'});
+      Ciudad.hasMany(models.Calles);
     };
  
     return Ciudad;

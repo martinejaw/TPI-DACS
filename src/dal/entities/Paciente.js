@@ -45,7 +45,7 @@ module.exports = (sequelize, DataType) => {
         Paciente.hasMany(models.Consultas, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
         Paciente.hasMany(models.Casos);
         Paciente.belongsToMany(models.EnfermedadesPrevias, {through: 'Pacientes_EnfermedadesPrevias'});
-        //Paciente.belongsTo(models.Direcciones);
+        Paciente.belongsTo(models.Direcciones, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
     }
 
     return Paciente;

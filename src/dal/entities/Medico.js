@@ -46,7 +46,7 @@ module.exports = (sequelize, DataType) => {
     // Relaciones
     Medico.associate = (models) => {
         Medico.hasMany(models.Casos);
-        Medico.belongsTo(models.Direcciones,{as:'DireccionMedico'});
+        Medico.belongsTo(models.Direcciones);
         Medico.belongsToMany(models.Hospitales, {through: 'Medicos_Hospitales'});
     };
 
