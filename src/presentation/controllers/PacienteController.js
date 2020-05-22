@@ -13,11 +13,11 @@ class PacienteController {
 
     async getPaciente(req, res) {
         const { dni } = req.params;
-        let paciente = await this._pacienteService.get(parseInt(dni));
-        if (!paciente) {
-          return res.status(404).send();
-        }
-        return res.json(paciente);
+        await this._pacienteService.get(parseInt(dni))
+            .then(pacientes => res.status(200).json(pacientes))
+            .catch(error => {
+                res.status(404).json({msg: error.message});  
+            });
     }
 
     async createPaciente(req, res) {
@@ -31,8 +31,13 @@ class PacienteController {
     async updatePaciente(req, res) {
         const { body } = req;
         const { dni } = req.params;
-        await this._pacienteService.update(dni, body);
-        return res.status(204).send();
+        await this._pacienteService.update(dni, body)
+            .then(pacienteUpdated => console.log(pacienteUpdated)/*res.status(204).json(pacienteUpdated)*/)
+            .catch(error => {
+                res.status(412).json({msg: error.message});
+            });
+        res.status(204)
+
     }
 
     async deletePaciente(req, res) {

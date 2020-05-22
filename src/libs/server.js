@@ -1,4 +1,6 @@
 const express = require("express");
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUI = require('swagger-ui-express');
 
 class Server {
   constructor({ config, router }) {
@@ -6,6 +8,24 @@ class Server {
     this._express = express();
     this._express.use(express.json());
     this._express.use(router);
+
+    
+    const swaggerOptions = {
+      swaggerDefinition: {
+        info: {
+          title: "API Centros Hospitalarios",
+          description: "Una API",
+          contact: {
+            name: "Grupo 3"
+          },
+          servers: ["http://localhost:"+this._config.PORT]
+        }
+      },
+      apis: ["src/presentation/routes/*.js"]
+    };
+    
+    const swaggerDocs = swaggerJsDoc(swaggerOptions);
+    this._express.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
     // Devolver todos los errores como json
     const jsonErrorHandler = async (err, req, res, next) => {

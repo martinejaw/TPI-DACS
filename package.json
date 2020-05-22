@@ -22,7 +22,9 @@
     "awilix": "^4.2.6",
     "express": "^4.17.1",
     "sequelize": "^5.21.7",
-    "sqlite3": "^4.2.0"
+    "sqlite3": "^4.2.0",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui-express": "4.1.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
