@@ -41,3 +41,14 @@ Anotaciones:
 
 npm i @babel/core @babel/cli @babel/preset-env @babel/node -D
 -D para usar solo en desarrollo
+
+### Arquitectura implementada:
+![Arquitectura por capas](./Arquitectura.png)
+
+### Diagrama Entidad Relación:
+![Diagrama Entidad Relación - Centros Hospitalarios](./CentrosHospitalarios.png)
+
+### Diagrama de Clase:
+![Diagrama de Clase - Centros Hospitalarios](./DiagramaClaseCH.png)
+
+
