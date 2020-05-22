@@ -4,14 +4,19 @@ class ConsultaController {
     }
 
     async getConsultas(req,res){
-        let consultas = await this._consultaService.getAll();
-        res.json(consultas);
+        await this._consultaService.getAll()
+            .then(consultas => res.status(200).json(consultas))
+            .catch(error => {
+                res.status(404).json({msg: error.message});  
+            });
     }
 
     async createConsulta(req, res) {
-        const body = req.body;
-        const createdConsulta = await this._consultaService.create(body);
-        return res.status(201).json(createdConsulta);
+        await this._consultaService.create(req.body)
+            .then(consultaCreated => res.status(201).json(consultaCreated))
+            .catch(error => {
+                res.status(412).json({msg: error.message});  
+        });
     }
 }
 

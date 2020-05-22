@@ -4,14 +4,19 @@ class HospitalController {
     }
 
     async getHospitales(req,res){
-        let hospitales = await this._hospitalService.getAll();
-        res.json(hospitales);
+        await this._hospitalService.getAll()
+            .then(hospitales => res.status(200).json(hospitales))
+            .catch(error => {
+                res.status(404).json({msg: error.message});  
+            });
     }
 
     async createHospital(req, res) {
-        const body = req.body;
-        const createdHospital = await this._hospitalService.create(body);
-        return res.status(201).json(createdHospital);
+        await this._hospitalService.create(req.body)
+            .then(hospitalCreated => res.status(201).json(hospitalCreated))
+            .catch(error => {
+                res.status(412).json({msg: error.message});  
+        });
     }
 }
 

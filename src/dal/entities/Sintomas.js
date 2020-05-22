@@ -17,8 +17,8 @@ module.exports = (sequelize, DataType) => {
 
     // Relaciones
     Sintomas.associate = (models) => {
-        Sintomas.belongsToMany(models.Consultas, {through: 'SintomasPaciente'});
-        Sintomas.belongsToMany(models.PartesMedicos, {through: 'SintomasParteMedico'})
+        Sintomas.belongsToMany(models.Consultas, {through: 'Sintomas_Consultas'});
+        Sintomas.belongsToMany(models.PartesMedicos, {through: 'Sintomas_PartesMedicos'})
     }
 
     return Sintomas;

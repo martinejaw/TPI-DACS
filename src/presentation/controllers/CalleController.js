@@ -4,14 +4,19 @@ class CalleController {
     }
 
     async getCalles(req,res){
-        let calles = await this._calleService.getAll();
-        res.json(calles);
+        await this._calleService.getAll()
+            .then(calles => res.status(200).json(calles))
+            .catch(error => {
+                res.status(404).json({msg: error.message});  
+            });
     }
 
     async createCalle(req, res) {
-        const body = req.body;
-        const createdCalle = await this._calleService.create(body);
-        return res.status(201).json(createdCalle);
+        await this._calleService.create(req.body)
+            .then(calleCreated => res.status(201).json(calleCreated))
+            .catch(error => {
+                res.status(412).json({msg: error.message});  
+        });
     }
 }
 

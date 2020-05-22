@@ -26,12 +26,12 @@ module.exports = (sequelize, DataType) => {
 
     // Relacion uno a muchos
     Caso.associate = (models) => {
-        Caso.belongsTo(models.Pacientes);
-        Caso.belongsTo(models.Medicos);
-        //Caso.hasOne(models.Consultas); CHECK
-        Caso.hasMany(models.PartesMedicos);
+        Caso.belongsTo(models.Pacientes, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
+        Caso.belongsTo(models.Medicos, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
+        Caso.belongsTo(models.Consultas, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' }); 
+        Caso.hasMany(models.PartesMedicos, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
+        Caso.hasMany(models.Pruebas, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
     };
-
     return Caso;
 
 };
