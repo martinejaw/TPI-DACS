@@ -31,6 +31,7 @@ module.exports = (sequelize, DataType) => {
     Consulta.associate = (models) => {
         Consulta.belongsTo(models.Pacientes, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
         Consulta.belongsToMany(models.Sintomas,{through: 'Sintomas_Consultas'});
+	Caso.belongsTo(models.Medicos, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
         //Consulta.belongsToMany(models.AntecedentesEpidemiologicos);
         Consulta.hasOne(models.Casos);
     };
