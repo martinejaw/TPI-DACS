@@ -1,6 +1,7 @@
 class ConsultaController {
-    constructor({ConsultaService}){
+    constructor({ConsultaService, AsignacionService}){
         this._consultaService = ConsultaService;
+        this._asignacionService = AsignacionService;
     }
 
     async getConsultas(req,res){
@@ -18,6 +19,16 @@ class ConsultaController {
                 res.status(412).json({msg: error.message});  
         });
     }
+
+    async recibirConsulta(req, res) {
+        try{
+            this._asignacionService.asignarConsulta(req.body.Consulta);
+            res.status(202);
+        }catch (error){
+            res.status(404);
+        }
+    }
+
 }
 
 module.exports = ConsultaController;

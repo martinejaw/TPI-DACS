@@ -7,5 +7,7 @@ module.exports = ( { ConsultaController } ) => {
     router.get('/', ConsultaController.getConsultas.bind(ConsultaController));
     router.post("/", ConsultaController.createConsulta.bind(ConsultaController));
 
+    router.post("/api", ConsultaController.recibirConsulta.bind(ConsultaController));
+
     return router;
 }

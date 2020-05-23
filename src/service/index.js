@@ -7,5 +7,7 @@ module.exports = {
     PacienteService: require("./PacienteService"),
     ParteMedicoService: require("./ParteMedicoService"),
     PruebaService: require("./PruebaService"),
-    RecursoService: require("./RecursoService")
+    RecursoService: require("./RecursoService"),
+
+    AsignacionService: require("./AsignacionService")
 }

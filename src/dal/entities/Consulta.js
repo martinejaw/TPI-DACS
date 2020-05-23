@@ -12,7 +12,7 @@ module.exports = (sequelize, DataType) => {
         },
         diagnostico: {
             type: DataType.TEXT,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 notEmpty: true
             }
