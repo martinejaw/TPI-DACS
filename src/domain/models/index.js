@@ -1,3 +1,4 @@
 module.exports = {
-    Paciente: require("./Paciente")
+    Paciente: require("./Paciente"),
+    Consulta: require("./Consulta")
 }

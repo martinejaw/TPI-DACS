@@ -3,7 +3,12 @@ const mapper = require("automapper-js");
 class BaseService {
     constructor(EntityRepository, entityToMap) {
       this._entityRepository = EntityRepository;
-      this.entityToMap = entityToMap;
+      this._entityToMap = entityToMap;
+    }
+
+    mapear(objetoSinMapear) {
+      const objetoMapeado = mapper(this._entityToMap, objetoSinMapear);
+      return objetoMapeado
     }
   
     async getAll() {

@@ -84,6 +84,8 @@ container
     PruebaRepository: asClass(Repository.PruebaRepository).singleton(),
     RecursoRepository: asClass(Repository.RecursoRepository).singleton(),
     //UnitOfWork: asClass(uow).singleton(),
-  });
+  })
+  .register({
+    AsignacionService: asClass(Service.AsignacionService).singleton(),});
 
 module.exports = container;

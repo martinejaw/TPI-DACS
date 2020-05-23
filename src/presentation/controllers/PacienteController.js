@@ -1,3 +1,6 @@
+const PacienteClase = require('../../domain/models/Paciente');
+const mapper = require('automapper-js');
+
 class PacienteController {
     constructor({PacienteService}){
         this._pacienteService = PacienteService;
