@@ -6,6 +6,8 @@ class PacienteService extends BaseService {
         super(PacienteRepository,Paciente);
     }
 
+    
+
 }
 
 module.exports = PacienteService;

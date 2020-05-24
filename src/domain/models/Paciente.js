@@ -10,5 +10,12 @@ class Paciente {
       this.enfermedadesPrevias = enfermedadesPrevias;
       this.direccion = direccion;
     }
+
+    toObject(){
+      return {
+        dni: this.dni,
+        nombre: this.nombre
+      }
+    }
   }
 module.exports = Paciente;

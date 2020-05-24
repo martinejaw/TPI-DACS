@@ -5,8 +5,14 @@ class MedicoRepository extends BaseRepository {
     super(db, "Medicos");
   }
 
-  async obtenerMedicoLibre(){
-    return this._db.models[this.entity].findOne();
+  async encontrar(dni){
+    const l = await this._db.models[this.entity].findByPk( dni );
+    return l;
+  }
+
+  async getMedicoLibre(){
+    const encontraalgo = await this.encontrar(41000000);
+    return encontraalgo;
   }
 
 }

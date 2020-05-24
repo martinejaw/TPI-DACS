@@ -5,6 +5,11 @@ class MedicoService extends BaseService {
     constructor({ MedicoRepository }){
         super(MedicoRepository,Medico);
     }
+
+    getMedicoLibre(){
+        this._entityRepository.getMedicoLibre();
+    }
+
 }
 
 module.exports = MedicoService;

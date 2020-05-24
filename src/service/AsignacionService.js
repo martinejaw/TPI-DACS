@@ -1,3 +1,4 @@
+const mapper = require("automapper-js");
 
 class AsignacionService{
     constructor({PacienteService, MedicoService, ConsultaService}){
@@ -8,21 +9,28 @@ class AsignacionService{
 
     async asignarConsulta(consultaGenerica){
 
-        //const medicoParaAsignar = this._pacienteService.mapear(consultaGenerica.paciente);
-
-        const consulta = this._consultaService.mapear(consultaGenerica);
-
-        const medicoNoMapeado = await this._pacienteService._entityRepository.obtenerUno();
-
         const paciente = this._pacienteService.mapear(consultaGenerica.paciente);
 
+        const medicoParaAsignar = this._medicoService.getMedicoLibre();
+
+        const consulta = this._consultaService.mapear(consultaGenerica);
+        consulta.setPaciente(paciente.dni);
+        consulta.asignarMedico(medicoParaAsignar.dni);
+
+        
+
+        const consulte = consulta.toObject();
+
         //consulta.asignarMedico(medicoParaAsignar); // Mirar esto
+        const pobj = pacienteMap.toObject();
 
-        this._consultaService.create(consulta)
+//
+        
+
+        this._consultaService.create(consulte)
             .then(result => console.log(result))
-            .catch(error => console.log(error.msg));
+            .catch(error => console.log(error.message));
 
-        return uno;
     }
 
 }

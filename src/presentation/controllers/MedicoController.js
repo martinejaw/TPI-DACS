@@ -4,7 +4,7 @@ class MedicoController {
     }
 
     async getMedicos(req,res){
-        await this._pacienteService.getAll()
+        await this._medicoService.getAll()
             .then(medicos => res.status(200).json(medicos))
             .catch(error => {
                 res.status(404).json({msg: error.message});  
