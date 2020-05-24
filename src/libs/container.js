@@ -55,6 +55,7 @@ container
     ParteMedicoRoutes: asFunction(ParteMedicoRoutes).singleton(),
     PruebaRoutes: asFunction(PruebaRoutes).singleton(),
     RecursoRoutes: asFunction(RecursoRoutes).singleton(),
+
   })
   .register({
     config: asValue(config)

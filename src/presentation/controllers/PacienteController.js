@@ -12,8 +12,8 @@ class PacienteController {
     }
 
     async getPaciente(req, res) {
-        const { dni } = req.params;
-        await this._pacienteService.get(parseInt(dni))
+        const { medicodni } = req.params;
+        await this._pacienteService.get(parseInt(medicodni))
             .then(pacientes => res.status(200).json(pacientes))
             .catch(error => {
                 res.status(404).json({msg: error.message});  
