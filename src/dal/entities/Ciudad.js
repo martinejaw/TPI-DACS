@@ -1,22 +1,23 @@
 module.exports = (sequelize, DataType) => {
-
-    const Ciudad ={
+    //TABLA
+    const Ciudad = sequelize.define('Ciudades', {
+      id: {
+        type: DataType.INTEGER,
+        primaryKey:true,
+        autoIncrement: true
+      },
       nombre: {
         type: DataType.STRING,
-        primaryKey:true,
-        defaultValue: false,
+        allowNull: false,
         validate: {
           notEmpty: true
         }
       },
-    }
-
-    //TABLA
-    const Ciudad = sequelize.define('Ciudades', modeloCiudad);
+    });
 
     //RELACION
     Ciudad.associate = (models) => {
-      Ciudad.hasMany(models.Calle);
+      Ciudad.hasMany(models.Calles);
     };
  
     return Ciudad;

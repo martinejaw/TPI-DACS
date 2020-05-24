@@ -1,6 +1,12 @@
 module.exports = (sequelize, DataType) => {
 
-    const Prueba = {
+    //TABLA
+    const Prueba = sequelize.define('Pruebas', {
+      id: {
+        type: DataType.INTEGER,
+        primaryKey:true,
+        autoIncrement: true
+      },
       resultado: {
         type: DataType.BOOLEAN,
         allowNull: false,
@@ -10,7 +16,7 @@ module.exports = (sequelize, DataType) => {
         }
       },
       fecha: {
-        type: DataType.DATE,
+        type: DataType.DATEONLY,
         allowNull: false,
         defaultValue: new Date(),
         validate: {
@@ -19,19 +25,21 @@ module.exports = (sequelize, DataType) => {
       },
       fechaResultado: {
         type: DataType.DATE,
+        allowNull: false,
+        validate: {
+            isDate: true
+        },
+        defaultValue: new Date() 
       }
-    }
-
-    //TABLA
-    const Prueba = sequelize.define('Pruebas', modeloPruebas);
+    });
 
     //RELACION
-    Users.associate = (models) => {
-      Prueba.hasOne(models.Caso);
+    Prueba.associate = (models) => {
+      Prueba.belongsTo(models.Casos, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
     };
   
     return Prueba;
   
   };
 
-  //https://sequelize.org/master/manual/model-basics.html#data-types
+ 

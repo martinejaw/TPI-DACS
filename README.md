@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # TPI-DACS
 Trabajo práctico integrador de Desarrollo de Aplicaciones Cliente Servidor
 
@@ -42,7 +42,15 @@ Anotaciones:
 
 npm i @babel/core @babel/cli @babel/preset-env @babel/node -D
 -D para usar solo en desarrollo
-=======
-# 2020-G3-TPI
-Trabajo práctico Integrador - Grupo 3 - 2020
->>>>>>> 7dca9318f9ea4863c76e7fd3c634c79bbcd2138e
+
+
+### Arquitectura implementada:
+![Arquitectura por capas](./docs/Arquitectura.png)
+
+### Diagrama Entidad Relación:
+![Diagrama Entidad Relación - Centros Hospitalarios](./docs/CentrosHospitalarios.png)
+
+### Diagrama de Clase:
+![Diagrama de Clase - Centros Hospitalarios](./docs/DiagramaClaseCH.png)
+
+

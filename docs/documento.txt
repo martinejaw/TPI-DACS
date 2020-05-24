@@ -1,0 +1,2 @@
+falta agregar la relacion partesMedicos y sintomas en el DER
+Decidir de que lado de la asociacion (Caso;Consutla) se guarda la foreign key en la db

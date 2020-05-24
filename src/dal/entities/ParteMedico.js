@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataType) => {
-
-    const modeloParteMedico= {
+    // NOMBRE TABLA, Y SUS FILAS
+    const ParteMedico = sequelize.define('PartesMedicos', {
         id: {
             type: DataType.INTEGER,
             primaryKey:true,
@@ -20,28 +20,25 @@ module.exports = (sequelize, DataType) => {
                 notEmpty: true
             }
         },
-        sintomas: {
+        comentario: {
             type: DataType.STRING,
-            allowNull: false,
-            validate: {
-                notEmpty: true
-            }
-        },
+            allowNull: true,
+        }, 
         fecha: {
             type: DataType.DATE,
             allowNull: false,
             validate: {
                 isDate: true
             },
-            defaultValue: newDate() 
+            defaultValue: new Date() 
         }
-    }
-    // NOMBRE TABLA, Y SUS FILAS
-    const ParteMedico = sequelize.define('PartesMedicos', modeloParteMedico);
+    });
 
     // Relacion uno a muchos
-    /*ParteMedico.associate = (models) => {
-        Tasks.belongsTo(models.Users);
-    };*/
+    ParteMedico.associate = (models) => {
+        ParteMedico.belongsTo(models.Casos, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
+        ParteMedico.belongsToMany(models.Sintomas, {through: 'Sintomas_PartesMedicos'});
+    };
+
     return ParteMedico;
 }

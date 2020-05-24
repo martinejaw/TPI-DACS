@@ -1,7 +1,8 @@
 class Caso{
-    constructor(id, fechaInicio) {
+    constructor(id, fechaInicio, estado) {
         this.id = id;
         this.fechaInicio = fechaInicio;
+        this.estado = estado;
     }
 }
 
