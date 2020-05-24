@@ -1,7 +1,8 @@
 class ConsultaController {
-    constructor({ConsultaService, AsignacionService}){
+    constructor({ConsultaService, AsignacionService, DiagnosticoService}){
         this._consultaService = ConsultaService;
         this._asignacionService = AsignacionService;
+        this._diagnosticoService = DiagnosticoService;
     }
 
     async getConsultas(req,res){
@@ -21,13 +22,13 @@ class ConsultaController {
     }
 
     async recibirConsulta(req, res) {
-        try{
-            this._asignacionService.asignarConsulta(req.body.Consulta);
-            res.status(202);
-        }catch (error){
-            res.status(404);
-        }
+        await this._asignacionService.asignarConsulta(req.body.Consulta, res);
     }
+
+    async diagnosticar(req, res) {
+        await this._diagnosticoService.diagnosticar(req.body, res);
+    }
+
 
 }
 

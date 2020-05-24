@@ -9,5 +9,7 @@ module.exports = ( { ConsultaController } ) => {
 
     router.post("/api", ConsultaController.recibirConsulta.bind(ConsultaController));
 
+    router.put("/diagnosticar", ConsultaController.diagnosticar.bind(ConsultaController));
+
     return router;
 }

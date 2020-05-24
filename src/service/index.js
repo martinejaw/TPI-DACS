@@ -9,5 +9,6 @@ module.exports = {
     PruebaService: require("./PruebaService"),
     RecursoService: require("./RecursoService"),
 
-    AsignacionService: require("./AsignacionService")
+    AsignacionService: require("./AsignacionService"),
+    DiagnosticoService: require("./DiagnosticoService")
 }

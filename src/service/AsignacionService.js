@@ -7,30 +7,25 @@ class AsignacionService{
         this._consultaService = ConsultaService;
     }
 
-    async asignarConsulta(consultaGenerica){
+    async asignarConsulta(consultaGenerica, res){
 
         const paciente = this._pacienteService.mapear(consultaGenerica.paciente);
 
-        const medicoParaAsignar = this._medicoService.getMedicoLibre();
+        const medicoParaAsignarDni = await this._medicoService.getMedicoLibre();
 
         const consulta = this._consultaService.mapear(consultaGenerica);
         consulta.setPaciente(paciente.dni);
-        consulta.asignarMedico(medicoParaAsignar.dni);
+        consulta.asignarMedico(medicoParaAsignarDni);
 
-        
-
-        const consulte = consulta.toObject();
+        const consultaGenericaAsignada = consulta.toObject(); // Mirar esto
 
         //consulta.asignarMedico(medicoParaAsignar); // Mirar esto
-        const pobj = pacienteMap.toObject();
-
-//
         
-
-        this._consultaService.create(consulte)
-            .then(result => console.log(result))
-            .catch(error => console.log(error.message));
-
+        this._consultaService.create(consultaGenericaAsignada)
+            .then(consultaCreated => res.status(201).json(consultaCreated))
+            .catch(error => {
+                res.status(412).json({msg: error.message});  
+        });
     }
 
 }

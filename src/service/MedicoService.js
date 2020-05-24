@@ -6,8 +6,9 @@ class MedicoService extends BaseService {
         super(MedicoRepository,Medico);
     }
 
-    getMedicoLibre(){
-        this._entityRepository.getMedicoLibre();
+    async getMedicoLibre(){
+        let resultado = await this._entityRepository.getMedicoLibre();
+        return resultado[0].dni;
     }
 
 }
