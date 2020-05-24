@@ -18,7 +18,7 @@ module.exports = (sequelize, DataType) => {
 
     Hospital.associate = (models) => {
         Hospital.belongsTo(models.Direcciones);
-        Hospital.hasMany(models.Recursos, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
+        Hospital.hasMany(models.Recursos, { foreignKey: { primaryKey: true }, onDelete: 'CASCADE' });
         Hospital.belongsToMany(models.Medicos, {through: 'Medicos_Hospitales'});
     };
     

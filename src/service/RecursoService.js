@@ -5,6 +5,17 @@ class RecursoService extends BaseService {
     constructor({ UnitOfWork }){
         super(UnitOfWork.RecursoRepository,Recurso);
     }
+
+    async updateRecurso(CUIT, id, entity) {
+        const updatedEntity = await this._entityRepository.update(id, CUIT, entity);
+        return updatedEntity;
+      }
+
+    async getAll(CUIT) {
+        const updatedEntity = await this._entityRepository.getAll(CUIT);
+        return updatedEntity;
+      }
+
 }
 
 module.exports = RecursoService;

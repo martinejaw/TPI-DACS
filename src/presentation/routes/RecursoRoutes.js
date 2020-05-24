@@ -23,7 +23,9 @@ module.exports = ( { RecursoController } ) => {
      */
     router.get("/ministerio", RecursoController.obtenerTodosRecursos.bind(RecursoController));
 
-    router.put("/:id", RecursoController.updateRecurso.bind(RecursoController));
+    router.put("/:CUIT/:id", RecursoController.updateRecurso.bind(RecursoController));
+
+    router.get("/:CUIT", RecursoController.obtenerRecursosHospital.bind(RecursoController));
 
     return router;
 }
