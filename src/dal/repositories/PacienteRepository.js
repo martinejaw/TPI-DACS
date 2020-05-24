@@ -6,6 +6,9 @@ class PacienteRepository extends BaseRepository {
     super(db, "Pacientes");
   }
   
+  async obtenerUno(){
+    return this._db.models[this.entity].findOne();
+  }
   /*getAll() {
     return this._db.models[this.entity].findAll({ include: [ db.models.Consultas ] });
   }*/

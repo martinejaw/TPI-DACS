@@ -2,7 +2,7 @@ const { Router } = require("express");
 
 module.exports = ( { PacienteController } ) => {
     const router = Router();
-    /** @class Circle representing a circle. */
+    
     /**
      * @swagger
      * /paciente:

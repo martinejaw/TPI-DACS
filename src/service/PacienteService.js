@@ -5,6 +5,7 @@ class PacienteService extends BaseService {
     constructor({ PacienteRepository }){
         super(PacienteRepository,Paciente);
     }
+
 }
 
 module.exports = PacienteService;
