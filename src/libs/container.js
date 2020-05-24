@@ -28,7 +28,7 @@ const Repository = require("../dal/repositories");
 
 // db
 const db = require("../dal/entities/index");
-//const uow = require("../dal/unitOfWork");
+const uow = require("../dal/unitOfWork");
 
 const container = createContainer();
 
@@ -76,14 +76,16 @@ container
   .register({
     CalleRepository: asClass(Repository.CalleRepository).singleton(),
     CasoRepository: asClass(Repository.CasoRepository).singleton(),
+    CiudadRepository: asClass(Repository.CiudadRepository).singleton(),
     ConsultaRepository: asClass(Repository.ConsultaRepository).singleton(),
+    DireccionRepository: asClass(Repository.DireccionRepository).singleton(),
     HospitalRepository: asClass(Repository.HospitalRepository).singleton(),
     MedicoRepository: asClass(Repository.MedicoRepository).singleton(),
     PacienteRepository: asClass(Repository.PacienteRepository).singleton(),
     ParteMedicoRepository: asClass(Repository.ParteMedicoRepository).singleton(),
     PruebaRepository: asClass(Repository.PruebaRepository).singleton(),
     RecursoRepository: asClass(Repository.RecursoRepository).singleton(),
-    //UnitOfWork: asClass(uow).singleton(),
+    UnitOfWork: asClass(uow).singleton(),
   });
 
 module.exports = container;

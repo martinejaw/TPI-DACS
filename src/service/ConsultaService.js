@@ -2,8 +2,8 @@ const BaseService = require("./base.service");
 const { Consulta } = require("../domain/models");
 
 class ConsultaService extends BaseService {
-    constructor({ ConsultaRepository }){
-        super(ConsultaRepository,Consulta);
+    constructor({ UnitOfWork }){
+        super(UnitOfWork.ConsultaRepository,Consulta);
     }
 }
 
