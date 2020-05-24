@@ -10,5 +10,7 @@ module.exports = ( { ConsultaController } ) => {
     router.get('/consultasinresponder/:medicodni', ConsultaController.getConsultaSinResponder.bind(ConsultaController));
     router.post("/consultasinresponder/:medicodni", ConsultaController.getConsultaSinResponder.bind(ConsultaController));
 
+    router.put("/diagnosticar", ConsultaController.diagnosticar.bind(ConsultaController));
+
     return router;
 }

@@ -6,6 +6,8 @@ class PacienteService extends BaseService {
         super(UnitOfWork.PacienteRepository,Paciente);
     }
 
+    
+
 }
 
 module.exports = PacienteService;

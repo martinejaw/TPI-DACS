@@ -6,16 +6,23 @@ class Consulta {
       this.diagnostico = diagnostico;
       this.sintomas = sintomas;
 
-      this.paciente = null;
-      this.medico = null;
+      this.PacienteDni = null;
     }
 
     asignarMedico(medico){
-      this.medico = medico;
+      this.medicodni = medico;
     }
 
-    setPaciente(paciente){
-      this.paciente = paciente;
+    setPaciente(pacientedni){
+      this.PacienteDni = pacientedni;
+    }
+
+    toObject(){
+      return {
+        id: this.id,
+        PacienteDni: this.PacienteDni,
+        MedicoDni: this.medicodni
+      }
     }
 
 
