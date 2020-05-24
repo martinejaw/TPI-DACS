@@ -3,7 +3,6 @@ module.exports = (sequelize, DataType) => {
     // NOMBRE TABLA, Y SUS FILAS
     const Hospital = sequelize.define('Hospitales', {
         CUIT: {
-
             type: DataType.INTEGER,
             primaryKey:true,
             autoIncrement: true
@@ -19,7 +18,7 @@ module.exports = (sequelize, DataType) => {
 
     Hospital.associate = (models) => {
         Hospital.belongsTo(models.Direcciones);
-        Hospital.hasMany(models.Recursos);
+        Hospital.hasMany(models.Recursos, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
         Hospital.belongsToMany(models.Medicos, {through: 'Medicos_Hospitales'});
     };
     
