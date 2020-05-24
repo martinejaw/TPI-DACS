@@ -4,20 +4,26 @@ module.exports = (sequelize, DataType) => {
         dni: {
             type: DataType.INTEGER,
             primaryKey:true,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                isNumeric: true,
+                len: [7,8]
+            }
         },
         nombre: {
             type: DataType.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: true,
+                is: ["^[a-z]+$",'i']
             }
         },
         apellido: {
             type: DataType.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: true,
+                is: ["^[a-z]+$",'i']
             }    
         },
         fechaNacimiento: {
@@ -29,15 +35,24 @@ module.exports = (sequelize, DataType) => {
         },
         email: {
             type: DataType.STRING,
-            allowNull: true
+            allowNull: true,
+            validate: {
+                isEmail: true
+            }
         },
         telefono: {
             type: DataType.STRING,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                isNumeric: true
+            }
         },
         sexo: {
             type: DataType.STRING,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                isIn: [['Masculino', 'Femenino']]
+            }
         }
     });
 
