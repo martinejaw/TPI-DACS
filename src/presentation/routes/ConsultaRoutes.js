@@ -9,7 +9,6 @@ module.exports = ( { ConsultaController } ) => {
 
     router.get('/consultasinresponder/:medicodni', ConsultaController.getConsultaSinResponder.bind(ConsultaController));
     router.post("/consultasinresponder/:medicodni", ConsultaController.getConsultaSinResponder.bind(ConsultaController));
-    router.post("/api", ConsultaController.recibirConsulta.bind(ConsultaController));
 
     return router;
 }
