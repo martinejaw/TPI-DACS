@@ -77,6 +77,7 @@ container
     ParteMedicoService: asClass(Service.ParteMedicoService).singleton(),
     PruebaService: asClass(Service.PruebaService).singleton(),
     RecursoService: asClass(Service.RecursoService).singleton(),
+    DiagnosticoService: asClass(Service.DiagnosticoService).singleton(),
   })
   .register({
     CalleRepository: asClass(Repository.CalleRepository).singleton(),

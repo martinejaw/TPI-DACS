@@ -35,12 +35,10 @@ class PacienteController {
         const { body } = req;
         const { dni } = req.params;
         await this._pacienteService.update(dni, body)
-            .then(pacienteUpdated => console.log(pacienteUpdated)/*res.status(204).json(pacienteUpdated)*/)
+            .then(pacienteUpdated => res.status(204).json({msg: "Paciente actualizado"}))
             .catch(error => {
                 res.status(412).json({msg: error.message});
             });
-        res.status(204)
-
     }
 
     async deletePaciente(req, res) {

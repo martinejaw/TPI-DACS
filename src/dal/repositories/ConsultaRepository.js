@@ -1,4 +1,5 @@
 const BaseRepository = require("./base.repository");
+const { Op } = require("sequelize");
 
 class ConsultaRepository extends BaseRepository {
   constructor({ db }) {
@@ -6,7 +7,11 @@ class ConsultaRepository extends BaseRepository {
   }
 
   getSinResponder(medicodni) {
-    return this._db.models[this.entity].findAll({ where: {MedicoDni: medicodni}});
+    return this._db.models[this.entity].findAll({ where: 
+                                                        {[Op.and]: 
+                                                          [{MedicoDni: medicodni},{diagnostico: null}] 
+                                                        }
+                                                });
   }
 }
 

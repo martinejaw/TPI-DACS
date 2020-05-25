@@ -4,8 +4,7 @@ module.exports = (sequelize, DataType) => {
     const Recurso = sequelize.define('Recursos', {
       id: {
         type: DataType.INTEGER,
-        primaryKey:true,
-        autoIncrement: true
+        primaryKey:true
       },
       nombre: {
         type: DataType.STRING,

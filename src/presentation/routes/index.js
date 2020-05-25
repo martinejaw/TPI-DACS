@@ -9,7 +9,7 @@ module.exports = function( { CalleRoutes, CasoRoutes,CiudadRoutes, ConsultaRoute
   apiRoute.use("/consulta", ConsultaRoutes);
   apiRoute.use("/ciudad", CiudadRoutes);
   apiRoute.use("/hospital", HospitalRoutes);
-  apiRoute.use("medico", MedicoRoutes);
+  apiRoute.use("/medico", MedicoRoutes);
   apiRoute.use("/paciente", PacienteRoutes);
   apiRoute.use("/partemedico", ParteMedicoRoutes);
   apiRoute.use("/prueba", PruebaRoutes);
