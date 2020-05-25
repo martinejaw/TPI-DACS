@@ -18,6 +18,22 @@ class PruebaController {
                 res.status(412).json({msg: error.message});  
         });
     }
+
+    async updatePrueba(req,res) {
+        const { body } = req;
+        const { idCaso } = req.params;
+        const { idPrueba } = req.params;
+        await this._pruebaService.updatePrueba(idPrueba,idCaso, body)
+            .then(pruebaUpdated => {
+                if(pruebaUpdated[0]==0){
+                    res.status(404).json({msg: "No existe prueba con tal id"})
+                }else{
+                    res.json({msg: "Actualizado correctamente la prueba con id "+idPrueba+" del caso "+idCaso})
+                }})
+            .catch(error => {
+                res.status(412).json({msg: error.message});
+            });
+    }
 }
 
 module.exports = PruebaController;

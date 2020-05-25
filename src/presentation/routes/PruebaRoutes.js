@@ -7,5 +7,7 @@ module.exports = ( { PruebaController } ) => {
     router.get('/', PruebaController.getPruebas.bind(PruebaController));
     router.post("/", PruebaController.createPrueba.bind(PruebaController));
 
+    router.put('/:idCaso/:idPrueba', PruebaController.updatePrueba.bind(PruebaController));
+
     return router;
 }
