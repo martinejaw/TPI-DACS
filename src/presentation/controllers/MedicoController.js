@@ -18,6 +18,15 @@ class MedicoController {
                 res.status(412).json({msg: error.message});  
         });
     }
+    
+    async getMedicosHospital(req, res) {
+        const { CUIT } = req.params;
+        await this._medicoService.obtenerMedicosHospital(CUIT)
+            .then(medicoCreated => res.status(201).json(medicoCreated))
+            .catch(error => {
+                res.status(412).json({msg: error.message});  
+        });
+    }
 }
 
 module.exports = MedicoController;

@@ -15,6 +15,16 @@ class MedicoRepository extends BaseRepository {
     });
   }
 
+  async obtenerMedicosHospital(CUIT){
+    const consulta = "SELECT dni, matricula, apellido, fechaNacimiento, especialidad, M.createdAt, M.updatedAt FROM Medicos AS M INNER JOIN Medicos_Hospitales AS MH ON M.dni = MH.MedicoDni WHERE HospitaleCUIT = "+CUIT+";";
+
+    return await this._db.sequelize.query(consulta, {
+      nest: true,
+      type: QueryTypes.SELECT
+    });
+
+  }
+
 }
 
 module.exports = MedicoRepository;
