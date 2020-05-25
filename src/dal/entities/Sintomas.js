@@ -12,13 +12,21 @@ module.exports = (sequelize, DataType) => {
             validate: {
                 notEmpty: true
             }
+        },
+        createdAt: {
+          type: DataType.DATE,
+          defaultValue: new Date()
+        },
+        updatedAt: {
+          type: DataType.DATE,
+          defaultValue: new Date()
         }
     });
 
     // Relaciones
     Sintomas.associate = (models) => {
-        Sintomas.belongsToMany(models.Consultas, {through: 'Sintomas_Consultas'});
-        Sintomas.belongsToMany(models.PartesMedicos, {through: 'Sintomas_PartesMedicos'})
+        Sintomas.belongsToMany(models.Consultas, {through: 'Sintomas_Consultas', timestamps: false});
+        Sintomas.belongsToMany(models.PartesMedicos, {through: 'Sintomas_PartesMedicos', timestamps: false })
     }
 
     return Sintomas;

@@ -9,6 +9,7 @@ const config = require("../config/environments/dev");
 const Routes = require("../presentation/routes");
 const CalleRoutes = require("../presentation/routes/CalleRoutes");
 const CasoRoutes = require("../presentation/routes/CasoRoutes");
+const CiudadRoutes = require("../presentation/routes/CiudadRoutes");
 const ConsultaRoutes = require("../presentation/routes/ConsultaRoutes");
 const HospitalRoutes = require("../presentation/routes/HospitalRoutes");
 const MedicoRoutes = require("../presentation/routes/MedicoRoutes");
@@ -39,6 +40,7 @@ container
     server: asClass(Server).singleton(),
     CalleController: asClass(Controller.CalleController).singleton(),
     CasoController: asClass(Controller.CasoController).singleton(),
+    CiudadController: asClass(Controller.CiudadController).singleton(),
     ConsultaController: asClass(Controller.ConsultaController).singleton(),
     HospitalController: asClass(Controller.HospitalController).singleton(),
     MedicoController: asClass(Controller.MedicoController).singleton(),
@@ -47,6 +49,7 @@ container
     PruebaController: asClass(Controller.PruebaController).singleton(),
     RecursoController: asClass(Controller.RecursoController).singleton(),
     CalleRoutes: asFunction(CalleRoutes).singleton(),
+    CiudadRoutes: asFunction(CiudadRoutes).singleton(),
     CasoRoutes: asFunction(CasoRoutes).singleton(),
     ConsultaRoutes: asFunction(ConsultaRoutes).singleton(),
     HospitalRoutes: asFunction(HospitalRoutes).singleton(),
@@ -66,6 +69,7 @@ container
   .register({
     CalleService: asClass(Service.CalleService).singleton(),
     CasoService: asClass(Service.CasoService).singleton(),
+    CiudadService: asClass(Service.CiudadService).singleton(),
     ConsultaService: asClass(Service.ConsultaService).singleton(),
     HospitalService: asClass(Service.HospitalService).singleton(),
     MedicoService: asClass(Service.MedicoService).singleton(),

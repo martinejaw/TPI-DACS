@@ -1,12 +1,13 @@
 const { Router } = require("express");
 
-module.exports = function( { CalleRoutes, CasoRoutes, ConsultaRoutes, HospitalRoutes, MedicoRoutes, PacienteRoutes, ParteMedicoRoutes, PruebaRoutes, RecursoRoutes} ) {
+module.exports = function( { CalleRoutes, CasoRoutes,CiudadRoutes, ConsultaRoutes, HospitalRoutes, MedicoRoutes, PacienteRoutes, ParteMedicoRoutes, PruebaRoutes, RecursoRoutes} ) {
   const router = Router();
   const apiRoute = Router();
 
   apiRoute.use("/calle", CalleRoutes);
   apiRoute.use("/caso", CasoRoutes);
   apiRoute.use("/consulta", ConsultaRoutes);
+  apiRoute.use("/ciudad", CiudadRoutes);
   apiRoute.use("/hospital", HospitalRoutes);
   apiRoute.use("medico", MedicoRoutes);
   apiRoute.use("/paciente", PacienteRoutes);

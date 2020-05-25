@@ -21,6 +21,14 @@ module.exports = (sequelize, DataType) => {
             validate: {
                 notEmpty: true
             }
+        },
+        createdAt: {
+          type: DataType.DATE,
+          defaultValue: new Date()
+        },
+        updatedAt: {
+          type: DataType.DATE,
+          defaultValue: new Date()
         }
     });
 

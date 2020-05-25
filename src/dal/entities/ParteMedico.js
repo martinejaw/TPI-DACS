@@ -31,13 +31,21 @@ module.exports = (sequelize, DataType) => {
                 isDate: true
             },
             defaultValue: new Date() 
+        },
+        createdAt: {
+          type: DataType.DATE,
+          defaultValue: new Date()
+        },
+        updatedAt: {
+          type: DataType.DATE,
+          defaultValue: new Date()
         }
     });
 
     // Relacion uno a muchos
     ParteMedico.associate = (models) => {
         ParteMedico.belongsTo(models.Casos, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
-        ParteMedico.belongsToMany(models.Sintomas, {through: 'Sintomas_PartesMedicos'});
+        ParteMedico.belongsToMany(models.Sintomas, {through: 'Sintomas_PartesMedicos',timestamps: false});
     };
 
     return ParteMedico;

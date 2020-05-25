@@ -1,6 +1,7 @@
 module.exports = {
     CalleController: require("./CalleController"),
     CasoController: require("./CasoController"),
+    CiudadController: require("./CiudadController"),
     ConsultaController: require("./ConsultaController"),
     HospitalController: require("./HospitalController"),
     MedicoController: require("./MedicoController"),

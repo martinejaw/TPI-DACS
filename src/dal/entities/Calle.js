@@ -13,6 +13,14 @@ module.exports = (sequelize, DataType) => {
           notEmpty: true
         }
       },
+      createdAt: {
+        type: DataType.DATE,
+        defaultValue: new Date()
+      },
+      updatedAt: {
+        type: DataType.DATE,
+        defaultValue: new Date()
+      }
     });
 
     //RELACION

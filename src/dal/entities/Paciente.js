@@ -53,6 +53,14 @@ module.exports = (sequelize, DataType) => {
             validate: {
                 isIn: [['Masculino', 'Femenino']]
             }
+        },
+        createdAt: {
+          type: DataType.DATE,
+          defaultValue: new Date()
+        },
+        updatedAt: {
+          type: DataType.DATE,
+          defaultValue: new Date()
         }
     });
 
@@ -60,7 +68,7 @@ module.exports = (sequelize, DataType) => {
     Paciente.associate = (models) => {
         Paciente.hasMany(models.Consultas, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
         Paciente.hasMany(models.Casos);
-        Paciente.belongsToMany(models.EnfermedadesPrevias, {through: 'Pacientes_EnfermedadesPrevias'});
+        Paciente.belongsToMany(models.EnfermedadesPrevias, {through: 'Pacientes_EnfermedadesPrevias',timestamps: false});
         Paciente.belongsTo(models.Direcciones, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
     }
 

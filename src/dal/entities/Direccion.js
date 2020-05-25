@@ -11,6 +11,14 @@ module.exports = (sequelize, DataType) => {
             type: DataType.INTEGER,
             allowNull: false,
         },
+        createdAt: {
+          type: DataType.DATE,
+          defaultValue: new Date()
+        },
+        updatedAt: {
+          type: DataType.DATE,
+          defaultValue: new Date()
+        }
     });
 
     Direccion.associate = (models) => {

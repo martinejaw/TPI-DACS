@@ -10,21 +10,24 @@ module.exports = (sequelize, DataType) => {
             type: DataType.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: true,
+                isNumeric: true
             }
         },
         nombre: {
             type: DataType.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: true,
+                is: ["^[a-z]+$",'i']
             }
         },
         apellido: {
             type: DataType.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: true,
+                is: ["^[a-z]+$",'i']
             }    
         },
         fechaNacimiento: {
@@ -38,8 +41,17 @@ module.exports = (sequelize, DataType) => {
             type: DataType.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: true,
+                is: ["^[a-z]+$",'i']
             }    
+        },
+        createdAt: {
+          type: DataType.DATE,
+          defaultValue: new Date()
+        },
+        updatedAt: {
+          type: DataType.DATE,
+          defaultValue: new Date()
         }
     });
 
@@ -48,7 +60,7 @@ module.exports = (sequelize, DataType) => {
         Medico.hasMany(models.Casos);
 	Medico.hasMany(models.Consultas);
         Medico.belongsTo(models.Direcciones);
-        Medico.belongsToMany(models.Hospitales, {through: 'Medicos_Hospitales'});
+        Medico.belongsToMany(models.Hospitales, {through: 'Medicos_Hospitales',timestamps: false});
     };
 
     return Medico;

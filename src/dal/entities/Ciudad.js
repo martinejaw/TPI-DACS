@@ -10,9 +10,18 @@ module.exports = (sequelize, DataType) => {
         type: DataType.STRING,
         allowNull: false,
         validate: {
-          notEmpty: true
+          notEmpty: true,
+          is: ["^[a-z]+$",'i']
         }
       },
+      createdAt: {
+        type: DataType.DATE,
+        defaultValue: new Date()
+      },
+      updatedAt: {
+        type: DataType.DATE,
+        defaultValue: new Date()
+      }
     });
 
     //RELACION

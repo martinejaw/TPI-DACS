@@ -24,13 +24,21 @@ module.exports = (sequelize, DataType) => {
                 isDate: true
             },
             defaultValue: new Date() 
+        },
+        createdAt: {
+          type: DataType.DATE,
+          defaultValue: new Date()
+        },
+        updatedAt: {
+          type: DataType.DATE,
+          defaultValue: new Date()
         }
     });
 
     // Relacion uno a muchos
     Consulta.associate = (models) => {
         Consulta.belongsTo(models.Pacientes, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
-        Consulta.belongsToMany(models.Sintomas,{through: 'Sintomas_Consultas'});
+        Consulta.belongsToMany(models.Sintomas,{through: 'Sintomas_Consultas', timestamps: false});
 	    Consulta.belongsTo(models.Medicos, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
         //Consulta.belongsToMany(models.AntecedentesEpidemiologicos);
         Consulta.hasOne(models.Casos);

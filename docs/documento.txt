@@ -1,2 +1,3 @@
-falta agregar la relacion partesMedicos y sintomas en el DER
-Decidir de que lado de la asociacion (Caso;Consutla) se guarda la foreign key en la db
+Ir a la ruta del proyecto
+correr sqlite3 hospitales.sqlite
+sqlite> .read docs/script.sql
