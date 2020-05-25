@@ -4,7 +4,36 @@ const { Router } = require("express");
 module.exports = ( { CasoController } ) => {
     const router = Router();
     
+    /**
+     * @swagger
+     * /caso:
+     *  get:
+     *      description: Usar para obtener todos los casos
+     *      tags: ["HOSPITALES"]
+     *      produces:
+     *          - aplication/json
+     *      responses:
+     *          '200':
+     *              description: Se obtuvieron correctamente todos los casos
+     *          '412':
+     *              description: Error
+     */
     router.get('/', CasoController.getCasos.bind(CasoController));
+
+    /**
+     * @swagger
+     * /caso:
+     *  post:
+     *      description: Usar para crear un caso
+     *      tags: ["HOSPITALES"]
+     *      produces:
+     *          - aplication/json
+     *      responses:
+     *          '200':
+     *              description: Se creo correctamente el caso
+     *          '412':
+     *              description: Error
+     */
     router.post("/", CasoController.createCaso.bind(CasoController));
 
     return router;
