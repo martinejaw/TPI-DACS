@@ -36,5 +36,29 @@ module.exports = ( { MedicoController } ) => {
      */
     router.post("/", MedicoController.createMedico.bind(MedicoController));
 
+    /**
+     * @swagger
+     * /medico/{CUIT}:
+     *  get:
+     *      description: Usar para obtener los medicos de un hospital
+     *      tags: ["HOSPITALES"]
+     *      parameters:
+     *        - in: path
+     *          name: CUIT
+     *          description: CUIT del hospital
+     *          required: true
+     *          schema:
+     *              type: integer
+     *              example: 2121 
+     *      produces:
+     *          - aplication/json
+     *      responses:
+     *          '200':
+     *              description: Se obtuvieron correctamente los medicos del hospital
+     *          '412':
+     *              description: Error
+     */
+    router.get("/:CUIT", MedicoController.getMedicosHospital.bind(MedicoController));
+
     return router;
 }

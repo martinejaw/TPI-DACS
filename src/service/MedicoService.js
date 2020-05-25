@@ -11,6 +11,11 @@ class MedicoService extends BaseService {
         return resultado[0].dni;
     }
 
+    async obtenerMedicosHospital(CUIT){
+        let medicos = await this._entityRepository.obtenerMedicosHospital(CUIT);
+        return medicos;
+    }
+
 }
 
 module.exports = MedicoService;
