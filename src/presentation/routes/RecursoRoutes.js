@@ -47,12 +47,14 @@ module.exports = ( { RecursoController } ) => {
      *      parameters:
      *        - in: path
      *          name: CUIT
+     *          description: CUIT del Hospital
      *          required: true
      *          schema:
      *              type: integer
      *              example: 2121 
      *        - in: path
      *          name: id
+     *          description: id del Recurso
      *          required: true
      *          schema:
      *              type: integer
