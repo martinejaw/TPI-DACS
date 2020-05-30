@@ -10,6 +10,22 @@ module.exports = ( { ConsultaController } ) => {
      * @swagger
      * /consulta:
      *  post:
+     *      description: Usar para crear nuevas consultas
+     *      tags: ["HOSPITALES"]
+     *      produces:
+     *          - aplication/json
+     *      responses:
+     *          '200':
+     *              description: Se agrego correctamente la consulta
+     *          '412':
+     *              description: Error
+     */
+    router.post("/", ConsultaController.createConsulta.bind(ConsultaController));
+
+    /**
+     * @swagger
+     * /consulta:
+     *  post:
      *      description: PACIENTES - Usar para crear nuevas consultas para que sean diagnosticadas
      *      tags: ["PACIENTES"]
      *      produces:
@@ -20,7 +36,7 @@ module.exports = ( { ConsultaController } ) => {
      *          '412':
      *              description: Error
      */
-    router.post("/", ConsultaController.createConsulta.bind(ConsultaController));
+    router.post("/consultaNueva", ConsultaController.recibirConsulta.bind(ConsultaController));
 
     /**
      * @swagger

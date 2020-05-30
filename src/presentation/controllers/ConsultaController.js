@@ -31,7 +31,12 @@ class ConsultaController {
     }
 
     async recibirConsulta(req, res) {
-        await this._asignacionService.asignarConsulta(req.body.Consulta, res);
+        let consultaAsignada = await this._asignacionService.asignarConsulta(req.body.Consulta);
+        this._consultaService.create(consultaAsignada)
+            .then(consultaCreated => res.status(201).json(consultaCreated))
+            .catch(error => {
+                res.status(412).json({msg: error.message});  
+        });
     }
 
     async diagnosticar(req, res) {

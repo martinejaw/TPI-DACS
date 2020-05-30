@@ -7,7 +7,7 @@ class AsignacionService{
         this._consultaService = ConsultaService;
     }
 
-    async asignarConsulta(consultaGenerica, res){
+    async asignarConsulta(consultaGenerica){
 
         const paciente = this._pacienteService.mapear(consultaGenerica.paciente);
 
@@ -19,13 +19,8 @@ class AsignacionService{
 
         const consultaGenericaAsignada = consulta.toObject(); // Mirar esto
 
+        return consultaGenericaAsignada;
         //consulta.asignarMedico(medicoParaAsignar); // Mirar esto
-        
-        this._consultaService.create(consultaGenericaAsignada)
-            .then(consultaCreated => res.status(201).json(consultaCreated))
-            .catch(error => {
-                res.status(412).json({msg: error.message});  
-        });
     }
 
 }

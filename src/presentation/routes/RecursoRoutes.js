@@ -74,7 +74,7 @@ module.exports = ( { RecursoController } ) => {
      * /recurso/{CUIT}:
      *  get:
      *      description: Usar para obtener todos los recursos de un hospital
-     *      tags: ["HOSPITALES"]
+     *      tags: ["MINISTERIO"]
      *      parameters:
      *        - in: path
      *          name: CUIT

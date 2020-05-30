@@ -8,7 +8,7 @@ class MedicoRepository extends BaseRepository {
   }
 
   async getMedicoLibre(){
-    const consulta = "SELECT dni FROM (SELECT Medicos.dni,COUNT(id) as cont FROM Medicos INNER JOIN Consultas ON Medicos.dni = Consultas.MedicoDni WHERE date(Consultas.createdAt) = date('now') GROUP BY Medicos.dni ORDER BY cont ASC LIMIT 1);"
+    const consulta = "SELECT dni FROM (SELECT Medicos.dni,COUNT(id) AS cont FROM Medicos LEFT OUTER JOIN (SELECT * FROM Consultas WHERE date(Consultas.createdAt) = date('now')) AS C ON Medicos.dni = C.MedicoDni GROUP BY Medicos.dni ORDER BY cont ASC LIMIT 1);"
     return await this._db.sequelize.query(consulta, {
       nest: true,
       type: QueryTypes.SELECT
