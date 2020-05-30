@@ -1,3 +1,5 @@
+const request = require('request-promise')
+
 class ConsultaController {
     constructor({ConsultaService, AsignacionService, DiagnosticoService}){
         this._consultaService = ConsultaService;
@@ -40,7 +42,44 @@ class ConsultaController {
     }
 
     async diagnosticar(req, res) {
-        await this._diagnosticoService.diagnosticar(req.body, res);
+        //await this._diagnosticoService.diagnosticar(req.body, res);
+        let consultaDiagnosticada = req.body;
+
+        if(consultaDiagnosticada.diagnostico == null){
+            res.sendStatus(404);
+        }
+
+        // Guardo la consulta diagnosticada en mi API
+        this._consultaService.update(consultaDiagnosticada.id, consultaDiagnosticada)
+            .then(consultaDiagnosticada => res.status(201).json({msg: "Diagnosticacion Correcta"}))
+            .catch(error => {  
+                res.status(412).json({msg: error.message});  
+        });
+
+        
+        let options = {
+            method: 'PUT',
+            uri: 'http://localhost:3000/consulta', // aca va la api de pacientes
+            body: consultaDiagnosticada,
+            json: true
+        }
+
+        // Se la mando al grupo de pacientes
+        request(options)
+            .then(respuesta => console.log("Okey"))
+            .catch(error => {  
+                console.log("No Okey")
+            }); 
+    }
+
+    async obtenerConsultas(req, res){
+        //AQUI SE HACE UN GET AL GRUPO DE PACIENTES
+        let consultasNuevas = req.body;
+        for (const consulta in consultasNuevas){
+            console.log(consulta);
+        }
+        
+        res.sendStatus(202);
     }
 
 

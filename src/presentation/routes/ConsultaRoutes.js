@@ -78,5 +78,21 @@ module.exports = ( { ConsultaController } ) => {
      */
     router.put("/diagnosticar", ConsultaController.diagnosticar.bind(ConsultaController));
 
+    /**
+     * @swagger
+     * /consulta/obtenerConsultas:
+     *  get:
+     *      description: Usar obtener las consultas nuevas desde el grupo de pacientes
+     *      tags: ["HOSPITALES"]
+     *      produces:
+     *          - aplication/json
+     *      responses:
+     *          '200':
+     *              description: Se obtuvieron correctamente las consultas nuevas
+     *          '412':
+     *              description: Error
+     */
+    router.get("/obtenerConsultas", ConsultaController.obtenerConsultas.bind(ConsultaController));
+
     return router;
 }

@@ -11,7 +11,7 @@ class DiagnosticoService{
 
         this._consultaService.update(consultaDiagnosticada.id, consultaDiagnosticada)
             .then(consultaDiagnosticada => res.status(201).json({msg: "Diagnosticacion Correcta"}))
-            .catch(error => {
+            .catch(error => {  
                 res.status(412).json({msg: error.message});  
         });
     }
