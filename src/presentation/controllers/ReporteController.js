@@ -8,6 +8,10 @@ class ReporteController {
 
     async obtenerReporte(req, res){
 
+        this._pruebaService.contarPruebas();
+        this._pruebaService.contarPruebasPositivas();
+        this._pruebaService.contarPruebasNegativas();
+        this._pruebaService.contarPruebasSinResultado();
 
         this._pruebaService.contarPruebas()
             .then(respuesta => res.status(201).json(respuesta))
