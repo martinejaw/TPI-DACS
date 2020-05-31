@@ -11,5 +11,6 @@ module.exports = {
     RecursoService: require("./RecursoService"),
 
     AsignacionService: require("./AsignacionService"),
-    DiagnosticoService: require("./DiagnosticoService")
+    DiagnosticoService: require("./DiagnosticoService"),
+    ReporteService: require("./ReporteService")
 }

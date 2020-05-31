@@ -92,5 +92,21 @@ module.exports = ( { RecursoController } ) => {
      */
     router.get("/:CUIT", RecursoController.obtenerRecursosHospital.bind(RecursoController));
 
+    /**
+     * @swagger
+     * /recurso/pedirRecursos:
+     *  post:
+     *      description: Usar para crear un recurso
+     *      tags: ["HOSPITALES"]
+     *      produces:
+     *          - aplication/json
+     *      responses:
+     *          '200':
+     *              description: Se obtuvieron correctamente todos los recursos de todos hospitales
+     *          '412':
+     *              description: Error
+     */
+    router.post("/pedirRecursos", RecursoController.pedirRecursos.bind(RecursoController));
+
     return router;
 }
