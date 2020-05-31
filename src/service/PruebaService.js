@@ -9,6 +9,11 @@ class PruebaService extends BaseService {
         const updatedEntity = await this._entityRepository.updatePrueba(idPrueba,idCaso, entity);
         return updatedEntity;
     }
+    
+    async contarPruebas(){
+        const pruebasPositivas = await this._entityRepository.contarPruebas();
+        return pruebasPositivas;
+    }
 }
 
 module.exports = PruebaService;

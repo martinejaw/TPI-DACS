@@ -1,3 +1,5 @@
+const request = require('request-promise')
+
 class RecursoController {
     constructor({RecursoService}){
         this._recursoService = RecursoService;
@@ -50,6 +52,39 @@ class RecursoController {
             .catch(error => {
                 res.status(404).json({msg: error.message});  
             });
+    }
+
+    async pedirRecursos(req, res){
+        const recursos = req.body;
+        /*
+        {
+            "CUIT": 2121
+        "camillas" :13,
+                "jabonLitros" : 41,
+                "alcoholLitros" : 23,
+                "barbijos" : 15,
+                "jeringas" :32,
+                "cofias" : 12
+        "Test": 150,
+        "Respiradores":15,
+        }
+        */
+        // Evaluar la posibilidad de guardar que se hizo el pedido
+
+        let options = {
+            method: 'POST',
+            uri: 'http://localhost:3000/consulta', // aca va la api de ministerio
+            body: recursos,
+            json: true
+        }
+
+        // Mando la peticion al ministerio
+        request(options)
+            .then(respuesta => console.log("Okey"))
+            .catch(error => {  
+                console.log("No Okey")
+            }); 
+
     }
 }
 
