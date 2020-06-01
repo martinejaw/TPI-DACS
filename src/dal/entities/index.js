@@ -1,5 +1,6 @@
 const { Sequelize } = require ('sequelize');
-const config = require('../../config/environments/dev');
+//const config = require('../../config/environments/dev');
+const config = require('../../config/environments/prod');
 const fs = require('fs');
 const path = require('path');
 const basename = path.basename(__filename);

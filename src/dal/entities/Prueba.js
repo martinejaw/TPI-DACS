@@ -9,11 +9,7 @@ module.exports = (sequelize, DataType) => {
       },
       resultado: {
         type: DataType.BOOLEAN,
-        allowNull: true,
-        defaultValue: false,
-        validate: {
-          notEmpty: true
-        }
+        allowNull: true
       },
       fecha: {
         type: DataType.DATEONLY,
@@ -25,11 +21,10 @@ module.exports = (sequelize, DataType) => {
       },
       fechaResultado: {
         type: DataType.DATE,
-        allowNull: false,
+        allowNull: true,
         validate: {
             isDate: true
         },
-        defaultValue: new Date() 
       },
       createdAt: {
         type: DataType.DATE,

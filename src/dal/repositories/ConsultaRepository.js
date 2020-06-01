@@ -7,11 +7,9 @@ class ConsultaRepository extends BaseRepository {
   }
 
   getSinResponder(medicodni) {
-    return this._db.models[this.entity].findAll({ where: 
-                                                        {[Op.and]: 
-                                                          [{MedicoDni: medicodni},{diagnostico: null}] 
-                                                        }
-                                                });
+    return this._db.models[this.entity].findAll({ where: {[Op.and]: 
+      [{MedicoDni: medicodni},{diagnostico: null}] }
+    });
   }
 }
 

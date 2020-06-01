@@ -1,9 +1,10 @@
 module.exports = {
     PORT: 3000,
     database: 'hospitales', //nombre bbdd
-    username: 'jeffrey',
-    password: 'Schuster#4',
+    username: 'mysql',
+    password: 'pass',
     params: {
         dialect: 'mysql',
+        host: 'db'
     }
   };
