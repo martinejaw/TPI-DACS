@@ -13,4 +13,5 @@ module.exports = {
     AsignacionService: require("./AsignacionService"),
     DiagnosticoService: require("./DiagnosticoService"),
     LoginService: require("./LoginService"),
+    ReporteService: require("./ReporteService")
 }
