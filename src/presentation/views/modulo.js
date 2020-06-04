@@ -1,4 +1,4 @@
-const Vue = require('vue') 
+/*const Vue = require('vue') 
 
 
 module.exports = Vue;
@@ -15,10 +15,7 @@ module.exports = Vue;
  <v-app></template>
 
  <v-col cols="2">
-        <v-data-table
-          :columns="gridColumns"
-          :data="grid"
-        ></v-data-table>
+        <v-data-table: columns="gridColumns":data="grid"></v-data-table>
         <p>aaa</p>
       </v-col>
       <p>aaa</p>
@@ -27,4 +24,4 @@ module.exports = Vue;
 
 
 gridColumns: ['id', 'nombre'],
-grid: [{id: 1, nombre: "Jaun"},{id: 2, nombre: "Jorge"}],
+grid: [{id: 1, nombre: "Jaun"},{id: 2, nombre: "Jorge"}],*/

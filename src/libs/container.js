@@ -30,7 +30,7 @@ const Service  = require("../service");
 const Repository = require("../dal/repositories");
 
 // db
-const db = require("../dal/index");
+const db = require("../dal/entities");
 const uow = require("../dal/unitOfWork");
 
 const container = createContainer();
@@ -70,7 +70,8 @@ container
     config: asValue(config)
   })
   .register({
-    db: asFunction(db)
+    db: asFunction(db),
+    UnitOfWork: asClass(uow).singleton(),
   })
   .register({
     CalleService: asClass(Service.CalleService).singleton(),
@@ -100,7 +101,6 @@ container
     ParteMedicoRepository: asClass(Repository.ParteMedicoRepository).singleton(),
     PruebaRepository: asClass(Repository.PruebaRepository).singleton(),
     RecursoRepository: asClass(Repository.RecursoRepository).singleton(),
-    UnitOfWork: asClass(uow).singleton(),
   })
   .register({
     AsignacionService: asClass(Service.AsignacionService).singleton(),});

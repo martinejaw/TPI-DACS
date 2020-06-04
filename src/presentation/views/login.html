@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-    <title>My first BootstrapVue app</title>
+    <title>Login</title>
 
     <!-- Required Stylesheets -->
     <link
@@ -25,28 +25,84 @@
 
     <!-- Required scripts -->
     <script src="https://unpkg.com/vue@latest/dist/vue.js"></script>
-    <script src="/boostrap.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
   </head>
-  <body>
+  <body style="background-color: #657c86;">
+ <!-- Aca empieza la barra de navegacion -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">API CENTRO HOSPITALARIOS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample04">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Trolo <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">el</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">que</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">lee</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown04">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+      <input class="form-control" type="text" placeholder="Search">
+    </form>
+  </div>
+</nav>
+ <!--Fin de la barra-->
+<!--aca va otro que coincide mejor con el mockup de login-->
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #ce8f5a;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">SISTEMA DE CONTROL DE CASOS <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Fin de la barra -->
+
     <!-- Our application root element -->
     <div id="app">
-      <b-container>
-        <b-jumbotron header="BootstrapVue" lead="Bootstrap v4 Components for Vue.js 2">
-          <p>For more information visit our website</p>
-          <b-btn variant="primary" href="https://bootstrap-vue.org/">More Info</b-btn>
+      <div class="mx-auto" style="width: 500px; height: 400px;" >
+	<div class="text-center">
+        <b-jumbotron header="Logeate" style="background-color: #efd199;">
+           <form class="form-signin">
+  
+  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+  <label for="inputEmail" class="sr-only">Email address</label>
+  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit"style="background-color: #507dbc;">Sign in</button>
+  <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+</form>
+          
         </b-jumbotron>
-
-        <b-form-group
-          horizontal
-          :label-cols="4"
-          description="Let us know your name."
-          label="Enter your name"
-        >
-          <b-form-input v-model.trim="name"></b-form-input>
-        </b-form-group>
-
-        <b-alert variant="success" :show="showAlert">Hello {{ name }}</b-alert>
-      </b-container>
+	</div>
+      </div>
     </div>
 
     <!-- Start running your app -->

@@ -8,7 +8,6 @@ module.exports = {
       storage: 'hospitales.sqlite',
       define: {
           underscore: true
-      },
-      operatorsAliases: false
+      }
   }
 };
