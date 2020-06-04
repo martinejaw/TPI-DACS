@@ -1,6 +1,7 @@
 const express = require("express");
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUI = require('swagger-ui-express');
+const path = require('path')
 
 class Server {
   constructor({ config, router }) {
@@ -8,7 +9,9 @@ class Server {
     this._express = express();
     this._express.use(express.json());
     this._express.use(router);
-
+    this._express.use('../presentation/vistas', express.static('vistas'));
+    this._express.set('view engine', 'ejs');
+    this._express.set("views", path.join(__dirname, "../presentation/vistas"));
     
     const swaggerOptions = {
       swaggerDefinition: {

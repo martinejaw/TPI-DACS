@@ -4,6 +4,7 @@
   "description": "Trabajo práctico integrador de Desarrollo de Aplicaciones Cliente Servidor",
   "main": "index.js",
   "scripts": {
+    "start": "serve",
     "dev": "nodemon src/index.js"
   },
   "repository": {
@@ -20,15 +21,17 @@
   "dependencies": {
     "automapper-js": "^1.0.15",
     "awilix": "^4.2.6",
+    "ejs": "^3.1.3",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.1.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5",
     "sequelize": "^5.21.7",
+    "serve": "^11.3.1",
     "sqlite3": "^4.2.0",
     "swagger-jsdoc": "^4.0.0",
-    "swagger-ui-express": "4.1.4",
-    "request-promise": "^4.2.5",
-    "request": "^2.88.2"
+    "swagger-ui-express": "4.1.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

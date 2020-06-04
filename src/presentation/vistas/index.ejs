@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script type="module" src="./modulo.js"></script>
+  <script type="module">import Vuetify from 'vuetify';</script>
+  <script type="module">import 'vuetify/dist/vuetify.min.css';</script>
+  <script src="https://unpkg.com/vue"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" rel=”stylesheet”>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+</head>
+
+<script>
+  
+
+  Vue.use(Vuetify)
+    var app = new Vue({
+      el: '#app',
+      data: {
+        gridColumns: ['id', 'nombre'],
+        grid: [{id: 1, nombre: "Jaun"},{id: 2, nombre: "Jorge"}],
+        calles: JSON.parse('<%- calles %>')
+      }
+    })
+  </script>
+
+<body>
+  <div id="app" class="red">
+    <v-app><v-btn color="success">Success</v-btn></v-app>
+    
+    <ul>
+      <li v-for="calle in calles">{{calle.nombre}}</li>
+    </ul>
+      <v-col cols="2">
+        <v-data-table
+          :columns="gridColumns"
+          :data="grid"
+        ></v-data-table>
+        <p>aaa</p>
+      </v-col>
+      <p>aaa</p>
+    </v-row>
+  </div>
+  
+<template><v-app>
+  <v-btn color="success">Success</v-btn>
+  <v-btn color="error">Error</v-btn>
+  <v-btn color="warning">Warning</v-btn>
+  <v-btn color="info">Info</v-btn>
+ <v-app></template>
+  
+  
+
+  
+
+
+</body>
+</html>
