@@ -1,37 +1,46 @@
 const { Sequelize } = require ('sequelize');
 //const config = require('../../config/environments/dev');
-const config = require('../../config/environments/dev');
+//const container = require('../../libs/container');
+//const config = container.resolve('config');
 const fs = require('fs');
 const path = require('path');
-const basename = path.basename(__filename);
-let db = {
-    models: {}
-};
-const sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    config.params
-);
 
-fs.readdirSync(__dirname)
-    .filter(file => {
-        return file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js";
-    })
-    .forEach(file => {
-        const model = sequelize["import"](path.join(__dirname, file));
-        db.models[model.name] = model;
+
+module.exports = ({config}) => {
+    const basename = path.basename(__filename);
+    let db = {
+        models: {}
+    };
+    const sequelize = new Sequelize(
+        config.database,
+        config.username,
+        config.password,
+        config.params
+    );
+    
+    fs.readdirSync(__dirname)
+        .filter(file => {
+            return file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js";
+        })
+        .forEach(file => {
+            const model = sequelize["import"](path.join(__dirname, file));
+            db.models[model.name] = model;
+        });
+    
+    Object.keys(db.models).forEach(modelName => {
+        if (db.models[modelName].associate) {
+            db.models[modelName].associate(db.models);
+        }
     });
+    
+    db.sequelize = sequelize;
+    db.Sequelize = Sequelize;
 
-Object.keys(db.models).forEach(modelName => {
-    if (db.models[modelName].associate) {
-        db.models[modelName].associate(db.models);
-    }
-});
+    return db
+}
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
 
-module.exports = db;
+
+//module.exports = db;
 
     

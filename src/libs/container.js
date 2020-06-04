@@ -70,7 +70,7 @@ container
     config: asValue(config)
   })
   .register({
-    db: asValue(db)
+    db: asFunction(db)
   })
   .register({
     CalleService: asClass(Service.CalleService).singleton(),
