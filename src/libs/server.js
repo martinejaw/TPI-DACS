@@ -9,9 +9,15 @@ class Server {
     this._express = express();
     this._express.use(express.json());
     this._express.use(router);
-    this._express.use('../presentation/vistas', express.static('vistas'));
+    this._express.use(express.static(path.join(__dirname, '../../node_modules/vue/dist')));
+    this._express.use(express.static(path.join(__dirname, '../../node_modules/bootstrap/dist/css')));
+    this._express.use(express.static(path.join(__dirname, '../../node_modules/bootstrap/dist/js')));
+    this._express.use(express.static(path.join(__dirname, '../../node_modules/vuetify/dist')));
+
+
+    
     this._express.set('view engine', 'ejs');
-    this._express.set("views", path.join(__dirname, "../presentation/vistas"));
+    //this._express.set("views", path.join(__dirname, "../presentation/vistas"));
     
     const swaggerOptions = {
       swaggerDefinition: {
