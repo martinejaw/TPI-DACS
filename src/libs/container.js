@@ -30,7 +30,7 @@ const Service  = require("../service");
 const Repository = require("../dal/repositories");
 
 // db
-const db = require("../dal/entities/index");
+const db = require("../dal/index");
 const uow = require("../dal/unitOfWork");
 
 const container = createContainer();
@@ -70,7 +70,7 @@ container
     config: asValue(config)
   })
   .register({
-    db: asValue(db)
+    db: asClass(db).singleton()
   })
   .register({
     CalleService: asClass(Service.CalleService).singleton(),
