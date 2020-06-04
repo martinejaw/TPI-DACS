@@ -12,6 +12,7 @@ const CasoRoutes = require("../presentation/routes/CasoRoutes");
 const CiudadRoutes = require("../presentation/routes/CiudadRoutes");
 const ConsultaRoutes = require("../presentation/routes/ConsultaRoutes");
 const HospitalRoutes = require("../presentation/routes/HospitalRoutes");
+const LoginRoutes = require("../presentation/routes/LoginRoutes");
 const MedicoRoutes = require("../presentation/routes/MedicoRoutes");
 const PacienteRoutes = require("../presentation/routes/PacienteRoutes");
 const ParteMedicoRoutes = require("../presentation/routes/ParteMedicoRoutes");
@@ -44,6 +45,7 @@ container
     CiudadController: asClass(Controller.CiudadController).singleton(),
     ConsultaController: asClass(Controller.ConsultaController).singleton(),
     HospitalController: asClass(Controller.HospitalController).singleton(),
+    LoginController: asClass(Controller.LoginController).singleton(),
     MedicoController: asClass(Controller.MedicoController).singleton(),
     PacienteController: asClass(Controller.PacienteController).singleton(),
     ParteMedicoController: asClass(Controller.ParteMedicoController).singleton(),
@@ -55,6 +57,7 @@ container
     CasoRoutes: asFunction(CasoRoutes).singleton(),
     ConsultaRoutes: asFunction(ConsultaRoutes).singleton(),
     HospitalRoutes: asFunction(HospitalRoutes).singleton(),
+    LoginRoutes: asFunction(LoginRoutes).singleton(),
     MedicoRoutes: asFunction(MedicoRoutes).singleton(),
     PacienteRoutes: asFunction(PacienteRoutes).singleton(),
     ParteMedicoRoutes: asFunction(ParteMedicoRoutes).singleton(),
@@ -75,6 +78,7 @@ container
     CiudadService: asClass(Service.CiudadService).singleton(),
     ConsultaService: asClass(Service.ConsultaService).singleton(),
     HospitalService: asClass(Service.HospitalService).singleton(),
+    LoginService: asClass(Service.LoginService).singleton(),
     MedicoService: asClass(Service.MedicoService).singleton(),
     PacienteService: asClass(Service.PacienteService).singleton(),
     ParteMedicoService: asClass(Service.ParteMedicoService).singleton(),
@@ -90,6 +94,7 @@ container
     ConsultaRepository: asClass(Repository.ConsultaRepository).singleton(),
     DireccionRepository: asClass(Repository.DireccionRepository).singleton(),
     HospitalRepository: asClass(Repository.HospitalRepository).singleton(),
+    CuentaRepository: asClass(Repository.CuentaRepository).singleton(),
     MedicoRepository: asClass(Repository.MedicoRepository).singleton(),
     PacienteRepository: asClass(Repository.PacienteRepository).singleton(),
     ParteMedicoRepository: asClass(Repository.ParteMedicoRepository).singleton(),

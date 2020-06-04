@@ -9,7 +9,7 @@ module.exports = (sequelize, DataType) => {
       },
       resultado: {
         type: DataType.BOOLEAN,
-        allowNull: false
+        allowNull: true
       },
       fecha: {
         type: DataType.DATEONLY,

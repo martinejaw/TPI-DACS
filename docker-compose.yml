@@ -9,7 +9,7 @@ services:
       MYSQL_USER: mysql
       MYSQL_ROOT_PASSWORD: pass
       MYSQL_PASSWORD: pass
-      MYSQL_HOST: mysql
+      MYSQL_HOST: 'db'
     ports:
       - "3306:3306"
     expose: 
@@ -21,11 +21,6 @@ services:
       - db
     links: 
       - db
-    environment: 
-      MYSQL_PORT: 3306
-      MYSQL_DATABASE: hospitales
-      MYSQL_USER: mysql
-      MYSQL_PASSWORD: pass
     ports: 
       - "3000:3000"
 

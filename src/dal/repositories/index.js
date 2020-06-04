@@ -3,6 +3,7 @@ module.exports = {
     CasoRepository: require("./CasoRepository"),
     CiudadRepository: require("./CiudadRepository"),
     ConsultaRepository: require("./ConsultaRepository"),
+    CuentaRepository: require("./CuentaRepository"),
     DireccionRepository: require("./DireccionRepository"),
     HospitalRepository: require("./HospitalRepository"),
     MedicoRepository: require("./MedicoRepository"),
