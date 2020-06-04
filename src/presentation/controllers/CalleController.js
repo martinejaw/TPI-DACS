@@ -1,3 +1,4 @@
+const path = require('path')
 class CalleController {
     constructor({CalleService}){
         this._calleService = CalleService;
@@ -5,7 +6,7 @@ class CalleController {
 
     async getCalles(req,res){
         await this._calleService.getAll()
-            .then(calles => res.status(200).json(calles))
+            .then(calles => res.render(path.join(__dirname+'/../vistas/index'), {calles: JSON.stringify(calles)}))
             .catch(error => {
                 res.status(404).json({msg: error.message});  
             });

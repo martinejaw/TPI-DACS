@@ -1,6 +1,6 @@
 module.exports = {
   PORT: 3000,
-  database: 'hospitales_dev', //nombre bbdd
+  database: 'hospitales', //nombre bbdd
   username: '',
   password: '',
   params: {
