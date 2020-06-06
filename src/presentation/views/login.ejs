@@ -12,21 +12,26 @@
     <link
       type="text/css"
       rel="stylesheet"
-      href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"
+      href="/bootstrap.min.css"
     />
     <link
       type="text/css"
       rel="stylesheet"
-      href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"
+      href="/bootstrap-vue.css"
     />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <!-- Load polyfills to support older browsers -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"></script>
 
     <!-- Required scripts -->
-    <script src="https://unpkg.com/vue@latest/dist/vue.js"></script>
-    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    <script src="/vue.js"></script>
+    <script language="javascript" src="/bootstrap.min.js"></script>
+    <script language="javascript" src="/axios.js"></script>
+    <script src="/bootstrap-vue.js"></script>
   </head>
+
   <body style="background-color: #657c86;">
  <!-- Aca empieza la barra de navegacion -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -82,26 +87,26 @@
     <!-- Our application root element -->
     <div id="app">
       <div class="mx-auto" style="width: 500px; height: 400px;" >
-	<div class="text-center">
-        <b-jumbotron header="Logeate" style="background-color: #efd199;">
-           <form class="form-signin">
-  
-  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-  <label for="inputEmail" class="sr-only">Email address</label>
-  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-  <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-  <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"> Remember me
-    </label>
-  </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit"style="background-color: #507dbc;">Sign in</button>
-  <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
-</form>
-          
-        </b-jumbotron>
-	</div>
+        <div id= "forma" class="text-center">
+              <b-jumbotron header="Logeate" style="background-color: #efd199;">
+                  <form class="form-signin">
+        
+                    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                    <label for="inputEmail" class="sr-only">Email address</label>
+                    <input v-model="email" id="inputEmail" class="form-control" placeholder="Usuario" required autofocus>
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input v-model="password" type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+                    <div class="checkbox mb-3">
+                      <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                      </label>
+                    </div>
+                    <button v-on:click="loguear" class="btn btn-lg btn-primary btn-block" style="background-color: #507dbc;">Sign in</button>
+                    <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+                  </form>
+                
+              </b-jumbotron>
+        </div>
       </div>
     </div>
 
@@ -110,11 +115,27 @@
       window.app = new Vue({
         el: '#app',
         data: {
-          name: ''
+          name: '',
+          password: "",
+          email: ""
         },
         computed: {
           showAlert() {
             return this.name.length > 4 ? true : false
+          }
+        },
+        methods: {
+          async loguear(){
+            console.log("Hola",this.email,this.password);
+
+            await axios
+                .post('/login', {usuario: this.email, password: this.password})
+                .then(respuesta => console.log("ok"))
+                .catch(error => {  
+                    console.log(error)
+                }); 
+
+            console.log("Chau");
           }
         }
       })
