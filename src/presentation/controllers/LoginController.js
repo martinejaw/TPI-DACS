@@ -5,20 +5,26 @@ class LoginController {
         this._loginService = LoginService;
     }
 
-    async loginFront(req,res){
-        await this._loginService.validarRegistro(req.body)
-            .then(usuarioValidado => res.render(path.join(__dirname+'/../views/login')))//status(200).json(calles))
-            .catch(error => {
-                res.status(404).json({msg: error.message});  
-            });
+    loginFront(req,res){
+        res.render(path.join(__dirname+'/../views/login'));
     }
+
     async login(req,res){
         await this._loginService.validarRegistro(req.body)
-            .then(usuarioValidado => 
-                res.status(200).json(usuarioValidado))
+            .then(usuarioValidado => {  
+                if(usuarioValidado!=false){
+                    res.status(200).json({msg: "Usuario Validado"})
+                } else {
+                    res.status(404).json({msg: "No capo, no es valido"})
+                }})
             .catch(error => {
                 res.status(404).json({msg: error.message});  
             });
+        /*await this._loginService.create(req.body)
+            .then(medicoCreated => res.status(201).json(medicoCreated))
+            .catch(error => {
+                res.status(412).json({msg: error.message});  
+        });*/
     }
 
 }

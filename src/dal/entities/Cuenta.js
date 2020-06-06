@@ -1,3 +1,5 @@
+const bcrypt = require('bcryptjs');
+
 module.exports = (sequelize, DataType) => {
     //TABLA
     const Cuenta = sequelize.define('Cuentas', {
@@ -19,11 +21,15 @@ module.exports = (sequelize, DataType) => {
       updatedAt: {
         type: DataType.DATE,
         defaultValue: new Date()
-      }
+      },
+    });
+
+    //Hooks
+    Cuenta.beforeCreate((cuenta, options, cb) => {
+      cuenta.password = bcrypt.hashSync(cuenta.password);
     });
 
     //RELACION
-    
     Cuenta.associate = (models) => {
         Cuenta.hasOne(models.Medicos);
         Cuenta.hasOne(models.Administradores);
