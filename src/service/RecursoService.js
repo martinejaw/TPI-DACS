@@ -11,7 +11,7 @@ class RecursoService extends BaseService {
         return updatedEntity;
       }
 
-    async getAll(CUIT) {
+    async obtenerTodosRecursosHospital(CUIT) {
         const updatedEntity = await this._entityRepository.getAll(CUIT);
         return updatedEntity;
       }

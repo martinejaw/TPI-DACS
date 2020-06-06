@@ -45,7 +45,7 @@ class RecursoController {
             });
     }
 
-    async obtenerRecursosHospital(req, res) {
+    async obtenerTodosRecursosHospital(req, res) {
         const { CUIT } = req.params;
         await this._recursoService.getAll(CUIT)
             .then(recursos => res.status(200).json(recursos))

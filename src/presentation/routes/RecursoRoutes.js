@@ -90,7 +90,7 @@ module.exports = ( { RecursoController } ) => {
      *          '412':
      *              description: Error
      */
-    router.get("/:CUIT", RecursoController.obtenerRecursosHospital.bind(RecursoController));
+    router.get("/:CUIT", RecursoController.obtenerTodosRecursosHospital.bind(RecursoController));
 
     /**
      * @swagger
