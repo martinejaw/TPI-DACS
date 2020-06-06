@@ -6,15 +6,10 @@ class ReporteController {
         this._pruebaService = PruebaService
     }
 
-    async obtenerReporte(req, res){
+    async reporteDiario(req, res){
 
-        this._pruebaService.contarPruebas();
-        this._pruebaService.contarPruebasPositivas();
-        this._pruebaService.contarPruebasNegativas();
-        this._pruebaService.contarPruebasSinResultado();
-
-        this._pruebaService.contarPruebas()
-            .then(respuesta => res.status(201).json(respuesta))
+        await this._reporteService.reporteDiario(req.params.CUIT)
+            .then(reporte => res.status(201).json(reporte))
             .catch(error => {
                 res.status(404)
             });

@@ -18,7 +18,7 @@ module.exports = ( { RecursoController } ) => {
      *          '412':
      *              description: Error
      */
-    router.get('/', RecursoController.getRecursos.bind(RecursoController));
+    router.get('/', RecursoController.obtenerTodosRecursos.bind(RecursoController));
 
     /**
      * @swagger
@@ -35,8 +35,6 @@ module.exports = ( { RecursoController } ) => {
      *              description: Error
      */
     router.post("/", RecursoController.createRecurso.bind(RecursoController));
-
-    //router.get("/ministerio", RecursoController.obtenerTodosRecursos.bind(RecursoController));
 
     /**
      * @swagger
@@ -90,7 +88,7 @@ module.exports = ( { RecursoController } ) => {
      *          '412':
      *              description: Error
      */
-    router.get("/:CUIT", RecursoController.obtenerRecursosHospital.bind(RecursoController));
+    router.get("/:CUIT", RecursoController.obtenerTodosRecursosHospital.bind(RecursoController));
 
     /**
      * @swagger
