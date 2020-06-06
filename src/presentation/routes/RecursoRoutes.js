@@ -36,8 +36,6 @@ module.exports = ( { RecursoController } ) => {
      */
     router.post("/", RecursoController.createRecurso.bind(RecursoController));
 
-    //router.get("/ministerio", RecursoController.obtenerTodosRecursos.bind(RecursoController));
-
     /**
      * @swagger
      * /recurso/{CUIT}/{id}:
