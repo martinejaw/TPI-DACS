@@ -1,4 +1,4 @@
-/*const Vue = require('vue') 
+const Vue = require('vue') 
 
 
 module.exports = Vue;
@@ -12,7 +12,8 @@ module.exports = Vue;
   <v-btn color="error">Error</v-btn>
   <v-btn color="warning">Warning</v-btn>
   <v-btn color="info">Info</v-btn>
- <v-app></template>
+ <v-app>
+ </template>
 
  <v-col cols="2">
         <v-data-table: columns="gridColumns":data="grid"></v-data-table>
@@ -24,4 +25,4 @@ module.exports = Vue;
 
 
 gridColumns: ['id', 'nombre'],
-grid: [{id: 1, nombre: "Jaun"},{id: 2, nombre: "Jorge"}],*/
+grid: [{id: 1, nombre: "Jaun"},{id: 2, nombre: "Jorge"}],

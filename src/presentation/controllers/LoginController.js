@@ -10,6 +10,7 @@ class LoginController {
                 res.status(404).json({msg: error.message});  
             });
     }
+
 }
 
 module.exports = LoginController;
