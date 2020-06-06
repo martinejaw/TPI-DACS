@@ -32,7 +32,9 @@
     "sqlite3": "^4.2.0",
     "swagger-jsdoc": "^4.0.0",
     "swagger-ui-express": "4.1.4",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "bootstrap-vue": "^2.15.0",
+    "axios": "^0.19.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

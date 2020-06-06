@@ -6,7 +6,7 @@ class CalleController {
 
     async getCalles(req,res){
         await this._calleService.getAll()
-            .then(calles => res.render(path.join(__dirname+'/../vistas/index'), {calles: JSON.stringify(calles)}))
+            .then(calles => res.render(path.join(__dirname+'/../views/index'), {calles: JSON.stringify(calles)}))
             .catch(error => {
                 res.status(404).json({msg: error.message});  
             });

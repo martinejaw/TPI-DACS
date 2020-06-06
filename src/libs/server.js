@@ -2,6 +2,7 @@ const express = require("express");
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUI = require('swagger-ui-express');
 const path = require('path')
+//const asd = require('../../node_modules/axios/dist')
 
 class Server {
   constructor({ config, router }) {
@@ -13,6 +14,8 @@ class Server {
     this._express.use(express.static(path.join(__dirname, '../../node_modules/bootstrap/dist/css')));
     this._express.use(express.static(path.join(__dirname, '../../node_modules/bootstrap/dist/js')));
     this._express.use(express.static(path.join(__dirname, '../../node_modules/vuetify/dist')));
+    this._express.use(express.static(path.join(__dirname, '../../node_modules/bootstrap-vue/dist')));
+    this._express.use(express.static(path.join(__dirname, '../../node_modules/axios/dist')));
 
 
     
