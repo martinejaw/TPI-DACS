@@ -20,7 +20,7 @@
       href="/bootstrap-vue.css"
     />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <!-- Load polyfills to support older browsers -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"></script>
@@ -89,7 +89,7 @@
       <div class="mx-auto" style="width: 500px; height: 400px;" >
         <div id= "forma" class="text-center">
               <b-jumbotron header="Logeate" style="background-color: #efd199;">
-                  <form class="form-signin">
+                  <form onsubmit="return false" class="form-signin">
         
                     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
                     <label for="inputEmail" class="sr-only">Email address</label>
@@ -130,9 +130,15 @@
 
             await axios
                 .post('/login', {usuario: this.email, password: this.password})
-                .then(respuesta => console.log("ok"))
+                .then(respuesta => {
+                  if(respuesta.status == 200){
+                    // hacer algo interesante cuando loguea correctamente
+                  } else {
+                    // mensajito de no papa, logueaste mal
+                  }
+                })
                 .catch(error => {  
-                    console.log(error)
+                  console.log("NO okey")
                 }); 
 
             console.log("Chau");
