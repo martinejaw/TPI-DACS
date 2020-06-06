@@ -5,14 +5,6 @@ class RecursoController {
         this._recursoService = RecursoService;
     }
 
-    async getRecursos(req,res){
-        await this._recursoService.getAll()
-            .then(recursos => res.status(200).json(recursos))
-            .catch(error => {
-                res.status(404).json({msg: error.message});  
-            });
-    }
-
     async createRecurso(req, res) {
         await this._recursoService.create(req.body)
             .then(recursoCreated => res.status(201).json(recursoCreated))
@@ -47,7 +39,7 @@ class RecursoController {
 
     async obtenerTodosRecursosHospital(req, res) {
         const { CUIT } = req.params;
-        await this._recursoService.getAll(CUIT)
+        await this._recursoService.obtenerTodosRecursosHospital(CUIT)
             .then(recursos => res.status(200).json(recursos))
             .catch(error => {
                 res.status(404).json({msg: error.message});  

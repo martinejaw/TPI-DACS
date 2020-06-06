@@ -18,7 +18,7 @@ module.exports = ( { RecursoController } ) => {
      *          '412':
      *              description: Error
      */
-    router.get('/', RecursoController.getRecursos.bind(RecursoController));
+    router.get('/', RecursoController.obtenerTodosRecursos.bind(RecursoController));
 
     /**
      * @swagger
