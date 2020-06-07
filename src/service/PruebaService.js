@@ -12,22 +12,22 @@ class PruebaService extends BaseService {
     
     async contarPruebasRealizadas(CUIT){
         const cantidadPruebasRealizadas = await this._entityRepository.contarPruebasRealizadas(CUIT);
-        return cantidadPruebasRealizadas[0].cont;
+        return cantidadPruebasRealizadas;
     }
     
     async contarPruebasRealizadasSinResultados(CUIT){
         const cantidadSinResultado = await this._entityRepository.contarPruebasRealizadasSinResultados(CUIT);
-        return cantidadSinResultado[0].cont;
+        return cantidadSinResultado;
     }
     
     async contarPruebasPositivas(CUIT){
         const cantidadPruebasPositivas = await this._entityRepository.contarPruebasPositivas(CUIT);
-        return cantidadPruebasPositivas[0].cont;
+        return cantidadPruebasPositivas;
     }
 
     async contarPruebasNegativas(CUIT){
         const cantidadPruebasNegativas = await this._entityRepository.contarPruebasNegativas(CUIT);
-        return cantidadPruebasNegativas[0].cont;
+        return cantidadPruebasNegativas;
     }
 
     async totalPruebas(CUIT){

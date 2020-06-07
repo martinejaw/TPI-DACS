@@ -8,17 +8,17 @@ class ParteMedicoService extends BaseService {
 
     async cantidadCurados(CUIT){
         const cantidadCurados = await this._entityRepository.cantidadCurados(CUIT);
-        return cantidadCurados[0].cont;
+        return cantidadCurados;
     }
 
     async cantidadEnfermos(CUIT){
         const cantidadEnfermos = await this._entityRepository.cantidadEnfermos(CUIT);
-        return cantidadEnfermos[0].cont;
+        return cantidadEnfermos;
     }
 
     async cantidadMuertos(CUIT){
         const cantidadMuertos = await this._entityRepository.cantidadMuertos(CUIT);
-        return cantidadMuertos[0].cont;
+        return cantidadMuertos;
     }
 
     async resumenCasos(CUIT){
