@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title><%= headerTitle %></title>
-
-    <!-- Required meta tags -->
-    <%- include /partials/meta %>
-    <!-- Required Stylesheets -->
-    <%- include /partials/stylesheets %>
-    <!-- Required scripts -->
-    <%- include /partials/scripts %>
-  </head>
-
-  <body style="background-color: #657c86;">
-
-    <!--NavBar-->
-    <%- include /partials/navbar2 %>
+<%- include partials/top-page %>
 
     <!-- Our application root element -->
     <div id="app">
@@ -75,5 +59,7 @@
         }
       })
     </script>
+
+    <!-- Footer -->
   </body>
 </html>
