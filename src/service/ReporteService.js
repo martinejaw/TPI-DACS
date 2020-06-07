@@ -7,9 +7,9 @@ class ReporteService{
     }
 
     async reporteDiario(CUIT){
-        const totalPruebas = await this._pruebaService.totalPruebas();
+        const totalPruebas = await this._pruebaService.totalPruebas(CUIT);
         const totalRecursos = await this._recursoService.obtenerTodosRecursosHospital(CUIT);
-        const resumenCasos = await this._parteMedicoService.resumenCasos();
+        const resumenCasos = await this._parteMedicoService.resumenCasos(CUIT);
 
         const recursosLindificados = {};
         for(let recurso of totalRecursos){
