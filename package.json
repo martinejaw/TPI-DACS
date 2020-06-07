@@ -34,7 +34,8 @@
     "swagger-ui-express": "4.1.4",
     "vue": "^2.6.11",
     "bootstrap-vue": "^2.15.0",
-    "axios": "^0.19.2"
+    "axios": "^0.19.2",
+    "ejs-locals": "^1.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
