@@ -1,8 +1,8 @@
 const path = require("path");
 
 class HomeController{
-    constructor({LoginService}){
-        this._loginService = LoginService;
+    constructor({LoginController}){
+        this._loginController = LoginController;
     }
 
     async showView(req,res){

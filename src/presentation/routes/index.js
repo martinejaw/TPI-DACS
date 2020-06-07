@@ -17,7 +17,7 @@ module.exports = function( { HomeRoutes, LoginRoutes, CalleRoutes, CasoRoutes,Ci
   apiRoute.use("/recurso", RecursoRoutes);
   apiRoute.use("/reporte", ReporteRoutes);
   
-  apiRoute.use("/home", HomeRoutes);
+  apiRoute.use("/", HomeRoutes);
   router.use("/", apiRoute);
 
   return router;
