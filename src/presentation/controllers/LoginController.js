@@ -6,7 +6,7 @@ class LoginController {
     }
 
     loginFront(req,res){
-        res.render(path.join(__dirname+'/../views/login'));
+        res.render(path.join(__dirname+'/../views/login'), {headerTitle: "Login"});
     }
 
     async login(req,res){

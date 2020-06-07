@@ -1,8 +1,9 @@
 const express = require("express");
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUI = require('swagger-ui-express');
-const path = require('path')
-//const asd = require('../../node_modules/axios/dist')
+const path = require('path');
+const engine = require('ejs-locals');
+//const asd = require('../presentation/views')
 
 class Server {
   constructor({ config, router }) {
@@ -10,18 +11,26 @@ class Server {
     this._express = express();
     this._express.use(express.json());
     this._express.use(router);
+
+    // Carpetas publicas para poder importar en los HTML
     this._express.use(express.static(path.join(__dirname, '../../node_modules/vue/dist')));
     this._express.use(express.static(path.join(__dirname, '../../node_modules/bootstrap/dist/css')));
     this._express.use(express.static(path.join(__dirname, '../../node_modules/bootstrap/dist/js')));
     this._express.use(express.static(path.join(__dirname, '../../node_modules/vuetify/dist')));
     this._express.use(express.static(path.join(__dirname, '../../node_modules/bootstrap-vue/dist')));
     this._express.use(express.static(path.join(__dirname, '../../node_modules/axios/dist')));
-
-
     
+    //this._express.engine('html', EJS.renderFile);
+
+    // Seteo la carpetas de vistas para que EJS pueda utilizar los archivos que estan alli dentro
+    this._express.set('views', path.join(__dirname, '../presentation/views'));
+    // Seteo EJS como motor
+    this._express.engine('ejs', engine);
     this._express.set('view engine', 'ejs');
     //this._express.set("views", path.join(__dirname, "../presentation/vistas"));
     
+
+    // Seteo opciones para swagger y defino la ruta correspondiente
     const swaggerOptions = {
       swaggerDefinition: {
         info: {
@@ -35,7 +44,6 @@ class Server {
       },
       apis: ["src/presentation/routes/*.js"]
     };
-    
     const swaggerDocs = swaggerJsDoc(swaggerOptions);
     this._express.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
