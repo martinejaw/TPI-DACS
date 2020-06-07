@@ -3,6 +3,7 @@ module.exports = {
     CasoController: require("./CasoController"),
     CiudadController: require("./CiudadController"),
     ConsultaController: require("./ConsultaController"),
+    HomeController: require("./HomeController"),
     HospitalController: require("./HospitalController"),
     LoginController: require("./LoginController"),
     MedicoController: require("./MedicoController"),
@@ -10,5 +11,5 @@ module.exports = {
     ParteMedicoController: require("./ParteMedicoController"),
     PruebaController: require("./PruebaController"),
     RecursoController: require("./RecursoController"),
-    ReporteController: require("./ReporteController")
+    ReporteController: require("./ReporteController"),
 }
