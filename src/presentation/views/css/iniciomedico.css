@@ -6,7 +6,8 @@ body{
 	background-size: auto;
 }
 .navbar{
-	background-color: #efd199;
+    background-color: #efd199;
+    font-weight: bold;
 }
 
 .cerrar-sesion{
@@ -92,11 +93,10 @@ body{
     content: "";
     background: black;
     display: block;
-    position: absolute;
     padding-top: 300%;
-    padding-left: 350%;
+    padding-left: 30%;
     margin-left: -100px!important;
-    margin-top: -100%;
+    margin-top: -200%;
     opacity: 0;
     transition: all 0.8s
   }

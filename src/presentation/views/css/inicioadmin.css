@@ -1,13 +1,13 @@
 body{
-    background-image: url(../image/fondo.png);
-    background-color: #657c86;
+	background-image: url('../image/fondo.png');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center;
 	background-size: auto;
 }
 .navbar{
-	background-color: #efd199;
+    background-color: #efd199;
+    font-weight: bold;
 }
 
 .cerrar-sesion{
@@ -25,12 +25,13 @@ body{
     margin: auto;
 }
 .recursos{
-    position: relative;
-    background-image: url('../image/recursos.jpg');
+    position: absolute;
+    background-image: url('../image/recursos.png');
     background-repeat: no-repeat;
-	background-attachment: fixed;
+	background-attachment: local;
 	background-position: center;
-	background-size: auto;
+    background-size: auto;
+
     border-radius: 4px;
     border: 6px solid #efd199;
     color: black;
@@ -38,9 +39,7 @@ body{
     width: 300px;
     height: 400px;
     text-decoration: black;
-    float:left;
     text-align: center;
-    margin:0;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     text-decoration: none;
@@ -49,12 +48,13 @@ body{
 }
 
 .medicos{
-    position: relative;
+    position: absolute;
     background-image: url('../image/medicos.jpg');
     background-repeat: no-repeat;
-	background-attachment: fixed;
+	background-attachment: local;
 	background-position: center;
-	background-size: auto;
+    background-size: auto;
+    
     border-radius: 4px;
     border: 6px solid #efd199;
     color: black;
@@ -62,9 +62,8 @@ body{
     height: 400px;
     text-align: center;
     text-decoration: black;
-    float:left;
     text-align: center;
-    margin-left : 100px;
+    margin-left : 400px;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     text-decoration: none;
@@ -72,41 +71,39 @@ body{
     cursor: pointer;
 }
 
+.recursos:after {
+  content: "";
+  background: black;
+  display: block;
+  padding-top: 300%;
+  padding-left: 30%;
+  margin-left: -100px!important;
+  margin-top: -200%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.recursos:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 0.8;
+  transition: 0s
+}
 .medicos:after {
     content: "";
     background: black;
     display: block;
-    position: absolute;
     padding-top: 300%;
-    padding-left: 350%;
+    padding-left: 30%;
     margin-left: -100px!important;
-    margin-top: -100%;
+    margin-top: -200%;
     opacity: 0;
     transition: all 0.8s
-}
+  }
   
-.medicos:active:after {
+  .medicos:active:after {
     padding: 0;
     margin: 0;
     opacity: 0.8;
     transition: 0s
-}
-.recursos:after {
-      content: "";
-      background: black;
-      display: block;
-      position: absolute;
-      padding-top: 300%;
-      padding-left: 350%;
-      margin-left: -100px!important;
-      margin-top: -100%;
-      opacity: 0;
-      transition: all 0.8s
-}
-    
-.recursos:active:after {
-      padding: 0;
-      margin: 0;
-      opacity: 0.8;
-      transition: 0s
-}
+  }
