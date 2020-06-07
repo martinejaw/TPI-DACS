@@ -1,5 +1,6 @@
 const BaseRepository = require("./base.repository");
 const { Op } = require('sequelize')
+const { QueryTypes } = require('sequelize');
 
 class PruebaRepository extends BaseRepository {
     constructor({ db }) {
@@ -9,34 +10,57 @@ class PruebaRepository extends BaseRepository {
         return this._db.models[this.entity].update(entity, {where: {id:id,CasoId:idCaso}});
     }
 
-    contarPruebasRealizadas(){
-        let fechaHoy = new Date();
-        let date = fechaHoy.getFullYear()+'-'+(fechaHoy.getMonth()+1)+'-'+fechaHoy.getDate();
+    async contarPruebasRealizadas(CUIT){
+        const consulta = "SELECT COUNT(Pruebas.id) as cont FROM Pruebas INNER JOIN (SELECT Casos.id FROM Casos INNER JOIN (SELECT Medicos.dni FROM Medicos WHERE HospitaleCUIT = "+CUIT+") AS M ON Casos.MedicoDni = M.dni) AS C ON Pruebas.CasoId = C.id WHERE date(Pruebas.fecha) >= date('now');";
+
+        return await this._db.sequelize.query(consulta, {
+            nest: true,
+            type: QueryTypes.SELECT
+        });
 
         // Pruebas Realizadas Hoy
-        return this._db.models[this.entity].count({where: {fecha:{[Op.gte]: date}}});
+        //return this._db.models[this.entity].count({where: {fecha:{[Op.gte]: date}}});
     }
 
-    contarPruebasRealizadasSinResultados(){
-        let fechaHoy = new Date();
-        let date = fechaHoy.getFullYear()+'-'+(fechaHoy.getMonth()+1)+'-'+fechaHoy.getDate();
+    async contarPruebasRealizadasSinResultados(CUIT){
+        //let fechaHoy = new Date();
+        //let date = fechaHoy.getFullYear()+'-'+(fechaHoy.getMonth()+1)+'-'+fechaHoy.getDate();
+
+        const consulta = "SELECT COUNT(Pruebas.id) as cont FROM Pruebas INNER JOIN (SELECT Casos.id FROM Casos INNER JOIN (SELECT Medicos.dni FROM Medicos WHERE HospitaleCUIT = "+CUIT+") AS M ON Casos.MedicoDni = M.dni) AS C ON Pruebas.CasoId = C.id WHERE Pruebas.fechaResultado IS NULL AND date(Pruebas.fecha) >= date('now');";
+
+        return await this._db.sequelize.query(consulta, {
+            nest: true,
+            type: QueryTypes.SELECT
+        });
 
         // Pruebas sin resultado de Hoy
-        return this._db.models[this.entity].count({where: {fechaResultado: null, fecha:{[Op.gte]: date}}});
+        //return this._db.models[this.entity].count({where: {fechaResultado: null, fecha:{[Op.gte]: date}}});
     }
 
-    contarPruebasPositivas(){
-        let fechaHoy = new Date();
-        let date = fechaHoy.getFullYear()+'-'+(fechaHoy.getMonth()+1)+'-'+fechaHoy.getDate();
+    async contarPruebasPositivas(CUIT){
         //Pruebas Positivas de Hoy
-        return this._db.models[this.entity].count({where: {resultado: true, fechaResultado: {[Op.ne]: null},fechaResultado:{[Op.gte]: date}}});
+
+        const consulta = "SELECT COUNT(Pruebas.id) as cont FROM Pruebas INNER JOIN (SELECT Casos.id FROM Casos INNER JOIN (SELECT Medicos.dni FROM Medicos WHERE HospitaleCUIT = "+CUIT+") AS M ON Casos.MedicoDni = M.dni) AS C ON Pruebas.CasoId = C.id WHERE Pruebas.fechaResultado IS NOT NULL AND date(Pruebas.fecha) >= date('now') AND Pruebas.resultado = true;";
+
+        return await this._db.sequelize.query(consulta, {
+            nest: true,
+            type: QueryTypes.SELECT
+        });
+        //return this._db.models[this.entity].count({where: {resultado: true, fechaResultado: {[Op.ne]: null},fechaResultado:{[Op.gte]: date}}});
     }
 
-    contarPruebasNegativas(){
-        let fechaHoy = new Date();
-        let date = fechaHoy.getFullYear()+'-'+(fechaHoy.getMonth()+1)+'-'+fechaHoy.getDate();
+    async contarPruebasNegativas(CUIT){
+        
         //Pruebas Negativas de Hoy
-        return this._db.models[this.entity].count({where: {resultado: false, fechaResultado: {[Op.ne]: null}, fechaResultado:{[Op.gte]: date}}});
+
+        const consulta = "SELECT COUNT(Pruebas.id) as cont FROM Pruebas INNER JOIN (SELECT Casos.id FROM Casos INNER JOIN (SELECT Medicos.dni FROM Medicos WHERE HospitaleCUIT = "+CUIT+") AS M ON Casos.MedicoDni = M.dni) AS C ON Pruebas.CasoId = C.id WHERE Pruebas.fechaResultado IS NOT NULL AND date(Pruebas.fecha) >= date('now') AND Pruebas.resultado = false;";
+
+        return await this._db.sequelize.query(consulta, {
+            nest: true,
+            type: QueryTypes.SELECT
+        });
+
+        //return this._db.models[this.entity].count({where: {resultado: false, fechaResultado: {[Op.ne]: null}, fechaResultado:{[Op.gte]: date}}});
   }
 }
 

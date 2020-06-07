@@ -10,31 +10,31 @@ class PruebaService extends BaseService {
         return updatedEntity;
     }
     
-    async contarPruebasRealizadas(){
-        const cantidadPruebasRealizadas = await this._entityRepository.contarPruebasRealizadas();
-        return cantidadPruebasRealizadas;
+    async contarPruebasRealizadas(CUIT){
+        const cantidadPruebasRealizadas = await this._entityRepository.contarPruebasRealizadas(CUIT);
+        return cantidadPruebasRealizadas[0].cont;
     }
     
-    async contarPruebasRealizadasSinResultados(){
-        const cantidadSinResultado = await this._entityRepository.contarPruebasRealizadasSinResultados();
-        return cantidadSinResultado;
+    async contarPruebasRealizadasSinResultados(CUIT){
+        const cantidadSinResultado = await this._entityRepository.contarPruebasRealizadasSinResultados(CUIT);
+        return cantidadSinResultado[0].cont;
     }
     
-    async contarPruebasPositivas(){
-        const cantidadPruebasPositivas = await this._entityRepository.contarPruebasPositivas();
-        return cantidadPruebasPositivas;
+    async contarPruebasPositivas(CUIT){
+        const cantidadPruebasPositivas = await this._entityRepository.contarPruebasPositivas(CUIT);
+        return cantidadPruebasPositivas[0].cont;
     }
 
-    async contarPruebasNegativas(){
-        const cantidadPruebasNegativas = await this._entityRepository.contarPruebasNegativas();
-        return cantidadPruebasNegativas;
+    async contarPruebasNegativas(CUIT){
+        const cantidadPruebasNegativas = await this._entityRepository.contarPruebasNegativas(CUIT);
+        return cantidadPruebasNegativas[0].cont;
     }
 
-    async totalPruebas(){
-        const cantidadPruebasRealizadas = await this.contarPruebasRealizadas();
-        const cantidadSinResultado = await this.contarPruebasRealizadasSinResultados();
-        const cantidadPruebasPositivas = await this.contarPruebasPositivas();
-        const cantidadPruebasNegativas = await this.contarPruebasNegativas();
+    async totalPruebas(CUIT){
+        const cantidadPruebasRealizadas = await this.contarPruebasRealizadas(CUIT);
+        const cantidadSinResultado = await this.contarPruebasRealizadasSinResultados(CUIT);
+        const cantidadPruebasPositivas = await this.contarPruebasPositivas(CUIT);
+        const cantidadPruebasNegativas = await this.contarPruebasNegativas(CUIT);
         const totalPruebas = 
         {
             "realizadas": cantidadPruebasRealizadas,
