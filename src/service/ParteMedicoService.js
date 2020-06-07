@@ -6,25 +6,25 @@ class ParteMedicoService extends BaseService {
         super(UnitOfWork.ParteMedicoRepository,ParteMedico);
     }
 
-    async cantidadCurados(){
-        const cantidadCurados = await this._entityRepository.cantidadCurados();
-        return cantidadCurados;
+    async cantidadCurados(CUIT){
+        const cantidadCurados = await this._entityRepository.cantidadCurados(CUIT);
+        return cantidadCurados[0].cont;
     }
 
-    async cantidadEnfermos(){
-        const cantidadEnfermos = await this._entityRepository.cantidadEnfermos();
-        return cantidadEnfermos;
+    async cantidadEnfermos(CUIT){
+        const cantidadEnfermos = await this._entityRepository.cantidadEnfermos(CUIT);
+        return cantidadEnfermos[0].cont;
     }
 
-    async cantidadMuertos(){
-        const cantidadMuertos = await this._entityRepository.cantidadMuertos();
-        return cantidadMuertos;
+    async cantidadMuertos(CUIT){
+        const cantidadMuertos = await this._entityRepository.cantidadMuertos(CUIT);
+        return cantidadMuertos[0].cont;
     }
 
-    async resumenCasos(){
-        const cantidadCurados = await this.cantidadCurados();
-        const cantidadEnfermos = await this.cantidadEnfermos();
-        const cantidadMuertos = await this.cantidadMuertos();
+    async resumenCasos(CUIT){
+        const cantidadCurados = await this.cantidadCurados(CUIT);
+        const cantidadEnfermos = await this.cantidadEnfermos(CUIT);
+        const cantidadMuertos = await this.cantidadMuertos(CUIT);
 
         const resumenCasos =
         {
