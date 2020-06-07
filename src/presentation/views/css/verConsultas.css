@@ -9,3 +9,14 @@ body{
 .navbar{
 	background-color: #efd199;
 }
+.w3-container{
+	background-color:#ffedce;
+	max-width: 1200px;
+	margin: auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+
+}
