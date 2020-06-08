@@ -10,10 +10,42 @@ class PruebaService extends BaseService {
         return updatedEntity;
     }
     
-    async contarPruebas(){
-        const pruebasPositivas = await this._entityRepository.contarPruebas();
-        return pruebasPositivas;
+    async contarPruebasRealizadas(CUIT){
+        const cantidadPruebasRealizadas = await this._entityRepository.contarPruebasRealizadas(CUIT);
+        return cantidadPruebasRealizadas;
     }
+    
+    async contarPruebasRealizadasSinResultados(CUIT){
+        const cantidadSinResultado = await this._entityRepository.contarPruebasRealizadasSinResultados(CUIT);
+        return cantidadSinResultado;
+    }
+    
+    async contarPruebasPositivas(CUIT){
+        const cantidadPruebasPositivas = await this._entityRepository.contarPruebasPositivas(CUIT);
+        return cantidadPruebasPositivas;
+    }
+
+    async contarPruebasNegativas(CUIT){
+        const cantidadPruebasNegativas = await this._entityRepository.contarPruebasNegativas(CUIT);
+        return cantidadPruebasNegativas;
+    }
+
+    async totalPruebas(CUIT){
+        const cantidadPruebasRealizadas = await this.contarPruebasRealizadas(CUIT);
+        const cantidadSinResultado = await this.contarPruebasRealizadasSinResultados(CUIT);
+        const cantidadPruebasPositivas = await this.contarPruebasPositivas(CUIT);
+        const cantidadPruebasNegativas = await this.contarPruebasNegativas(CUIT);
+        const totalPruebas = 
+        {
+            "realizadas": cantidadPruebasRealizadas,
+            "sinResultado": cantidadSinResultado,
+            "positivas": cantidadPruebasPositivas,
+            "negativas": cantidadPruebasNegativas
+        };
+        return totalPruebas;
+    }
+
+
 }
 
 module.exports = PruebaService;

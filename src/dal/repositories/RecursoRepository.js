@@ -9,7 +9,7 @@ class RecursoRepository extends BaseRepository {
     return this._db.models[this.entity].update(entity, { where: { id, HospitaleCUIT: CUIT } });
   }
 
-  getAll(CUIT){
+  obtenerTodosRecursosHospital(CUIT){
     return this._db.models[this.entity].findAll({ where: { HospitaleCUIT: CUIT } });
   }
 }

@@ -5,6 +5,7 @@ class LoginController {
         this._loginService = LoginService;
     }
 
+
     loginView(req,res){
         res.render(path.join(__dirname+'/../views/login'));
     }
@@ -20,7 +21,13 @@ class LoginController {
             .catch(error => {
                 res.status(401).json({msg: error.message});  
             });
+        /*await this._loginService.create(req.body)
+            .then(medicoCreated => res.status(201).json(medicoCreated))
+            .catch(error => {
+                res.status(412).json({msg: error.message});  
+        });*/
     }
+
 }
 
 module.exports = LoginController;

@@ -3,7 +3,7 @@ class ParteMedicoController {
         this._partemedicoService = ParteMedicoService;
     }
 
-    async getPartesMedicos(req,res){
+    async getPartesMedicos(req, res){
         await this._partemedicoService.getAll()
             .then(partesMedicos => res.status(200).json(partesMedicos))
             .catch(error => {
