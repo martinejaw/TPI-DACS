@@ -5,8 +5,10 @@ body{
 	background-position: center;
 	background-size: contain;
 }
+
+
 .navbar{
-	background-color: #efd199;
+    background-color: #efd199;
 }
 
 .btn{

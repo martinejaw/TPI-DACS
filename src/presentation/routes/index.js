@@ -1,6 +1,6 @@
 const { Router } = require("express");
 
-module.exports = function( { LoginRoutes, CalleRoutes, CasoRoutes,CiudadRoutes, ConsultaRoutes, HospitalRoutes, MedicoRoutes, PacienteRoutes, ParteMedicoRoutes, PruebaRoutes, RecursoRoutes, ReporteRoutes} ) {
+module.exports = function( { HomeRoutes, LoginRoutes, CalleRoutes, CasoRoutes,CiudadRoutes, ConsultaRoutes, HospitalRoutes, MedicoRoutes, PacienteRoutes, ParteMedicoRoutes, PruebaRoutes, RecursoRoutes, ReporteRoutes} ) {
   const router = Router();
   const apiRoute = Router();
 
@@ -16,6 +16,8 @@ module.exports = function( { LoginRoutes, CalleRoutes, CasoRoutes,CiudadRoutes, 
   apiRoute.use("/prueba", PruebaRoutes);
   apiRoute.use("/recurso", RecursoRoutes);
   apiRoute.use("/reporte", ReporteRoutes);
+  
+  apiRoute.use("/", HomeRoutes);
   router.use("/", apiRoute);
 
   return router;

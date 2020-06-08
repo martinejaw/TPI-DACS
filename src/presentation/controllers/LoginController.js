@@ -5,20 +5,21 @@ class LoginController {
         this._loginService = LoginService;
     }
 
-    loginFront(req,res){
-        res.render(path.join(__dirname+'/../views/login'), {headerTitle: "Login"});
+
+    loginView(req,res){
+        res.render(path.join(__dirname+'/../views/login'));
     }
 
     async login(req,res){
         await this._loginService.validarRegistro(req.body)
             .then(usuarioValidado => {  
                 if(usuarioValidado!=false){
-                    res.status(200).json({msg: "Usuario Validado"})
+                    res.status(200).json({msg: "Usuario Valido"})
                 } else {
-                    res.status(404).json({msg: "No capo, no es valido"})
+                    res.status(401).json({msg: "Acceso denegado"})
                 }})
             .catch(error => {
-                res.status(404).json({msg: error.message});  
+                res.status(401).json({msg: error.message});  
             });
         /*await this._loginService.create(req.body)
             .then(medicoCreated => res.status(201).json(medicoCreated))
