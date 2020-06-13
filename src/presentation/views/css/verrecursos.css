@@ -35,13 +35,3 @@ body{
 	color: black;
 }
 
-.boton-pedido{
-	background-color: limegreen;
-	margin: center;
-	font-weight: bold;
-	text-decoration-color: black;
-	color: black;
-	border-radius: 5px;
-	padding: 5px;
-	box-shadow: 0px 5px 5px #888888;
-}
