@@ -1,5 +1,22 @@
 <template>
   <div>
+    <Form></Form>
+    <v-card class="w3-container w3-teal">
+      <v-card-title>
+        Consultas
+        <v-spacer></v-spacer>
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Buscar"
+          single-line
+          hide-details
+        ></v-text-field>
+      </v-card-title>
+      <v-data-table class="tabla" :headers="headers"
+      :items="consultas" :search="search"></v-data-table>
+    </v-card>
+
     <hr class="my-2" />
     <!--div class="jumbotron jumbotron-fluid"-->
     <div class="w3-container w3-teal">
@@ -39,11 +56,50 @@
 </template>
 
 <script>
+import axios from 'axios';
+import cfg from '../config/cfg';
+import Form from '../components/Form.vue';
+
 export default {
   name: 'Consultas',
   data: () => ({
-    consultas: [{ id: 12, nombre: 'Exequiel', apellido: 'Fraca' }, { id: 12, dni: 2121 }],
+    headers: [{
+      text: 'ID',
+      align: 'start',
+      value: 'id',
+    },
+    { text: 'Nombre', value: 'nombre' },
+    { text: 'Apellido', value: 'apellido' }],
+    consultas: [
+      { id: 12, nombre: 'Exequiel', apellido: 'Fraca' },
+      {
+        id: 1, dni: 2121, nombre: 'Exequiel', apellido: 'Abogado',
+      }],
+    search: '',
   }),
+
+  mounted() {
+    const url = `${cfg.Consultas_URL}`;
+    axios.get(url)
+      .then((result) => {
+        this.consultas = result.data;
+      })
+      .catch((error) => { this.error = error.message; });
+  },
+
+  methods: {
+    consSinRespoder() {
+      const url = `${cfg.ConsultasSinResponder_URL}/${this.$store.state.dni}`;
+      axios.get(url)
+        .then((result) => {
+          this.consultasSinResponder = result.data;
+        })
+        .catch((error) => { this.error = error.message; });
+    },
+  },
+  components: {
+    Form,
+  },
 };
 </script>
 
@@ -58,6 +114,9 @@ body {
 }
 .navbar {
   background-color: #efd199;
+}
+.theme--light {
+  color: #ffedce;
 }
 .w3-container {
   background-color: #ffedce;

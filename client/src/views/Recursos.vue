@@ -16,27 +16,45 @@
         </thead>
         <tbody>
           <tr v-for="recurso in recursos" v-bind:key="recurso">
-            <th scope="row"> {{ recurso.id }} </th>
-            <td> {{ recurso.nombre }} </td>
-            <td> {{ recurso.cantidad }} </td>
+            <th scope="row">{{ recurso.id }}</th>
+            <td>{{ recurso.nombre }}</td>
+            <td>{{ recurso.cantidad }}</td>
             <td>
               <a class="boton-modificar" href="#">Modificar Cantidad</a>
             </td>
           </tr>
         </tbody>
       </table>
-      <v-btn color="success" class="mr-4">Realizar Pedido</v-btn>
+      <v-btn color="success" class="mr-4" v-on:click="imp">Realizar Pedido</v-btn>
       <!-- Fin Recursos -->
     </div>
   </v-app>
 </template>
 
 <script>
+import axios from 'axios';
+import cfg from '../config/cfg';
+
+
 export default {
   name: 'Recursos',
   data: () => ({
-    recursos: [{ id: 12, nombre: 'Exequiel', apellido: 'Fraca' }, { id: 12, dni: 2121 }],
+    recursos: [],
   }),
+  mounted() {
+    const url = `${cfg.Recursos_URL}/${this.$store.state.cuit}`;
+    axios.get(url)
+      .then((result) => {
+        this.recursos = result.data;
+        this.recursos.sort((a, b) => a.id - b.id);
+      })
+      .catch((error) => { this.error = error.message; });
+  },
+  methods: {
+    imp() {
+      console.log(this.recursos);
+    },
+  },
 };
 </script>
 
@@ -63,7 +81,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: 3%;
-    padding-left: 20px;
+  padding-left: 20px;
   padding-right: 20px;
   padding-top: 20px;
   padding-bottom: 20px;

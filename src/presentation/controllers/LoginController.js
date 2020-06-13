@@ -11,6 +11,7 @@ class LoginController {
     }
 
     async login(req,res){
+        //res.setHeader('Access-Control-Allow-Origin', '*');
         await this._loginService.validarRegistro(req.body)
             .then(usuarioValidado => {  
                 if(usuarioValidado!=false){

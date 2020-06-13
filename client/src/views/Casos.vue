@@ -14,8 +14,62 @@
         aria-label="Search"
       />
       <div class="col-md-6"></div>
-      <button class="btn btn-outline-success my-2 my-sm-0 col-md-2"
-      type="submit">Agregar caso</button>
+      <v-dialog v-model="dialog" persistent max-width="600px">
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn class="btn btn-outline-success my-2 my-sm-0 col-md-2" color="primary"
+        dark v-bind="attrs" v-on="on">Agregar Caso</v-btn>
+      </template>
+      <v-card>
+        <v-card-title>
+          <span class="headline">User Profile</span>
+        </v-card-title>
+        <v-card-text>
+          <v-container>
+            <v-row>
+              <v-col cols="12" sm="6" md="4">
+                <v-text-field label="Legal first name*" required></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6" md="4">
+                <v-text-field label="Legal middle name"
+                hint="example of helper text only on focus"></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6" md="4">
+                <v-text-field
+                  label="Legal last name*"
+                  hint="example of persistent helper text"
+                  persistent-hint
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-text-field label="Email*" required></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-text-field label="Password*" type="password" required></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6">
+                <v-select :items="['0-17', '18-29', '30-54', '54+']" label="Age*"
+                required></v-select>
+              </v-col>
+              <v-col cols="12" sm="6">
+                <v-autocomplete
+                  :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey',
+                  'Reading', 'Writing', 'Coding', 'Basejump']"
+                  label="Interests"
+                  multiple
+                ></v-autocomplete>
+              </v-col>
+            </v-row>
+          </v-container>
+          <small>*indicates required field</small>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="blue darken-1" text @click="dialog = false">Cerrar</v-btn>
+          <v-btn color="blue darken-1" text @click="dialog = false">Agregar</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
     </form>
     <hr class="my-1" />
     <div class="btn-group d-flex" role="group">
@@ -38,10 +92,10 @@
                       <div class="cuerpoDatos col-sm-8">
                         <h2 class="card-title">ID caso: {{ caso.id }}</h2>
                         <p class="card-text">
-                          <strong>DNI:</strong> {{ caso.dni }}
+                          <strong>DNI Paciente:</strong> {{ caso.PacienteDni }}
                         </p>
                         <p class="card-text">
-                          <strong>Fecha:</strong> {{ caso.fecha }}
+                          <strong>Fecha:</strong> {{ caso.fechaInicio }}
                         </p>
                         <p>
                           <strong>Estado:</strong>
@@ -49,6 +103,8 @@
                           <span class="badge bg-info"></span>
                           <span class="badge bg-warning"></span>
                           <span v-if="caso.estado == `Estable`" class="badge bg-success">
+                          {{ caso.estado }} </span>
+                          <span class="badge bg-success">
                           {{ caso.estado }} </span>
                         </p>
                       </div>
@@ -77,11 +133,23 @@
 </template>
 
 <script>
+import axios from 'axios';
+import cfg from '../config/cfg';
+
 export default {
   name: 'Casos',
   data: () => ({
-    casos: [{ id: 12, dni: 2121 }, { id: 12, dni: 2121 }],
+    casos: [],
+    dialog: false,
   }),
+  mounted() {
+    const url = `${cfg.Casos_URL}`;
+    axios.get(url)
+      .then((result) => {
+        this.casos = result.data;
+      })
+      .catch((error) => { this.error = error.message; });
+  },
 };
 </script>
 

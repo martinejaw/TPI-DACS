@@ -69,7 +69,7 @@ export default {
     usuario: '',
     nameRules: [
       (v) => !!v || 'Name is required',
-      (v) => (v && v.length >= 5) || 'User must be more than 5 characters',
+      (v) => (v && v.length >= 0) || 'User must be more than 5 characters',
       (v) => (v && v.length <= 10) || 'User must be less than 10 characters',
       (v) => (v.split(' ').length <= 1) || 'Espacios en blanco no permitidos',
     ],
@@ -86,15 +86,17 @@ export default {
   }),
 
   mounted() {
-    axios.get(cfg.API_URL)
-      .then((result) => { this.messages = result.data; })
-      .catch((error) => { this.error = error.message; });
+    this.$store.commit('increment');
+    this.$store.state.cuit = 2121;
   },
   methods: {
     async validate() {
-      await axios.post(cfg.VAL_URL, { user: this.usuario, password: this.pass })
-        .then((result) => { this.okey = result.data; })
+      await axios.post(cfg.VAL_URL, { usuario: this.usuario, password: this.pass })
+        .then((result) => {
+          this.okey = result.data.msg;
+        })
         .catch((error) => { this.error = error.message; });
+      console.log(this.$store.state.cuit);
     },
   },
 };

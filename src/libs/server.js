@@ -3,6 +3,7 @@ const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUI = require('swagger-ui-express');
 const path = require('path');
 const engine = require('ejs-locals');
+const cors = require('cors');
 //const asd = require('../presentation/views')
 
 class Server {
@@ -12,13 +13,14 @@ class Server {
     this._express.use(express.json());
     this._express.use(router);
 
-    // Carpetas publicas para poder importar en los HTML
+    // Carpetas publicas para poder importar en los HTML DEPRECATED
     this._express.use(express.static(path.join(__dirname, '../../node_modules/vue/dist')));
     this._express.use(express.static(path.join(__dirname, '../../node_modules/bootstrap/dist/css')));
     this._express.use(express.static(path.join(__dirname, '../../node_modules/bootstrap/dist/js')));
     this._express.use(express.static(path.join(__dirname, '../../node_modules/vuetify/dist')));
     this._express.use(express.static(path.join(__dirname, '../../node_modules/bootstrap-vue/dist')));
     this._express.use(express.static(path.join(__dirname, '../../node_modules/axios/dist')));
+
     
     //this._express.engine('html', EJS.renderFile);
 
