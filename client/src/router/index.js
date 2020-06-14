@@ -7,6 +7,7 @@ import Home from '../views/Home.vue';
 import Casos from '../views/Casos.vue';
 import Consultas from '../views/Consultas.vue';
 import Recursos from '../views/Recursos.vue';
+import Medicos from '../views/VerMedicos.vue';
 
 
 Vue.use(VueRouter);
@@ -21,6 +22,11 @@ const routes = [
     path: '/recursos',
     name: 'Recursos',
     component: Recursos,
+  },
+  {
+    path: '/vermedicos',
+    name: 'Medicos',
+    component: Medicos,
   },
   {
     path: '/consultas',
