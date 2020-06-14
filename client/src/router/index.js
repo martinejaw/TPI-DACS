@@ -9,7 +9,6 @@ import Consultas from '../views/Consultas.vue';
 import Recursos from '../views/Recursos.vue';
 import Medicos from '../views/VerMedicos.vue';
 
-
 Vue.use(VueRouter);
 
 const routes = [

@@ -35,7 +35,6 @@
 import axios from 'axios';
 import cfg from '../config/cfg';
 
-
 export default {
   name: 'Recursos',
   data: () => ({
