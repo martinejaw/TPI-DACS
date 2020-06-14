@@ -25,8 +25,12 @@
       <hr class="my-4" />
 
       <div class="btn-group d-flex" role="group">
-        <a class="btn btn-outline-secondary w-100">Sin Contestar</a>
-        <a class="btn btn-outline-secondary w-100">Contestadas</a>
+        <v-button class="btn btn-outline-secondary w-100"
+        v-on:click="consultaSeleccionada=true"
+        v-bind:class='{ "success": consultaSeleccionada}'>Sin Contestar</v-button>
+        <v-button class="btn btn-outline-secondary w-100"
+        v-on:click="consultaSeleccionada=false"
+        v-bind:class='{ "success": !consultaSeleccionada}'>Contestadas</v-button>
       </div>
 
       <hr class="my-4" />
@@ -40,7 +44,15 @@
             <th scope="col">Fecha</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody v-if="consultaSeleccionada">
+          <tr v-for="consulta in consultasSinResponder" v-bind:key="consulta">
+            <th scope="row">{{ consulta.id }}</th>
+            <td>{{ consulta.nombre }}</td>
+            <td>{{ consulta.apellido }}</td>
+            <td>{{ consulta.fecha }}</td>
+          </tr>
+        </tbody>
+        <tbody v-else>
           <tr v-for="consulta in consultas" v-bind:key="consulta">
             <th scope="row">{{ consulta.id }}</th>
             <td>{{ consulta.nombre }}</td>
@@ -76,15 +88,12 @@ export default {
         id: 1, dni: 2121, nombre: 'Exequiel', apellido: 'Abogado',
       }],
     search: '',
+    consultaSeleccionada: true,
+    consultasSinResponder: [],
   }),
 
   mounted() {
-    const url = `${cfg.Consultas_URL}`;
-    axios.get(url)
-      .then((result) => {
-        this.consultas = result.data;
-      })
-      .catch((error) => { this.error = error.message; });
+    this.consSinRespoder();
   },
 
   methods: {
@@ -114,9 +123,6 @@ body {
 }
 .navbar {
   background-color: #efd199;
-}
-.theme--light {
-  color: #ffedce;
 }
 .w3-container {
   background-color: #ffedce;
