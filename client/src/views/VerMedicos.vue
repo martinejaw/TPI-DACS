@@ -124,5 +124,59 @@ export default {
 </script>
 
 <style>
+body {
+  background-image: url("./image/fondo.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: auto;
+}
+.navbar {
+  background-color: #efd199;
+}
+.w3-container {
+  background-color: #ffedce;
+  max-width: 1200px;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.imagen {
+  margin-top: 20px;
+  width: 140px;
+  height: 140px;
+}
+.imagen img {
+  width: auto;
+  height: 100%;
+}
 
+.btn-group {
+  background-color: #c0c0c0;
+}
+
+.card-block {
+  background-color: #f2f2f2;
+}
+
+.botoneditar {
+  border-width: 2px;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.card-text {
+  margin-left: 5%;
+}
+
+.card-title {
+  padding: 10px;
+}
+
+.cuerpoDatos {
+  padding-left: 20px;
+  padding-right: 20px;
+}
 </style>
