@@ -15,7 +15,7 @@ class CasoController {
         await this._casoService.create(req.body)
             .then(casoCreated => res.status(201).json(casoCreated))
             .catch(error => {
-                res.status(412).json({msg: error.message});  
+                res.json({msg: error.message});  
         });
     }
 }

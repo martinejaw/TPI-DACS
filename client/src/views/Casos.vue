@@ -21,52 +21,27 @@
       </template>
       <v-card>
         <v-card-title>
-          <span class="headline">User Profile</span>
+          <span class="headline">Nuevo Caso</span>
         </v-card-title>
         <v-card-text>
           <v-container>
             <v-row>
-              <v-col cols="12" sm="6" md="4">
-                <v-text-field label="Legal first name*" required></v-text-field>
-              </v-col>
-              <v-col cols="12" sm="6" md="4">
-                <v-text-field label="Legal middle name"
-                hint="example of helper text only on focus"></v-text-field>
-              </v-col>
-              <v-col cols="12" sm="6" md="4">
-                <v-text-field
-                  label="Legal last name*"
-                  hint="example of persistent helper text"
-                  persistent-hint
-                  required
-                ></v-text-field>
-              </v-col>
               <v-col cols="12">
-                <v-text-field label="Email*" required></v-text-field>
-              </v-col>
-              <v-col cols="12">
-                <v-text-field label="Password*" type="password" required></v-text-field>
+                <v-text-field v-model="dni" label="DNI Paciente*" required></v-text-field>
               </v-col>
               <v-col cols="12" sm="6">
-                <v-select :items="['0-17', '18-29', '30-54', '54+']" label="Age*"
+                <v-select v-model="estado"
+                :items="['Grave', 'Gravisimo', 'Muerto', 'Semi Muerto']" label="Estado*"
                 required></v-select>
-              </v-col>
-              <v-col cols="12" sm="6">
-                <v-autocomplete
-                  :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey',
-                  'Reading', 'Writing', 'Coding', 'Basejump']"
-                  label="Interests"
-                  multiple
-                ></v-autocomplete>
               </v-col>
             </v-row>
           </v-container>
-          <small>*indicates required field</small>
+          <small>*Campos Obligatorios</small>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="blue darken-1" text @click="dialog = false">Cerrar</v-btn>
-          <v-btn color="blue darken-1" text @click="dialog = false">Agregar</v-btn>
+          <v-btn color="blue darken-1" text @click="dialog = false; altaCaso()">Agregar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -141,14 +116,40 @@ export default {
   data: () => ({
     casos: [],
     dialog: false,
+    dni: 0,
+    estado: '',
   }),
   mounted() {
-    const url = `${cfg.Casos_URL}`;
-    axios.get(url)
-      .then((result) => {
-        this.casos = result.data;
-      })
-      .catch((error) => { this.error = error.message; });
+    this.actualizarCasos();
+  },
+  methods: {
+    altaCaso() {
+      console.log(this.estado);
+      const url = `${cfg.Casos_URL}`;
+      axios.post(url, { estado: this.estado, PacienteDni: this.dni, MedicoDni: 4100325 })
+        .then((result) => {
+          if (result.status === 200) {
+            console.log('Error en el alta');
+          } else {
+            console.log('Caso cargado correctamente');
+            this.actualizarCasos();
+          }
+        })
+        .catch((error) => { this.error = error.message; });
+    },
+    actualizarCasos() {
+      const url = `${cfg.Casos_URL}`;
+      axios.get(url)
+        .then((result) => {
+          this.casos = result.data;
+        })
+        .catch((error) => { this.error = error.message; });
+    },
+    watch: {
+      error: () => {
+        console.log(this.error);
+      },
+    },
   },
 };
 </script>

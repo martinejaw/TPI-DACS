@@ -7,7 +7,7 @@ module.exports = function( { HomeRoutes, LoginRoutes, CalleRoutes, CasoRoutes,Ci
 
   apiRoute.use("/calle", CalleRoutes);
   apiRoute.use("/caso",cors(), CasoRoutes);
-  apiRoute.use("/consulta", ConsultaRoutes);
+  apiRoute.use("/consulta",cors(), ConsultaRoutes);
   apiRoute.use("/ciudad", CiudadRoutes);
   apiRoute.use("/hospital", HospitalRoutes);
   apiRoute.use("/login",cors(), LoginRoutes);
