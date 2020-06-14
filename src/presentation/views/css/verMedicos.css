@@ -17,15 +17,6 @@ body{
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
-
-.card-block{
-	background-color: #f2f2f2;
-}
-
-.btn-group{
-	background-color: #C0C0C0;
-}
-
 .imagen {
 	margin-top: 20px;
     width: 140px;
@@ -36,8 +27,26 @@ body{
     height: 100%;
 }
 
-.abrir{
-    background-color: #507dbc;
+.btn-group{
+	background-color: #C0C0C0;
+}
+
+.card-block{
+	background-color: #f2f2f2;
+}
+
+.botoneditar{
+	border-width: 2px;
+	padding: 10px;
+	border-radius: 3px;
+}
+
+.card-text{
+	margin-left: 5%;
+}
+
+.card-title{
+	padding: 10px;	
 }
 
 .cuerpoDatos{
@@ -45,9 +54,5 @@ body{
 	padding-right: 20px;
 }
 
-.card-text{
-	margin-left: 5%;
-}
-.card-title{
-	padding: 10px;	
-}
+
+

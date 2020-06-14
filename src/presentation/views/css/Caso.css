@@ -1,9 +1,9 @@
 body{
-	background-image: url('../image/fondo.png');
+	background-image: url('../centrohp.png');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center;
-    background-size: auto;
+	background-size: contain;
 }
 .navbar{
 	background-color: #efd199;
@@ -18,18 +18,9 @@ body{
 	padding-bottom: 20px;
 }
 
-.card-block{
-	background-color: #f2f2f2;
-}
-
-.btn-group{
-	background-color: #C0C0C0;
-}
-
 .imagen {
-	margin-top: 20px;
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
 }
 .imagen img {
     width: auto;
@@ -45,9 +36,7 @@ body{
 	padding-right: 20px;
 }
 
-.card-text{
-	margin-left: 5%;
-}
-.card-title{
-	padding: 10px;	
-}
+.example-1 {
+position: relative;
+overflow-y: scroll;
+height: 200px; }
