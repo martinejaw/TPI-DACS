@@ -16,7 +16,8 @@
                   <span class="badge bg-info"></span>
                   <span class="badge bg-warning"></span>
                   <span class="badge bg-success">Estable</span>
-                  <button class="btn btn-primary btn-sm" type="submit"> Modificar Estado</button>
+                  <button class="btn btn-outline-primary btn-sm"
+                   type="submit"> Modificar Estado</button>
                 </h6>
               </div>
             </div>
@@ -75,7 +76,7 @@
               </div>
               <hr class="my-2">
               <div class="text-right">
-                <button class="btn btn-primary" type="submit"> Agregar Parte Médico</button>
+                <button class="btn btn-outline-primary" type="submit"> Agregar Parte Médico</button>
               </div>
             </div>
             <div class="col-md-6 mb-4">
@@ -120,7 +121,7 @@
               </div>
               <hr class="my-2">
               <div class="text-right">
-                <button class="btn btn-primary" type="submit"> Agregar Prueba</button>
+                <button class="btn btn-outline-primary" type="submit"> Agregar Prueba</button>
               </div>
             </div>
           </div>
