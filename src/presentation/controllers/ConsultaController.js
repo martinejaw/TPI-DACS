@@ -24,6 +24,15 @@ class ConsultaController {
             });
     }
 
+    async getConsultaRespondidas(req,res) {
+    const { medicodni } = req.params;
+        await this._consultaService.getRespondidas(medicodni)
+            .then(consultas => res.status(200).json(consultas))
+            .catch(error => {
+                res.status(404).json({msg: error.message});  
+            });
+    }
+
     async createConsulta(req, res) {
         await this._consultaService.create(req.body)
             .then(consultaCreated => res.status(201).json(consultaCreated))
@@ -46,30 +55,15 @@ class ConsultaController {
         let consultaDiagnosticada = req.body;
 
         if(consultaDiagnosticada.diagnostico == null){
-            res.sendStatus(404);
-        }
-
-        // Guardo la consulta diagnosticada en mi API
-        this._consultaService.update(consultaDiagnosticada.id, consultaDiagnosticada)
+            res.status(404).json({msg: "Diagnostico nulo no permitido"});
+        } else {
+            // Guardo la consulta diagnosticada en mi API
+            this._consultaService.update(consultaDiagnosticada.id, consultaDiagnosticada)
             .then(consultaDiagnosticada => res.status(201).json({msg: "Diagnosticacion Correcta"}))
             .catch(error => {  
                 res.status(412).json({msg: error.message});  
-        });
-
-        
-        let options = {
-            method: 'PUT',
-            uri: 'http://localhost:3000/consulta', // aca va la api de pacientes
-            body: consultaDiagnosticada,
-            json: true
-        }
-
-        // Se la mando al grupo de pacientes
-        request(options)
-            .then(respuesta => console.log("Okey"))
-            .catch(error => {  
-                console.log("No Okey")
-            }); 
+            });
+        }  
     }
 
     async obtenerConsultas(req, res){

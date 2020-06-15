@@ -39,6 +39,7 @@ const routes = [
     path: '/consultadiagnostico',
     name: 'ConsultaDiagnostico',
     component: ConsultaDiagnostico,
+    props: true,
   },
   {
     path: '/casos',

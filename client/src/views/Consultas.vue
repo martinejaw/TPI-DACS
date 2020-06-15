@@ -25,12 +25,16 @@
       <hr class="my-4" />
 
       <div class="btn-group d-flex" role="group">
-        <v-button class="btn btn-outline-secondary w-100"
-        v-on:click="consultaSeleccionada=true"
-        v-bind:class='{ "success": consultaSeleccionada}'>Sin Contestar</v-button>
-        <v-button class="btn btn-outline-secondary w-100"
-        v-on:click="consultaSeleccionada=false"
-        v-bind:class='{ "success": !consultaSeleccionada}'>Contestadas</v-button>
+        <v-button
+          class="btn btn-outline-secondary w-100"
+          v-on:click="consultaSeleccionada=true"
+          v-bind:class='{ "success": consultaSeleccionada}'
+        >Sin Contestar</v-button>
+        <v-button
+          class="btn btn-outline-secondary w-100"
+          v-on:click="consultaSeleccionada=false"
+          v-bind:class='{ "success": !consultaSeleccionada}'
+        >Contestadas</v-button>
       </div>
 
       <hr class="my-4" />
@@ -38,31 +42,58 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
+            <th scope="col">ID Consulta</th>
+            <th scope="col">DNI Paciente</th>
             <th scope="col">Fecha</th>
+            <th scope="col">Diagnostico</th>
           </tr>
         </thead>
         <tbody v-if="consultaSeleccionada">
           <tr v-for="consulta in consultasSinResponder" v-bind:key="consulta">
             <th scope="row">{{ consulta.id }}</th>
-            <td>{{ consulta.nombre }}</td>
-            <td>{{ consulta.apellido }}</td>
+            <td>{{ consulta.PacienteDni }}</td>
             <td>{{ consulta.fecha }}</td>
+            <router-link :to='{name: "ConsultaDiagnostico", params: { consulta } }'>
+              <v-btn
+                class="btn btn-outline-success my-2 my-sm-0 col-md-8"
+                color="primary"
+                dark
+                v-bind="attrs"
+                v-on="on"
+              >Diagnosticar</v-btn>
+            </router-link>
           </tr>
         </tbody>
         <tbody v-else>
-          <tr v-for="consulta in consultas" v-bind:key="consulta">
+          <tr v-for="consulta in consultasRespondidas" v-bind:key="consulta">
             <th scope="row">{{ consulta.id }}</th>
-            <td>{{ consulta.nombre }}</td>
-            <td>{{ consulta.apellido }}</td>
+            <td>{{ consulta.PacienteDni }}</td>
             <td>{{ consulta.fecha }}</td>
+            <v-btn
+              class="btn btn-outline-success my-2 my-sm-0 col-md-8"
+              color="primary"
+              dark
+              v-bind="attrs"
+              @click="mostrarDiag = true; verC = consulta.diagnostico"
+              v-on="on"
+            >Mostrar</v-btn>
           </tr>
         </tbody>
       </table>
       <!-- Fin de la tabla de datos -->
     </div>
+    <!--Form Mostrar diagnostico-->
+    <v-row justify="center">
+      <v-dialog v-model="mostrarDiag" persistent max-width="500">
+        <v-card>
+          <v-card-title class="headline">{{ verC }}</v-card-title>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="green darken-1" text @click="mostrarDiag = false">Enterado</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-row>
   </div>
   <!--/div-->
 </template>
@@ -82,18 +113,17 @@ export default {
     },
     { text: 'Nombre', value: 'nombre' },
     { text: 'Apellido', value: 'apellido' }],
-    consultas: [
-      { id: 12, nombre: 'Exequiel', apellido: 'Fraca' },
-      {
-        id: 1, dni: 2121, nombre: 'Exequiel', apellido: 'Abogado',
-      }],
+    consultasRespondidas: [],
     search: '',
     consultaSeleccionada: true,
     consultasSinResponder: [],
+    mostrarDiag: false,
+    verC: '',
   }),
 
   mounted() {
     this.consSinRespoder();
+    this.consRespodidas();
   },
 
   methods: {
@@ -102,6 +132,14 @@ export default {
       axios.get(url)
         .then((result) => {
           this.consultasSinResponder = result.data;
+        })
+        .catch((error) => { this.error = error.message; });
+    },
+    consRespodidas() {
+      const url = `${cfg.ConsultasRespondidas_URL}/${this.$store.state.dni}`;
+      axios.get(url)
+        .then((result) => {
+          this.consultasRespondidas = result.data;
         })
         .catch((error) => { this.error = error.message; });
     },

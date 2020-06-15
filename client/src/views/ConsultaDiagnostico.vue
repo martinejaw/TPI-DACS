@@ -3,15 +3,15 @@
 <hr class="my-2">
   <!--div class="jumbotron jumbotron-fluid"-->
   <div class="w3-container w3-teal">
-    <h1 class="display-3">CONSULTA ID: tanto</h1>
+    <h1 class="display-3">CONSULTA ID: {{ consulta.id }} </h1>
     <p ><strong>Estado: </strong>
       <span class="badge bg-warning">Sin contestar</span>
       <span class="badge bg-success">Contestado</span>
     </p>
-    <p class="text-right">Fecha de creación: AAAAAA</p>
+    <p class="text-right">Fecha de creación: {{ consulta.fecha }} </p>
     <hr class="my-4">
     <h3>Nombre y Apellido: ape,nom</h3>
-    <h6>TipoDoc: Nro Doc </h6>
+    <h6>TipoDoc: {{ consulta.PacienteDni }} </h6>
     <h6>Fecha de Nacimiento:fecnac</h6>
     <h6>Sexo:undefined</h6>
     <h6>Domicilio:dom</h6>
@@ -53,23 +53,58 @@
     </ol>
     <h6>Residio dentro del país previo a Sintomas: Si/No}} </h6>
     <ol>
-      <li>Domicilio: {{Domicilio}} Desde {{Fecini}} hasta {{fecven}}</li>
+      <li>Domicilio: Desde {{Fecini}} hasta {{fecven}}</li>
       <li>Domicilio: {{Domicilio}} Desde {{Fecini}} hasta {{fecven}}</li>
     </ol>
     <hr class="my-4">
     <h1>Diagnóstico</h1>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+    <textarea v-model="diagnostico"
+    class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
     <hr class="my-1">
     <div class="text-right">
-      <button class="btn btn-primary" type="submit"> Confirmar diagnóstico</button>
+      <button class="btn btn-primary" @click="agregarDiagnostico()"> Confirmar diagnóstico</button>
     </div>
   </div>
+  <!--Form error-->
+    <v-row justify="center">
+      <v-dialog v-model="errorBool" persistent max-width="500">
+        <v-card>
+          <v-card-title class="headline"> {{ error }} </v-card-title>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="green darken-1"
+            text @click="errorBool = false">Enterado</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-row>
 </div>
 </template>
 
 <script>
+import axios from 'axios';
+import cfg from '../config/cfg';
+
 export default {
   name: 'Consultas',
+  props: ['consulta'],
+  data: () => ({
+    errorBool: false,
+    error: '',
+  }),
+  methods: {
+    agregarDiagnostico() {
+      axios.put(cfg.Diagnostico_URL, { id: this.consulta.id, diagnostico: this.diagnostico })
+        .then((result) => {
+          this.consultasSinResponder = result.data;
+          this.$router.push('consultas');
+        })
+        .catch((error) => {
+          this.error = error.message;
+          this.errorBool = true;
+        });
+    },
+  },
 };
 </script>
 

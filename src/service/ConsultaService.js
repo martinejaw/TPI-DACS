@@ -9,7 +9,10 @@ class ConsultaService extends BaseService {
         const entity = await this._entityRepository.getSinResponder(id);
         return entity;
     }
-    
+    async getRespondidas(id){
+        const entity = await this._entityRepository.getRespondidas(id);
+        return entity;
+    }
 }
 
 module.exports = ConsultaService;

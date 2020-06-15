@@ -64,6 +64,30 @@ module.exports = ( { ConsultaController } ) => {
 
     /**
      * @swagger
+     * /consulta/consultasrespondidas/{medicodni}:
+     *  get:
+     *      description: Usar para obtener las consultas respondidas de un medico
+     *      tags: ["HOSPITALES"]
+     *      parameters:
+     *        - in: path
+     *          name: medicodni
+     *          description: DNI del medico
+     *          required: true
+     *          schema:
+     *              type: integer
+     *              example: 41031555 
+     *      produces:
+     *          - aplication/json
+     *      responses:
+     *          '200':
+     *              description: Se obtuvieron correctamente las consultas respondidas del medico
+     *          '412':
+     *              description: Error
+     */
+    router.get('/consultasrespondidas/:medicodni', ConsultaController.getConsultaRespondidas.bind(ConsultaController));
+
+    /**
+     * @swagger
      * /consulta/diagnosticar:
      *  put:
      *      description: Usar para agregar un diagnostico a una consulta (update)
