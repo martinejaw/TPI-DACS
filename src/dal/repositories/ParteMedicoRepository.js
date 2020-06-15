@@ -48,6 +48,10 @@ class ParteMedicoRepository extends BaseRepository {
         //return this._db.models[this.entity].count({where: {[Op.and]: [{estadoVital: "Enfermo"},{fecha:{[Op.gte]: date} } ] }});
     }
 
+    async getByCasoId(casoId){
+        return this._db.models[this.entity].findAll({ where: { CasoId: casoId } });
+    }
+
 }
 
 module.exports = ParteMedicoRepository;

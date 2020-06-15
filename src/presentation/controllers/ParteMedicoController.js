@@ -18,6 +18,14 @@ class ParteMedicoController {
                 res.status(412).json({msg: error.message});  
         });
     }
+    async obtenerPartesCaso(req, res) {
+        const { idCaso } = req.params;
+        await this._partemedicoService.getByCasoId(idCaso)
+            .then(partesMedicosDelCaso => res.status(200).json(partesMedicosDelCaso))
+            .catch(error => {
+                res.status(412).json({msg: error.message});  
+        });
+    }
 }
 
 module.exports = ParteMedicoController;

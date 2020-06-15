@@ -8,6 +8,8 @@ const cfg = {
   ConsultasRespondidas_URL: 'http://localhost:3000/consulta/consultasrespondidas',
   Casos_URL: 'http://localhost:3000/caso',
   Diagnostico_URL: 'http://localhost:3000/consulta/diagnosticar',
+  PartesMedicos_URL: 'http://localhost:3000/partemedico',
+  Pruebas_URL: 'http://localhost:3000/prueba',
 };
 
 module.exports = cfg;

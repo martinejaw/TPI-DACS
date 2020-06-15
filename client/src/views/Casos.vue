@@ -5,6 +5,7 @@
     <h1 class="display-4">CASOS</h1>
     <p class="lead">Casos de covid-19</p>
     <hr class="my-4" />
+
     <form class="form-inline">
       <i class="fas fa-search" aria-hidden="true"></i>
       <input
@@ -97,7 +98,7 @@
                           <strong>Fecha:</strong>
                           {{ caso.fechaInicio }}
                         </p>
-                        <p>
+                        <p class="card-text">
                           <strong>Estado:</strong>
                           <span class="badge bg-primary"></span>
                           <span class="badge bg-info"></span>
@@ -118,9 +119,9 @@
                         />
                       </div>
                     </div>
-                    <div>
-                      <button type="button" class="abrir btn-lg btn-block">Abrir</button>
-                    </div>
+                      <router-link :to='{name: "Caso", params: { caso: caso } }'>
+                        <button type="button" class="abrir btn-lg btn-block">Abrir</button>
+                      </router-link>
                   </div>
                 </div>
               </div>

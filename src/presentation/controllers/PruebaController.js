@@ -34,6 +34,16 @@ class PruebaController {
                 res.status(412).json({msg: error.message});
             });
     }
+
+    async getPruebasDeCaso(req,res){
+        const { casoId } = req.params;
+        await this._pruebaService.getPruebasDeCaso(casoId)
+            .then(pruebasDeCaso => 
+                res.status(200).json(pruebasDeCaso))
+            .catch(error => {
+                res.status(404).json({msg: error.message});  
+            });
+    }
 }
 
 module.exports = PruebaController;

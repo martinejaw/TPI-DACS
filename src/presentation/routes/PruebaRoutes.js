@@ -22,6 +22,22 @@ module.exports = ( { PruebaController } ) => {
 
     /**
      * @swagger
+     * /prueba/{casoId}:
+     *  get:
+     *      description: Usar para obtener todas las pruebas de un caso
+     *      tags: ["HOSPITALES"]
+     *      produces:
+     *          - aplication/json
+     *      responses:
+     *          '200':
+     *              description: Se obtuvieron correctamente las pruebas
+     *          '412':
+     *              description: Error
+     */
+    router.get('/:casoId', PruebaController.getPruebasDeCaso.bind(PruebaController));
+
+    /**
+     * @swagger
      * /prueba:
      *  post:
      *      description: Usar para crear una prueba de un caso

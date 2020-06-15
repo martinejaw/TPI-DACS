@@ -36,7 +36,10 @@ class ParteMedicoService extends BaseService {
         return resumenCasos;
 
     }
-
+    async getByCasoId(casoId){
+        const partesDelCaso = await this._entityRepository.getByCasoId(casoId);
+        return partesDelCaso;
+    }
 }
 
 module.exports = ParteMedicoService;

@@ -5,18 +5,18 @@ module.exports = function( { HomeRoutes, LoginRoutes, CalleRoutes, CasoRoutes,Ci
   const router = Router();
   const apiRoute = Router();
 
-  apiRoute.use("/calle", CalleRoutes);
+  apiRoute.use("/calle",cors(), CalleRoutes);
   apiRoute.use("/caso",cors(), CasoRoutes);
   apiRoute.use("/consulta",cors(), ConsultaRoutes);
-  apiRoute.use("/ciudad", CiudadRoutes);
-  apiRoute.use("/hospital", HospitalRoutes);
+  apiRoute.use("/ciudad",cors(), CiudadRoutes);
+  apiRoute.use("/hospital",cors(), HospitalRoutes);
   apiRoute.use("/login",cors(), LoginRoutes);
-  apiRoute.use("/medico", MedicoRoutes);
-  apiRoute.use("/paciente", PacienteRoutes);
-  apiRoute.use("/partemedico", ParteMedicoRoutes);
-  apiRoute.use("/prueba", PruebaRoutes);
+  apiRoute.use("/medico",cors(), MedicoRoutes);
+  apiRoute.use("/paciente",cors(), PacienteRoutes);
+  apiRoute.use("/partemedico",cors(), ParteMedicoRoutes);
+  apiRoute.use("/prueba",cors(), PruebaRoutes);
   apiRoute.use("/recurso",cors(), RecursoRoutes);
-  apiRoute.use("/reporte", ReporteRoutes);
+  apiRoute.use("/reporte",cors(), ReporteRoutes);
   
   apiRoute.use("/", HomeRoutes);
   router.use("/", apiRoute);

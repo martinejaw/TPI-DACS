@@ -50,6 +50,7 @@ const routes = [
     path: '/caso',
     name: 'Caso',
     component: Caso,
+    props: true,
   },
   {
     path: '/login',

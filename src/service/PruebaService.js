@@ -44,7 +44,11 @@ class PruebaService extends BaseService {
         };
         return totalPruebas;
     }
-
+    
+    async getPruebasDeCaso(casoId){
+        const pruebasDelCaso = await this._entityRepository.getPruebasDeCaso(casoId);
+        return pruebasDelCaso;
+    }
 
 }
 

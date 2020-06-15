@@ -67,6 +67,11 @@ class PruebaRepository extends BaseRepository {
 
         //return this._db.models[this.entity].count({where: {resultado: false, fechaResultado: {[Op.ne]: null}, fechaResultado:{[Op.gte]: date}}});
   }
+
+    async getPruebasDeCaso(casoId){
+        return this._db.models[this.entity].findAll({ where: { CasoId: casoId } });
+    }
+
 }
 
 module.exports = PruebaRepository;

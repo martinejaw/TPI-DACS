@@ -36,5 +36,21 @@ module.exports = ( { ParteMedicoController } ) => {
      */
     router.post("/", ParteMedicoController.createParteMedico.bind(ParteMedicoController));
 
+    /**
+     * @swagger
+     * /partemedico/{id}:
+     *  get:
+     *      description: Usar para obtener los partes medicos de un caso
+     *      tags: ["HOSPITALES"]
+     *      produces:
+     *          - aplication/json
+     *      responses:
+     *          '200':
+     *              description: Se obtuvieron correctamente los partes
+     *          '412':
+     *              description: Error
+     */
+    router.get("/:idCaso", ParteMedicoController.obtenerPartesCaso.bind(ParteMedicoController));
+
     return router;
 }
