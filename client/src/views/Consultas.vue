@@ -112,7 +112,6 @@ export default {
 };
 </script>
 
-
 <style>
 body {
   background-image: url("./image/centrohp.png");

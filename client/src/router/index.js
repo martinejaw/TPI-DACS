@@ -8,7 +8,9 @@ import Casos from '../views/Casos.vue';
 import Consultas from '../views/Consultas.vue';
 import Recursos from '../views/Recursos.vue';
 import Medicos from '../views/VerMedicos.vue';
-
+import ConsultaDiagnostico from '../views/ConsultaDiagnostico.vue';
+import Caso from '../views/VerCaso.vue';
+import ParteMedico from '../views/AddParteMedico.vue';
 
 Vue.use(VueRouter);
 
@@ -34,9 +36,19 @@ const routes = [
     component: Consultas,
   },
   {
+    path: '/consultadiagnostico',
+    name: 'ConsultaDiagnostico',
+    component: ConsultaDiagnostico,
+  },
+  {
     path: '/casos',
     name: 'Casos',
     component: Casos,
+  },
+  {
+    path: '/caso',
+    name: 'Caso',
+    component: Caso,
   },
   {
     path: '/login',
@@ -52,6 +64,11 @@ const routes = [
     path: '/medico',
     name: 'Medico',
     component: Medico,
+  },
+  {
+    path: '/partemedico',
+    name: 'ParteMedico',
+    component: ParteMedico,
   },
   {
     path: '/about',
