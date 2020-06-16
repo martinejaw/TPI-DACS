@@ -91,6 +91,15 @@
                         <td v-if="prueba.fechaResultado == null"> Sin resultado </td>
                         <td v-else-if="prueba.resultado"> Positivo </td>
                         <td v-else> Negativo </td>
+                        <td>
+                          <v-icon
+                                  small
+                                  class="mr-2"
+                                  @click.stop="edit = true; idPrueba = prueba.id"
+                                >
+                                  mdi-pencil
+                                </v-icon>
+                         </td>
                       </tr>
                     </tbody>
                   </table>
@@ -98,14 +107,12 @@
               </div>
               <hr class="my-2">
               <div class="text-right">
-                <v-dialog v-model="dialog" persistent max-width="600px">
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-btn
+                <v-btn
                       class="btn btn-outline-primary"
-                      v-bind="attrs"
-                      v-on="on"
+                      @click.stop="dialog = true"
                       > Agregar Prueba</v-btn>
-                  </template>
+                      <!--Form Agregar prueba-->
+                <v-dialog v-model="dialog" persistent max-width="600px">
                   <v-card>
                     <v-card-title>
                       <span class="headline">¿Desea agregar una Nueva Prueba?</span>
@@ -135,6 +142,37 @@
       </v-dialog>
     </v-row>
 
+<!--Form Editar Prueba-->
+    <v-dialog v-model="edit" persistent max-width="600px">
+                          <v-card>
+                            <v-card-title>
+                              <span class="headline">Edicion de Prueba con id {{ idPrueba }}
+                              </span>
+                            </v-card-title>
+<v-card-text>
+            <v-container>
+
+                <v-col cols="12" sm="6">
+                  <v-select
+                    v-model="estado"
+                    :items="['Positivo', 'Negativo']"
+                    label="Resultado*"
+                    required
+                  ></v-select>
+                </v-col>
+
+            </v-container>
+            <small>*Campos Obligatorios</small>
+          </v-card-text>
+                            <v-card-actions>
+                              <v-spacer></v-spacer>
+                              <v-btn color="blue darken-1" text @click="edit = false">Cerrar</v-btn>
+                              <v-btn color="blue darken-1"
+                              text @click="edit = false;">Agregar</v-btn>
+                            </v-card-actions>
+                          </v-card>
+                          </v-dialog>
+
 </div>
 </template>
 
@@ -151,6 +189,9 @@ export default {
     dialog: false,
     estado: '',
     errorBool: false,
+    edit: false,
+    resultado: '',
+    idPrueba: 0,
   }),
   mounted() {
     this.obtenerPartes();
