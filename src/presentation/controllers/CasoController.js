@@ -18,6 +18,20 @@ class CasoController {
                 res.json({msg: error.message});  
         });
     }
+    
+    async updateCaso(req, res) {
+        const {idCaso} = req.params;
+        await this._casoService.actualizar(req.body,idCaso)
+            .then(casoUpdated => {
+                if(casoUpdated[0]==0){
+                    res.status(404).json({msg: "No existe caso con tal id"})
+                }else{
+                    res.json({msg: "Actualizado correctamente el caso con id "+idCaso})
+                }})
+            .catch(error => {
+                res.status(412).json({msg: error.message});
+            });
+    }
 }
 
 module.exports = CasoController;

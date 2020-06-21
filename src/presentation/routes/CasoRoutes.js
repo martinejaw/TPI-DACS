@@ -35,6 +35,22 @@ module.exports = ( { CasoController } ) => {
      *              description: Error
      */
     router.post("/", CasoController.createCaso.bind(CasoController));
+    
+    /**
+     * @swagger
+     * /caso/{idCaso}:
+     *  put:
+     *      description: Usar para actualizar un caso
+     *      tags: ["HOSPITALES"]
+     *      produces:
+     *          - aplication/json
+     *      responses:
+     *          '200':
+     *              description: Se actualizo correctamente el caso
+     *          '412':
+     *              description: Error
+     */
+    router.put("/:idCaso", CasoController.updateCaso.bind(CasoController));
 
     return router;
 }

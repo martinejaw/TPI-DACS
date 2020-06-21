@@ -40,7 +40,7 @@
                 <v-col cols="12" sm="6">
                   <v-select
                     v-model="estado"
-                    :items="['Grave', 'Gravisimo', 'Muerto', 'Estable']"
+                    :items="['Positivo', 'Negativo', 'Sospechoso']"
                     label="Estado*"
                     required
                   ></v-select>
@@ -100,14 +100,12 @@
                         </p>
                         <p class="card-text">
                           <strong>Estado:</strong>
-                          <span class="badge bg-primary"></span>
-                          <span class="badge bg-info"></span>
-                          <span class="badge bg-warning"></span>
-                          <span
-                            v-if="caso.estado == `Estable`"
-                            class="badge bg-success"
-                          >{{ caso.estado }}</span>
-                          <span v-else class="badge bg-danger">{{ caso.estado }}</span>
+                          <span v-if="caso.estado === 'Sospechoso'"
+                          class="badge bg-warning">{{caso.estado}}</span>
+                          <span v-if="caso.estado === 'Positivo'"
+                          class="badge bg-danger">{{caso.estado}}</span>
+                          <span v-if="caso.estado === 'Negativo'"
+                          class="badge bg-success">{{caso.estado}}</span>
                         </p>
                       </div>
                       <div class="imagen col-sm-4 text-center">
@@ -120,7 +118,8 @@
                       </div>
                     </div>
                       <router-link :to='{name: "Caso", params: { caso: caso } }'>
-                        <button type="button" class="abrir btn-lg btn-block">Abrir</button>
+                        <v-btn class="abrir btn btn-outline-primary btn-block">
+                        Abrir</v-btn>
                       </router-link>
                   </div>
                 </div>
