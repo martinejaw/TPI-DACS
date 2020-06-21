@@ -63,9 +63,12 @@
                 </div>
               </div>
               <hr class="my-2">
+              <router-link :to='{name: "ParteMedico", params: { caso: this.caso } }'>
               <div class="text-right">
-                <button class="btn btn-outline-primary" type="submit"> Agregar Parte Médico</button>
+                  <v-btn class="btn btn-outline-primary"> Agregar Parte Médico
+                  </v-btn>
               </div>
+              </router-link>
             </div>
             <div class="col-md-6 mb-4">
               <div class="card example-1 scrollbar-ripe-malinka">
@@ -82,7 +85,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="prueba in pruebas" v-bind:key="prueba">
+                      <tr v-for="(prueba, index) of pruebas" v-bind:key="prueba">
                         <th scope="row">1</th>
                         <td> {{ prueba.id }} </td>
                         <td> {{ prueba.fecha }} </td>
@@ -91,7 +94,7 @@
                         <td v-if="prueba.fechaResultado == null"> Sin resultado </td>
                         <td v-else-if="prueba.resultado"> Positivo </td>
                         <td v-else> Negativo </td>
-                        <td>
+                        <td v-if="index == pruebas.length - 1">
                           <v-icon
                                   small
                                   class="mr-2"
@@ -99,6 +102,8 @@
                                 >
                                   mdi-pencil
                                 </v-icon>
+                         </td>
+                         <td v-else>
                          </td>
                       </tr>
                     </tbody>
@@ -154,7 +159,7 @@
 
                 <v-col cols="12" sm="6">
                   <v-select
-                    v-model="estado"
+                    v-model="resultado"
                     :items="['Positivo', 'Negativo']"
                     label="Resultado*"
                     required
@@ -168,7 +173,7 @@
                               <v-spacer></v-spacer>
                               <v-btn color="blue darken-1" text @click="edit = false">Cerrar</v-btn>
                               <v-btn color="blue darken-1"
-                              text @click="edit = false;">Agregar</v-btn>
+                              text @click="edit = false; updatePrueba()">Agregar</v-btn>
                             </v-card-actions>
                           </v-card>
                           </v-dialog>
@@ -196,23 +201,9 @@ export default {
   mounted() {
     this.obtenerPartes();
     this.obtenerPruebas();
+    this.obtenerEstado();
   },
   methods: {
-    altaParte() {
-      const url = `${cfg.PartesMedicos_URL}`;
-      axios.post(url, { estado: this.estado, PacienteDni: this.dni, MedicoDni: 4100325 })
-        .then((result) => {
-          if (result.status === 200) {
-            console.log('Error en el alta');
-            this.error = result.data.msg;
-            this.errorBool = true;
-          } else {
-            console.log('Caso cargado correctamente');
-            this.actualizarCasos();
-          }
-        })
-        .catch((error) => { this.error = error.message; this.errorBool = true; });
-    },
     altaPrueba() {
       const url = `${cfg.Pruebas_URL}`;
       axios.post(url, { fecha: new Date(), CasoId: this.caso.id })
@@ -243,6 +234,24 @@ export default {
           this.pruebas = result.data;
         })
         .catch((error) => { this.error = error.message; this.errorBool = true; });
+    },
+    updatePrueba() {
+      if (this.resultado === 'Positivo') {
+        this.resultado = true;
+      } else {
+        this.resultado = false;
+      }
+      const currentDate = new Date();
+      const url = `${cfg.Pruebas_URL}/${this.caso.id}/${this.idPrueba}`;
+      axios.put(url, { resultado: this.resultado, fechaResultado: currentDate })
+        .then(() => {
+          this.obtenerPruebas();
+        })
+        .catch((error) => { this.error = error.message; this.errorBool = true; });
+    },
+    obtenerEstado() {
+      this.estado = Object.keys(this.pruebas).shift();
+      console.log(this.estado);
     },
   },
 };

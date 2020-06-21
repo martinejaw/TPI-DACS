@@ -5,15 +5,11 @@
         <div class="w3-container w3-teal">
           <div class="row">
             <div class="col-md-6 mb-4">
-              <h1 class="display-3">Agregar Parte Medico</h1>
-              <h3><strong>Estado: </strong>
-                <span class="badge bg-warning">Sin contestar</span>
-                <span class="badge bg-success">Contestado</span>
-              </h3>
+              <h1 class="display-3">Agregar Parte Medico Caso {{ caso.id }} </h1>
               <hr class="my-4">
                 <h3 class>Estado</h3>
-                <select class="form-control">
-                  <option>Default select</option>
+                <select v-model="estado" class="form-control">
+                  <option>Confirmado</option>
                 </select>
             </div>
             <div class="col-md-6 mb-4">
@@ -134,17 +130,18 @@
                       ref="dialog"
                       v-model="modal"
                       :return-value.sync="date"
+                      width="290px"
                     >
                       <template v-slot:activator="{ on, attrs }">
                         <v-text-field
-                          v-model="date"
+                          v-model="fecha"
                           label="Ingrese la fecha"
                           readonly
                           v-bind="attrs"
                           v-on="on"
                         ></v-text-field>
                       </template>
-                      <v-date-picker v-model="date" scrollable>
+                      <v-date-picker v-model="fecha" scrollable>
                         <v-spacer></v-spacer>
                         <v-btn text color="primary" @click="modal = false">Cancel</v-btn>
                         <v-btn text color="primary" @click="$refs.dialog.save(date)">OK</v-btn>
@@ -152,27 +149,79 @@
                     </v-dialog>
                 </div>
               <h2>Tratamiento</h2>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1"
+              v-model="tratamiento" rows="5"></textarea>
               <hr class="my-1">
               <h2>Comentario</h2>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1"
+              v-model="comentario" rows="5"></textarea>
               <hr class="my-2">
 
               <div class="text-right">
-                <button class="btn btn-primary" type="submit"> Agregar Parte Médico</button>
+                <button class="btn btn-primary" @click="altaParte()"> Agregar Parte Médico</button>
               </div>
             </div>
           </div>
         </div>
+        <!--Form error-->
+    <v-row justify="center">
+      <v-dialog v-model="errorBool" persistent max-width="500">
+        <v-card>
+          <v-card-title class="headline"> {{ error }} </v-card-title>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="green darken-1" text @click="errorBool = false">Enterado</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-row>
 </div>
 </template>
 
 <script>
+import axios from 'axios';
+import cfg from '../config/cfg';
+
 export default {
   name: 'ParteMedico',
+  props: ['caso'],
   data: () => ({
     modal: false,
+    tratamiento: '',
+    comentario: '',
+    fecha: '',
+    estado: '',
+    errorBool: false,
   }),
+  methods: {
+    altaParte() {
+      const url = `${cfg.PartesMedicos_URL}`;
+      axios.post(url, {
+        CasoId: this.caso.id,
+        estadoVital: this.estado,
+        PacienteDni: this.dni,
+        MedicoDni: 4100325,
+        fecha: this.fecha,
+        tratamientos: this.tratamiento,
+        comentario: this.comentario,
+      })
+        .then((result) => {
+          if (result.status === 200) {
+            console.log('Error en el alta');
+            this.error = result.data.msg;
+            this.errorBool = true;
+          } else {
+            console.log('Caso cargado correctamente');
+            this.$router.push({ name: 'Caso', params: { caso: this.caso } });
+          }
+        })
+        .catch((error) => {
+          this.error = error;
+          console.log(error.message);
+          this.errorBool = true;
+        });
+    },
+  },
 };
 </script>
 

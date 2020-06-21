@@ -71,6 +71,7 @@ const routes = [
     path: '/partemedico',
     name: 'ParteMedico',
     component: ParteMedico,
+    props: true,
   },
   {
     path: '/about',
