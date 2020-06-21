@@ -12,12 +12,12 @@
               <div>
                 <h6>
                   <strong>Estado: </strong>
-                  <span class="badge bg-primary"></span>
-                  <span class="badge bg-info"></span>
-                  <span class="badge bg-warning"></span>
-                  <span class="badge bg-success"> {{ caso.estado }} </span>
-                  <button class="btn btn-outline-primary btn-sm"
-                   type="submit"> Modificar Estado</button>
+                  <span v-if="caso.estado === 'Sospechoso'"
+                  class="badge bg-warning">{{caso.estado}}</span>
+                  <span v-if="caso.estado === 'Positivo'"
+                  class="badge bg-danger">{{caso.estado}}</span>
+                  <span v-if="caso.estado === 'Negativo'"
+                  class="badge bg-success">{{caso.estado}}</span>
                 </h6>
               </div>
             </div>
@@ -52,8 +52,8 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="parte in partesMedicos" v-bind:key="parte">
-                        <th scope="row">1</th>
+                      <tr v-for="(parte,index) in partesMedicos" v-bind:key="parte">
+                        <th scope="row">{{index+1}}</th>
                         <td> {{ parte.id }} </td>
                         <td> {{ parte.estadoVital }} </td>
                         <td> {{ parte.fecha }} </td>
@@ -86,7 +86,7 @@
                     </thead>
                     <tbody>
                       <tr v-for="(prueba, index) of pruebas" v-bind:key="prueba">
-                        <th scope="row">1</th>
+                        <th scope="row">{{index+1}}</th>
                         <td> {{ prueba.id }} </td>
                         <td> {{ prueba.fecha }} </td>
                         <td v-if="prueba.fechaResultado != null"> {{ prueba.fechaResultado }} </td>
@@ -159,7 +159,7 @@
 
                 <v-col cols="12" sm="6">
                   <v-select
-                    v-model="resultado"
+                    v-model="resultadoPrueba"
                     :items="['Positivo', 'Negativo']"
                     label="Resultado*"
                     required
@@ -195,13 +195,12 @@ export default {
     estado: '',
     errorBool: false,
     edit: false,
-    resultado: '',
+    resultadoPrueba: '',
     idPrueba: 0,
   }),
   mounted() {
     this.obtenerPartes();
     this.obtenerPruebas();
-    this.obtenerEstado();
   },
   methods: {
     altaPrueba() {
@@ -236,7 +235,7 @@ export default {
         .catch((error) => { this.error = error.message; this.errorBool = true; });
     },
     updatePrueba() {
-      if (this.resultado === 'Positivo') {
+      if (this.resultadoPrueba === 'Positivo') {
         this.resultado = true;
       } else {
         this.resultado = false;
@@ -248,10 +247,13 @@ export default {
           this.obtenerPruebas();
         })
         .catch((error) => { this.error = error.message; this.errorBool = true; });
+      this.obtenerEstado();
     },
     obtenerEstado() {
-      this.estado = Object.keys(this.pruebas).shift();
-      console.log(this.estado);
+      this.caso.estado = this.resultadoPrueba;
+      const url = `${cfg.Casos_URL}/${this.caso.id}`;
+      axios.put(url, { estado: this.caso.estado })
+        .catch((error) => { this.error = error.message; this.errorBool = true; });
     },
   },
 };

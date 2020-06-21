@@ -9,7 +9,10 @@
               <hr class="my-4">
                 <h3 class>Estado</h3>
                 <select v-model="estado" class="form-control">
-                  <option>Confirmado</option>
+                  <option>Estable</option>
+                  <option>Crítico</option>
+                  <option>Grave</option>
+                  <option>Fallecido</option>
                 </select>
             </div>
             <div class="col-md-6 mb-4">
