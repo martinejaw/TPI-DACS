@@ -1,10 +1,10 @@
 <template>
   <botones>
     <div class="botones justify-content-md-center">
-      <a class="verconsultas btn btn-info btn-lg text-dark font-weight-bold
-      display-2" href="#">Ver Consultas</a>
-      <a class="vercasos btn btn-info btn-lg text-dark font-weight-bold
-      display-2" href="#">Ver Casos</a>
+      <a class="vermedicos btn btn-info btn-lg text-dark font-weight-bold
+      display-2" href="#">Ver Medicos</a>
+      <a class="verrecursos btn btn-info btn-lg text-dark font-weight-bold
+      display-2" href="#">Ver Recursos</a>
     </div>
   </botones>
 </template>
@@ -16,6 +16,14 @@ export default {
 </script>
 
 <style>
+.body {
+  background-image: url("image/fondo.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: auto;
+}
+
 .botones {
   text-decoration: black;
   font-size: 36px;
@@ -25,8 +33,8 @@ export default {
   margin-right: auto;
 }
 
-.verconsultas {
-  background-image: url("image/consulta.jpg");
+.vermedicos {
+  background-image: url("image/medicos.jpg");
   background-repeat: no-repeat;
   background-attachment: local;
   background-position: center;
@@ -43,8 +51,8 @@ export default {
   -webkit-text-stroke-color: whitesmoke;
 }
 
-.vercasos {
-  background-image: url("image/caso.jpg");
+.verrecursos {
+  background-image: url("image/recursos.png");
   background-repeat: no-repeat;
   background-attachment: local;
   background-position: center;
