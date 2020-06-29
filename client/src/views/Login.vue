@@ -38,7 +38,7 @@
     <v-btn
       :disabled="!valid"
       color="success"
-      class="mr-4"
+      class="mb-4"
       @click="validate"
     >
       Loguearse
@@ -47,7 +47,7 @@
 <router-link to="/medico">
     <v-btn
       color="error"
-      class="mr-4"
+      class="mr-0"
       @click="reset"
     >
       Olvide mi contraseña
@@ -104,7 +104,11 @@ export default {
 
 <style>
 #inner {
+  background-color: #efd199;
+  padding: 50px;
   width: 25%;
-  margin: 0 auto;
+  margin: 50px auto;
+  border-radius: 5px;
+  box-shadow: 0px 4px 15px #444444;
 }
 </style>
