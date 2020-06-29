@@ -10,6 +10,7 @@ const cfg = {
   Diagnostico_URL: 'http://localhost:3000/consulta/diagnosticar',
   PartesMedicos_URL: 'http://localhost:3000/partemedico',
   Pruebas_URL: 'http://localhost:3000/prueba',
+  Pedidos_URL: 'http://localhost:3000/recurso/pedirRecursos',
 };
 
 module.exports = cfg;

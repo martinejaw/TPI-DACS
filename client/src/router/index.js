@@ -13,7 +13,17 @@ import Caso from '../views/VerCaso.vue';
 import ParteMedico from '../views/AddParteMedico.vue';
 import Administrador from '../views/HomeAdmin.vue';
 
+import store from '../plugins/vuex_store';
+
 Vue.use(VueRouter);
+
+const ifMedico = (to, from, next) => {
+  if (store.state.isMedico) {
+    next();
+  } else {
+    next('/login');
+  }
+};
 
 const routes = [
   {
@@ -25,6 +35,7 @@ const routes = [
     path: '/recursos',
     name: 'Recursos',
     component: Recursos,
+    meta: { requiresAuth: true },
   },
   {
     path: '/vermedicos',
@@ -35,6 +46,7 @@ const routes = [
     path: '/consultas',
     name: 'Consultas',
     component: Consultas,
+    beforeEnter: ifMedico,
   },
   {
     path: '/consultadiagnostico',
@@ -95,6 +107,18 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresAuth) {
+    if (!store.state.user) {
+      next('/login');
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
 });
 
 export default router;

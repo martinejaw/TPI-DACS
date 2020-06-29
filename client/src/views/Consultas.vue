@@ -1,22 +1,5 @@
 <template>
   <div>
-    <Form></Form>
-    <v-card class="w3-container w3-teal">
-      <v-card-title>
-        Consultas
-        <v-spacer></v-spacer>
-        <v-text-field
-          v-model="search"
-          append-icon="mdi-magnify"
-          label="Buscar"
-          single-line
-          hide-details
-        ></v-text-field>
-      </v-card-title>
-      <v-data-table class="tabla" :headers="headers"
-      :items="consultas" :search="search"></v-data-table>
-    </v-card>
-
     <hr class="my-2" />
     <!--div class="jumbotron jumbotron-fluid"-->
     <div class="w3-container w3-teal">
@@ -101,7 +84,7 @@
 <script>
 import axios from 'axios';
 import cfg from '../config/cfg';
-import Form from '../components/Form.vue';
+
 
 export default {
   name: 'Consultas',
@@ -143,9 +126,6 @@ export default {
         })
         .catch((error) => { this.error = error.message; });
     },
-  },
-  components: {
-    Form,
   },
 };
 </script>

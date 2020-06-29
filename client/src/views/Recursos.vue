@@ -20,14 +20,84 @@
             <td>{{ recurso.nombre }}</td>
             <td>{{ recurso.cantidad }}</td>
             <td>
-              <a class="boton-modificar" href="#">Modificar Cantidad</a>
+              <v-btn
+                class="boton-modificar"
+                @click="recursoEdit=recurso.nombre;edit=true;value=recurso.cantidad;
+                recursoID=recurso.id"
+              >Modificar Cantidad</v-btn>
             </td>
           </tr>
         </tbody>
       </table>
-      <v-btn color="success" class="mr-4" v-on:click="imp">Realizar Pedido</v-btn>
+      <v-btn color="success" class="mr-4" v-on:click="pedidoBool = true">Realizar Pedido</v-btn>
       <!-- Fin Recursos -->
     </div>
+
+    <v-dialog v-model="edit" persistent max-width="600px">
+      <v-card>
+        <v-card-title>
+          <span class="headline">Recurso: {{ recursoEdit }}</span>
+        </v-card-title>
+        <v-card-text>
+          <v-container>
+            <v-col cols="12" sm="6">
+              <number-input v-model="value" :min="0"></number-input>
+            </v-col>
+          </v-container>
+          <small>*Campos Obligatorios</small>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="blue darken-1" text @click="edit = false">Cerrar</v-btn>
+          <v-btn
+            color="blue darken-1"
+            text
+            @click="edit = false;actualizarRecursos();"
+          >Actualizar recursos</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <!--Form error-->
+    <v-row justify="center">
+      <v-dialog v-model="errorBool" persistent max-width="500">
+        <v-card>
+          <v-card-title class="headline"> {{ error }} </v-card-title>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="green darken-1" text @click="errorBool = false">Enterado</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-row>
+
+    <!--Form pedido-->
+    <v-dialog v-model="pedidoBool" persistent max-width="600px">
+      <v-card>
+        <v-card-title>
+          <span class="headline">Pedido de Recursos</span>
+        </v-card-title>
+        <v-card-text>
+          <v-container>
+            <v-col cols="12" sm="6">
+              <div v-for="recurso in recursos" v-bind:key="recurso">
+                <p> {{ recurso.nombre }} </p>
+                <number-input v-model="value" :min="0"></number-input>
+              </div>
+            </v-col>
+          </v-container>
+          <small>*Campos Obligatorios</small>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="blue darken-1" text @click="pedidoBool = false">Cerrar</v-btn>
+          <v-btn
+            color="blue darken-1"
+            text
+            @click="pedidoBool = false;realizarPedido();"
+          >Actualizar recursos</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-app>
 </template>
 
@@ -39,19 +109,38 @@ export default {
   name: 'Recursos',
   data: () => ({
     recursos: [],
+    edit: false,
+    recursoEdit: '',
+    recursoID: 0,
+    value: 0,
+    errorBool: false,
+    error: '',
+    pedidoBool: false,
   }),
   mounted() {
-    const url = `${cfg.Recursos_URL}/${this.$store.state.cuit}`;
-    axios.get(url)
-      .then((result) => {
-        this.recursos = result.data;
-        this.recursos.sort((a, b) => a.id - b.id);
-      })
-      .catch((error) => { this.error = error.message; });
+    this.actualizar();
   },
   methods: {
-    imp() {
-      console.log(this.recursos);
+    realizarPedido() {
+      const pedido = {};
+      axios.post(cfg.Pedidos_URL, pedido)
+        .then()
+        .catch((error) => { this.error = error.message; this.errorBool = true; });
+    },
+    actualizarRecursos() {
+      const url = `${cfg.Recursos_URL}/${this.$store.state.cuit}/${this.recursoID}`;
+      axios.put(url, { cantidad: this.value })
+        .then(() => { this.actualizar(); })
+        .catch((error) => { this.error = error.message; this.errorBool = true; });
+    },
+    actualizar() {
+      const url = `${cfg.Recursos_URL}/${this.$store.state.cuit}`;
+      axios.get(url)
+        .then((result) => {
+          this.recursos = result.data;
+          this.recursos.sort((a, b) => a.id - b.id);
+        })
+        .catch((error) => { this.error = error.message; this.errorBool = true; });
     },
   },
 };
