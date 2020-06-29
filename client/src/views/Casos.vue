@@ -59,9 +59,9 @@
     </form>
     <hr class="my-1" />
     <div class="btn-group d-flex" role="group">
-      <a class="btn btn-outline-secondary w-100">ID caso</a>
-      <a class="btn btn-outline-secondary w-100">Estado</a>
-      <a class="btn btn-outline-secondary w-100">Fecha</a>
+      <a class="btn btn-outline-secondary w-100" @click="ordenarID">ID caso</a>
+      <a class="btn btn-outline-secondary w-100" @click="ordenarEstado">Estado</a>
+      <a class="btn btn-outline-secondary w-100" @click="ordenarFecha">Fecha</a>
     </div>
 
     <!--Form error-->
@@ -145,6 +145,9 @@ export default {
     dni: 0,
     estado: '',
     errorBool: false,
+    ordID: true,
+    ordFecha: false,
+    ordEstado: false,
   }),
   mounted() {
     this.actualizarCasos();
@@ -172,6 +175,33 @@ export default {
           this.casos = result.data;
         })
         .catch((error) => { this.error = error.message; this.errorBool = true; });
+    },
+    ordenarID() {
+      if (this.ordID) {
+        this.casos.sort((b, a) => a.id - b.id);
+        this.ordID = false;
+      } else {
+        this.casos.sort((a, b) => a.id - b.id);
+        this.ordID = true;
+      }
+    },
+    ordenarFecha() {
+      if (this.ordFecha) {
+        this.casos.sort((b, a) => a.fechaInicio > b.fechaInicio);
+        this.ordFecha = false;
+      } else {
+        this.casos.sort((a, b) => a.fechaInicio > b.fechaInicio);
+        this.ordFecha = true;
+      }
+    },
+    ordenarEstado() {
+      if (this.ordEstado) {
+        this.casos.sort((b, a) => a.estado > b.estado);
+        this.ordEstado = false;
+      } else {
+        this.casos.sort((a, b) => a.estado > b.estado);
+        this.ordEstado = true;
+      }
     },
     watch: {
       error: () => {
