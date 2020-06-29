@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import jwt from 'jwt-simple';
 import VueRouter from 'vue-router';
 import Register from '../views/Register.vue';
 import Login from '../views/Login.vue';
@@ -110,6 +111,13 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  const algo = { isMedico: false };
+  const code = jwt.encode(algo, 'pass');
+  const dec = jwt.decode(code, 'pass');
+
+  store.state.isMedico = dec.isMedico;
+
+  // store.state.isMedico = localStorage.getItem('user-token');
   if (to.meta.requiresAuth) {
     if (!store.state.user) {
       next('/login');

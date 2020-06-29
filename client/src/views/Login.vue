@@ -91,12 +91,12 @@ export default {
   },
   methods: {
     async validate() {
+      localStorage.setItem('user-token', true); // store the token in localstorage
       await axios.post(cfg.VAL_URL, { usuario: this.usuario, password: this.pass })
         .then((result) => {
           this.okey = result.data.msg;
         })
-        .catch((error) => { this.error = error.message; });
-      console.log(this.$store.state.cuit);
+        .catch((error) => { this.error = error.message; localStorage.removeItem('user-token'); });
     },
   },
 };
