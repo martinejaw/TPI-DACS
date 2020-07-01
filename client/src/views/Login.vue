@@ -31,7 +31,7 @@
     <v-checkbox
       v-model="checkbox"
       :rules="[v => !!v || 'You must agree to continue!']"
-      label="Do you agree?"
+      label="¿Estas de acuerdo?"
       required
     ></v-checkbox>
 
@@ -81,20 +81,13 @@ export default {
       (v) => !!v || 'La contraseña es requerida',
       (v) => (v.split(' ').length <= 1) || 'Espacios en blanco no permitidos',
     ],
-
-    okey: null,
   }),
 
-  mounted() {
-    this.$store.commit('increment');
-    this.$store.state.cuit = 2121;
-  },
   methods: {
     async validate() {
-      localStorage.setItem('user-token', true); // store the token in localstorage
       await axios.post(cfg.VAL_URL, { usuario: this.usuario, password: this.pass })
         .then((result) => {
-          this.okey = result.data.msg;
+          localStorage.setItem('user-token', result.data.token); // store the token in localstorage
         })
         .catch((error) => { this.error = error.message; localStorage.removeItem('user-token'); });
     },
@@ -106,6 +99,7 @@ export default {
 #inner {
   background-color: #efd199;
   padding: 50px;
+  min-width: 400px;
   width: 25%;
   margin: 50px auto;
   border-radius: 5px;

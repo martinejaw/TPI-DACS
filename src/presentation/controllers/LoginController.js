@@ -1,4 +1,5 @@
 const path = require('path')
+const jwt = require('jwt-simple')
 
 class LoginController {
     constructor({LoginService}){
@@ -14,7 +15,8 @@ class LoginController {
         await this._loginService.validarRegistro(req.body)
             .then(usuarioValidado => {  
                 if(usuarioValidado!=false){
-                    res.status(200).json({msg: "Usuario Valido"})
+                    const token = jwt.encode(usuarioValidado, 'pass');
+                    res.status(200).json({token: token})
                 } else {
                     res.status(401).json({msg: "Acceso denegado"})
                 }})
