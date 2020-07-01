@@ -1,4 +1,5 @@
 const request = require('request-promise')
+const axios = require("axios");
 
 class RecursoController {
     constructor({RecursoService}){
@@ -48,35 +49,12 @@ class RecursoController {
 
     async pedirRecursos(req, res){
         const recursos = req.body;
-        /*
-        {
-            "CUIT": 2121
-        "camillas" :13,
-                "jabonLitros" : 41,
-                "alcoholLitros" : 23,
-                "barbijos" : 15,
-                "jeringas" :32,
-                "cofias" : 12
-        "Test": 150,
-        "Respiradores":15,
-        }
-        */
-        // Evaluar la posibilidad de guardar que se hizo el pedido
-
-        let options = {
-            method: 'POST',
-            uri: 'http://localhost:3000/consulta', // aca va la api de ministerio
-            body: recursos,
-            json: true
-        }
-
-        // Mando la peticion al ministerio
-        request(options)
-            .then(respuesta => console.log("Okey"))
-            .catch(error => {  
-                console.log("No Okey")
-            }); 
-
+        axios({
+            method: 'post',
+            url: '6iubewzdng.execute-api.sa-east-1.amazonaws.com/dev/peticiones',
+            headers: {'x-api-key': 'FTlS2bc9lo1OtmzHCBrju4ZL8PqFM5yr4JB775RR'},
+            data: recursos
+        });
     }
 }
 

@@ -11,7 +11,6 @@ class LoginController {
     }
 
     async login(req,res){
-        //res.setHeader('Access-Control-Allow-Origin', '*');
         await this._loginService.validarRegistro(req.body)
             .then(usuarioValidado => {  
                 if(usuarioValidado!=false){
@@ -22,11 +21,14 @@ class LoginController {
             .catch(error => {
                 res.status(401).json({msg: error.message});  
             });
-        /*await this._loginService.create(req.body)
-            .then(medicoCreated => res.status(201).json(medicoCreated))
+    }
+
+    async register(req,res){
+        await this._loginService.create(req.body)
+            .then(cuentaCreated => res.status(201).json(cuentaCreated))
             .catch(error => {
                 res.status(412).json({msg: error.message});  
-        });*/
+        });
     }
 
 }
