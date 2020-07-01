@@ -31,7 +31,7 @@
     <v-checkbox
       v-model="checkbox"
       :rules="[v => !!v || 'You must agree to continue!']"
-      label="Do you agree?"
+      label="¿Estas de acuerdo?"
       required
     ></v-checkbox>
 
@@ -106,6 +106,7 @@ export default {
 #inner {
   background-color: #efd199;
   padding: 50px;
+  min-width: 400px;
   width: 25%;
   margin: 50px auto;
   border-radius: 5px;
