@@ -55,7 +55,7 @@ const routes = [
     path: '/recursos',
     name: 'Recursos',
     component: Recursos,
-    meta: { requiresAdmin: true },
+    beforeEnter: ifAdmin,
   },
   {
     path: '/vermedicos',

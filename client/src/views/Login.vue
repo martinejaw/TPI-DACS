@@ -74,7 +74,6 @@
 
 <script>
 import axios from 'axios';
-import jwt from 'jwt-simple';
 import cfg from '../config/cfg';
 
 export default {
@@ -101,18 +100,12 @@ export default {
 
   methods: {
     async validate() {
-      console.log('Admin ', this.$store.state.isAdmin);
-      console.log('Medico ', this.$store.state.isMedico);
       await axios.post(cfg.VAL_URL, { usuario: this.usuario, password: this.pass })
         .then((result) => {
-          localStorage.setItem('user-token', result.data.token); // store the token in localstorage
-          console.log('Token ', result.data.token);
-          console.log('DesToken ', jwt.decode(result.data.token, 'pass'));
+          localStorage.setItem('user-token', result.data.token); // store the stoken in localstorage
+          this.$router.push({ name: 'Home' });
         })
         .catch((error) => { this.error = error.message; this.errorBool = true; });
-      const tok = localStorage.getItem('user-token');
-      console.log('TOk ', tok);
-      console.log('DesToken ', jwt.decode(tok, 'pass'));
     },
   },
 };
