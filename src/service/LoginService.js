@@ -8,13 +8,13 @@ class LoginService extends BaseService{
 
     async validarRegistro(cuenta){
         const cuentaValida = await this._entityRepository.get(cuenta.usuario);
-        if (cuentaValida === null /*|| cuentaValida.password != cuenta.password*/){
+        if (cuentaValida === null){
             return false;
         }
         else{
             const v = bcrypt.compareSync(cuenta.password, cuentaValida.password);
             if (v == true) {
-                return {usuario: cuentaValida.usuario, password: cuentaValida.password};
+                return {usuario: cuentaValida.usuario, password: cuentaValida.password, rol: cuentaValida.rol};
             } else {
                 return false;
             }

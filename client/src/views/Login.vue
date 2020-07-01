@@ -55,11 +55,26 @@
     </router-link>
   </v-form>
   </v-app>
+
+  <!--Form error-->
+    <v-row justify="center">
+      <v-dialog v-model="errorBool" persistent max-width="500">
+        <v-card>
+          <v-card-title class="headline"> {{ error }} </v-card-title>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="green darken-1" text @click="errorBool = false">Enterado</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-row>
   </v-container>
+
 </template>
 
 <script>
 import axios from 'axios';
+import jwt from 'jwt-simple';
 import cfg from '../config/cfg';
 
 export default {
@@ -74,6 +89,7 @@ export default {
       (v) => (v.split(' ').length <= 1) || 'Espacios en blanco no permitidos',
     ],
     error: '',
+    errorBool: false,
     message: '',
     pass: '',
     value: true,
@@ -85,11 +101,18 @@ export default {
 
   methods: {
     async validate() {
+      console.log('Admin ', this.$store.state.isAdmin);
+      console.log('Medico ', this.$store.state.isMedico);
       await axios.post(cfg.VAL_URL, { usuario: this.usuario, password: this.pass })
         .then((result) => {
           localStorage.setItem('user-token', result.data.token); // store the token in localstorage
+          console.log('Token ', result.data.token);
+          console.log('DesToken ', jwt.decode(result.data.token, 'pass'));
         })
-        .catch((error) => { this.error = error.message; localStorage.removeItem('user-token'); });
+        .catch((error) => { this.error = error.message; this.errorBool = true; });
+      const tok = localStorage.getItem('user-token');
+      console.log('TOk ', tok);
+      console.log('DesToken ', jwt.decode(tok, 'pass'));
     },
   },
 };

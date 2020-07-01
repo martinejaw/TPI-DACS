@@ -18,7 +18,7 @@ class LoginController {
                     const token = jwt.encode(usuarioValidado, 'pass');
                     res.status(200).json({token: token})
                 } else {
-                    res.status(401).json({msg: "Acceso denegado"})
+                    res.status(404).json({msg: "Acceso denegado"})
                 }})
             .catch(error => {
                 res.status(401).json({msg: error.message});  
@@ -26,7 +26,7 @@ class LoginController {
     }
 
     async register(req,res){
-        await this._loginService.create(req.body)
+        await this._loginService.create(req.body/*{usuario: 'martin', password: 'martin', rol: 'medico'}*/)
             .then(cuentaCreated => res.status(201).json(cuentaCreated))
             .catch(error => {
                 res.status(412).json({msg: error.message});  

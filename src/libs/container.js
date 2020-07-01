@@ -3,7 +3,7 @@ const { asClass, createContainer, asFunction, asValue } = require("awilix");
 // app start
 const StartUp = require("./startup");
 const Server = require("./server");
-const config = require("../config/environments/prod");
+const config = require("../config/environments/dev");
 
 // routes
 const Routes = require("../presentation/routes");
@@ -20,6 +20,7 @@ const ParteMedicoRoutes = require("../presentation/routes/ParteMedicoRoutes");
 const PruebaRoutes = require("../presentation/routes/PruebaRoutes");
 const RecursoRoutes = require("../presentation/routes/RecursoRoutes");
 const ReporteRoutes = require("../presentation/routes/ReporteRoutes");
+const RegisterRoutes = require("../presentation/routes/RegisterRoutes");
 
 // controllers
 const Controller = require("../presentation/controllers/index");
@@ -67,6 +68,7 @@ container
     PruebaRoutes: asFunction(PruebaRoutes).singleton(),
     RecursoRoutes: asFunction(RecursoRoutes).singleton(),
     ReporteRoutes: asFunction(ReporteRoutes).singleton(),
+    RegisterRoutes: asFunction(RegisterRoutes).singleton(),
   })
   .register({
     config: asValue(config)

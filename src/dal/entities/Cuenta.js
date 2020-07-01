@@ -14,6 +14,13 @@ module.exports = (sequelize, DataType) => {
           notEmpty: true
         }
       },
+      rol: {
+        type: DataType.TEXT,
+        allowNull: false,
+        validate: {
+          notEmpty: true
+        }
+      },
       createdAt: {
         type: DataType.DATE,
         defaultValue: new Date()

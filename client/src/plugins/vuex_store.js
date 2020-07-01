@@ -8,12 +8,15 @@ const store = new Vuex.Store({
     count: 0,
     cuit: 212121,
     dni: 4100325,
-    user: false,
     isMedico: false,
+    isAdmin: false,
   },
   mutations: {
     increment(state) {
       state.count += 1;
+    },
+    setMedico: (state, estado) => {
+      state.isMedico = estado;
     },
   },
 });

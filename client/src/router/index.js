@@ -26,17 +26,36 @@ const ifMedico = (to, from, next) => {
   }
 };
 
+const ifAdmin = (to, from, next) => {
+  if (store.state.isAdmin) {
+    next();
+  } else {
+    next('/login');
+  }
+};
+
+const ifAuth = (to, from, next) => {
+  if (store.state.isMedico) {
+    next('/medico');
+  } else if (store.state.isAdmin) {
+    next('/admin');
+  } else {
+    next('/login');
+  }
+};
+
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home,
+    beforeEnter: ifAuth,
   },
   {
     path: '/recursos',
     name: 'Recursos',
     component: Recursos,
-    meta: { requiresAuth: true },
+    meta: { requiresAdmin: true },
   },
   {
     path: '/vermedicos',
@@ -54,17 +73,20 @@ const routes = [
     name: 'ConsultaDiagnostico',
     component: ConsultaDiagnostico,
     props: true,
+    beforeEnter: ifMedico,
   },
   {
     path: '/casos',
     name: 'Casos',
     component: Casos,
+    beforeEnter: ifMedico,
   },
   {
     path: '/caso',
     name: 'Caso',
     component: Caso,
     props: true,
+    beforeEnter: ifMedico,
   },
   {
     path: '/login',
@@ -80,17 +102,20 @@ const routes = [
     path: '/medico',
     name: 'Medico',
     component: Medico,
+    beforeEnter: ifMedico,
   },
   {
     path: '/admin',
     name: 'Administrador',
     component: Administrador,
+    beforeEnter: ifAdmin,
   },
   {
     path: '/partemedico',
     name: 'ParteMedico',
     component: ParteMedico,
     props: true,
+    beforeEnter: ifMedico,
   },
   {
     path: '/about',
@@ -111,22 +136,20 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const algo = { isMedico: false };
-  const code = jwt.encode(algo, 'pass');
-  const dec = jwt.decode(code, 'pass');
+  const token = localStorage.getItem('user-token');
 
-  store.state.isMedico = dec.isMedico;
+  if (token != null) {
+    const user = jwt.decode(token, 'pass');
+    console.log(user);
 
-  // store.state.isMedico = localStorage.getItem('user-token');
-  if (to.meta.requiresAuth) {
-    if (!store.state.user) {
-      next('/login');
-    } else {
-      next();
+    if (user.rol === 'medico') {
+      store.commit('setMedico', true);
+    } else if (user.rol === 'admin') {
+      store.state.isAdmin = true;
     }
-  } else {
-    next();
   }
+
+  next();
 });
 
 export default router;
