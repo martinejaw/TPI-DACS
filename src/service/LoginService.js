@@ -12,13 +12,12 @@ class LoginService extends BaseService{
             return false;
         }
         else{
-            bcrypt.compareSync(cuenta.password, cuentaValida.password, (err, result) => {
-                if (result == true) {
-                    return cuentaValida;
-                } else {
-                    return false;
-                }
-            });
+            const v = bcrypt.compareSync(cuenta.password, cuentaValida.password);
+            if (v == true) {
+                return {usuario: cuentaValida.usuario, password: cuentaValida.password};
+            } else {
+                return false;
+            }
         }
     }
 }

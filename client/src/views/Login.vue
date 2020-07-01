@@ -81,20 +81,13 @@ export default {
       (v) => !!v || 'La contraseña es requerida',
       (v) => (v.split(' ').length <= 1) || 'Espacios en blanco no permitidos',
     ],
-
-    okey: null,
   }),
 
-  mounted() {
-    this.$store.commit('increment');
-    this.$store.state.cuit = 2121;
-  },
   methods: {
     async validate() {
-      localStorage.setItem('user-token', true); // store the token in localstorage
       await axios.post(cfg.VAL_URL, { usuario: this.usuario, password: this.pass })
         .then((result) => {
-          this.okey = result.data.msg;
+          localStorage.setItem('user-token', result.data.token); // store the token in localstorage
         })
         .catch((error) => { this.error = error.message; localStorage.removeItem('user-token'); });
     },
