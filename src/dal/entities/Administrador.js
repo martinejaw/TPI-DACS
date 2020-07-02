@@ -5,6 +5,11 @@ module.exports = (sequelize, DataType) => {
         dni: {
             type: DataType.INTEGER,
             primaryKey:true,
+            allowNull: false,
+            validate: {
+                isNumeric: true,
+                len: [7,8]
+            }
         },
         nombre: {
             type: DataType.STRING,
@@ -35,6 +40,7 @@ module.exports = (sequelize, DataType) => {
     // Relaciones
     Administrador.associate = (models) => {
         Administrador.belongsTo(models.Cuentas);
+	Administrador.belongsTo(models.Hospitales, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
     };
 
     return Administrador;

@@ -10,7 +10,8 @@ module.exports = (sequelize, DataType) => {
         type: DataType.STRING,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: true,
+            is: ["^[a-z]+$",'i']
         }
       },
       cantidad: {
@@ -18,6 +19,7 @@ module.exports = (sequelize, DataType) => {
         allowNull: false,
         defaultValue: 0,
         validate: {
+          isNumeric: true,
           notEmpty: true
         }
       },
