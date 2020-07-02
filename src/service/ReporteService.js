@@ -1,8 +1,9 @@
 class ReporteService{
-    constructor({RecursoService, PruebaService, ParteMedicoService}){
+    constructor({RecursoService, PruebaService, ParteMedicoService, HospitalService}){
         this._recursoService = RecursoService;
         this._pruebaService = PruebaService;
         this._parteMedicoService = ParteMedicoService;
+        this._hospitalService = HospitalService;
 
     }
 
@@ -16,7 +17,6 @@ class ReporteService{
             recursosLindificados[recurso.nombre]= recurso.cantidad;
         }
 
-
         const reporte = 
         {
             "ReporteHospitalario": {
@@ -28,6 +28,19 @@ class ReporteService{
         }
 
         return reporte;
+    }
+
+    async reporteTotal(){
+        const todosCUITs = await this._hospitalService.getAll();
+
+        let reporteTotal = [];
+
+        for (const modelo of todosCUITs){
+            const reporteIndividual = await this.reporteDiario(modelo.CUIT);
+            reporteTotal.push(reporteIndividual);
+        };
+
+        return reporteTotal;
     }
 
 }

@@ -31,10 +31,10 @@ class PruebaService extends BaseService {
     }
 
     async totalPruebas(CUIT){
-        const cantidadPruebasRealizadas = await this.contarPruebasRealizadas(CUIT);
-        const cantidadSinResultado = await this.contarPruebasRealizadasSinResultados(CUIT);
-        const cantidadPruebasPositivas = await this.contarPruebasPositivas(CUIT);
-        const cantidadPruebasNegativas = await this.contarPruebasNegativas(CUIT);
+        const cantidadPruebasRealizadas = await this.contarPruebasRealizadas(CUIT).catch(e => { return 0; });
+        const cantidadSinResultado = await this.contarPruebasRealizadasSinResultados(CUIT).catch(e => { return 0; });
+        const cantidadPruebasPositivas = await this.contarPruebasPositivas(CUIT).catch(e => { return 0; });
+        const cantidadPruebasNegativas = await this.contarPruebasNegativas(CUIT).catch(e => { return 0; });
         const totalPruebas = 
         {
             "realizadas": cantidadPruebasRealizadas,
