@@ -10,7 +10,8 @@ module.exports = (sequelize, DataType) => {
             type: DataType.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: true,
+                is: ["^[a-z]+$",'i']
             }
         },
         createdAt: {
@@ -25,7 +26,6 @@ module.exports = (sequelize, DataType) => {
 
     // Relaciones
     Sintomas.associate = (models) => {
-        Sintomas.belongsToMany(models.Consultas, {through: 'Sintomas_Consultas', timestamps: false});
         Sintomas.belongsToMany(models.PartesMedicos, {through: 'Sintomas_PartesMedicos', timestamps: false })
     }
 
