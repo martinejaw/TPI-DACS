@@ -7,13 +7,8 @@
     <hr class="my-4" />
 
     <form class="form-inline">
-      <i class="fas fa-search" aria-hidden="true"></i>
-      <input
-        class="form-control form-control-sm col-md-4"
-        type="text"
-        placeholder="Search"
-        aria-label="Search"
-      />
+      <input v-model="search" class="form-control background-color=white"
+      type="text" placeholder="Buscar por ID Caso">
       <div class="col-md-6"></div>
 
       <!--Form nuevo caso-->
@@ -81,7 +76,7 @@
     <!-- inicio de la tabla de datos -->
     <table class="table table-striped">
       <tbody>
-        <tr v-for="caso in casos" v-bind:key="caso">
+        <tr v-for="caso in filteredCasos" v-bind:key="caso">
           <div class="container-fluid">
             <div class="row">
               <div class="col-12">
@@ -148,6 +143,7 @@ export default {
     ordID: true,
     ordFecha: false,
     ordEstado: false,
+    search: '',
   }),
   mounted() {
     this.actualizarCasos();
@@ -158,11 +154,11 @@ export default {
       axios.post(url, { estado: this.estado, PacienteDni: this.dni, MedicoDni: 4100325 })
         .then((result) => {
           if (result.status === 200) {
-            console.log('Error en el alta');
+            // console.log('Error en el alta');
             this.error = result.data.msg;
             this.errorBool = true;
           } else {
-            console.log('Caso cargado correctamente');
+            // console.log('Caso cargado correctamente');
             this.actualizarCasos();
           }
         })
@@ -205,8 +201,13 @@ export default {
     },
     watch: {
       error: () => {
-        console.log(this.error);
+        // console.log(this.error);
       },
+    },
+  },
+  computed: {
+    filteredCasos() {
+      return this.casos.filter((caso) => String(caso.id).match(this.search));
     },
   },
 };

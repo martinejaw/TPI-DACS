@@ -2,7 +2,6 @@
   <v-app>
     <div id="deep" class="w3-container w3-teal">
       <h2 class="display-4">Recursos del Hospital</h2>
-
       <hr class="my-4" />
       <!-- Tabla con Recuros -->
       <table class="table table-striped">
@@ -33,18 +32,19 @@
       <!-- Fin Recursos -->
     </div>
 
-    <v-dialog v-model="edit" persistent max-width="600px">
+    <v-dialog v-model="edit" persistent max-width="400px">
       <v-card>
         <v-card-title>
           <span class="headline">Recurso: {{ recursoEdit }}</span>
         </v-card-title>
         <v-card-text>
           <v-container>
-            <v-col cols="12" sm="6">
-              <number-input v-model="value" :min="0"></number-input>
+            <v-col cols="12" sm="12" class="text-left">
+              <h5>Cantidad</h5>
+              <input v-model="value" :min="0"
+              class="form-control" type="number">
             </v-col>
           </v-container>
-          <small>*Campos Obligatorios</small>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -71,21 +71,29 @@
     </v-row>
 
     <!--Form pedido-->
-    <v-dialog v-model="pedidoBool" persistent max-width="600px">
+    <v-dialog v-model="pedidoBool" persistent max-width="400px">
       <v-card>
         <v-card-title>
           <span class="headline">Pedido de Recursos</span>
         </v-card-title>
         <v-card-text>
           <v-container>
-            <v-col cols="12" sm="6">
+            <v-col cols="12">
               <div v-for="recurso in recursos" v-bind:key="recurso">
-                <p> {{ recurso.nombre }} </p>
-                <number-input v-model="value" :min="0"></number-input>
+                <v-row justify="center">
+                  <v-col cols="6">
+                    <h5 class="text-right"> {{ recurso.nombre }} </h5>
+                  </v-col>
+                  <v-col cols="6">
+                    <input v-model="recurso.c1"
+                    :min="0" name ="recurso.nombre"
+                    class="form-control" type="number"
+                    placeholder="0">
+                  </v-col>
+                </v-row>
               </div>
             </v-col>
           </v-container>
-          <small>*Campos Obligatorios</small>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -123,6 +131,15 @@ export default {
   methods: {
     realizarPedido() {
       const pedido = {};
+      this.recursos.forEach((recurso) => {
+        console.log(typeof Number(recurso.c1));
+        if (Number.isNaN(Number(recurso.c1))) {
+          pedido[recurso.nombre] = 0;
+        } else {
+          pedido[recurso.nombre] = Number(recurso.c1);
+        }
+      });
+      console.log(pedido);
       axios.post(cfg.Pedidos_URL, pedido)
         .then()
         .catch((error) => { this.error = error.message; this.errorBool = true; });
