@@ -3,7 +3,7 @@ module.exports = (sequelize, DataType) => {
     // NOMBRE TABLA, Y SUS FILAS
     const Hospital = sequelize.define('Hospitales', {
         CUIT: {
-            type: DataType.INTEGER,
+            type: DataType.BIGINT,
             primaryKey:true,
         },
         nombre: {

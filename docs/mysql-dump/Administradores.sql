@@ -1,0 +1,10 @@
+insert into Administradores (dni, CuentaUsuario, nombre, apellido, cuit) values (22483292, 'kennanadmin', 'Kennan', 'Hertwell', 34913892060);
+insert into Administradores (dni, CuentaUsuario, nombre, apellido, cuit) values (28902698, 'juanitaadmin', 'Juanita', 'Mullany', 44250491896);
+insert into Administradores (dni, CuentaUsuario, nombre, apellido, cuit) values (32438172, 'jorryadmin', 'Jorry', 'Lobe', 37839956469);
+insert into Administradores (dni, CuentaUsuario, nombre, apellido, cuit) values (26874977, 'gabrielleadmin', 'Gabrielle', 'Celli', 39200367120);
+insert into Administradores (dni, CuentaUsuario, nombre, apellido, cuit) values (22224453, 'sheelahadmin', 'Sheelah', 'Stille', 45289437675);
+insert into Administradores (dni, CuentaUsuario, nombre, apellido, cuit) values (23435697, 'tootsieadmin', 'Tootsie', 'Gotecliffe', 36499109584);
+insert into Administradores (dni, CuentaUsuario, nombre, apellido, cuit) values (33439418, 'bradyadmin', 'Brady', 'Forrestill', 39687675332);
+insert into Administradores (dni, CuentaUsuario, nombre, apellido, cuit) values (27166916, 'desyaadmin', 'Dasya', 'Beadle', 47981316204);
+insert into Administradores (dni, CuentaUsuario, nombre, apellido, cuit) values (21823988, 'amogeneadmin', 'Emogene', 'Toombs', 34636791677);
+insert into Administradores (dni, CuentaUsuario, nombre, apellido, cuit) values (30098275, 'antoniaadmin', 'Antonina', 'Wheowall', 49259815744);
