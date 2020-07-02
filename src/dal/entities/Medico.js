@@ -5,9 +5,14 @@ module.exports = (sequelize, DataType) => {
         dni: {
             type: DataType.INTEGER,
             primaryKey:true,
+            allowNull: false,
+            validate: {
+                isNumeric: true,
+                len: [7,8]
+            }
         },
         matricula: {
-            type: DataType.STRING,
+            type: DataType.INTEGER,
             allowNull: false,
             validate: {
                 notEmpty: true,
@@ -29,13 +34,6 @@ module.exports = (sequelize, DataType) => {
                 notEmpty: true,
                 is: ["^[a-z]+$",'i']
             }    
-        },
-        fechaNacimiento: {
-            type: DataType.DATE,
-            allowNull: false,
-            validate: {
-                isDate: true
-            }
         },
         especialidad: {
             type: DataType.STRING,
@@ -60,7 +58,6 @@ module.exports = (sequelize, DataType) => {
         Medico.hasMany(models.Casos);
         Medico.hasMany(models.Consultas);
         Medico.belongsTo(models.Cuentas);
-        Medico.belongsTo(models.Direcciones);
         Medico.belongsTo(models.Hospitales);
     };
 

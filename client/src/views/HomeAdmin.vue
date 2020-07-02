@@ -39,7 +39,6 @@ export default {
   background-attachment: local;
   background-position: center;
   background-size: auto;
-
   border-radius: 4px;
   border: 6px solid #efd199;
   color: black;

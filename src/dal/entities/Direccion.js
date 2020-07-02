@@ -24,8 +24,6 @@ module.exports = (sequelize, DataType) => {
     Direccion.associate = (models) => {
         Direccion.belongsTo(models.Calles);
         Direccion.hasOne(models.Hospitales);
-        Direccion.hasMany(models.Pacientes);
-        Direccion.hasOne(models.Medicos);
     };
 
     return Direccion;

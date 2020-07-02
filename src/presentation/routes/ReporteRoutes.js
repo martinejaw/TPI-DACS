@@ -20,5 +20,21 @@ module.exports = ( { ReporteController } ) => {
      */
     router.get("/:CUIT", ReporteController.reporteDiario.bind(ReporteController));
 
+    /**
+     * @swagger
+     * /reporte:
+     *  get:
+     *      description: MINISTERIO - Usar para obtener el reporte de todos los hospitales
+     *      tags: ["MINISTERIO"]
+     *      produces:
+     *          - aplication/json
+     *      responses:
+     *          '200':
+     *              description: Se obtuvo correctamente el reporte
+     *          '412':
+     *              description: Error
+     */
+    router.get("/", ReporteController.reporteTotal.bind(ReporteController));
+
     return router;
 }

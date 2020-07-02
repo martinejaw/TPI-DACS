@@ -7,7 +7,6 @@ class ReporteController {
     }
 
     async reporteDiario(req, res){
-
         await this._reporteService.reporteDiario(req.params.CUIT)
             .then(reporte => res.status(201).json(reporte))
             .catch(error => {
@@ -15,6 +14,13 @@ class ReporteController {
             });
     }
 
+    async reporteTotal(req, res){
+        await this._reporteService.reporteTotal(req.params.CUIT)
+            .then(reporte => res.status(201).json(reporte))
+            .catch(error => {
+                res.status(404)
+            });
+    }
 }
 
 module.exports = ReporteController;
