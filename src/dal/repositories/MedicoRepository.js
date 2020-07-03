@@ -22,6 +22,11 @@ class MedicoRepository extends BaseRepository {
       nest: true,
       type: QueryTypes.SELECT
     });
+  }
+
+  async cantidadEspecialidad(CUIT, especialidad){
+
+    return this._db.models[this.entity].count({where: {especialidad: especialidad, HospitaleCUIT: CUIT}});
 
   }
 
