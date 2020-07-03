@@ -29,7 +29,7 @@
       <!-- inicio de la tabla de datos -->
       <table class="table table-striped">
         <tbody>
-          <tr>
+          <tr v-for="medico in filteredMedicos" v-bind:key="medico">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-12">
@@ -37,59 +37,19 @@
                     <div class="card-block">
                       <div class="row">
                         <div class="cuerpoDatos col-sm-8">
-                          <h2 class="card-title">Nombre: Jauroski, Martin</h2>
+                          <h2 class="card-title">Nombre: {{ medico.apellido }}
+                            {{ medico.nombre }}</h2>
                           <p class="card-text">
-                            <strong>DNI:</strong> 37973754
+                            <strong>DNI:</strong> {{ medico.dni }}
                           </p>
                           <p class="card-text">
-                            <strong>Matricula:</strong> Pediatra
+                            <strong>Matricula:</strong> {{ medico.matricula }}
                           </p>
                           <p class="card-text">
-                            <strong>Fecha de Nacimiento:</strong> 12/05/1993
+                            <strong>Especialidad:</strong> {{ medico.especialidad }}
                           </p>
                           <p class="card-text">
-                            <strong>Direccion:</strong> Coati 123, Ituzaingo, Misiones
-                          </p>
-                        </div>
-                        <div class="imagen col-sm-4 text-center">
-                          <img
-                            class="image"
-                            src="./image/medico.png"
-                            alt
-                            style="border-radius:50%;"
-                          />
-                        </div>
-                      </div>
-                      <div class="botoneditar">
-                        <button type="button" class="edit btn-secondary">Editar Datos</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </tr>
-          <br />
-          <tr>
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-12">
-                  <div class="card card" style="background-color: beige; border-color: #333;">
-                    <div class="card-block">
-                      <div class="row">
-                        <div class="cuerpoDatos col-sm-8">
-                          <h2 class="card-title">Nombre: Bravin, Juan Ignacio</h2>
-                          <p class="card-text">
-                            <strong>DNI:</strong> 41223456
-                          </p>
-                          <p class="card-text">
-                            <strong>Matricula:</strong> Urologo
-                          </p>
-                          <p class="card-text">
-                            <strong>Fecha de Nacimiento:</strong> 31/12/1999
-                          </p>
-                          <p class="card-text">
-                            <strong>Direccion:</strong> Ruta 11 km.1234, Resistencia, Chaco
+                            <strong>Hospital:</strong> {{ medico.HospitaleCUIT }}
                           </p>
                         </div>
                         <div class="imagen col-sm-4 text-center">
@@ -118,8 +78,39 @@
 </template>
 
 <script>
+import axios from 'axios';
+import cfg from '../config/cfg';
+
 export default {
   name: 'Medicos',
+  data: () => ({
+    medicos: [],
+    dni: 0,
+    nombre: '',
+    apellido: '',
+    matricula: 0,
+    especialidad: '',
+    HospitaleCUIT: '',
+    search: '',
+  }),
+  mounted() {
+    this.actualizarMedicos();
+  },
+  methods: {
+    actualizarMedicos() {
+      const url = `${cfg.Medicos_URL}`;
+      axios.get(url)
+        .then((result) => {
+          this.medicos = result.data;
+        })
+        .catch((error) => { this.error = error.message; this.errorBool = true; });
+    },
+  },
+  computed: {
+    filteredMedicos() {
+      return this.medicos.filter((medico) => String(medico.dni).match(this.search));
+    },
+  },
 };
 </script>
 

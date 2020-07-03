@@ -4,12 +4,12 @@
 
       <router-link :to='{name: "Consultas"}'>
       <a class="verconsultas btn btn-info btn-lg text-dark font-weight-bold
-      display-2">Ver Consultas</a>
+      display-2" @click="verconsultas">Ver Consultas</a>
       </router-link>
 
       <router-link :to='{name: "Casos"}'>
       <a class="vercasos btn btn-info btn-lg text-dark font-weight-bold
-      display-2">Ver Casos</a>
+      display-2" @click="vercasos">Ver Casos</a>
       </router-link>
 
     </div>
@@ -19,6 +19,14 @@
 <script>
 export default {
   name: 'HomeMedico',
+  methods: {
+    verconsultas() {
+      this.$router.push({ name: 'Consultas' });
+    },
+    vercasos() {
+      this.$router.push({ name: 'Casos' });
+    },
+  },
 };
 </script>
 
