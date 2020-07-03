@@ -3,7 +3,7 @@ const { asClass, createContainer, asFunction, asValue } = require("awilix");
 // app start
 const StartUp = require("./startup");
 const Server = require("./server");
-const config = require("../config/environments/prod");
+const config = require("../config/environments/dev");
 
 // routes
 const Routes = require("../presentation/routes");
@@ -15,7 +15,6 @@ const ConsultaRoutes = require("../presentation/routes/ConsultaRoutes");
 const HospitalRoutes = require("../presentation/routes/HospitalRoutes");
 const LoginRoutes = require("../presentation/routes/LoginRoutes");
 const MedicoRoutes = require("../presentation/routes/MedicoRoutes");
-const PacienteRoutes = require("../presentation/routes/PacienteRoutes");
 const ParteMedicoRoutes = require("../presentation/routes/ParteMedicoRoutes");
 const PruebaRoutes = require("../presentation/routes/PruebaRoutes");
 const RecursoRoutes = require("../presentation/routes/RecursoRoutes");
@@ -50,11 +49,10 @@ container
     HospitalController: asClass(Controller.HospitalController).singleton(),
     LoginController: asClass(Controller.LoginController).singleton(),
     MedicoController: asClass(Controller.MedicoController).singleton(),
-    PacienteController: asClass(Controller.PacienteController).singleton(),
-    ParteMedicoController: asClass(Controller.ParteMedicoController).singleton(),
     PruebaController: asClass(Controller.PruebaController).singleton(),
     RecursoController: asClass(Controller.RecursoController).singleton(),
     ReporteController: asClass(Controller.ReporteController).singleton(),
+    ParteMedicoController: asClass(Controller.ParteMedicoController).singleton(),
     AdministradorRoutes: asFunction(AdministradorRoutes).singleton(),
     CalleRoutes: asFunction(CalleRoutes).singleton(),
     CiudadRoutes: asFunction(CiudadRoutes).singleton(),
@@ -63,7 +61,6 @@ container
     HospitalRoutes: asFunction(HospitalRoutes).singleton(),
     LoginRoutes: asFunction(LoginRoutes).singleton(),
     MedicoRoutes: asFunction(MedicoRoutes).singleton(),
-    PacienteRoutes: asFunction(PacienteRoutes).singleton(),
     ParteMedicoRoutes: asFunction(ParteMedicoRoutes).singleton(),
     PruebaRoutes: asFunction(PruebaRoutes).singleton(),
     RecursoRoutes: asFunction(RecursoRoutes).singleton(),
@@ -86,7 +83,6 @@ container
     HospitalService: asClass(Service.HospitalService).singleton(),
     LoginService: asClass(Service.LoginService).singleton(),
     MedicoService: asClass(Service.MedicoService).singleton(),
-    PacienteService: asClass(Service.PacienteService).singleton(),
     ParteMedicoService: asClass(Service.ParteMedicoService).singleton(),
     PruebaService: asClass(Service.PruebaService).singleton(),
     RecursoService: asClass(Service.RecursoService).singleton(),
@@ -103,7 +99,6 @@ container
     HospitalRepository: asClass(Repository.HospitalRepository).singleton(),
     CuentaRepository: asClass(Repository.CuentaRepository).singleton(),
     MedicoRepository: asClass(Repository.MedicoRepository).singleton(),
-    PacienteRepository: asClass(Repository.PacienteRepository).singleton(),
     ParteMedicoRepository: asClass(Repository.ParteMedicoRepository).singleton(),
     PruebaRepository: asClass(Repository.PruebaRepository).singleton(),
     RecursoRepository: asClass(Repository.RecursoRepository).singleton(),

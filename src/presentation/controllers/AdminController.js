@@ -6,9 +6,9 @@ class AdministradorController {
 
     async getAdministrador(req,res){
         await this._administradorService.getAll()
-            .then(administradores => res.render(path.join(__dirname+'/../views/index'), {calles: JSON.stringify(administradores)}))
+            .then(administradores => res.status(200).json(administradores))
             .catch(error => {
-                res.status(404).json({msg: error.message});  
+                res.status(400).json({msg: error.message});  
             });
     }
 
@@ -16,7 +16,7 @@ class AdministradorController {
         await this._administradorService.create(req.body)
             .then(administradorCreated => res.status(201).json(administradorCreated))
             .catch(error => {
-                res.status(412).json({msg: error.message});  
+                res.status(400).json({msg: error.message});  
         });
     }
 }

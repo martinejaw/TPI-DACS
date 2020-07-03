@@ -14,8 +14,8 @@ module.exports = ( { ReporteController } ) => {
      *          - aplication/json
      *      responses:
      *          '200':
-     *              description: Se obtuvo correctamente el reporte
-     *          '412':
+     *              description: Se obtuvo correctamente el reporte del hospital
+     *          '400':
      *              description: Error
      */
     router.get("/:CUIT", ReporteController.reporteDiario.bind(ReporteController));
@@ -31,7 +31,7 @@ module.exports = ( { ReporteController } ) => {
      *      responses:
      *          '200':
      *              description: Se obtuvo correctamente el reporte
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.get("/", ReporteController.reporteTotal.bind(ReporteController));

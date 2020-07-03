@@ -6,11 +6,6 @@ class LoginController {
         this._loginService = LoginService;
     }
 
-
-    loginView(req,res){
-        res.render(path.join(__dirname+'/../views/login'), {headerTitle: "Hola"});
-    }
-
     async login(req,res){
         await this._loginService.validarRegistro(req.body)
             .then(usuarioValidado => {  
@@ -18,10 +13,10 @@ class LoginController {
                     const token = jwt.encode(usuarioValidado, 'pass');
                     res.status(200).json({token: token})
                 } else {
-                    res.status(404).json({msg: "Acceso denegado"})
+                    res.status(401).json({msg: "Acceso denegado"})
                 }})
             .catch(error => {
-                res.status(401).json({msg: error.message});  
+                res.status(400).json({msg: error.message});  
             });
     }
 
@@ -29,7 +24,7 @@ class LoginController {
         await this._loginService.create(req.body/*{usuario: 'martin', password: 'martin', rol: 'medico'}*/)
             .then(cuentaCreated => res.status(201).json(cuentaCreated))
             .catch(error => {
-                res.status(412).json({msg: error.message});  
+                res.status(400).json({msg: error.message});  
         });
     }
 

@@ -7,7 +7,7 @@ class CiudadController {
         await this._ciudadService.getAll()
             .then(ciudad => res.status(200).json(ciudad))
             .catch(error => {
-                res.status(404).json({msg: error.message});  
+                res.status(400).json({msg: error.message});  
             });
     }
 
@@ -15,7 +15,7 @@ class CiudadController {
         await this._ciudadService.create(req.body)
             .then(ciudadCreated => res.status(201).json(ciudadCreated))
             .catch(error => {
-                res.status(412).json({msg: error.message});  
+                res.status(400).json({msg: error.message});  
         });
     }
 }

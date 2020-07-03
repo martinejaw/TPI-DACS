@@ -15,7 +15,7 @@ module.exports = ( { CalleController } ) => {
      *      responses:
      *          '200':
      *              description: Se obtuvieron correctamente todas las calles
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.get('/', CalleController.getCalles.bind(CalleController));
@@ -29,9 +29,9 @@ module.exports = ( { CalleController } ) => {
      *      produces:
      *          - aplication/json
      *      responses:
-     *          '200':
+     *          '201':
      *              description: Se creo correctamente la calle
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.post("/", CalleController.createCalle.bind(CalleController));

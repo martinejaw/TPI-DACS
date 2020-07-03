@@ -1,8 +1,7 @@
 const mapper = require("automapper-js");
 
 class DiagnosticoService{
-    constructor({PacienteService, MedicoService, ConsultaService}){
-        this._pacienteService = PacienteService;
+    constructor({MedicoService, ConsultaService}){
         this._medicoService = MedicoService;
         this._consultaService = ConsultaService;
     }
@@ -10,9 +9,9 @@ class DiagnosticoService{
     async diagnosticar(consultaDiagnosticada, res){
 
         this._consultaService.update(consultaDiagnosticada.id, consultaDiagnosticada)
-            .then(consultaDiagnosticada => res.status(201).json({msg: "Diagnosticacion Correcta"}))
+            .then(consultaDiagnosticada => res.status(200).json({msg: "Diagnosticacion Correcta"}))
             .catch(error => {  
-                res.status(412).json({msg: error.message});  
+                res.status(400).json({msg: error.message});  
         });
     }
 

@@ -1,5 +1,5 @@
 class UnitOfWork {
-    constructor({db, CalleRepository, CasoRepository, CiudadRepository, ConsultaRepository, CuentaRepository, DireccionRepository, HospitalRepository, MedicoRepository,PacienteRepository, ParteMedicoRepository, PruebaRepository, RecursoRepository, AdministradorRepository}) {
+    constructor({db, CalleRepository, CasoRepository, CiudadRepository, ConsultaRepository, CuentaRepository, DireccionRepository, HospitalRepository, MedicoRepository, ParteMedicoRepository, PruebaRepository, RecursoRepository, AdministradorRepository}) {
         this.db = db;
         this.CalleRepository = CalleRepository;
         this.CasoRepository = CasoRepository;
@@ -9,7 +9,6 @@ class UnitOfWork {
         this.DireccionRepository = DireccionRepository;
         this.HospitalRepository = HospitalRepository;
         this.MedicoRepository = MedicoRepository;
-        this.PacienteRepository = PacienteRepository;
         this.ParteMedicoRepository = ParteMedicoRepository;
         this.PruebaRepository = PruebaRepository;
         this.RecursoRepository = RecursoRepository;

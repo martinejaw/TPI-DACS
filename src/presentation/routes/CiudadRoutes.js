@@ -15,7 +15,7 @@ module.exports = ( { CiudadController } ) => {
      *      responses:
      *          '200':
      *              description: Se obtuvieron correctamente todas las ciudades
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.get('/', CiudadController.getCiudad.bind(CiudadController));
@@ -29,9 +29,9 @@ module.exports = ( { CiudadController } ) => {
      *      produces:
      *          - aplication/json
      *      responses:
-     *          '200':
+     *          '201':
      *              description: Se creo correctamente la ciudad
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.post("/", CiudadController.createCiudad.bind(CiudadController));

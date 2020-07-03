@@ -15,7 +15,7 @@ module.exports = ( { HospitalController } ) => {
      *      responses:
      *          '200':
      *              description: Se obtuvieron correctamente todos los hospitales
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.get('/', HospitalController.getHospitales.bind(HospitalController));
@@ -29,9 +29,9 @@ module.exports = ( { HospitalController } ) => {
      *      produces:
      *          - aplication/json
      *      responses:
-     *          '200':
+     *          '201':
      *              description: Se creo correctamente el hospital
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.post("/", HospitalController.createHospital.bind(HospitalController));
