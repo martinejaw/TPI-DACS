@@ -44,6 +44,16 @@ const ifAuth = (to, from, next) => {
   }
 };
 
+const ifAuthLogin = (to, from, next) => {
+  if (store.state.isMedico) {
+    next('/medico');
+  } else if (store.state.isAdmin) {
+    next('/admin');
+  } else {
+    next();
+  }
+};
+
 const routes = [
   {
     path: '/',
@@ -61,6 +71,7 @@ const routes = [
     path: '/vermedicos',
     name: 'Medicos',
     component: Medicos,
+    beforeEnter: ifAdmin,
   },
   {
     path: '/consultas',
@@ -92,6 +103,7 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login,
+    beforeEnter: ifAuthLogin,
   },
   {
     path: '/register',
@@ -145,15 +157,17 @@ router.beforeEach((to, from, next) => {
     if (user.rol === 'medico') {
       store.commit('setMedico', true);
       store.state.isAdmin = false;
+      store.state.dni = user.dni;
+      store.state.cuit = user.cuit;
     } else if (user.rol === 'admin') {
       store.state.isAdmin = true;
       store.state.isMedico = false;
+      store.state.cuit = user.cuit;
     } else {
       store.state.isAdmin = false;
       store.state.isMedico = false;
     }
   }
-
   next();
 });
 

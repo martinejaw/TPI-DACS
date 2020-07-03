@@ -6,8 +6,8 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     count: 0,
-    cuit: 212121,
-    dni: 4100325,
+    cuit: 0,
+    dni: 0,
     isMedico: false,
     isAdmin: false,
   },

@@ -39,7 +39,7 @@ module.exports = (sequelize, DataType) => {
 
     // Relaciones
     Administrador.associate = (models) => {
-        Administrador.belongsTo(models.Cuentas);
+        Administrador.hasOne(models.Cuentas);
 	Administrador.belongsTo(models.Hospitales, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
     };
 

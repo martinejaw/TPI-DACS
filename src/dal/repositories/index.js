@@ -11,4 +11,5 @@ module.exports = {
     ParteMedicoRepository: require("./ParteMedicoRepository"),
     PruebaRepository: require("./PruebaRepository"),
     RecursoRepository: require("./RecursoRepository"),
+    AdministradorRepository: require("./AdministradorRepository"),
 };

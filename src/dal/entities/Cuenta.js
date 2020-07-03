@@ -38,8 +38,8 @@ module.exports = (sequelize, DataType) => {
 
     //RELACION
     Cuenta.associate = (models) => {
-        Cuenta.hasOne(models.Medicos);
-        Cuenta.hasOne(models.Administradores);
+        Cuenta.belongsTo(models.Medicos, { foreignKey: { allowNull: true }});
+        Cuenta.belongsTo(models.Administradores, { foreignKey: { allowNull: true }});
     };
 
     return Cuenta;

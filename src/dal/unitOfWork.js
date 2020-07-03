@@ -1,5 +1,5 @@
 class UnitOfWork {
-    constructor({db, CalleRepository, CasoRepository, CiudadRepository, ConsultaRepository, CuentaRepository, DireccionRepository, HospitalRepository, MedicoRepository,PacienteRepository, ParteMedicoRepository, PruebaRepository, RecursoRepository}) {
+    constructor({db, CalleRepository, CasoRepository, CiudadRepository, ConsultaRepository, CuentaRepository, DireccionRepository, HospitalRepository, MedicoRepository,PacienteRepository, ParteMedicoRepository, PruebaRepository, RecursoRepository, AdministradorRepository}) {
         this.db = db;
         this.CalleRepository = CalleRepository;
         this.CasoRepository = CasoRepository;
@@ -13,6 +13,7 @@ class UnitOfWork {
         this.ParteMedicoRepository = ParteMedicoRepository;
         this.PruebaRepository = PruebaRepository;
         this.RecursoRepository = RecursoRepository;
+        this.AdministradorRepository = AdministradorRepository;
     }
     
     async startConnection(){

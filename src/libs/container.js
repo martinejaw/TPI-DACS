@@ -3,7 +3,7 @@ const { asClass, createContainer, asFunction, asValue } = require("awilix");
 // app start
 const StartUp = require("./startup");
 const Server = require("./server");
-const config = require("../config/environments/prod");
+const config = require("../config/environments/dev");
 
 // routes
 const Routes = require("../presentation/routes");
@@ -105,6 +105,7 @@ container
     ParteMedicoRepository: asClass(Repository.ParteMedicoRepository).singleton(),
     PruebaRepository: asClass(Repository.PruebaRepository).singleton(),
     RecursoRepository: asClass(Repository.RecursoRepository).singleton(),
+    AdministradorRepository: asClass(Repository.AdministradorRepository).singleton(),
   })
   .register({
     AsignacionService: asClass(Service.AsignacionService).singleton(),});
