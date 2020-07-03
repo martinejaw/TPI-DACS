@@ -1,6 +1,5 @@
 const { Router } = require("express");
 const cors = require('cors');
-const AdministradorRoutes = require("./AdministradorRoutes");
 
 module.exports = function( { AdministradorRoutes, LoginRoutes, CalleRoutes, CasoRoutes,CiudadRoutes, ConsultaRoutes, HospitalRoutes, MedicoRoutes, PacienteRoutes, ParteMedicoRoutes, PruebaRoutes, RecursoRoutes, ReporteRoutes, RegisterRoutes} ) {
   const router = Router();
