@@ -2,9 +2,9 @@
   <botones>
     <div class="botones justify-content-md-center">
       <a class="vermedicos btn btn-info btn-lg text-dark font-weight-bold
-      display-2" href="#">Ver Medicos</a>
+      display-2" @click="vermedicos">Ver Medicos</a>
       <a class="verrecursos btn btn-info btn-lg text-dark font-weight-bold
-      display-2" href="#">Ver Recursos</a>
+      display-2" @click="verrecursos">Ver Recursos</a>
     </div>
   </botones>
 </template>
@@ -12,7 +12,16 @@
 <script>
 export default {
   name: 'HomeMedico',
+  methods: {
+    vermedicos() {
+      this.$router.push({ name: 'Medicos' });
+    },
+    verrecursos() {
+      this.$router.push({ name: 'Recursos' });
+    },
+  },
 };
+
 </script>
 
 <style>
