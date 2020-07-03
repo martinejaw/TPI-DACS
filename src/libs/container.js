@@ -3,7 +3,7 @@ const { asClass, createContainer, asFunction, asValue } = require("awilix");
 // app start
 const StartUp = require("./startup");
 const Server = require("./server");
-const config = require("../config/environments/dev");
+const config = require("../config/environments/prod");
 
 // routes
 const Routes = require("../presentation/routes");
@@ -12,7 +12,6 @@ const CalleRoutes = require("../presentation/routes/CalleRoutes");
 const CasoRoutes = require("../presentation/routes/CasoRoutes");
 const CiudadRoutes = require("../presentation/routes/CiudadRoutes");
 const ConsultaRoutes = require("../presentation/routes/ConsultaRoutes");
-const HomeRoutes = require("../presentation/routes/HomeRoutes");
 const HospitalRoutes = require("../presentation/routes/HospitalRoutes");
 const LoginRoutes = require("../presentation/routes/LoginRoutes");
 const MedicoRoutes = require("../presentation/routes/MedicoRoutes");
@@ -49,7 +48,6 @@ container
     CiudadController: asClass(Controller.CiudadController).singleton(),
     ConsultaController: asClass(Controller.ConsultaController).singleton(),
     HospitalController: asClass(Controller.HospitalController).singleton(),
-    HomeController: asClass(Controller.HomeController).singleton(),
     LoginController: asClass(Controller.LoginController).singleton(),
     MedicoController: asClass(Controller.MedicoController).singleton(),
     PacienteController: asClass(Controller.PacienteController).singleton(),
@@ -63,7 +61,6 @@ container
     CasoRoutes: asFunction(CasoRoutes).singleton(),
     ConsultaRoutes: asFunction(ConsultaRoutes).singleton(),
     HospitalRoutes: asFunction(HospitalRoutes).singleton(),
-    HomeRoutes: asFunction(HomeRoutes).singleton(),
     LoginRoutes: asFunction(LoginRoutes).singleton(),
     MedicoRoutes: asFunction(MedicoRoutes).singleton(),
     PacienteRoutes: asFunction(PacienteRoutes).singleton(),
