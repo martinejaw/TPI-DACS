@@ -144,8 +144,35 @@ router.beforeEach((to, from, next) => {
 
     if (user.rol === 'medico') {
       store.commit('setMedico', true);
+      store.state.isAdmin = false;
     } else if (user.rol === 'admin') {
       store.state.isAdmin = true;
+      store.state.isMedico = false;
+    } else {
+      store.state.isAdmin = false;
+      store.state.isMedico = false;
+    }
+  }
+
+  next();
+});
+
+router.afterEach((to, from, next) => {
+  const token = localStorage.getItem('user-token');
+
+  if (token != null) {
+    const user = jwt.decode(token, 'pass');
+    console.log(user);
+
+    if (user.rol === 'medico') {
+      store.commit('setMedico', true);
+      store.state.isAdmin = false;
+    } else if (user.rol === 'admin') {
+      store.state.isAdmin = true;
+      store.state.isMedico = false;
+    } else {
+      store.state.isAdmin = false;
+      store.state.isMedico = false;
     }
   }
 
