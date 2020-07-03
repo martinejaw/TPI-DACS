@@ -3,7 +3,8 @@
     <button class="navbar-toggler">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <button class="btn-inicio btn text-dark btn-outline-dark bg-light">Home</button>
+    <button class="btn-inicio btn text-dark btn-outline-dark bg-light"  @click="home">
+    Home</button>
     <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
       <ul class="text font-weight-light">Administrador:{}</ul>
     </div>
@@ -26,6 +27,9 @@ export default {
       this.$router.push({ name: 'Login' });
       this.$store.state.isAdmin = false;
       this.$store.state.isMedico = false;
+    },
+    home() {
+      this.$router.push({ name: 'Administrador' });
     },
   },
 };
