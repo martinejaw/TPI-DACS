@@ -32,7 +32,7 @@ module.exports = (sequelize, DataType) => {
     Hospital.associate = (models) => {
         Hospital.belongsTo(models.Direcciones);
         Hospital.hasMany(models.Medicos, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
-	Hospital.hasMany(models.Administradores, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
+	    Hospital.hasMany(models.Administradores, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
         Hospital.hasMany(models.Recursos, { foreignKey: { primaryKey: true }, onDelete: 'CASCADE' });
     };
     

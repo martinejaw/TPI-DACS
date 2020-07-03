@@ -22,7 +22,7 @@ module.exports = (sequelize, DataType) => {
                 notEmpty: true
             }
         },
-	dni: {
+	    dni: {
             type: DataType.INTEGER,
             allowNull: false,
             validate: {

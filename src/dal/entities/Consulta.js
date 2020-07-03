@@ -6,7 +6,7 @@ module.exports = (sequelize, DataType) => {
             primaryKey:true,
             autoIncrement: true
         },
-	dni: {
+	    dni: {
             type: DataType.INTEGER,
             allowNull: false,
             validate: {
