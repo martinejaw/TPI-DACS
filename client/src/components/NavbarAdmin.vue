@@ -24,9 +24,9 @@ export default {
   methods: {
     cerrarsesion() {
       localStorage.removeItem('user-token');
-      this.$router.push({ name: 'Login' });
       this.$store.state.isAdmin = false;
       this.$store.state.isMedico = false;
+      this.$router.push({ name: 'Login' });
     },
     home() {
       this.$router.push({ name: 'Administrador' });

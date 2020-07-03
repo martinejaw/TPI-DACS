@@ -5,9 +5,9 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="btn-inicio btn text-dark btn-outline-dark bg-light" @click="home">
+    <button class="btn-inicio btn text-dark btn-outline-dark bg-light" @click="home">
     Home
-    </a>
+    </button>
     <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
       <ul class="text font-weight-light">
           Medico:{}
@@ -28,9 +28,9 @@ export default {
   methods: {
     cerrarsesion() {
       localStorage.removeItem('user-token');
-      this.$router.push({ name: 'Login' });
       this.$store.state.isAdmin = false;
       this.$store.state.isMedico = false;
+      this.$router.push({ name: 'Login' });
     },
     home() {
       this.$router.push({ name: 'Medico' });

@@ -15,7 +15,7 @@ class ParteMedicoController {
         await this._partemedicoService.create(req.body)
             .then(parteMedicoCreated => res.status(201).json(parteMedicoCreated))
             .catch(error => {
-                res.json({msg: error.message});  
+                res.json({msg: error.message});
         });
     }
     async obtenerPartesCaso(req, res) {
@@ -23,7 +23,7 @@ class ParteMedicoController {
         await this._partemedicoService.getByCasoId(idCaso)
             .then(partesMedicosDelCaso => res.status(200).json(partesMedicosDelCaso))
             .catch(error => {
-                res.status(412).json({msg: error.message});  
+                res.status(412).json({msg: error.message});
         });
     }
 }

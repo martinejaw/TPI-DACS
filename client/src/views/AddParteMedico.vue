@@ -203,7 +203,6 @@ export default {
         CasoId: this.caso.id,
         estadoVital: this.estado,
         PacienteDni: this.dni,
-        MedicoDni: 4100325,
         fecha: this.fecha,
         tratamientos: this.tratamiento,
         comentario: this.comentario,

@@ -87,7 +87,7 @@
                         <h2 class="card-title">ID caso: {{ caso.id }}</h2>
                         <p class="card-text">
                           <strong>DNI Paciente:</strong>
-                          {{ caso.PacienteDni }}
+                          {{ caso.dni }}
                         </p>
                         <p class="card-text">
                           <strong>Fecha:</strong>
@@ -151,7 +151,7 @@ export default {
   methods: {
     altaCaso() {
       const url = `${cfg.Casos_URL}`;
-      axios.post(url, { estado: this.estado, PacienteDni: this.dni, MedicoDni: 4100325 })
+      axios.post(url, { estado: this.estado, dni: this.dni, MedicoDni: this.$store.state.dni })
         .then((result) => {
           if (result.status === 200) {
             // console.log('Error en el alta');
