@@ -7,6 +7,7 @@ const config = require("../config/environments/dev");
 
 // routes
 const Routes = require("../presentation/routes");
+const AdministradorRoutes = require("../presentation/routes/AdministradorRoutes");
 const CalleRoutes = require("../presentation/routes/CalleRoutes");
 const CasoRoutes = require("../presentation/routes/CasoRoutes");
 const CiudadRoutes = require("../presentation/routes/CiudadRoutes");
@@ -42,6 +43,7 @@ container
     app: asClass(StartUp).singleton(),
     router: asFunction(Routes).singleton(),
     server: asClass(Server).singleton(),
+    AdministradorController: asClass(Controller.AdministradorController).singleton(),
     CalleController: asClass(Controller.CalleController).singleton(),
     CasoController: asClass(Controller.CasoController).singleton(),
     CiudadController: asClass(Controller.CiudadController).singleton(),
@@ -55,6 +57,7 @@ container
     PruebaController: asClass(Controller.PruebaController).singleton(),
     RecursoController: asClass(Controller.RecursoController).singleton(),
     ReporteController: asClass(Controller.ReporteController).singleton(),
+    AdministradorRoutes: asFunction(AdministradorRoutes).singleton(),
     CalleRoutes: asFunction(CalleRoutes).singleton(),
     CiudadRoutes: asFunction(CiudadRoutes).singleton(),
     CasoRoutes: asFunction(CasoRoutes).singleton(),
@@ -78,6 +81,7 @@ container
     UnitOfWork: asClass(uow).singleton(),
   })
   .register({
+    AdministradorService: asClass(Service.AdministradorService).singleton(),
     CalleService: asClass(Service.CalleService).singleton(),
     CasoService: asClass(Service.CasoService).singleton(),
     CiudadService: asClass(Service.CiudadService).singleton(),
@@ -93,6 +97,7 @@ container
     ReporteService: asClass(Service.ReporteService).singleton(),
   })
   .register({
+    AdministradorRepository: asClass(Repository.AdministradorRepository).singleton(),
     CalleRepository: asClass(Repository.CalleRepository).singleton(),
     CasoRepository: asClass(Repository.CasoRepository).singleton(),
     CiudadRepository: asClass(Repository.CiudadRepository).singleton(),
@@ -105,7 +110,6 @@ container
     ParteMedicoRepository: asClass(Repository.ParteMedicoRepository).singleton(),
     PruebaRepository: asClass(Repository.PruebaRepository).singleton(),
     RecursoRepository: asClass(Repository.RecursoRepository).singleton(),
-    AdministradorRepository: asClass(Repository.AdministradorRepository).singleton(),
   })
   .register({
     AsignacionService: asClass(Service.AsignacionService).singleton(),});

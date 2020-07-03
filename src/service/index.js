@@ -1,4 +1,5 @@
 module.exports = {
+    AdministradorService: require("./AdministradorService"),
     CalleService: require("./CalleService"),
     CasoService: require("./CasoService"),
     CiudadService: require("./CiudadService"),

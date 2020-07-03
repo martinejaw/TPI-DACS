@@ -1,4 +1,5 @@
 module.exports = {
+    AdministradorController: require("./AdminController"),
     CalleController: require("./CalleController"),
     CasoController: require("./CasoController"),
     CiudadController: require("./CiudadController"),
