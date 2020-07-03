@@ -10,7 +10,7 @@
                 <h3 class>Estado</h3>
                 <select v-model="estado" class="form-control">
                   <option>Estable</option>
-                  <option>Crítico</option>
+                  <option>Critico</option>
                   <option>Grave</option>
                   <option>Fallecido</option>
                 </select>
