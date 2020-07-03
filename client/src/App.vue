@@ -1,7 +1,15 @@
 <template>
   <v-app>
     <div id="app">
-      <Navbar></Navbar>
+      <template v-if="this.$store.state.isAdmin">
+        <NavbarAdmin></NavbarAdmin>
+      </template>
+      <template v-else-if="this.$store.state.isMedico">
+        <NavbarMedico></NavbarMedico>
+      </template>
+      <template v-else>
+        <Navbar></Navbar>
+      </template>
       <router-view />
     </div>
   </v-app>
@@ -9,10 +17,14 @@
 
 <script>
 import Navbar from './components/Navbar.vue';
+import NavbarAdmin from './components/NavbarAdmin.vue';
+import NavbarMedico from './components/NavbarMedico.vue';
 
 export default {
   components: {
     Navbar,
+    NavbarAdmin,
+    NavbarMedico,
   },
 };
 </script>
