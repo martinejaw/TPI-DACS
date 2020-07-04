@@ -162,6 +162,7 @@ router.beforeEach((to, from, next) => {
       store.state.isAdmin = true;
       store.state.isMedico = false;
       store.state.cuit = user.cuit;
+      store.state.dni = user.dni;
     } else {
       store.state.isAdmin = false;
       store.state.isMedico = false;
