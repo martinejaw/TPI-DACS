@@ -1,21 +1,18 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #efd199;">
-    <button
-      class="navbar-toggler"
-    >
+    <button class="navbar-toggler">
       <span class="navbar-toggler-icon"></span>
     </button>
     <button class="btn-inicio btn text-dark btn-outline-dark bg-light" @click="home">
     Home
     </button>
     <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
-      <ul class="text font-weight-light">
-          Medico: {{ this.$store.state.dni }}
-      </ul>
+      <ul class="text font-weight-light">Medico: {{ this.$store.state.dni }}</ul>
     </div>
-    <a class="btn-cerrarsesion btn text-dark btn-outline-dark bg-light" @click="cerrarsesion">
-    Cerrar Sesion
-    </a>
+    <button class="btn-cerrarsesion btn text-dark btn-outline-dark bg-light"
+     @click="cerrarsesion">
+     Cerrar Sesion
+    </button>
   </nav>
 </template>
 
