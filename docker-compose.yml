@@ -23,14 +23,6 @@ services:
       - db
     ports: 
       - "3000:3000"
-  vue_app:
-    build: ./client/
-    container_name: "vue_front_app"
-    depends_on:
-      - app
-    links:
-      - app
-    ports:
-      - "8080:8080"
+
 
 
