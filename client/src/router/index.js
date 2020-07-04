@@ -153,7 +153,6 @@ router.beforeEach((to, from, next) => {
   if (token != null) {
     const user = jwt.decode(token, 'pass');
     console.log(user);
-
     if (user.rol === 'medico') {
       store.commit('setMedico', true);
       store.state.isAdmin = false;
@@ -177,7 +176,6 @@ router.afterEach((to, from, next) => {
   if (token != null) {
     const user = jwt.decode(token, 'pass');
     console.log(user);
-
     if (user.rol === 'medico') {
       store.commit('setMedico', true);
       store.state.isAdmin = false;

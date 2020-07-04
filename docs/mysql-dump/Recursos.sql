@@ -87,7 +87,7 @@ insert into Recursos (id, nombre, cantidad, HospitaleCUIT) values (86, 'alcoholL
 insert into Recursos (id, nombre, cantidad, HospitaleCUIT) values (87, 'camillasDisponibles', 56, 47069407799);
 insert into Recursos (id, nombre, cantidad, HospitaleCUIT) values (88, 'alcoholLitros', 44, 47069407799);
 insert into Recursos (id, nombre, cantidad, HospitaleCUIT) values (89, 'camillasDisponibles', 92, 47981316204);
-insert into Recursos (id, nombre, cantidad, HospitaleCUIT) values (90, 'alcoholLitros', 56, 347981316204);
+insert into Recursos (id, nombre, cantidad, HospitaleCUIT) values (90, 'alcoholLitros', 56, 47981316204);
 insert into Recursos (id, nombre, cantidad, HospitaleCUIT) values (91, 'camillasDisponibles', 80, 48061957795);
 insert into Recursos (id, nombre, cantidad, HospitaleCUIT) values (92, 'alcoholLitros', 75, 48061957795);
 insert into Recursos (id, nombre, cantidad, HospitaleCUIT) values (93, 'camillasDisponibles', 55, 48587001401);
