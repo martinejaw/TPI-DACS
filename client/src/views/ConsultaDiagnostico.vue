@@ -3,22 +3,22 @@
 <hr class="my-2">
   <!--div class="jumbotron jumbotron-fluid"-->
   <div class="w3-container w3-teal">
-    <h1 class="display-3">CONSULTA ID: {{ consulta.id }} </h1>
+    <h1 class="display-3">CONSULTA ID: {{ consultas.id}} </h1>
     <p ><strong>Estado: </strong>
       <span class="badge bg-warning">Sin contestar</span>
       <span class="badge bg-success">Contestado</span>
     </p>
-    <p class="text-right">Fecha de creación: {{ consulta.fecha }} </p>
+    <p class="text-right">Fecha de creación: {{ consultas.fech}} </p>
     <hr class="my-4">
     <h3>Nombre y Apellido: ape,nom</h3>
     <h6>TipoDoc: {{ consulta.PacienteDni }} </h6>
-    <h6>Fecha de Nacimiento:fecnac</h6>
-    <h6>Sexo:undefined</h6>
-    <h6>Domicilio:dom</h6>
+    <h6>Fecha de Nacimiento:{{consulta.fechaDeNacimiento}}</h6>
+    <h6>Sexo:{{consulta.sexo}}</h6>
+    <h6>Domicilio:{{consulta.domicilio}}</h6>
     <hr class="my-2">
     <h3>Contactos</h3>
-    <h6>Teléfono: tel}} </h6>
-    <h6>Correo Electrónico: mail}} </h6>
+    <h6>Teléfono: {{consulta.telefono}} </h6>
+    <h6>Correo Electrónico: {{consulta.correo}} </h6>
     <hr class="my-2">
     <h3>Sintomas y signos</h3>
     <ul><li>sintomaA</li>
