@@ -52,5 +52,7 @@ module.exports = ( { CasoController } ) => {
      */
     router.put("/:idCaso", CasoController.updateCaso.bind(CasoController));
 
+    router.get("/:MedicoDni", CasoController.getCasosByMedicoDni.bind(CasoController));
+
     return router;
 }
