@@ -1,0 +1,10 @@
+INSERT INTO Sintomas_PartesMedicos (PartesMedicosId, SintomaId) VALUES (1,1);
+INSERT INTO Sintomas_PartesMedicos (PartesMedicosId, SintomaId) VALUES (2,2);
+INSERT INTO Sintomas_PartesMedicos (PartesMedicosId, SintomaId) VALUES (3,3);
+INSERT INTO Sintomas_PartesMedicos (PartesMedicosId, SintomaId) VALUES (4,4);
+INSERT INTO Sintomas_PartesMedicos (PartesMedicosId, SintomaId) VALUES (5,5);
+INSERT INTO Sintomas_PartesMedicos (PartesMedicosId, SintomaId) VALUES (6,6);
+INSERT INTO Sintomas_PartesMedicos (PartesMedicosId, SintomaId) VALUES (7,7);
+INSERT INTO Sintomas_PartesMedicos (PartesMedicosId, SintomaId) VALUES (8,8);
+INSERT INTO Sintomas_PartesMedicos (PartesMedicosId, SintomaId) VALUES (9,9);
+INSERT INTO Sintomas_PartesMedicos (PartesMedicosId, SintomaId) VALUES (10,10);
