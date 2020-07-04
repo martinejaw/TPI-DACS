@@ -1,7 +1,8 @@
 <template>
   <v-app>
     <div id="deep" class="w3-container w3-teal">
-      <h2 class="display-4">Recursos del Hospital</h2>
+      <h2 class="display-3">Recursos del Hospital</h2>
+      <h3> CUIT: {{$store.state.cuit}} </h3>
       <hr class="my-4" />
       <!-- Tabla con Recuros -->
       <table class="table table-striped">
@@ -131,6 +132,7 @@ export default {
   methods: {
     realizarPedido() {
       const pedido = {};
+      pedido.idCentro = this.$store.state.cuit;
       this.recursos.forEach((recurso) => {
         console.log(typeof Number(recurso.c1));
         if (Number.isNaN(Number(recurso.c1))) {

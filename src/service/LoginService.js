@@ -24,7 +24,7 @@ class LoginService extends BaseService{
                     dni = cuentaValida.MedicoDni;
                     HospitalCuit = consulta.HospitaleCUIT;
                 } else {
-                    const consulta = this._adminRepository.get(cuentaValida.AdministradoreDni);
+                    const consulta = await this._adminRepository.get(cuentaValida.AdministradoreDni);
                     dni = cuentaValida.AdministradoreDni;
                     HospitalCuit = consulta.HospitaleCUIT;
                 }
