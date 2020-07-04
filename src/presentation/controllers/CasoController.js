@@ -11,6 +11,14 @@ class CasoController {
             });
     }
 
+    async getCasosByMedicoDni(req,res){
+        await this._casoService.getCasosByMedicoDni(req.params.MedicoDni)
+            .then(casos => res.status(200).json(casos))
+            .catch(error => {
+                res.status(400).json({msg: error.message});
+            });
+    }
+
     async createCaso(req, res) {
         await this._casoService.create(req.body)
             .then(casoCreated => res.status(201).json(casoCreated))

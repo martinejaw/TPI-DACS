@@ -153,7 +153,6 @@ router.beforeEach((to, from, next) => {
   if (token != null) {
     const user = jwt.decode(token, 'pass');
     console.log(user);
-
     if (user.rol === 'medico') {
       store.commit('setMedico', true);
       store.state.isAdmin = false;
@@ -163,6 +162,7 @@ router.beforeEach((to, from, next) => {
       store.state.isAdmin = true;
       store.state.isMedico = false;
       store.state.cuit = user.cuit;
+      store.state.dni = user.dni;
     } else {
       store.state.isAdmin = false;
       store.state.isMedico = false;
@@ -177,7 +177,6 @@ router.afterEach((to, from, next) => {
   if (token != null) {
     const user = jwt.decode(token, 'pass');
     console.log(user);
-
     if (user.rol === 'medico') {
       store.commit('setMedico', true);
       store.state.isAdmin = false;

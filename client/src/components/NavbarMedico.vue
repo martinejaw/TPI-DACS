@@ -10,7 +10,7 @@
     </button>
     <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
       <ul class="text font-weight-light">
-          Medico:{}
+          Medico: {{ this.$store.state.dni }}
       </ul>
     </div>
     <a class="btn-cerrarsesion btn text-dark btn-outline-dark bg-light" @click="cerrarsesion">
