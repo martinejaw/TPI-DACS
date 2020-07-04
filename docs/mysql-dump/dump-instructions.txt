@@ -1,3 +1,19 @@
 docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/File.sql 
 
-sudo docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Ciudades.sql | sudo docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Calles.sql | sudo docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Direcciones.sql | sudo docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Hospitales.sql | sudo docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Medicos.sql | sudo docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Administradores.sql | sudo docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Consultas.sql | sudo docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Casos.sql 
+docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Ciudades.sql
+docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Calles.sql
+docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Direcciones.sql
+docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Hospitales.sql 
+docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Recursos.sql
+docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Medicos.sql
+docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Administradores.sql
+docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Consultas.sql
+docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Casos.sql
+docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Pruebas.sql
+docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/PartesMedicos.sql
+docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Sintomas.sql
+docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Sintomas_PartesMedicos.sql
+
+
+sudo docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Ciudades.sql | sudo docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Calles.sql | sudo docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Direcciones.sql | sudo docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Hospitales.sql | sudo docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Medicos.sql | sudo docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Administradores.sql | sudo docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Consultas.sql | sudo docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Casos.sql | sudo docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Recursos.sql
+
