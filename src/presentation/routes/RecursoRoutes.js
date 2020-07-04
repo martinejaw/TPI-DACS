@@ -15,7 +15,7 @@ module.exports = ( { RecursoController } ) => {
      *      responses:
      *          '200':
      *              description: Se obtuvieron correctamente todos los recursos de todos hospitales
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.get('/', RecursoController.obtenerTodosRecursos.bind(RecursoController));
@@ -29,9 +29,9 @@ module.exports = ( { RecursoController } ) => {
      *      produces:
      *          - aplication/json
      *      responses:
-     *          '200':
-     *              description: Se obtuvieron correctamente todos los recursos de todos hospitales
-     *          '412':
+     *          '201':
+     *              description: Se creó correctamente el recurso en el hospital
+     *          '400':
      *              description: Error
      */
     router.post("/", RecursoController.createRecurso.bind(RecursoController));
@@ -61,8 +61,8 @@ module.exports = ( { RecursoController } ) => {
      *          - aplication/json
      *      responses:
      *          '200':
-     *              description: Se obtuvieron correctamente todos los recursos de todos hospitales
-     *          '412':
+     *              description: Se modificó correctamente el recurso del hospital
+     *          '400':
      *              description: Error
      */
     router.put("/:CUIT/:id", RecursoController.updateRecurso.bind(RecursoController));
@@ -85,7 +85,7 @@ module.exports = ( { RecursoController } ) => {
      *      responses:
      *          '200':
      *              description: Se obtuvieron correctamente todos los recursos de un hospital
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.get("/:CUIT", RecursoController.obtenerTodosRecursosHospital.bind(RecursoController));
@@ -94,14 +94,14 @@ module.exports = ( { RecursoController } ) => {
      * @swagger
      * /recurso/pedirRecursos:
      *  post:
-     *      description: Usar para crear un recurso
+     *      description: Usar para pedir recursos al Ministerio
      *      tags: ["HOSPITALES"]
      *      produces:
      *          - aplication/json
      *      responses:
      *          '200':
-     *              description: Se obtuvieron correctamente todos los recursos de todos hospitales
-     *          '412':
+     *              description: Se solicitaron correctamente los recursos
+     *          '400':
      *              description: Error
      */
     router.post("/pedirRecursos", RecursoController.pedirRecursos.bind(RecursoController));

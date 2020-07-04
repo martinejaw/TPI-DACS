@@ -45,13 +45,6 @@
     </v-btn>
 
 <router-link to="/medico">
-    <v-btn
-      color="error"
-      class="mr-0"
-      @click="reset"
-    >
-      Olvide mi contraseña
-    </v-btn>
     </router-link>
   </v-form>
   </v-app>

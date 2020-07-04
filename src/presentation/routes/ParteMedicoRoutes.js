@@ -15,7 +15,7 @@ module.exports = ( { ParteMedicoController } ) => {
      *      responses:
      *          '200':
      *              description: Se obtuvieron correctamente los partes medicos
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.get('/', ParteMedicoController.getPartesMedicos.bind(ParteMedicoController));
@@ -29,9 +29,9 @@ module.exports = ( { ParteMedicoController } ) => {
      *      produces:
      *          - aplication/json
      *      responses:
-     *          '200':
+     *          '201':
      *              description: Se creo correctamente el parte medico
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.post("/", ParteMedicoController.createParteMedico.bind(ParteMedicoController));
@@ -46,8 +46,8 @@ module.exports = ( { ParteMedicoController } ) => {
      *          - aplication/json
      *      responses:
      *          '200':
-     *              description: Se obtuvieron correctamente los partes
-     *          '412':
+     *              description: Se obtuvieron correctamente los partes del caso
+     *          '400':
      *              description: Error
      */
     router.get("/:idCaso", ParteMedicoController.obtenerPartesCaso.bind(ParteMedicoController));

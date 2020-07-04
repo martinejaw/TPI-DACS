@@ -11,7 +11,7 @@ class ConsultaController {
         await this._consultaService.getAll()
             .then(consultas => res.status(200).json(consultas))
             .catch(error => {
-                res.status(404).json({msg: error.message});  
+                res.status(400).json({msg: error.message});  
             });
     }
 
@@ -20,7 +20,7 @@ class ConsultaController {
         await this._consultaService.getSinResponder(medicodni)
             .then(consultas => res.status(200).json(consultas))
             .catch(error => {
-                res.status(404).json({msg: error.message});  
+                res.status(400).json({msg: error.message});  
             });
     }
 
@@ -29,7 +29,7 @@ class ConsultaController {
         await this._consultaService.getRespondidas(medicodni)
             .then(consultas => res.status(200).json(consultas))
             .catch(error => {
-                res.status(404).json({msg: error.message});  
+                res.status(400).json({msg: error.message});  
             });
     }
 
@@ -37,7 +37,7 @@ class ConsultaController {
         await this._consultaService.create(req.body)
             .then(consultaCreated => res.status(201).json(consultaCreated))
             .catch(error => {
-                res.status(412).json({msg: error.message});  
+                res.status(400).json({msg: error.message});  
         });
     }
 
@@ -46,7 +46,7 @@ class ConsultaController {
         this._consultaService.create(consultaAsignada)
             .then(consultaCreated => res.status(201).json(consultaCreated))
             .catch(error => {
-                res.status(412).json({msg: error.message});  
+                res.status(400).json({msg: error.message});  
         });
     }
 
@@ -55,13 +55,13 @@ class ConsultaController {
         let consultaDiagnosticada = req.body;
 
         if(consultaDiagnosticada.diagnostico == null){
-            res.status(404).json({msg: "Diagnostico nulo no permitido"});
+            res.status(400).json({msg: "Diagnostico nulo no permitido"});
         } else {
             // Guardo la consulta diagnosticada en mi API
             this._consultaService.update(consultaDiagnosticada.id, consultaDiagnosticada)
             .then(consultaDiagnosticada => res.status(201).json({msg: "Diagnosticacion Correcta"}))
             .catch(error => {  
-                res.status(412).json({msg: error.message});  
+                res.status(400).json({msg: error.message});  
             });
         }  
     }
@@ -73,7 +73,7 @@ class ConsultaController {
             console.log(consulta);
         }
         
-        res.sendStatus(202);
+        res.sendStatus(200);
     }
 
 

@@ -11,6 +11,7 @@ const cfg = {
   PartesMedicos_URL: 'http://localhost:3000/partemedico',
   Pruebas_URL: 'http://localhost:3000/prueba',
   Pedidos_URL: 'http://localhost:3000/recurso/pedirRecursos',
+  Medicos_URL: 'http://localhost:3000/medico',
 };
 
 module.exports = cfg;

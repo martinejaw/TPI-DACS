@@ -7,7 +7,6 @@ module.exports = {
     DireccionRepository: require("./DireccionRepository"),
     HospitalRepository: require("./HospitalRepository"),
     MedicoRepository: require("./MedicoRepository"),
-    PacienteRepository: require("./PacienteRepository"),
     ParteMedicoRepository: require("./ParteMedicoRepository"),
     PruebaRepository: require("./PruebaRepository"),
     RecursoRepository: require("./RecursoRepository"),

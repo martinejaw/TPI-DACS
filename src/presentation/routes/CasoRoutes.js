@@ -15,7 +15,7 @@ module.exports = ( { CasoController } ) => {
      *      responses:
      *          '200':
      *              description: Se obtuvieron correctamente todos los casos
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.get('/', CasoController.getCasos.bind(CasoController));
@@ -29,9 +29,9 @@ module.exports = ( { CasoController } ) => {
      *      produces:
      *          - aplication/json
      *      responses:
-     *          '200':
+     *          '201':
      *              description: Se creo correctamente el caso
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.post("/", CasoController.createCaso.bind(CasoController));
@@ -47,7 +47,7 @@ module.exports = ( { CasoController } ) => {
      *      responses:
      *          '200':
      *              description: Se actualizo correctamente el caso
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.put("/:idCaso", CasoController.updateCaso.bind(CasoController));

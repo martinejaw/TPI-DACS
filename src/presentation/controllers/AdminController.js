@@ -1,24 +1,24 @@
 const path = require('path')
-class CalleController {
-    constructor({CalleService}){
-        this._calleService = CalleService;
+class AdministradorController {
+    constructor({AdministradorService}){
+        this._administradorService = AdministradorService;
     }
 
-    async getCalles(req,res){
-        await this._calleService.getAll()
-            .then(calles => res.render(path.join(__dirname+'/../views/index'), {calles: JSON.stringify(calles)}))
+    async getAdministrador(req,res){
+        await this._administradorService.getAll()
+            .then(administradores => res.status(200).json(administradores))
             .catch(error => {
-                res.status(404).json({msg: error.message});  
+                res.status(400).json({msg: error.message});  
             });
     }
 
-    async createCalle(req, res) {
-        await this._calleService.create(req.body)
-            .then(calleCreated => res.status(201).json(calleCreated))
+    async createAdministrador(req, res) {
+        await this._administradorService.create(req.body)
+            .then(administradorCreated => res.status(201).json(administradorCreated))
             .catch(error => {
-                res.status(412).json({msg: error.message});  
+                res.status(400).json({msg: error.message});  
         });
     }
 }
 
-module.exports = CalleController;
+module.exports = AdministradorController;

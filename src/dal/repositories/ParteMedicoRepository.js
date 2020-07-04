@@ -12,7 +12,7 @@ class ParteMedicoRepository extends BaseRepository {
         const consulta = "SELECT COUNT(PartesMedicos.id) as cont FROM PartesMedicos INNER JOIN (SELECT Casos.id FROM Casos INNER JOIN (SELECT Medicos.dni FROM Medicos WHERE HospitaleCUIT = "+CUIT+") AS M ON Casos.MedicoDni = M.dni) AS C ON PartesMedicos.CasoId = C.id WHERE date(PartesMedicos.fecha) >= date('now') AND PartesMedicos.estadoVital = :estadoVital;";
 
         const resultado = await this._db.sequelize.query(consulta, {
-            replacements: { estadoVital: 'Curado' },
+            replacements: { estadoVital: 'Estable' },
             nest: true,
             type: QueryTypes.SELECT
         });
@@ -26,7 +26,7 @@ class ParteMedicoRepository extends BaseRepository {
         const consulta = "SELECT COUNT(PartesMedicos.id) as cont FROM PartesMedicos INNER JOIN (SELECT Casos.id FROM Casos INNER JOIN (SELECT Medicos.dni FROM Medicos WHERE HospitaleCUIT = "+CUIT+") AS M ON Casos.MedicoDni = M.dni) AS C ON PartesMedicos.CasoId = C.id WHERE date(PartesMedicos.fecha) >= date('now') AND PartesMedicos.estadoVital = :estadoVital;";
 
         const resultado = await this._db.sequelize.query(consulta, {
-            replacements: { estadoVital: 'Muerto' },
+            replacements: { estadoVital: 'Fallecido' },
             nest: true,
             type: QueryTypes.SELECT
         });
@@ -36,10 +36,10 @@ class ParteMedicoRepository extends BaseRepository {
     }
 
     async cantidadEnfermos(CUIT){
-        const consulta = "SELECT COUNT(PartesMedicos.id) as cont FROM PartesMedicos INNER JOIN (SELECT Casos.id FROM Casos INNER JOIN (SELECT Medicos.dni FROM Medicos WHERE HospitaleCUIT = "+CUIT+") AS M ON Casos.MedicoDni = M.dni) AS C ON PartesMedicos.CasoId = C.id WHERE date(PartesMedicos.fecha) >= date('now') AND PartesMedicos.estadoVital = :estadoVital;";
+        const consulta = "SELECT COUNT(PartesMedicos.id) as cont FROM PartesMedicos INNER JOIN (SELECT Casos.id FROM Casos INNER JOIN (SELECT Medicos.dni FROM Medicos WHERE HospitaleCUIT = "+CUIT+") AS M ON Casos.MedicoDni = M.dni) AS C ON PartesMedicos.CasoId = C.id WHERE date(PartesMedicos.fecha) >= date('now') AND (PartesMedicos.estadoVital = :estadoVital or PartesMedicos.estadoVital = :estadoVital2);";
 
         const resultado = await this._db.sequelize.query(consulta, {
-            replacements: { estadoVital: 'Enfermo' },
+            replacements: { estadoVital: 'Grave', estadoVital2: 'Critico' },
             nest: true,
             type: QueryTypes.SELECT
         });

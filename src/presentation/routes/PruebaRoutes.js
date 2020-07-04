@@ -15,7 +15,7 @@ module.exports = ( { PruebaController } ) => {
      *      responses:
      *          '200':
      *              description: Se obtuvieron correctamente las pruebas
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.get('/', PruebaController.getPruebas.bind(PruebaController));
@@ -30,8 +30,8 @@ module.exports = ( { PruebaController } ) => {
      *          - aplication/json
      *      responses:
      *          '200':
-     *              description: Se obtuvieron correctamente las pruebas
-     *          '412':
+     *              description: Se obtuvieron correctamente las pruebas del caso
+     *          '400':
      *              description: Error
      */
     router.get('/:casoId', PruebaController.getPruebasDeCaso.bind(PruebaController));
@@ -45,9 +45,9 @@ module.exports = ( { PruebaController } ) => {
      *      produces:
      *          - aplication/json
      *      responses:
-     *          '200':
+     *          '201':
      *              description: Se creo correctamente la prueba
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.post("/", PruebaController.createPrueba.bind(PruebaController));
@@ -62,8 +62,8 @@ module.exports = ( { PruebaController } ) => {
      *          - aplication/json
      *      responses:
      *          '200':
-     *              description: Se modifico correctamente la prueba
-     *          '412':
+     *              description: Se modifico correctamente la prueba del caso
+     *          '400':
      *              description: Error
      */
     router.put('/:idCaso/:idPrueba', PruebaController.updatePrueba.bind(PruebaController));

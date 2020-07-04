@@ -35,7 +35,7 @@
           <tr v-for="consulta in consultasSinResponder" v-bind:key="consulta">
             <th scope="row">{{ consulta.id }}</th>
             <td>{{ consulta.PacienteDni }}</td>
-            <td>{{ consulta.fecha }}</td>
+            <td>{{ consulta.MedicoDni }}</td>
             <router-link :to='{name: "ConsultaDiagnostico", params: { consulta } }'>
               <v-btn
                 class="btn btn-outline-success my-2 my-sm-0 col-md-8"
@@ -96,6 +96,9 @@ export default {
     { text: 'Nombre', value: 'nombre' },
     { text: 'Apellido', value: 'apellido' }],
     consultasRespondidas: [],
+    id: 0,
+    PacienteDni: 0,
+    MedicoDni: 0,
     search: '',
     consultaSeleccionada: true,
     consultasSinResponder: [],

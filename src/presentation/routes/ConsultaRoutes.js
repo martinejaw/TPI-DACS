@@ -15,9 +15,9 @@ module.exports = ( { ConsultaController } ) => {
      *      produces:
      *          - aplication/json
      *      responses:
-     *          '200':
+     *          '201':
      *              description: Se agrego correctamente la consulta
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.post("/", ConsultaController.createConsulta.bind(ConsultaController));
@@ -31,9 +31,9 @@ module.exports = ( { ConsultaController } ) => {
      *      produces:
      *          - aplication/json
      *      responses:
-     *          '200':
+     *          '201':
      *              description: Se agrego correctamente la consulta
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.post("/consultaNueva", ConsultaController.recibirConsulta.bind(ConsultaController));
@@ -57,7 +57,7 @@ module.exports = ( { ConsultaController } ) => {
      *      responses:
      *          '200':
      *              description: Se obtuvieron correctamente las consultas no contestadas del medico
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.get('/consultasinresponder/:medicodni', ConsultaController.getConsultaSinResponder.bind(ConsultaController));
@@ -81,7 +81,7 @@ module.exports = ( { ConsultaController } ) => {
      *      responses:
      *          '200':
      *              description: Se obtuvieron correctamente las consultas respondidas del medico
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.get('/consultasrespondidas/:medicodni', ConsultaController.getConsultaRespondidas.bind(ConsultaController));
@@ -97,7 +97,7 @@ module.exports = ( { ConsultaController } ) => {
      *      responses:
      *          '200':
      *              description: Se agrego correctamente el diagnostico a la consulta
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.put("/diagnosticar", ConsultaController.diagnosticar.bind(ConsultaController));
@@ -113,7 +113,7 @@ module.exports = ( { ConsultaController } ) => {
      *      responses:
      *          '200':
      *              description: Se obtuvieron correctamente las consultas nuevas
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.get("/obtenerConsultas", ConsultaController.obtenerConsultas.bind(ConsultaController));

@@ -15,7 +15,7 @@ module.exports = ( { MedicoController } ) => {
      *      responses:
      *          '200':
      *              description: Se obtuvieron correctamente todos los medicos de todos hospitales
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.get('/', MedicoController.getMedicos.bind(MedicoController));
@@ -29,9 +29,9 @@ module.exports = ( { MedicoController } ) => {
      *      produces:
      *          - aplication/json
      *      responses:
-     *          '200':
+     *          '201':
      *              description: Se creo correctamente el medico
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.post("/", MedicoController.createMedico.bind(MedicoController));
@@ -55,7 +55,7 @@ module.exports = ( { MedicoController } ) => {
      *      responses:
      *          '200':
      *              description: Se obtuvieron correctamente los medicos del hospital
-     *          '412':
+     *          '400':
      *              description: Error
      */
     router.get("/:CUIT", MedicoController.getMedicosHospital.bind(MedicoController));
