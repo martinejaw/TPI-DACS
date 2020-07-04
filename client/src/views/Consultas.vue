@@ -50,8 +50,8 @@
         <tbody v-else>
           <tr v-for="consulta in consultasRespondidas" v-bind:key="consulta">
             <th scope="row">{{ consulta.id }}</th>
-            <td>{{ consulta.PacienteDni }}</td>
-            <td>{{ consulta.fecha }}</td>
+            <td> {{ consulta.PacienteDni }} </td>
+            <td> {{ consulta.fecha }} </td>
             <v-btn
               class="btn btn-outline-success my-2 my-sm-0 col-md-8"
               color="primary"
@@ -99,6 +99,7 @@ export default {
     id: 0,
     PacienteDni: 0,
     MedicoDni: 0,
+    fecha: '',
     search: '',
     consultaSeleccionada: true,
     consultasSinResponder: [],

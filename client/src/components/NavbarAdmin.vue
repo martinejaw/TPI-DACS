@@ -3,15 +3,16 @@
     <button class="navbar-toggler">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <button class="btn-inicio btn text-dark btn-outline-dark bg-light"  @click="home">
-    Home</button>
+    <button class="btn-inicio btn text-dark btn-outline-dark bg-light" @click="home">
+    Home
+    </button>
     <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
       <ul class="text font-weight-light">Administrador: {{ this.$store.state.dni }}</ul>
     </div>
-    <button
-      class="btn-cerrarsesion btn text-dark btn-outline-dark bg-light"
-      @click="cerrarsesion"
-    >Cerrar Sesion</button>
+    <button class="btn-cerrarsesion btn text-dark btn-outline-dark bg-light"
+     @click="cerrarsesion">
+     Cerrar Sesion
+    </button>
   </nav>
 </template>
 
