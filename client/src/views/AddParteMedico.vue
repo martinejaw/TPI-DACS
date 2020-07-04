@@ -209,17 +209,14 @@ export default {
       })
         .then((result) => {
           if (result.status === 200) {
-            console.log('Error en el alta');
             this.error = result.data.msg;
             this.errorBool = true;
           } else {
-            console.log('Caso cargado correctamente');
             this.$router.push({ name: 'Caso', params: { caso: this.caso } });
           }
         })
         .catch((error) => {
           this.error = error;
-          console.log(error.message);
           this.errorBool = true;
         });
     },

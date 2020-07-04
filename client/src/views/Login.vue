@@ -93,8 +93,6 @@ export default {
 
   methods: {
     async validate() {
-      console.log(this.$store.state.isMedico);
-      console.log(this.$store.state.isAdmin);
       await axios.post(cfg.VAL_URL, { usuario: this.usuario, password: this.pass })
         .then((result) => {
           localStorage.setItem('user-token', result.data.token); // store the stoken in localstorage

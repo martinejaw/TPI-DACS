@@ -149,7 +149,8 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const token = localStorage.getItem('user-token');
-
+  console.log(store.state.cuit);
+  console.log(store.state.dni);
   if (token != null) {
     const user = jwt.decode(token, 'pass');
     console.log(user);
@@ -168,27 +169,6 @@ router.beforeEach((to, from, next) => {
       store.state.isMedico = false;
     }
   }
-  next();
-});
-
-router.afterEach((to, from, next) => {
-  const token = localStorage.getItem('user-token');
-
-  if (token != null) {
-    const user = jwt.decode(token, 'pass');
-    console.log(user);
-    if (user.rol === 'medico') {
-      store.commit('setMedico', true);
-      store.state.isAdmin = false;
-    } else if (user.rol === 'admin') {
-      store.state.isAdmin = true;
-      store.state.isMedico = false;
-    } else {
-      store.state.isAdmin = false;
-      store.state.isMedico = false;
-    }
-  }
-
   next();
 });
 
