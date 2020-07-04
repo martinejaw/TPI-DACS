@@ -7,3 +7,5 @@ docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/M
 docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Administradores.sql
 docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Consultas.sql
 docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Casos.sql
+docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/Pruebas.sql
+docker exec -i mysql_node_app mysql -uroot -ppass hospitales < docs/mysql-dump/PartesMedicos.sql
