@@ -3,7 +3,7 @@ const { asClass, createContainer, asFunction, asValue } = require("awilix");
 // app start
 const StartUp = require("./startup");
 const Server = require("./server");
-const config = require("../config/environments/prod");
+const config = require("../config/environments/dev");
 
 // routes
 const Routes = require("../presentation/routes");
