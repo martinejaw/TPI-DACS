@@ -21,7 +21,7 @@ class LoginController {
     }
 
     async register(req,res){
-        await this._loginService.create(req.body/*{usuario: 'martin', password: 'martin', rol: 'medico'}*/)
+        await this._loginService.create(req.body)
             .then(cuentaCreated => res.status(201).json(cuentaCreated))
             .catch(error => {
                 res.status(400).json({msg: error.message});  

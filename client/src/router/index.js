@@ -159,11 +159,13 @@ router.beforeEach((to, from, next) => {
       store.state.isAdmin = false;
       store.state.dni = user.dni;
       store.state.cuit = user.cuit;
+      store.state.nombre = user.nombre;
     } else if (user.rol === 'admin') {
       store.state.isAdmin = true;
       store.state.isMedico = false;
       store.state.cuit = user.cuit;
       store.state.dni = user.dni;
+      store.state.nombre = user.nombre;
     } else {
       store.state.isAdmin = false;
       store.state.isMedico = false;
