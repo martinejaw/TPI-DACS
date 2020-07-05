@@ -1,6 +1,7 @@
 const prod = 'http://54.237.73.187:3000/';
 const dev = 'http://localhost:3000';
-let url = prod;
+let url = dev;
+url = prod;
 
 const cfg = {
 
