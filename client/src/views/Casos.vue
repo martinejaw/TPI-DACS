@@ -163,7 +163,7 @@ export default {
         .catch((error) => { this.error = error.message; this.errorBool = true; });
     },
     actualizarCasos() {
-      const url = `${cfg.Casos_URL}/${this.$store.state.cuit}`;
+      const url = `${cfg.Casos_URL}/${this.$store.state.dni}`;
       axios.get(url)
         .then((result) => {
           this.casos = result.data;
