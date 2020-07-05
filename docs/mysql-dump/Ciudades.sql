@@ -1,0 +1,16 @@
+INSERT INTO `Ciudades` (`id`,`nombre`) 
+VALUES (1,"Resistencia"),
+(2,"Presidencia Roque Saenz Peña"),
+(3,"Villa Angela"),
+(4,"General Jose de San Martin"),
+(5,"Juan Jose Castelli"),
+(6,"Charata"),
+(7,"Quitilipi"),
+(8,"Las Breñas"),
+(9,"Machagai"),
+(10,"Tres Isletas"),
+(11,"La Leonesa"),
+(12,"Las Palmas"),
+(13,"General Pinedo"),
+(14,"Corzuela"),
+(15,"Villa Berthet"); 

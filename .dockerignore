@@ -1,0 +1,9 @@
+node_modules
+.vscode
+.gitignore
+.git
+hospitales.sqlite
+README.md
+npm-debug.log\
+docs
+client

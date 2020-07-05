@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # TPI-DACS
 Trabajo práctico integrador de Desarrollo de Aplicaciones Cliente Servidor
 
@@ -31,7 +30,6 @@ npm install -g nodemon --save-dev
 ### Correr el proyecto (fase de desarrollo):
 npm run dev
 
-<<<<<<< HEAD
 
 **Construir el proyecto (version con soporte en navegadores):**
 npm run build
@@ -40,14 +38,18 @@ npm run build
 **Correr el proyecto (el de produccion):**
 npm run start
 
+### Arquitectura implementada:
+![Arquitectura por capas](./docs/Arquitectura.png)
 
-Anotaciones:
+### Diagrama Entidad Relación:
+![Diagrama Entidad Relación - Centros Hospitalarios](./docs/CentrosHospitalarios.png)
 
-npm i @babel/core @babel/cli @babel/preset-env @babel/node -D
--D para usar solo en desarrollo
+### Diagrama de Clase:
+![Diagrama de Clase - Centros Hospitalarios](./docs/DiagramaClaseCH.png)
+
+
+=======
 =======
 # 2020-G3-TPI
 Trabajo práctico Integrador - Grupo 3 - 2020
->>>>>>> 7dca9318f9ea4863c76e7fd3c634c79bbcd2138e
 =======
->>>>>>> c5772cd32ef4722dff8be7071b4dfbbb0db36afe

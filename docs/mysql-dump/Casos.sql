@@ -1,0 +1,10 @@
+insert into Casos (id, dni, fechaInicio, estado, MedicoDni) values (1, 18636723, '1988-06-09 04:11:16', 'Negativo', 28118332);
+insert into Casos (id, dni, fechaInicio, estado, MedicoDni) values (2, 26148774, '1940-09-02 04:38:26', 'Negativo', 24415633);
+insert into Casos (id, dni, fechaInicio, estado, MedicoDni) values (3, 14427502, '1953-08-23 05:10:34', 'Sospechoso', 18592327);
+insert into Casos (id, dni, fechaInicio, estado, MedicoDni) values (4, 26310525, '1978-01-24 00:03:52', 'Sospechoso', 38266891);
+insert into Casos (id, dni, fechaInicio, estado, MedicoDni) values (5, 24908936, '2008-09-13 23:56:25', 'Sospechoso', 25273334);
+insert into Casos (id, dni, fechaInicio, estado, MedicoDni) values (6, 13257628, '1960-10-25 09:54:45', 'Sospechoso', 23996488);
+insert into Casos (id, dni, fechaInicio, estado, MedicoDni) values (7, 31991181, '1977-12-11 14:00:55', 'Sospechoso', 39943987);
+insert into Casos (id, dni, fechaInicio, estado, MedicoDni) values (8, 35887554, '2012-04-26 15:36:51', 'Negativo', 40898787);
+insert into Casos (id, dni, fechaInicio, estado, MedicoDni) values (9, 35816767, '1990-08-12 04:01:16', 'Sospechoso', 31870523);
+insert into Casos (id, dni, fechaInicio, estado, MedicoDni) values (10, 25621042, '1959-10-29 13:52:06', 'Positivo', 32345695);

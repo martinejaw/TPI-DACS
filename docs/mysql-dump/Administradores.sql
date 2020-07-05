@@ -1,0 +1,10 @@
+insert into Administradores (dni, nombre, apellido, HospitaleCUIT) values (22483292, 'Kennan', 'Hertwell', 34913892060);
+insert into Administradores (dni, nombre, apellido, HospitaleCUIT) values (28902698, 'Juanita', 'Mullany', 44250491896);
+insert into Administradores (dni, nombre, apellido, HospitaleCUIT) values (32438172, 'Jorry', 'Lobe', 37839956469);
+insert into Administradores (dni, nombre, apellido, HospitaleCUIT) values (26874977, 'Gabrielle', 'Celli', 39200367120);
+insert into Administradores (dni, nombre, apellido, HospitaleCUIT) values (22224453, 'Sheelah', 'Stille', 45289437675);
+insert into Administradores (dni, nombre, apellido, HospitaleCUIT) values (23435697, 'Tootsie', 'Gotecliffe', 36499109584);
+insert into Administradores (dni, nombre, apellido, HospitaleCUIT) values (33439418, 'Brady', 'Forrestill', 39687675332);
+insert into Administradores (dni, nombre, apellido, HospitaleCUIT) values (27166916, 'Dasya', 'Beadle', 47981316204);
+insert into Administradores (dni, nombre, apellido, HospitaleCUIT) values (21823988, 'Emogene', 'Toombs', 34636791677);
+insert into Administradores (dni, nombre, apellido, HospitaleCUIT) values (30098275, 'Antonina', 'Wheowall', 49259815744);

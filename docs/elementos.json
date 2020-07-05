@@ -1,0 +1,15 @@
+{
+    "Paciente":{
+        "dni": 3000000,
+        "nombre": "Jorge",
+        "apellido": "Gomez",
+        "fechaNacimiento": "2000",
+        "email": "juangomez@yahoo.com",
+        "telefono": "42",
+        "sexo": "Masculino"
+    },
+    "Ciudades": [
+        {"nombre": "Barranqueras"},
+        {"nombre": "Resistencia"}
+    ]
+}

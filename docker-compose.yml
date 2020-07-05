@@ -1,0 +1,36 @@
+version: '2'
+
+services:
+  db:
+    image: "mysql:5.7.30"
+    container_name: "mysql_node_app"
+    environment: 
+      MYSQL_DATABASE: hospitales
+      MYSQL_USER: mysql
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_PASSWORD: pass
+      MYSQL_HOST: 'db'
+    ports:
+      - "3306:3306"
+    expose: 
+      - "3306"
+  app:
+    build: .
+    container_name: "node_app"
+    depends_on: 
+      - db
+    links: 
+      - db
+    ports: 
+      - "3000:3000"
+  vue_app:
+    build: ./client/
+    container_name: "vue_front_app"
+    depends_on:
+      - app
+    links:
+      - app
+    ports:
+      - "8080:8080"
+
+

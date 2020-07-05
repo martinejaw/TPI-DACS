@@ -1,0 +1,13 @@
+INSERT INTO Sintomas (id, nombre) VALUES (1,"fiebreMayorA38");
+INSERT INTO Sintomas (id, nombre) VALUES (2,"taquipnea_Disnea");
+INSERT INTO Sintomas (id, nombre) VALUES (3,"diarrea");
+INSERT INTO Sintomas (id, nombre) VALUES (4,"artralgias");
+INSERT INTO Sintomas (id, nombre) VALUES (5,"malestarEnGeneral");
+INSERT INTO Sintomas (id, nombre) VALUES (6,"tos");
+INSERT INTO Sintomas (id, nombre) VALUES (7,"dolorDeGArganta");
+INSERT INTO Sintomas (id, nombre) VALUES (8,"insuficienciaRespiratoria");
+INSERT INTO Sintomas (id, nombre) VALUES (9,"dolorAbdominal");
+INSERT INTO Sintomas (id, nombre) VALUES (10,"dolorToracico");
+INSERT INTO Sintomas (id, nombre) VALUES (12,"rechazoAlAlimento");
+INSERT INTO Sintomas (id, nombre) VALUES (13,"irritabilidadConfusion");
+INSERT INTO Sintomas (id, nombre) VALUES (14,"convulsiones");

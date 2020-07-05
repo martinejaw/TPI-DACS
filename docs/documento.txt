@@ -1,0 +1,3 @@
+Ir a la ruta del proyecto
+correr sqlite3 hospitales.sqlite
+sqlite> .read docs/script.sql
