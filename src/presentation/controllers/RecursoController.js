@@ -48,16 +48,17 @@ class RecursoController {
     }
 
     async pedirRecursos(req, res){
-        const recursos = { "Envio": req.body};
+        const recursos = { "Peticion": req.body};
         await axios({
             method: 'post',
-            url: '6iubewzdng.execute-api.sa-east-1.amazonaws.com/dev/peticiones',
+            timeout: 5000,
+            url: 'https://6iubewzdng.execute-api.sa-east-1.amazonaws.com/dev/peticiones',
             headers: {'x-api-key': 'FTlS2bc9lo1OtmzHCBrju4ZL8PqFM5yr4JB775RR'},
             data: recursos
         })
         .then(recursos => res.status(200).json(recursos))
         .catch(error => {
-            res.status(400).json({msg: error.message})});
+            res.json({msg: error.message})});
     }
 }
 

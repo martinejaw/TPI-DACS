@@ -7,7 +7,7 @@
     Home
     </button>
     <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
-      <ul class="text font-weight-light">A: {{ this.$store.state.nombre }}</ul>
+      <ul class="text font-weight-light">Medico: {{ this.$store.state.nombre }}</ul>
       <ul class="text font-weight-light">Hospital: {{ this.$store.state.hospital }}</ul>
     </div>
     <button class="btn-cerrarsesion btn text-dark btn-outline-dark bg-light"
