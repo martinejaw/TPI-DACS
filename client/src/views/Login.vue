@@ -12,7 +12,7 @@
 
     <v-text-field
       v-model="usuario"
-      :counter="10"
+      :counter="20"
       :rules="nameRules"
       label="Usuario"
       required
@@ -30,7 +30,7 @@
 
     <v-checkbox
       v-model="checkbox"
-      :rules="[v => !!v || 'You must agree to continue!']"
+      :rules="[v => !!v || 'Debes estar de acuerdo!']"
       label="¿Estas de acuerdo?"
       required
     ></v-checkbox>
@@ -75,9 +75,9 @@ export default {
     valid: true,
     usuario: '',
     nameRules: [
-      (v) => !!v || 'Name is required',
-      (v) => (v && v.length >= 0) || 'User must be more than 5 characters',
-      (v) => (v && v.length <= 10) || 'User must be less than 10 characters',
+      (v) => !!v || 'Usuario es requerido',
+      (v) => (v && v.length >= 3) || 'Usuario deben tener por lo menos 3 caracteres',
+      (v) => (v && v.length <= 20) || 'Usuario deben tener como maximo 20 caracteres',
       (v) => (v.split(' ').length <= 1) || 'Espacios en blanco no permitidos',
     ],
     error: '',
