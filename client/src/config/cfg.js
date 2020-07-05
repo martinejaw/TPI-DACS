@@ -1,22 +1,17 @@
-const prod = 'http://54.237.73.187:3000/';
-const dev = 'http://localhost:3000';
-let url = dev;
-url = prod;
-
 const cfg = {
 
-  API_URL: `${url}/`,
-  VAL_URL: `${url}/login`,
-  Recursos_URL: `${url}/recurso`,
-  Consultas_URL: `${url}/consulta`,
-  ConsultasSinResponder_URL: `${url}/consulta/consultasinresponder`,
-  ConsultasRespondidas_URL: `${url}/consulta/consultasrespondidas`,
-  Casos_URL: `${url}/caso`,
-  Diagnostico_URL: `${url}/consulta/diagnosticar`,
-  PartesMedicos_URL: `${url}/partemedico`,
-  Pruebas_URL: `${url}/prueba`,
-  Pedidos_URL: `${url}/recurso/pedirRecursos`,
-  Medicos_URL: `${url}/medico`,
+  API_URL: "http://54.237.73.187:3000/",
+  VAL_URL: "http://54.237.73.187:3000/login",
+  Recursos_URL: "http://54.237.73.187:3000/recurso",
+  Consultas_URL: "http://54.237.73.187:3000/consulta",
+  ConsultasSinResponder_URL: "http://54.237.73.187:3000/consulta/consultasinresponder",
+  ConsultasRespondidas_URL: "http://54.237.73.187:3000/consulta/consultasrespondidas",
+  Casos_URL: "http://54.237.73.187:3000/caso",
+  Diagnostico_URL: "http://54.237.73.187:3000/consulta/diagnosticar",
+  PartesMedicos_URL: "http://54.237.73.187:3000/partemedico",
+  Pruebas_URL: "http://54.237.73.187:3000/prueba",
+  Pedidos_URL: "http://54.237.73.187:3000/recurso/pedirRecursos",
+  Medicos_URL: "http://54.237.73.187:3000/medico",
 
 };
 
