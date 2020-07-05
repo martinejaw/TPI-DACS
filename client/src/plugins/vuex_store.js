@@ -11,6 +11,7 @@ const store = new Vuex.Store({
     isMedico: false,
     isAdmin: false,
     nombre: '',
+    hospital: '',
   },
   mutations: {
     increment(state) {

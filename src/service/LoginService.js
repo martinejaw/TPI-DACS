@@ -22,15 +22,17 @@ class LoginService extends BaseService{
                 let nombreHospital;
 
                 if (cuentaValida.rol === 'medico'){
-                    const consulta = await this._medicoService.get(cuentaValida.MedicoDni);
+                    const consulta = await this._medicoService.obtenerHospital(cuentaValida.MedicoDni);
                     dni = cuentaValida.MedicoDni;
                     HospitalCuit = consulta.HospitaleCUIT;
                     nombre = consulta.nombre;
+                    nombreHospital = consulta.Hospitale.nombre;
                 } else {
-                    const consulta = await this._adminRepository.get(cuentaValida.AdministradoreDni);
+                    const consulta = await this._adminRepository.obtenerHospital(cuentaValida.AdministradoreDni);
                     dni = cuentaValida.AdministradoreDni;
                     HospitalCuit = consulta.HospitaleCUIT;
                     nombre = consulta.nombre;
+                    nombreHospital = consulta.Hospitale.nombre;
                 }
                 
                 return {
@@ -40,7 +42,7 @@ class LoginService extends BaseService{
                     dni: dni, 
                     cuit: HospitalCuit, 
                     nombre: nombre,
-                    nombreHospital: nombreHospital
+                    hospital: nombreHospital
                 };
                 
             } else {
