@@ -7,7 +7,7 @@ class MedicoRepository extends BaseRepository {
     super(db, "Medicos");
   }
 
-  async getMedicoLibre(){
+  async getMedicoLibre() {
     const consulta = "SELECT dni FROM (SELECT Medicos.dni,COUNT(id) AS cont FROM Medicos LEFT OUTER JOIN (SELECT * FROM Consultas WHERE date(Consultas.createdAt) = date('now')) AS C ON Medicos.dni = C.MedicoDni GROUP BY Medicos.dni ORDER BY cont ASC LIMIT 1);"
     return await this._db.sequelize.query(consulta, {
       nest: true,
@@ -15,15 +15,16 @@ class MedicoRepository extends BaseRepository {
     });
   }
 
-  async obtenerMedicosHospital(CUIT){
-       
-    return this._db.models[this.entity].findAll({where: {HospitaleCUIT: CUIT}});
+  async obtenerMedicosHospital(CUIT) {
+    return this._db.models[this.entity].findAll({ where: { HospitaleCUIT: CUIT } });
   }
 
-  async cantidadEspecialidad(CUIT, especialidad){
+  async cantidadEspecialidad(CUIT, especialidad) {
+    return this._db.models[this.entity].count({ where: { especialidad: especialidad, HospitaleCUIT: CUIT } });
+  }
 
-    return this._db.models[this.entity].count({where: {especialidad: especialidad, HospitaleCUIT: CUIT}});
-
+  async obtenerHospital(dni) {
+    return this._db.models[this.entity].findByPk(dni, { include: [this._db.models.Hospitales] });
   }
 
 }

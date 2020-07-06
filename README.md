@@ -13,17 +13,19 @@ El ministerio recibe de todos los centros hospitalarios los reportes de casos so
 
 
 # Instalación
-### Iniciar el py **(ya se hizo)**:
-npm init --yes
+
+### Clonar el repositorio.
 
 ### Instalar dependencias **(hacer siempre para confirmar)**:
-npm i express sqlite3 sequelize
+npm i
 
-### Para que se compile y corra cada vez que guardo el codigo:
+### Si no funciona, instalar nodemon de alguna de estas maneras:
 npm i nodemon -D
+o?
+sudo npm install -g --force nodemon
+o
+npm install -g nodemon --save-dev
 
-### Para estructurar el proyecto:
-npm i consign
 
 ### Correr el proyecto (fase de desarrollo):
 npm run dev
@@ -36,12 +38,6 @@ npm run build
 **Correr el proyecto (el de produccion):**
 npm run start
 
-
-Anotaciones:
-
-npm i @babel/core @babel/cli @babel/preset-env @babel/node -D
--D para usar solo en desarrollo
-
 ### Arquitectura implementada:
 ![Arquitectura por capas](./docs/Arquitectura.png)
 
@@ -52,3 +48,8 @@ npm i @babel/core @babel/cli @babel/preset-env @babel/node -D
 ![Diagrama de Clase - Centros Hospitalarios](./docs/DiagramaClaseCH.png)
 
 
+=======
+=======
+# 2020-G3-TPI
+Trabajo práctico Integrador - Grupo 3 - 2020
+=======
