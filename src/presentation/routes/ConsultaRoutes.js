@@ -24,19 +24,35 @@ module.exports = ( { ConsultaController } ) => {
 
     /**
      * @swagger
-     * /consulta:
-     *  post:
-     *      description: PACIENTES - Usar para crear nuevas consultas para que sean diagnosticadas
+     * /consulta/consultaNuevaId:
+     *  get:
+     *      description: PACIENTES - Recibir la lista de id de las nuevas consultas para asignarlo a los médicos
      *      tags: ["PACIENTES"]
      *      produces:
      *          - aplication/json
      *      responses:
      *          '201':
-     *              description: Se agrego correctamente la consulta
+     *              description: Se asignó correctamente las consultas
      *          '400':
      *              description: Error
      */
-    router.post("/consultaNueva", ConsultaController.recibirConsulta.bind(ConsultaController));
+    router.get("/consultaNuevaId", ConsultaController.recibirConsultaId.bind(ConsultaController));
+
+    /**
+     * @swagger
+     * /consulta/consultaNueva:
+     *  get:
+     *      description: PACIENTES - Recibir la lista de las nuevas consultas para visualizarlos
+     *      tags: ["PACIENTES"]
+     *      produces:
+     *          - aplication/json
+     *      responses:
+     *          '200':
+     *              description: Se obtuvo correctamente las consultas
+     *          '400':
+     *              description: Error
+     */
+    router.get("/consultaNueva", ConsultaController.recibirConsultaCompleta.bind(ConsultaController));
 
     /**
      * @swagger
@@ -104,19 +120,19 @@ module.exports = ( { ConsultaController } ) => {
 
     /**
      * @swagger
-     * /consulta/obtenerConsultas:
+     * /consulta/obtenerConsulta:
      *  get:
-     *      description: Usar obtener las consultas nuevas desde el grupo de pacientes
+     *      description: Usar obtener la consulta pasandole el id
      *      tags: ["HOSPITALES"]
      *      produces:
      *          - aplication/json
      *      responses:
      *          '200':
-     *              description: Se obtuvieron correctamente las consultas nuevas
+     *              description: Se obtuvo correctamente la consulta nueva
      *          '400':
      *              description: Error
      */
-    router.get("/obtenerConsultas", ConsultaController.obtenerConsultas.bind(ConsultaController));
+    router.get("/obtenerConsulta/:id", ConsultaController.obtenerConsulta.bind(ConsultaController));
 
     return router;
 }
