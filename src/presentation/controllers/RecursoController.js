@@ -1,6 +1,5 @@
 const request = require('request-promise')
 const axios = require("axios");
-const dateFormat = require("dateformat");
 
 class RecursoController {
     constructor({RecursoService}){
@@ -49,8 +48,7 @@ class RecursoController {
     }
 
     async pedirRecursos(req, res){
-        let fecha = dateFormat(new Date(), "yyyy-mm-dd H:MM:ss");
-        const recursos = { "createAt": fecha,"Peticion": req.body};
+        const recursos = { "Peticion": req.body};
         await axios({
             method: 'post',
             timeout: 5000,
