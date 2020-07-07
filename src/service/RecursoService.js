@@ -26,7 +26,7 @@ class RecursoService extends BaseService {
             data: recursos
         })
         .catch(error => {
-            res.json({msg: error.message})});
+            console.log(error.message);});
     }
 
 }

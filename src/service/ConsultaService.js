@@ -14,47 +14,50 @@ class ConsultaService extends BaseService {
         const entity = await this._entityRepository.getRespondidas(id);
         return entity;
     }
-    async recibirConsultasId{
+    async recibirConsultasId(){
         let consultasID = await axios({
             method: 'get',
             timeout: 5000,
             url: 'http://40.118.242.96:12600/api/FormularioParaAnalisis/GetFormulariosIdByEstado/0'
         })
         .catch(error => {
-            res.json({msg: error.message})});
-        return consultasID;
+            console.log(error.message)});
+        return consultasID.data;
     }
     async recibirConsultasCompleta(estado){
+        let consultas;
         if (Number(estado) === 1) {
-            let consultas = await axios({
+            consultas = await axios({
                 method: 'get',
                 timeout: 5000,
                 url: 'http://40.118.242.96:12600/api/FormularioParaAnalisis/GetFormulariosByEstado/1'
             })
             .catch(error => {
-                res.json({msg: error.message})});
+                console.log(error.message)});
         }
         else if (Number(estado) === 2) {
-            let consultas = await axios({
+            consultas = await axios({
                 method: 'get',
                 timeout: 5000,
                 url: 'http://40.118.242.96:12600/api/FormularioParaAnalisis/GetFormulariosByEstado/2'
             })
             .catch(error => {
-                res.json({msg: error.message})});
+                console.log(error.message);
+            })
         }
-        return consultas;
+        return consultas.data;
     }
     async setRecibido(id){
         let formularioId = {id};
         await axios({
             method: 'post',
-            timeout: 5000,
+            timeout: 10000,
             url: 'http://40.118.242.96:12600/api/FormularioParaAnalisis/SetRecibido',
             data: formularioId
         })
         .catch(error => {
-            res.json({msg: error.message})});
+            console.log(error.message);
+        })
     }
     async postDiagnostico(diag){
         let formulario = {
@@ -68,7 +71,8 @@ class ConsultaService extends BaseService {
             data: formulario
         })
         .catch(error => {
-            res.json({msg: error.message})});
+            console.log(error.message);
+        });
     }
 }
 

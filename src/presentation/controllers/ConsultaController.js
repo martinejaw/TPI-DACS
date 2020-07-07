@@ -42,12 +42,12 @@ class ConsultaController {
     }
 
     async recibirConsultaId(req, res) {
-        let consultasNuevas = await this._consultaService.recibirConsultasId()
-          .then(consultas => res.status(200).json(consultas))
+        let consultasNuevas ;
+      await this._consultaService.recibirConsultasId()
+          .then(consultas => consultasNuevas = consultas)
           .catch(error => {
               res.json({msg: error.message})});
         for (const consulta of consultasNuevas){
-            console.log("que paso aca",consulta);
             await this._asignacionService.asignarConsulta(consulta)
               .then(consultaAsignada => {
                 this._consultaService.create(consultaAsignada);
@@ -63,20 +63,10 @@ class ConsultaController {
 
     async recibirConsultaCompleta(req, res) {
         const { estado } = req.params;
-        let consultasNuevas = await this._consultaService.recibirConsultasCompleta(estado)
+        await this._consultaService.recibirConsultasCompleta(estado)
           .then(consultas => res.status(200).json(consultas))
           .catch(error => {
               res.json({msg: error.message})});
-        /*for (const consulta of consultasNuevas){
-            console.log("que paso aca",consulta);
-            /*await this._asignacionService.asignarConsulta(consulta)
-            .then(consultaAsignada => 
-                {this._consultaService.create(consultaAsignada);})
-            .catch(error => {
-                res.status(400).json({msg: error.message});  
-            }); 
-        }*/ 
-        res.status(200).json(consultasNuevas);
     }
 
     async diagnosticar(req, res) {
