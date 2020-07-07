@@ -24,6 +24,7 @@
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
+    "dateformat": "^3.0.3",
     "express": "^4.17.1",
     "jwt-simple": "^0.5.6",
     "mysql": "^2.18.1",
@@ -31,6 +32,7 @@
     "request": "^2.88.2",
     "request-promise": "^4.2.5",
     "sequelize": "^5.21.7",
+    "sqlite3": "^5.0.0",
     "swagger-jsdoc": "^4.0.0",
     "swagger-ui-express": "4.1.4"
   },

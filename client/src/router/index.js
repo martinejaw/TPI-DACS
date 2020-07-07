@@ -14,6 +14,8 @@ import Caso from '../views/VerCaso.vue';
 import ParteMedico from '../views/AddParteMedico.vue';
 import Administrador from '../views/HomeAdmin.vue';
 
+import cfg from '../config/cfg';
+
 import store from '../plugins/vuex_store';
 
 Vue.use(VueRouter);
@@ -149,7 +151,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const token = localStorage.getItem('user-token');
-  console.log(store.state.cuit);
+  console.log(cfg.VAL_URL);
   console.log(store.state.dni);
   if (token != null) {
     const user = jwt.decode(token, 'pass');
@@ -159,11 +161,15 @@ router.beforeEach((to, from, next) => {
       store.state.isAdmin = false;
       store.state.dni = user.dni;
       store.state.cuit = user.cuit;
+      store.state.nombre = user.nombre;
+      store.state.hospital = user.hospital;
     } else if (user.rol === 'admin') {
       store.state.isAdmin = true;
       store.state.isMedico = false;
       store.state.cuit = user.cuit;
       store.state.dni = user.dni;
+      store.state.nombre = user.nombre;
+      store.state.hospital = user.hospital;
     } else {
       store.state.isAdmin = false;
       store.state.isMedico = false;

@@ -6,17 +6,21 @@ class AsignacionService{
         this._consultaService = ConsultaService;
     }
 
-    async asignarConsulta(consultaGenerica){
+    async asignarConsulta(consultaID){
 
-
+        let consultaNueva = {
+          id : undefined,
+          MedicoDni: undefined,
+          dni: undefined ,
+        };
         const medicoParaAsignarDni = await this._medicoService.getMedicoLibre();
-
-        const consulta = this._consultaService.mapear(consultaGenerica);
-        consulta.asignarMedico(medicoParaAsignarDni);
-
-        const consultaGenericaAsignada = consulta.toObject(); // Mirar esto
-
-        return consultaGenericaAsignada;
+        console.log("aqui", medicoParaAsignarDni);
+        consultaNueva.id = Number(consultaID);
+        consultaNueva.MedicoDni = medicoParaAsignarDni;
+        consultaNueva.dni = 40000000; //Arreglar despues
+        // const consultaNuevaAsignada = consulta.toObject(); // Mirar esto
+        console.log("vamooo que falta esto nomas",consultaNueva);
+        return consultaNueva;
         //consulta.asignarMedico(medicoParaAsignar); // Mirar esto
     }
 

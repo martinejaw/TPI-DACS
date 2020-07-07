@@ -72,7 +72,7 @@
     </v-row>
 
     <!--Form pedido-->
-    <v-dialog v-model="pedidoBool" persistent max-width="400px">
+    <v-dialog v-model="pedidoBool" persistent max-width="600px">
       <v-card>
         <v-card-title>
           <span class="headline">Pedido de Recursos</span>

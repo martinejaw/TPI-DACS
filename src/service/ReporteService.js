@@ -1,3 +1,5 @@
+const dateFormat = require("dateformat");
+
 class ReporteService{
     constructor({RecursoService, PruebaService, ParteMedicoService, HospitalService, MedicoService, CiudadService}){
         this._recursoService = RecursoService;
@@ -48,6 +50,7 @@ class ReporteService{
         {
             "ReporteHospitalario": {
                 "cuitHospital": CUIT,
+                "createdAt": dateFormat(new Date(), "yyyy-mm-dd H:MM:ss"),
                 "nombreHospital": nombreHospital,
                 "idCiudad": idCiudad,
                 "nombreCiudad": nombreCiudad,

@@ -3,59 +3,144 @@
 <hr class="my-2">
   <!--div class="jumbotron jumbotron-fluid"-->
   <div class="w3-container w3-teal">
-    <h1 class="display-3">CONSULTA ID: {{ consultas.id}} </h1>
+    <h1 class="display-3">CONSULTA ID: {{consulta.id}} </h1>
+    <h4 v-if="resu === ''" style="color:#FF0000">
+      <strong>Información de la consulta no recuperada</strong></h4>
     <p ><strong>Estado: </strong>
-      <span class="badge bg-warning">Sin contestar</span>
-      <span class="badge bg-success">Contestado</span>
+      <span v-if= "consulta.diagnostico === null" class="badge bg-warning">Sin contestar</span>
+      <span v-if= "consulta.diagnostico !== null" class="badge bg-success">Contestado</span>
     </p>
-    <p class="text-right">Fecha de creación: {{ consultas.fech}} </p>
+    <p class="text-right">Fecha de creación: {{consultaCompleta.fechaDeCreacion}} </p>
     <hr class="my-4">
-    <h3>Nombre y Apellido: ape,nom</h3>
-    <h6>TipoDoc: {{ consulta.PacienteDni }} </h6>
-    <h6>Fecha de Nacimiento:{{consulta.fechaDeNacimiento}}</h6>
-    <h6>Sexo:{{consulta.sexo}}</h6>
-    <h6>Domicilio:{{consulta.domicilio}}</h6>
+    <h3>Nombre y Apellido:
+    {{consultaCompleta.paciente.apellido}}, {{consultaCompleta.paciente.nombre}}</h3>
+    <h6>TipoDoc: {{consulta.dni}} </h6>
+    <h6>Fecha de Nacimiento:
+    {{consultaCompleta.paciente.fechaDeNacimiento}}</h6>
+    <h6>Sexo:{{consultaCompleta.paciente.sexo}}</h6>
+    <h6>Domicilio:{{consultaCompleta.paciente.domicilio}}</h6>
     <hr class="my-2">
     <h3>Contactos</h3>
-    <h6>Teléfono: {{consulta.telefono}} </h6>
-    <h6>Correo Electrónico: {{consulta.correo}} </h6>
+    <h6>Teléfono: {{consultaCompleta.paciente.telefono}} </h6>
+    <h6>Correo electrónico: {{consultaCompleta.paciente.correo}} </h6>
     <hr class="my-2">
     <h3>Sintomas y signos</h3>
-    <ul><li>sintomaA</li>
-      <li>sintomaB</li>
-      <li>sintomaC</li>
+    <ul>
+    <tr v-for="(value,name) in consultaCompleta.signosYSintomas" :key="name">
+      <li v-if="value !== '' && name !== 'id' && value === true ">{{name}}: Si</li>
+    </tr>
     </ul>
     <hr class="my-2">
     <h3>Enfermedades previas</h3>
-    <h6>Peso al nacer: peso}}g </h6>
-    <h6>Semana de pematuridad: semana}} </h6>
     <ul>
-      <li>enmerfedadA}}</li>
-      <li>enfermedadB}}</li>
-      <li>enfermedadC}}</li>
+      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
+      presentaEnfermedadesComorbilidades === true">Enfermedades Comorbilidades: Si</li>
+      <li v-else>Enfermedades Comorbilidades: No</li>
+      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
+      inmunoSupresionCongenitaOAdquirida === true">
+      Inmuno a supresiones congenita o adquirida: Si</li>
+      <li v-else>Inmuno a supresiones congenita o adquirida: No</li>
+      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
+      diabetes === true">Diabetes: Si</li>
+      <li v-else>Diabetes: No</li>
+      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
+      obesidad === true">Obesidad: Si</li>
+      <li v-else>Obesidad: No</li>
+      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
+      embarzo === true">Embarazo: Si</li>
+      <li v-else>Embarazo: No</li>
+      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
+      puerperio === true">Puerperio: Si</li>
+      <li v-else>Puerperio: No</li>
+      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
+      prematuridad === true">Semana de pematuridad:
+      {{consultaCompleta.enfermedadesPreviasComorbilidades.semanasDePrematuridad}}
+      semanas</li>
+      <li v-else>Prematuridad: No</li>
+      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
+      bajoPesoAlNacer === true">Bajo peso al nacer:
+      {{consultaCompleta.enfermedadesPreviasComorbilidades.cantidadDePesoAlNacer}}</li>
+      <li v-else>Bajo peso al nacer: No</li>
+      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
+      enfermedadNeurologica === true">Enfermedades Neurologica: Si</li>
+      <li v-else>Enfermedades Neurologica: No</li>
+      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
+      enfermedadHepatica === true">Enfermedades Hepatica: Si</li>
+      <li v-else>Enfermedades Hepatica: No</li>
+      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
+      enfermedadRenalCronica === true">Enfermedades Renal cronica: Si</li>
+      <li v-else>Enfermedades Renal cronica: No</li>
+      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
+      hipertensionArterial === true">Hipertension arterial: Si</li>
+      <li v-else>Hipertension arterial: No</li>
+      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
+      enfermedadOncologica === true">Enfermedades Oncologica: Si</li>
+      <li v-else>Enfermedades Oncologica: No</li>
+      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
+      bronquitisPrevia === true">Bronquitis Previa: Si</li>
+      <li v-else>Bronquitis Previa: No</li>
+      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
+      naC_Previa === true">Nac Previa: Si</li>
+      <li v-else>Nac Previa: No</li>
+      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
+      epoc === true">Epoc: Si</li>
+      <li v-else>Epoc: No</li>
+      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
+      asma === true">Asma: Si</li>
+      <li v-else>Asma: No</li>
+      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
+      tubercolosis === true">Tubercolosis: Si</li>
+      <li v-else>Tubercolosis: No</li>
+      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
+      fumador === true">Fumador: Si</li>
+      <li v-else>Fumador: No</li>
     </ul>
     <hr class="my-2">
     <h3>Antecedente epidemiologicos</h3>
-    <h6>Tipo de ocupación: ni idea que es</h6>
-    <h6>Vacuna Anti Gripal: Posee/NoPosee</h6>
+    <h6 v-if="consultaCompleta.antecedenteEpidemiologicos1.tieneVacunaAntiGripal
+      === true">Vacuna Anti Gripal: Posee</h6>
+    <h6 v-else>Vacuna Anti Gripal: No Posee</h6>
     <ul>
-      <li>Desde Fecini hasta fecven</li>
+      <li>Desde: {{consultaCompleta.antecedenteEpidemiologicos1.fechaDeVacunacion}}</li>
+      <li>Hasta: {{consultaCompleta.antecedenteEpidemiologicos1.fechaDeVencimientoDeLaVacuna}}</li>
     </ul>
-    <h6>Estuvo en Lugar de Contagio fuera del país: Si/No}} </h6>
-    <ol>
-      <li>Ciudad: Ciudad}} Pais:Pais}} Desde Fecini}} hasta fecven}}</li>
-      <li>Ciudad: Ciudad}} Pais:Pais}} Desde Fecini}} hasta fecven}}</li>
-    </ol>
-    <h6>Estuvo en Centro con Caso COVID dentro del país: Si/No}} </h6>
-    <ol>
-      <li>Ciudad: Ciudad}} Centro:Nombrecentro}} Fecha de visita Fecha}}</li>
-      <li>Ciudad: Ciudad}} Centro:Nombrecentro}} Fecha de visita Fecha}}</li>
-    </ol>
-    <h6>Residio dentro del país previo a Sintomas: Si/No}} </h6>
-    <ol>
-      <li>Domicilio: Desde {{Fecini}} hasta {{fecven}}</li>
-      <li>Domicilio: {{Domicilio}} Desde {{Fecini}} hasta {{fecven}}</li>
-    </ol>
+    <h6 v-if="consultaCompleta.antecedenteEpidemiologicos1.
+    estuvoEnUnLugarDeContagioFueraDelPaisPrevioASintomas === true">
+    Estuvo en Lugar de Contagio fuera del país: Si
+      <ul>
+        <li>Ciudad: {{consultaCompleta.antecedenteEpidemiologicos1.ciudadDelPaisEnQueEstuvo}} </li>
+        <li>Pais: {{consultaCompleta.antecedenteEpidemiologicos1.paisEnQueEstuvo}}</li>
+        <li>Desde: {{consultaCompleta.antecedenteEpidemiologicos1.
+        fechaDeLlegadaAlPaisEnQueEstuvo}}</li>
+        <li>Hasta: {{consultaCompleta.antecedenteEpidemiologicos1.
+        fechaDeSalidaDelPaisEnQueEstuvo}}</li>
+      </ul>
+    </h6>
+    <h6 v-else>Estuvo en Lugar de Contagio fuera del país: No </h6>
+    <h6 v-if="consultaCompleta.antecedenteEpidemiologicos2.
+    visitoCentroConCasosPositivosPrevioASintomas === true">
+    Estuvo en Centro con Caso COVID dentro del país: Si
+      <ul>
+        <li>Centro: {{consultaCompleta.antecedenteEpidemiologicos2.nombreDelCentroVisitado}} </li>
+        <li>Ciudad: {{consultaCompleta.antecedenteEpidemiologicos2.ciudadDelCentroVisitado}}</li>
+        <li>Fecha de visita: {{consultaCompleta.antecedenteEpidemiologicos2.
+        fechaDeLaVisitaAlCentro}}</li>
+      </ul>
+    </h6>
+    <h6 v-else>Estuvo en Centro con Caso COVID dentro del país: No</h6>
+    <h6 v-if="consultaCompleta.antecedenteEpidemiologicos1.
+    residioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === true">
+    Residio dentro del país previo a Sintomas: Si
+      <ul>
+        <li>Domicilio: {{consultaCompleta.antecedenteEpidemiologicos1.
+        domicilioAlejoEnElQueResidio}} </li>
+        <li>Desde: {{consultaCompleta.antecedenteEpidemiologicos1.
+        fechaDeLlegadaADomicilioAjeno}}</li>
+        <li>Hasta: {{consultaCompleta.antecedenteEpidemiologicos1.
+        fechaDeSalidaDelDomicilioAjeno}}</li>
+      </ul>
+    </h6>
+    <h6 v-else>Residio dentro del país previo a Sintomas: No</h6>
     <hr class="my-4">
     <h1>Diagnóstico</h1>
     <textarea v-model="diagnostico"
@@ -86,12 +171,24 @@ import axios from 'axios';
 import cfg from '../config/cfg';
 
 export default {
-  name: 'Consultas',
+  name: 'ConsultaDiagnostico',
   props: ['consulta'],
   data: () => ({
     errorBool: false,
     error: '',
+    resu: '',
+    consultaCompleta: {
+      fechaDeCreacion: '',
+      paciente: '',
+      antecedenteEpidemiologicos1: '',
+      antecedenteEpidemiologicos2: '',
+      enfermedadesPreviasComorbilidades: '',
+      signosYSintomas: '',
+    },
   }),
+  mounted() {
+    this.obtenerConsulta();
+  },
   methods: {
     agregarDiagnostico() {
       axios.put(cfg.Diagnostico_URL, { id: this.consulta.id, diagnostico: this.diagnostico })
@@ -103,6 +200,15 @@ export default {
           this.error = error.message;
           this.errorBool = true;
         });
+    },
+    obtenerConsulta() {
+      const url = `${cfg.Consultas_URL}/obtenerConsulta/${this.consulta.id}`;
+      axios.get(url)
+        .then((result) => {
+          this.consultaCompleta = result.data;
+          this.resu = result.data;
+        })
+        .catch((error) => { this.error = error.message; this.errorBool = true; });
     },
   },
 };

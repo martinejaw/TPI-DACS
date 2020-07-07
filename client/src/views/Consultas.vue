@@ -27,16 +27,17 @@
           <tr>
             <th scope="col">ID Consulta</th>
             <th scope="col">DNI Paciente</th>
-            <th scope="col">Fecha</th>
+            <th scope="col">Fecha creación</th>
             <th scope="col">Diagnostico</th>
           </tr>
         </thead>
         <tbody v-if="consultaSeleccionada">
           <tr v-for="consulta in consultasSinResponder" v-bind:key="consulta">
             <th scope="row">{{ consulta.id }}</th>
-            <td>{{ consulta.PacienteDni }}</td>
-            <td>{{ consulta.MedicoDni }}</td>
-            <router-link :to='{name: "ConsultaDiagnostico", params: { consulta } }'>
+            <td>{{ consulta.dni }}</td>
+            <td>{{ consulta.createdAt }}</td>
+            <router-link :to='{name: "ConsultaDiagnostico",
+            params: { consulta: consulta } }'>
               <v-btn
                 class="btn btn-outline-success my-2 my-sm-0 col-md-8"
                 color="primary"
@@ -50,8 +51,8 @@
         <tbody v-else>
           <tr v-for="consulta in consultasRespondidas" v-bind:key="consulta">
             <th scope="row">{{ consulta.id }}</th>
-            <td> {{ consulta.PacienteDni }} </td>
-            <td> {{ consulta.fecha }} </td>
+            <td> {{ consulta.dni }} </td>
+            <td> {{ consulta.createdAt }} </td>
             <v-btn
               class="btn btn-outline-success my-2 my-sm-0 col-md-8"
               color="primary"
@@ -98,8 +99,7 @@ export default {
     consultasRespondidas: [],
     id: 0,
     PacienteDni: 0,
-    MedicoDni: 0,
-    fecha: '',
+    createdAt: '',
     search: '',
     consultaSeleccionada: true,
     consultasSinResponder: [],
