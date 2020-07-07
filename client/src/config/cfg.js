@@ -17,6 +17,7 @@ const cfg = {
   Pruebas_URL: `${url}/prueba`,
   Pedidos_URL: `${url}/recurso/pedirRecursos`,
   Medicos_URL: `${url}/medico`,
+  SECRET: 'pass123',
 
 };
 
