@@ -28,7 +28,7 @@
             <th scope="col">ID Consulta</th>
             <th scope="col">DNI Paciente</th>
             <th scope="col">Fecha creación</th>
-            <th scope="col">Diagnostico</th>
+            <th scope="col">Diagnostico y Comentario</th>
           </tr>
         </thead>
         <tbody v-if="consultaSeleccionada">
@@ -58,7 +58,7 @@
               color="primary"
               dark
               v-bind="attrs"
-              @click="mostrarDiag = true; verC = consulta.diagnostico"
+              @click="mostrarDiag = true; verD = consulta.diagnostico; verC = consulta.comentario"
               v-on="on"
             >Mostrar</v-btn>
           </tr>
@@ -70,10 +70,11 @@
     <v-row justify="center">
       <v-dialog v-model="mostrarDiag" persistent max-width="500">
         <v-card>
-          <v-card-title class="headline">{{ verC }}</v-card-title>
+          <v-card-title class="headline">Comentario: {{ verC }}</v-card-title>
+          <v-card-title class="headline">Diagnostico: {{ verD }}</v-card-title>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="green darken-1" text @click="mostrarDiag = false">Enterado</v-btn>
+            <v-btn color="green darken-1" text @click="mostrarDiag = false">Cerrar</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>

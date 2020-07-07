@@ -7,22 +7,15 @@
       <hr class="my-4" />
       <form class="form-inline">
         <i class="fas fa-search" aria-hidden="true"></i>
-        <input
-          class="form-control form-control-sm col-md-4"
-          type="text"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <div class="col-md-6"></div>
-        <button class="btn btn-outline-success my-2 my-sm-0 col-md-2"
-        type="submit">Agregar Medico</button>
+        <input v-model="search" class="form-control background-color=white"
+        type="text" placeholder="Buscar por DNI">
       </form>
       <hr class="my-1" />
       <div class="btn-group d-flex" role="group">
-        <a class="btn btn-outline-secondary w-100">Matricula</a>
-        <a class="btn btn-outline-secondary w-100">DNI</a>
-        <a class="btn btn-outline-secondary w-100">Nombre</a>
-        <a class="btn btn-outline-secondary w-100">Especialidad</a>
+        <a class="btn btn-outline-secondary w-100" @click="ordenarMatricula">Matricula</a>
+        <a class="btn btn-outline-secondary w-100" @click="ordenarDni">DNI</a>
+        <a class="btn btn-outline-secondary w-100" @click="ordenarNombre">Nombre</a>
+        <a class="btn btn-outline-secondary w-100" @click="ordenarEspecialidad">Especialidad</a>
       </div>
 
       <hr class="my-2" />
@@ -58,9 +51,9 @@
                           />
                         </div>
                       </div>
-                      <div class="botoneditar">
+                      <!--<div class="botoneditar">
                         <button type="button" class="edit btn-secondary">Editar Datos</button>
-                      </div>
+                      </div>-->
                     </div>
                   </div>
                 </div>
@@ -88,6 +81,10 @@ export default {
     matricula: 0,
     especialidad: '',
     HospitaleCUIT: '',
+    ordDni: true,
+    ordEsp: false,
+    ordMatricula: false,
+    ordNom: false,
     search: '',
   }),
   mounted() {
@@ -101,6 +98,47 @@ export default {
           this.medicos = result.data;
         })
         .catch((error) => { this.error = error.message; this.errorBool = true; });
+    },
+    ordenarMatricula() {
+      if (this.ordMatricula) {
+        this.medicos.sort((b, a) => a.matricula - b.matricula);
+        this.ordMatricula = false;
+      } else {
+        this.medicos.sort((a, b) => a.matricula - b.matricula);
+        this.ordMatricula = true;
+      }
+    },
+    ordenarDni() {
+      if (this.ordDni) {
+        this.medicos.sort((b, a) => a.dni - b.dni);
+        this.ordDni = false;
+      } else {
+        this.medicos.sort((a, b) => a.dni - b.dni);
+        this.ordDni = true;
+      }
+    },
+    ordenarNombre() {
+      if (this.ordNom) {
+        this.medicos.sort((b, a) => a.apellido > b.apellido);
+        this.ordNom = false;
+      } else {
+        this.medicos.sort((a, b) => a.apellido > b.apellido);
+        this.ordNom = true;
+      }
+    },
+    ordenarEspecialidad() {
+      if (this.ordEsp) {
+        this.medicos.sort((b, a) => a.especialidad > b.especialidad);
+        this.ordEsp = false;
+      } else {
+        this.medicos.sort((a, b) => a.especialidad > b.especialidad);
+        this.ordEsp = true;
+      }
+    },
+    watch: {
+      error: () => {
+        // console.log(this.error);
+      },
     },
   },
   computed: {

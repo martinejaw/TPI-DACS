@@ -15,8 +15,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="recurso in recursos" v-bind:key="recurso">
-            <th scope="row">{{ recurso.id }}</th>
+          <tr v-for="(recurso, index) in recursos" v-bind:key="recurso">
+            <th scope="row">{{ index+1 }}</th>
             <td>{{ recurso.nombre }}</td>
             <td>{{ recurso.cantidad }}</td>
             <td>
@@ -103,7 +103,7 @@
             color="blue darken-1"
             text
             @click="pedidoBool = false;realizarPedido();"
-          >Actualizar recursos</v-btn>
+          >Enviar Pedido</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

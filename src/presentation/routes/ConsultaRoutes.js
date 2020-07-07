@@ -134,5 +134,7 @@ module.exports = ( { ConsultaController } ) => {
      */
     router.get("/obtenerConsulta/:id", ConsultaController.obtenerConsulta.bind(ConsultaController));
 
+    router.get("/obtenerConsultaDni/:dni", ConsultaController.obtenerConsultaDni.bind(ConsultaController));
+
     return router;
 }

@@ -7,8 +7,8 @@
             <div class="col-md-6 mb-2">
               <h1 class="display-3">CASO ID: {{ caso.id }} </h1>
               <h6 class="lead">Detalle del caso</h6>
-              <h6 class="lead"><strong>DNI: </strong> 37973754 </h6>
-              <h6 class="lead"><strong>Fecha inicio: </strong>09/05/2020 </h6>
+              <h6 class="lead"><strong>DNI: </strong> {{ caso.dni }} </h6>
+              <h6 class="lead"><strong>Fecha inicio: </strong> {{ caso.fechaInicio }} </h6>
               <div>
                 <h6>
                   <strong>Estado: </strong>
@@ -26,11 +26,13 @@
                 <div class="card-body">
                   <h4 id="section1"><strong>Enfermedades Previas</strong></h4>
                   <ul class="list-group">
-                    <li class="list-group-item">Diabetes</li>
-                    <li class="list-group-item">Enfermedad x</li>
-                    <li class="list-group-item">Enfermedad y</li>
-                    <li class="list-group-item">Enfermedad z</li>
-                    <li class="list-group-item">Asma</li>
+                    <div v-for="(value,name) in enfermedadesPrevias" v-bind:key="name">
+                      <li class="list-group-item"
+                        v-if="value !== '' && name !== 'id' && value === true ">
+                        {{name.replace(/([A-Z])/g, ' $1').replace(/^./, function(str)
+                        { return str.toUpperCase(); })}}
+                      </li>
+                    </div>
                   </ul>
                 </div>
               </div>
@@ -197,10 +199,20 @@ export default {
     edit: false,
     resultadoPrueba: '',
     idPrueba: 0,
+    consultaCompleta: {
+      fechaDeCreacion: '',
+      paciente: '',
+      antecedenteEpidemiologicos1: '',
+      antecedenteEpidemiologicos2: '',
+      enfermedadesPreviasComorbilidades: '',
+      signosYSintomas: '',
+    },
+    enfermedadesPrevias: '',
   }),
   mounted() {
     this.obtenerPartes();
     this.obtenerPruebas();
+    this.obtenerConsulta();
   },
   methods: {
     altaPrueba() {
@@ -251,6 +263,15 @@ export default {
       this.caso.estado = this.resultadoPrueba;
       const url = `${cfg.Casos_URL}/${this.caso.id}`;
       axios.put(url, { estado: this.caso.estado })
+        .catch((error) => { this.error = error.message; this.errorBool = true; });
+    },
+    obtenerConsulta() {
+      const url = `${cfg.Consultas_URL}/obtenerConsultaDni/${this.caso.dni}`;
+      axios.get(url)
+        .then((result) => {
+          this.consultaCompleta = result.data;
+          this.enfermedadesPrevias = this.consultaCompleta.enfermedadesPreviasComorbilidades;
+        })
         .catch((error) => { this.error = error.message; this.errorBool = true; });
     },
   },
