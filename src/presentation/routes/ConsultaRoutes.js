@@ -40,7 +40,7 @@ module.exports = ( { ConsultaController } ) => {
 
     /**
      * @swagger
-     * /consulta/consultaNueva:
+     * /consulta/consultaNueva/{estado}:
      *  get:
      *      description: PACIENTES - Recibir la lista de las nuevas consultas para visualizarlos
      *      tags: ["PACIENTES"]
@@ -52,7 +52,7 @@ module.exports = ( { ConsultaController } ) => {
      *          '400':
      *              description: Error
      */
-    router.get("/consultaNueva", ConsultaController.recibirConsultaCompleta.bind(ConsultaController));
+    router.get("/consultaNueva/:estado", ConsultaController.recibirConsultaCompleta.bind(ConsultaController));
 
     /**
      * @swagger
@@ -128,12 +128,26 @@ module.exports = ( { ConsultaController } ) => {
      *          - aplication/json
      *      responses:
      *          '200':
-     *              description: Se obtuvo correctamente la consulta nueva
+     *              description: Se obtuvo correctamente la consulta
      *          '400':
      *              description: Error
      */
     router.get("/obtenerConsulta/:id", ConsultaController.obtenerConsulta.bind(ConsultaController));
 
+    /**
+     * @swagger
+     * /consulta/obtenerConsultaDni:
+     *  get:
+     *      description: Usar obtener la consulta pasandole el dni
+     *      tags: ["HOSPITALES"]
+     *      produces:
+     *          - aplication/json
+     *      responses:
+     *          '200':
+     *              description: Se obtuvo correctamente la consulta
+     *          '400':
+     *              description: Error
+     */
     router.get("/obtenerConsultaDni/:dni", ConsultaController.obtenerConsultaDni.bind(ConsultaController));
 
     return router;
