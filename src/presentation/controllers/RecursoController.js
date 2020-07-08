@@ -1,5 +1,4 @@
 const request = require('request-promise')
-const axios = require("axios");
 
 class RecursoController {
     constructor({RecursoService}){
@@ -48,17 +47,10 @@ class RecursoController {
     }
 
     async pedirRecursos(req, res){
-        const recursos = { "Peticion": req.body};
-        await axios({
-            method: 'post',
-            timeout: 5000,
-            url: 'https://6iubewzdng.execute-api.sa-east-1.amazonaws.com/dev/peticiones',
-            headers: {'x-api-key': 'FTlS2bc9lo1OtmzHCBrju4ZL8PqFM5yr4JB775RR'},
-            data: recursos
-        })
-        .then(recursos => res.status(200).json(recursos))
-        .catch(error => {
-            res.json({msg: error.message})});
+        const recursos = await this._recursoService.pedirRecursos(req.body)
+            .then(recursos => res.status(200).json(recursos))
+            .catch(error => {
+                res.json({msg: error.message})});
     }
 }
 

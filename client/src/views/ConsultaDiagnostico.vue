@@ -27,73 +27,19 @@
     <h3>Sintomas y signos</h3>
     <ul>
     <tr v-for="(value,name) in consultaCompleta.signosYSintomas" :key="name">
-      <li v-if="value !== '' && name !== 'id' && value === true ">{{name}}: Si</li>
+      <li v-if="value !== '' && name !== 'id' && value === true ">{{
+          name.replace(/([A-Z])/g, ' $1').replace(/^./, function(str)
+          { return str.toUpperCase();}) }} </li>
     </tr>
     </ul>
     <hr class="my-2">
     <h3>Enfermedades previas</h3>
     <ul>
-      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
-      presentaEnfermedadesComorbilidades === true">Enfermedades Comorbilidades: Si</li>
-      <li v-else>Enfermedades Comorbilidades: No</li>
-      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
-      inmunoSupresionCongenitaOAdquirida === true">
-      Inmuno a supresiones congenita o adquirida: Si</li>
-      <li v-else>Inmuno a supresiones congenita o adquirida: No</li>
-      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
-      diabetes === true">Diabetes: Si</li>
-      <li v-else>Diabetes: No</li>
-      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
-      obesidad === true">Obesidad: Si</li>
-      <li v-else>Obesidad: No</li>
-      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
-      embarzo === true">Embarazo: Si</li>
-      <li v-else>Embarazo: No</li>
-      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
-      puerperio === true">Puerperio: Si</li>
-      <li v-else>Puerperio: No</li>
-      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
-      prematuridad === true">Semana de pematuridad:
-      {{consultaCompleta.enfermedadesPreviasComorbilidades.semanasDePrematuridad}}
-      semanas</li>
-      <li v-else>Prematuridad: No</li>
-      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
-      bajoPesoAlNacer === true">Bajo peso al nacer:
-      {{consultaCompleta.enfermedadesPreviasComorbilidades.cantidadDePesoAlNacer}}</li>
-      <li v-else>Bajo peso al nacer: No</li>
-      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
-      enfermedadNeurologica === true">Enfermedades Neurologica: Si</li>
-      <li v-else>Enfermedades Neurologica: No</li>
-      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
-      enfermedadHepatica === true">Enfermedades Hepatica: Si</li>
-      <li v-else>Enfermedades Hepatica: No</li>
-      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
-      enfermedadRenalCronica === true">Enfermedades Renal cronica: Si</li>
-      <li v-else>Enfermedades Renal cronica: No</li>
-      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
-      hipertensionArterial === true">Hipertension arterial: Si</li>
-      <li v-else>Hipertension arterial: No</li>
-      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
-      enfermedadOncologica === true">Enfermedades Oncologica: Si</li>
-      <li v-else>Enfermedades Oncologica: No</li>
-      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
-      bronquitisPrevia === true">Bronquitis Previa: Si</li>
-      <li v-else>Bronquitis Previa: No</li>
-      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
-      naC_Previa === true">Nac Previa: Si</li>
-      <li v-else>Nac Previa: No</li>
-      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
-      epoc === true">Epoc: Si</li>
-      <li v-else>Epoc: No</li>
-      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
-      asma === true">Asma: Si</li>
-      <li v-else>Asma: No</li>
-      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
-      tubercolosis === true">Tubercolosis: Si</li>
-      <li v-else>Tubercolosis: No</li>
-      <li v-if="consultaCompleta.enfermedadesPreviasComorbilidades.
-      fumador === true">Fumador: Si</li>
-      <li v-else>Fumador: No</li>
+      <tr v-for="(value,name) in consultaCompleta.enfermedadesPreviasComorbilidades" :key="name">
+      <li v-if="value !== '' && name !== 'id' && value === true ">{{
+          name.replace(/([A-Z])/g, ' $1').replace(/^./, function(str)
+          { return str.toUpperCase();}) }} </li>
+      </tr>
     </ul>
     <hr class="my-2">
     <h3>Antecedente epidemiologicos</h3>
@@ -142,6 +88,9 @@
     </h6>
     <h6 v-else>Residio dentro del país previo a Sintomas: No</h6>
     <hr class="my-4">
+    <h1>Comentario</h1>
+    <textarea v-model="comentario"
+    class="form-control" id="exampleFormControlTextarea2" rows="5"></textarea>
     <h1>Diagnóstico</h1>
     <textarea v-model="diagnostico"
     class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
@@ -191,7 +140,8 @@ export default {
   },
   methods: {
     agregarDiagnostico() {
-      axios.put(cfg.Diagnostico_URL, { id: this.consulta.id, diagnostico: this.diagnostico })
+      axios.put(cfg.Diagnostico_URL,
+        { id: this.consulta.id, diagnostico: this.diagnostico, comentario: this.comentario })
         .then((result) => {
           this.consultasSinResponder = result.data;
           this.$router.push('consultas');

@@ -154,7 +154,7 @@ router.beforeEach((to, from, next) => {
   console.log(cfg.VAL_URL);
   console.log(store.state.dni);
   if (token != null) {
-    const user = jwt.decode(token, 'pass');
+    const user = jwt.decode(token, cfg.SECRET);
     console.log(user);
     if (user.rol === 'medico') {
       store.commit('setMedico', true);

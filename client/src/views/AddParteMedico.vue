@@ -1,4 +1,5 @@
 <template>
+
 <div>
 <hr class="my-2">
       <!--div class="jumbotron jumbotron-fluid"-->
@@ -152,8 +153,8 @@
                     </v-dialog>
                 </div>
               <h2>Tratamiento</h2>
-              <textarea class="form-control" id="exampleFormControlTextarea1"
-              v-model="tratamiento" rows="5"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1"
+                v-model="tratamiento" rows="5" ></textarea>
               <hr class="my-1">
               <h2>Comentario</h2>
               <textarea class="form-control" id="exampleFormControlTextarea1"
@@ -161,7 +162,8 @@
               <hr class="my-2">
 
               <div class="text-right">
-                <button class="btn btn-primary" @click="altaParte()"> Agregar Parte Médico</button>
+                <v-btn class="btn btn-primary"
+                @click="altaParte()"> Agregar Parte Médico</v-btn>
               </div>
             </div>
           </div>
