@@ -11,33 +11,6 @@ Los médicos de los centros hospitalarios puede tomar las consultas realizadas p
 ### Ministerio de salud de la provincia
 El ministerio recibe de todos los centros hospitalarios los reportes de casos sospechosos reportados por los pacientes y validados por los profesionales de la salud. En base a esta información, y la disponibilidad de recursos, el ministerio asigna recursos de los centros hospitalarios para el seguimiento y detección de casos de COVID-19. Por otro lado, genera reportes sobre el estado y evolución de casos positivos y sospechosos en forma diaria y en tiempo real.
 
-
-# Instalación
-
-### Clonar el repositorio.
-
-### Instalar dependencias **(hacer siempre para confirmar)**:
-npm i
-
-### Si no funciona, instalar nodemon de alguna de estas maneras:
-npm i nodemon -D
-o?
-sudo npm install -g --force nodemon
-o
-npm install -g nodemon --save-dev
-
-
-### Correr el proyecto (fase de desarrollo):
-npm run dev
-
-
-**Construir el proyecto (version con soporte en navegadores):**
-npm run build
-
-
-**Correr el proyecto (el de produccion):**
-npm run start
-
 ### Arquitectura implementada:
 ![Arquitectura por capas](./docs/Arquitectura.png)
 
@@ -47,9 +20,3 @@ npm run start
 ### Diagrama de Clase:
 ![Diagrama de Clase - Centros Hospitalarios](./docs/DiagramaClaseCH.png)
 
-
-=======
-=======
-# 2020-G3-TPI
-Trabajo práctico Integrador - Grupo 3 - 2020
-=======
