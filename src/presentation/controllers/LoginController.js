@@ -16,8 +16,6 @@ class LoginController {
             .catch(error => {
                 res.status(400).json({msg: error.message});  
             });
-
-        await this._loginService.decodeToken(1);
     }
 
     async register(req,res){
