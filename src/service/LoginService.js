@@ -103,6 +103,13 @@ class LoginService extends BaseService{
 
                 const token = authHeader.split(' ')[1];
 
+                if (!token) {
+                    reject({
+                        status: 401,
+                        message: 'Token vacio'
+                    });
+                }
+
                 const payload = jwt.decode(token, cfg.SECRET);
 
                 if (payload.exp > moment.unix()) {

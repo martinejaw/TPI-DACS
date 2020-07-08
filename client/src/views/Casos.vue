@@ -164,13 +164,7 @@ export default {
     },
     actualizarCasos() {
       const url = `${cfg.Casos_URL}/${this.$store.state.dni}`;
-      axios({
-        method: 'get',
-        url,
-        headers: {
-          authorization: `Bearer ${localStorage.getItem('user-token')}`,
-        },
-      })
+      axios.get(url)
         .then((result) => {
           this.casos = result.data;
         })

@@ -152,7 +152,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const token = localStorage.getItem('user-token');
-  axios.defaults.headers.common.authorization = token;
+  axios.defaults.headers.common.authorization = `Bearer ${token}`;
   console.log(cfg.VAL_URL);
   console.log(store.state.dni);
   if (token != null) {
