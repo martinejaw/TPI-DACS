@@ -15,8 +15,6 @@ El ministerio recibe de todos los centros hospitalarios los reportes de casos so
 ![Arquitectura por capas](./docs/Arquitectura.png)
 
 ### Diagrama Entidad Relación:
-![Diagrama Entidad Relación - Centros Hospitalarios](./docs/CentrosHospitalarios.png)
+![Diagrama Entidad Relación - Centros Hospitalarios](./docs/CentrosHospitalarios-DER.png)
 
-### Diagrama de Clase:
-![Diagrama de Clase - Centros Hospitalarios](./docs/DiagramaClaseCH.png)
 
