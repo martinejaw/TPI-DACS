@@ -101,10 +101,9 @@ class LoginService extends BaseService{
                     });
                 }   */
 
-                let token = header.split(' ')[1];
+                const token = authHeader.split(' ')[1];
 
-                payload = jwt.decode(token, cfg.SECRET);
-
+                const payload = jwt.decode(token, cfg.SECRET);
 
                 if (payload.exp > moment.unix()) {
                     reject({
@@ -115,12 +114,12 @@ class LoginService extends BaseService{
 
                 // Comprobar que el id de la sesion exista en el almacenamiento de sesiones
 
-                resolve(token);
+                resolve(payload);
 
             } catch(err) {
                 reject({
                     status: 403,
-                    message: err.message
+                    message: 'Token no valido'
                 });
             }
         })

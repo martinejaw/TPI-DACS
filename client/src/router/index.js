@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import jwt from 'jwt-simple';
+import axios from 'axios';
 import VueRouter from 'vue-router';
 import Register from '../views/Register.vue';
 import Login from '../views/Login.vue';
@@ -151,6 +152,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const token = localStorage.getItem('user-token');
+  axios.defaults.headers.common.authorization = token;
   console.log(cfg.VAL_URL);
   console.log(store.state.dni);
   if (token != null) {

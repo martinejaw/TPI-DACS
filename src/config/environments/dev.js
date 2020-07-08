@@ -6,6 +6,7 @@ module.exports = {
   params: {
       dialect: 'sqlite',
       storage: 'hospitales.sqlite',
+      logging: false,
       define: {
           underscore: true
       }

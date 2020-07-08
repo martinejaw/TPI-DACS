@@ -4,8 +4,6 @@ class LoginController {
     }
 
     async login(req,res){
-        
-
         await this._loginService.validarRegistro(req.body)
             .then(token => {  
                 if(token != false){

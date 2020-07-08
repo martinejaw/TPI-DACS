@@ -30,6 +30,9 @@ const Service  = require("../service");
 // repositories
 const Repository = require("../dal/repositories");
 
+// Middlewares
+const AuthMiddle = require('../middlewares/auth');
+
 // db
 const db = require("../dal/entities");
 const uow = require("../dal/unitOfWork");
@@ -68,7 +71,8 @@ container
     RegisterRoutes: asFunction(RegisterRoutes).singleton(),
   })
   .register({
-    config: asValue(config)
+    config: asValue(config),
+    AuthMiddle: asClass(AuthMiddle).singleton(),
   })
   .register({
     db: asFunction(db),
