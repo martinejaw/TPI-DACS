@@ -27,11 +27,13 @@
     "dateformat": "^3.0.3",
     "express": "^4.17.1",
     "jwt-simple": "^0.5.6",
+    "moment": "^2.27.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.1.0",
     "request": "^2.88.2",
     "request-promise": "^4.2.5",
     "sequelize": "^5.21.7",
+    "sqlite3": "^5.0.0",
     "swagger-jsdoc": "^4.0.0",
     "swagger-ui-express": "4.1.4"
   },
