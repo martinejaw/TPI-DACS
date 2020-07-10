@@ -11,4 +11,5 @@ module.exports = {
     PruebaRepository: require("./PruebaRepository"),
     RecursoRepository: require("./RecursoRepository"),
     AdministradorRepository: require("./AdministradorRepository"),
+    SesionRepository: require("./SesionRepository"),
 };

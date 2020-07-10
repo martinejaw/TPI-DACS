@@ -5,69 +5,81 @@ const cfg = require('../config/environments/cfg')
 const jwt = require('jwt-simple')
 
 class LoginService extends BaseService{
-    constructor({ UnitOfWork, MedicoService }){
+    constructor({ UnitOfWork, MedicoService, SesionService, AdministradorService }){
         super(UnitOfWork.CuentaRepository,"Cuenta");
         this._medicoService = MedicoService;
-        this._adminRepository = UnitOfWork.AdministradorRepository;
+        this._adminService = AdministradorService;
+        this._sesionService = SesionService;
         this._token = null;
     }
 
     async validarRegistro(cuenta){
-        const cuentaValida = await this._entityRepository.get(cuenta.usuario);
-        if (cuentaValida === null){
-            return false;
-        }
-        else{
-            const v = bcrypt.compareSync(cuenta.password, cuentaValida.password);
-            if (v == true) {
-                let dni;
-                let HospitalCuit;
-                let nombre;
-                let nombreHospital;
-
-                if (cuentaValida.rol === 'medico'){
-                    const consulta = await this._medicoService.obtenerHospital(cuentaValida.MedicoDni);
-                    dni = cuentaValida.MedicoDni;
-                    HospitalCuit = consulta.HospitaleCUIT;
-                    nombre = consulta.nombre;
-                    nombreHospital = consulta.Hospitale.nombre;
-                } else {
-                    const consulta = await this._adminRepository.obtenerHospital(cuentaValida.AdministradoreDni);
-                    dni = cuentaValida.AdministradoreDni;
-                    HospitalCuit = consulta.HospitaleCUIT;
-                    nombre = consulta.nombre;
-                    nombreHospital = consulta.Hospitale.nombre;
-                }
-                
-                const payload = {
-                    rol: cuentaValida.rol, 
-                    dni: dni, 
-                    cuit: HospitalCuit, 
-                    nombre: nombre,
-                    hospital: nombreHospital,
-                    iat: moment().unix(),
-                    exp: moment().add(3, 'hours').unix()
-                }
-
-                const token = jwt.encode(payload, cfg.SECRET);
-                this._token = token;
-                console.log(token);
-
-                // ######### Si tuvieramos que hacer a mano con algun codificador ##########
-                /* const header = {
-                    alg: "HS256",
-                    typ: "JWT"
-                } */
-                // const unsignedToken = jwt.encode(header, cfg.SECRET) + '.' + jwt.encode(payload, cfg.SECRET);
-                // const signature = jwt.encode(unsignedToken, cfg.SECRET, 'RS256') ;
-                // const token = unsignedToken + '.' + signature ;
-
-                return token;
-                
-            } else {
-                return false;
+        const token = await new Promise(async (resolve, reject) => {
+            const cuentaValida = await this._entityRepository.get(cuenta.usuario);
+            if (cuentaValida === null){
+                reject();
             }
-        }
+            else{
+                const v = bcrypt.compareSync(cuenta.password, cuentaValida.password);
+                if (v == true) {
+                    let dni;
+                    let HospitalCuit;
+                    let nombre;
+                    let nombreHospital;
+
+                    if (cuentaValida.rol === 'medico'){
+                        const consulta = await this._medicoService.obtenerHospital(cuentaValida.MedicoDni).catch(e => reject(e));
+                        dni = cuentaValida.MedicoDni;
+                        HospitalCuit = consulta.HospitaleCUIT;
+                        nombre = consulta.nombre;
+                        nombreHospital = consulta.Hospitale.nombre;
+                    } else {
+                        const consulta = await this._adminService.obtenerHospital(cuentaValida.AdministradoreDni).catch(e => reject(e));
+                        dni = cuentaValida.AdministradoreDni;
+                        HospitalCuit = consulta.HospitaleCUIT;
+                        nombre = consulta.nombre;
+                        nombreHospital = consulta.Hospitale.nombre;
+                    }
+
+                    const iat = moment().unix();
+                    const exp = moment().add(3, 'hours').unix();
+
+                    const sesion = await this._sesionService.create({
+                        usuario: cuentaValida.usuario,
+                        exp: exp,
+                    }).catch(e => reject(e));
+                    
+                    const payload = {
+                        idSesion: sesion.uuid,
+                        rol: cuentaValida.rol, 
+                        dni: dni, 
+                        cuit: HospitalCuit, 
+                        nombre: nombre,
+                        hospital: nombreHospital,
+                        iat: iat,
+                        exp: exp,
+                    }
+
+                    const token = jwt.encode(payload, cfg.SECRET);
+                    this._token = token;
+
+                    // ######### Si tuvieramos que hacer a mano con algun codificador ##########
+                    /* const header = {
+                        alg: "HS256",
+                        typ: "JWT"
+                    } */
+                    // const unsignedToken = jwt.encode(header, cfg.SECRET) + '.' + jwt.encode(payload, cfg.SECRET);
+                    // const signature = jwt.encode(unsignedToken, cfg.SECRET, 'RS256') ;
+                    // const token = unsignedToken + '.' + signature ;
+
+                    resolve(token);
+                    
+                } else {
+                    reject();
+                }
+            }
+        });
+        return token;
     }
 
 
@@ -113,6 +125,7 @@ class LoginService extends BaseService{
                 const payload = jwt.decode(token, cfg.SECRET);
 
                 if (payload.exp > moment.unix()) {
+                    this._sesionService.borrar(payload.idSesion);
                     reject({
                         status: 403,
                         message: 'El token ha expirado'
@@ -132,6 +145,10 @@ class LoginService extends BaseService{
         })
 
         return decodedPayload;
+    }
+
+    async logout(payload) {
+        return this._sesionService.borrar(payload.idSesion);
     }
 
 }

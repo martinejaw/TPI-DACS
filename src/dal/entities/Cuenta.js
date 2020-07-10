@@ -40,6 +40,7 @@ module.exports = (sequelize, DataType) => {
     Cuenta.associate = (models) => {
         Cuenta.belongsTo(models.Medicos, { foreignKey: { allowNull: true }});
         Cuenta.belongsTo(models.Administradores, { foreignKey: { allowNull: true }});
+        Cuenta.hasOne(models.Sesiones);
     };
 
     return Cuenta;

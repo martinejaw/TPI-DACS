@@ -92,6 +92,7 @@ container
     RecursoService: asClass(Service.RecursoService).singleton(),
     DiagnosticoService: asClass(Service.DiagnosticoService).singleton(),
     ReporteService: asClass(Service.ReporteService).singleton(),
+    SesionService: asClass(Service.SesionService).singleton(),
   })
   .register({
     AdministradorRepository: asClass(Repository.AdministradorRepository).singleton(),
@@ -106,6 +107,7 @@ container
     ParteMedicoRepository: asClass(Repository.ParteMedicoRepository).singleton(),
     PruebaRepository: asClass(Repository.PruebaRepository).singleton(),
     RecursoRepository: asClass(Repository.RecursoRepository).singleton(),
+    SesionRepository: asClass(Repository.SesionRepository).singleton(),
   })
   .register({
     AsignacionService: asClass(Service.AsignacionService).singleton(),});
