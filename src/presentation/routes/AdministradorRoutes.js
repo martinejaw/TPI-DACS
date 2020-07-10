@@ -1,7 +1,7 @@
 const { Router } = require("express");
 
 
-module.exports = ( { AdministradorController } ) => {
+module.exports = ({ AdministradorController }) => {
     const router = Router();
 
     /**

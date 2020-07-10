@@ -1,7 +1,7 @@
 const dateFormat = require("dateformat");
 
-class ReporteService{
-    constructor({RecursoService, PruebaService, ParteMedicoService, HospitalService, MedicoService, CiudadService}){
+class ReporteService {
+    constructor({ RecursoService, PruebaService, ParteMedicoService, HospitalService, MedicoService, CiudadService }) {
         this._recursoService = RecursoService;
         this._pruebaService = PruebaService;
         this._parteMedicoService = ParteMedicoService;
@@ -10,7 +10,7 @@ class ReporteService{
         this._ciudadService = CiudadService;
     }
 
-    async reporteDiario(CUIT){
+    async reporteDiario(CUIT) {
         const totalPruebas = await this._pruebaService.totalPruebas(CUIT);
         const totalRecursos = await this._recursoService.obtenerTodosRecursosHospital(CUIT);
         const resumenCasos = await this._parteMedicoService.resumenCasos(CUIT);
@@ -22,31 +22,31 @@ class ReporteService{
         let idCiudad;
         let nombreCiudad;
 
-        try{
+        try {
             nombreHospital = hospital.nombre;
-        } catch(e) {
+        } catch (e) {
             nombreHospital = "";
         }
 
-        try{
+        try {
             idCiudad = hospital.Direccione.Calle.Ciudade.id;
-        } catch(e) {
+        } catch (e) {
             idCiudad = 0;
         }
 
-        try{
+        try {
             nombreCiudad = hospital.Direccione.Calle.Ciudade.nombre;
-        } catch(e) {
+        } catch (e) {
             nombreCiudad = "";
         }
 
         const recursosLindificados = {};
-        for(let recurso of totalRecursos){
-            recursosLindificados[recurso.nombre]= recurso.cantidad;
+        for (let recurso of totalRecursos) {
+            recursosLindificados[recurso.nombre] = recurso.cantidad;
         }
         recursosLindificados['medicos'] = medicos;
 
-        const reporte = 
+        const reporte =
         {
             "ReporteHospitalario": {
                 "cuitHospital": CUIT,
@@ -54,7 +54,7 @@ class ReporteService{
                 "nombreHospital": nombreHospital,
                 "idCiudad": idCiudad,
                 "nombreCiudad": nombreCiudad,
-                "resumenCasos": resumenCasos ,
+                "resumenCasos": resumenCasos,
                 "pruebasRealizadas": totalPruebas,
                 "Recursos": recursosLindificados
             }
@@ -63,12 +63,12 @@ class ReporteService{
         return reporte;
     }
 
-    async reporteTotal(){
+    async reporteTotal() {
         const todosCUITs = await this._hospitalService.getAll();
 
         let reporteTotal = [];
 
-        for (const modelo of todosCUITs){
+        for (const modelo of todosCUITs) {
             const reporteIndividual = await this.reporteDiario(modelo.CUIT);
             reporteTotal.push(reporteIndividual);
         };

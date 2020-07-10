@@ -1,8 +1,8 @@
 const BaseService = require("./base.service");
 
 class AdministradorService extends BaseService {
-    constructor({ UnitOfWork }){
-        super(UnitOfWork.AdministradorRepository,"Administrador");
+    constructor({ UnitOfWork }) {
+        super(UnitOfWork.AdministradorRepository, "Administrador");
     }
 
     async obtenerHospital(dni) {

@@ -1,6 +1,6 @@
 const { Router } = require("express");
 
-module.exports = ( { LoginController } ) => {
+module.exports = ({ LoginController }) => {
     const router = Router();
 
     /**
@@ -18,6 +18,6 @@ module.exports = ( { LoginController } ) => {
      *              description: Error
      */
     router.post('/', LoginController.register.bind(LoginController));
-    
+
     return router;
 }

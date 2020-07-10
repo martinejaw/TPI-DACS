@@ -25,7 +25,7 @@ const RegisterRoutes = require("../presentation/routes/RegisterRoutes");
 const Controller = require("../presentation/controllers/index");
 
 // services
-const Service  = require("../service");
+const Service = require("../service");
 
 // repositories
 const Repository = require("../dal/repositories");
@@ -110,6 +110,7 @@ container
     SesionRepository: asClass(Repository.SesionRepository).singleton(),
   })
   .register({
-    AsignacionService: asClass(Service.AsignacionService).singleton(),});
+    AsignacionService: asClass(Service.AsignacionService).singleton(),
+  });
 
 module.exports = container;

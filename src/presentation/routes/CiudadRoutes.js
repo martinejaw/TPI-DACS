@@ -1,9 +1,9 @@
 const { Router } = require("express");
 
 
-module.exports = ( { CiudadController } ) => {
+module.exports = ({ CiudadController }) => {
     const router = Router();
-    
+
     /**
      * @swagger
      * /ciudad:

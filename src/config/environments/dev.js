@@ -4,11 +4,11 @@ module.exports = {
   username: '',
   password: '',
   params: {
-      dialect: 'sqlite',
-      storage: 'hospitales.sqlite',
-      logging: false,
-      define: {
-          underscore: true
-      }
+    dialect: 'sqlite',
+    storage: 'hospitales.sqlite',
+    logging: false,
+    define: {
+      underscore: true
+    }
   }
 };

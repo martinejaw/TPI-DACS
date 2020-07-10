@@ -1,12 +1,12 @@
 let servicio;
 
 class AuthMiddle {
-    constructor({ LoginService }){
+    constructor({ LoginService }) {
         this._loginService = LoginService;
         servicio = LoginService;
     }
 
-    isAuth (req, res, next) {
+    isAuth(req, res, next) {
         if (req.path === '/login') {    // En login no requiero autenticacion
             next();
         } else {

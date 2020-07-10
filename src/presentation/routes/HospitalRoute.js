@@ -7,7 +7,7 @@ module.exports = app => {
             Hospitales.findAll({})
                 .then(result => res.json(result))
                 .catch(error => {
-                    res.status(412).json({msg: error.message});
+                    res.status(412).json({ msg: error.message });
                 })
         })
         .post((req, res) => {
@@ -15,7 +15,7 @@ module.exports = app => {
             Hospitales.create(req.body)
                 .then(result => res.json(result))
                 .catch(error => {
-                    res.status(412).json({msg: error.message});
+                    res.status(412).json({ msg: error.message });
                 });
         });
 }

@@ -1,9 +1,9 @@
 const { Router } = require("express");
 
 
-module.exports = ( { PruebaController } ) => {
+module.exports = ({ PruebaController }) => {
     const router = Router();
-    
+
     /**
      * @swagger
      * /prueba:
@@ -22,7 +22,7 @@ module.exports = ( { PruebaController } ) => {
 
     /**
      * @swagger
-     * /prueba/{casoId}:
+     * /prueba/{casoId}:s
      *  get:
      *      description: Usar para obtener todas las pruebas de un caso
      *      tags: ["HOSPITALES"]

@@ -1,8 +1,8 @@
 const BaseService = require("./base.service");
 
 class CiudadService extends BaseService {
-    constructor({ UnitOfWork }){
-        super(UnitOfWork.CiudadRepository,"Ciudad");
+    constructor({ UnitOfWork }) {
+        super(UnitOfWork.CiudadRepository, "Ciudad");
     }
 }
 

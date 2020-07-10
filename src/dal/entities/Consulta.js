@@ -3,10 +3,10 @@ module.exports = (sequelize, DataType) => {
     const Consulta = sequelize.define('Consultas', {
         id: {
             type: DataType.INTEGER,
-            primaryKey:true,
+            primaryKey: true,
             autoIncrement: true
         },
-	    dni: {
+        dni: {
             type: DataType.INTEGER,
             allowNull: false,
             validate: {
@@ -25,18 +25,18 @@ module.exports = (sequelize, DataType) => {
             }
         },
         createdAt: {
-          type: DataType.DATE,
-          defaultValue: new Date()
+            type: DataType.DATE,
+            defaultValue: new Date()
         },
         updatedAt: {
-          type: DataType.DATE,
-          defaultValue: new Date()
+            type: DataType.DATE,
+            defaultValue: new Date()
         }
     });
 
     // Relacion uno a muchos
     Consulta.associate = (models) => {
-	    Consulta.belongsTo(models.Medicos, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
+        Consulta.belongsTo(models.Medicos, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
     };
 
     return Consulta;

@@ -3,8 +3,8 @@ const { Recurso } = require("../domain/models");
 const axios = require("axios");
 
 class RecursoService extends BaseService {
-    constructor({ UnitOfWork }){
-        super(UnitOfWork.RecursoRepository,Recurso);
+    constructor({ UnitOfWork }) {
+        super(UnitOfWork.RecursoRepository, Recurso);
     }
 
     async updateRecurso(CUIT, id, entity) {
@@ -16,17 +16,18 @@ class RecursoService extends BaseService {
         const updatedEntity = await this._entityRepository.obtenerTodosRecursosHospital(CUIT);
         return updatedEntity;
     }
-    async pedirRecursos(recu){
+    async pedirRecursos(recu) {
         let recursos = { "Peticion": recu };
         await axios({
             method: 'post',
             timeout: 5000,
             url: 'https://6iubewzdng.execute-api.sa-east-1.amazonaws.com/dev/peticiones',
-            headers: {'x-api-key': 'FTlS2bc9lo1OtmzHCBrju4ZL8PqFM5yr4JB775RR'},
+            headers: { 'x-api-key': 'FTlS2bc9lo1OtmzHCBrju4ZL8PqFM5yr4JB775RR' },
             data: recursos
         })
-        .catch(error => {
-            console.log(error.message);});
+            .catch(error => {
+                console.log(error.message);
+            });
     }
 
 }

@@ -4,7 +4,7 @@ module.exports = (sequelize, DataType) => {
     const Caso = sequelize.define('Casos', {
         id: {
             type: DataType.INTEGER,
-            primaryKey:true,
+            primaryKey: true,
             autoIncrement: true
         },
         fechaInicio: {
@@ -13,7 +13,7 @@ module.exports = (sequelize, DataType) => {
             validate: {
                 isDate: true
             },
-            defaultValue: new Date() 
+            defaultValue: new Date()
         },
         estado: {
             type: DataType.TEXT,
@@ -22,21 +22,21 @@ module.exports = (sequelize, DataType) => {
                 notEmpty: true
             }
         },
-	    dni: {
+        dni: {
             type: DataType.INTEGER,
             allowNull: false,
             validate: {
                 isNumeric: true,
-                len: [7,8]
+                len: [7, 8]
             }
         },
         createdAt: {
-          type: DataType.DATE,
-          defaultValue: new Date()
+            type: DataType.DATE,
+            defaultValue: new Date()
         },
         updatedAt: {
-          type: DataType.DATE,
-          defaultValue: new Date()
+            type: DataType.DATE,
+            defaultValue: new Date()
         }
     });
 

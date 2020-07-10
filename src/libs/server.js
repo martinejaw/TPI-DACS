@@ -42,7 +42,7 @@ class Server {
           contact: {
             name: "Grupo 3"
           },
-          servers: ["http://localhost:"+this._config.PORT]
+          servers: ["http://localhost:" + this._config.PORT]
         }
       },
       apis: ["src/presentation/routes/*.js"]

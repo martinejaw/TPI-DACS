@@ -1,14 +1,14 @@
 module.exports = (sequelize, DataType) => {
 
     // NOMBRE TABLA, Y SUS FILAS
-    const Administrador = sequelize.define('Administradores',{
+    const Administrador = sequelize.define('Administradores', {
         dni: {
             type: DataType.INTEGER,
-            primaryKey:true,
+            primaryKey: true,
             allowNull: false,
             validate: {
                 isNumeric: true,
-                len: [7,8]
+                len: [7, 8]
             }
         },
         nombre: {
@@ -16,7 +16,7 @@ module.exports = (sequelize, DataType) => {
             allowNull: false,
             validate: {
                 notEmpty: true,
-                is: ["^[a-z]+$",'i']
+                is: ["^[a-z]+$", 'i']
             }
         },
         apellido: {
@@ -24,23 +24,23 @@ module.exports = (sequelize, DataType) => {
             allowNull: false,
             validate: {
                 notEmpty: true,
-                is: ["^[a-z]+$",'i']
-            }    
+                is: ["^[a-z]+$", 'i']
+            }
         },
         createdAt: {
-          type: DataType.DATE,
-          defaultValue: new Date()
+            type: DataType.DATE,
+            defaultValue: new Date()
         },
         updatedAt: {
-          type: DataType.DATE,
-          defaultValue: new Date()
+            type: DataType.DATE,
+            defaultValue: new Date()
         }
     });
 
     // Relaciones
     Administrador.associate = (models) => {
         Administrador.hasOne(models.Cuentas);
-	Administrador.belongsTo(models.Hospitales, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
+        Administrador.belongsTo(models.Hospitales, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
     };
 
     return Administrador;

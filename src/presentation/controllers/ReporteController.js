@@ -1,12 +1,12 @@
 const request = require('request-promise')
 
 class ReporteController {
-    constructor({ReporteService, PruebaService}){
+    constructor({ ReporteService, PruebaService }) {
         this._reporteService = ReporteService;
         this._pruebaService = PruebaService
     }
 
-    async reporteDiario(req, res){
+    async reporteDiario(req, res) {
         await this._reporteService.reporteDiario(req.params.CUIT)
             .then(reporte => res.status(200).json(reporte))
             .catch(error => {
@@ -14,7 +14,7 @@ class ReporteController {
             });
     }
 
-    async reporteTotal(req, res){
+    async reporteTotal(req, res) {
         await this._reporteService.reporteTotal(req.params.CUIT)
             .then(reporte => res.status(200).json(reporte))
             .catch(error => {

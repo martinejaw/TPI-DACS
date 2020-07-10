@@ -6,7 +6,7 @@ class HospitalRepository extends BaseRepository {
   }
 
   async getHospitalCiudad(CUIT) {
-    return this._db.models[this.entity].findByPk(CUIT,{ include: {  model:this._db.models.Direcciones, include: {model:this._db.models.Calles, include: [this._db.models.Ciudades]} } });
+    return this._db.models[this.entity].findByPk(CUIT, { include: { model: this._db.models.Direcciones, include: { model: this._db.models.Calles, include: [this._db.models.Ciudades] } } });
   }
 }
 

@@ -3,7 +3,7 @@ module.exports = (sequelize, DataType) => {
     const ParteMedico = sequelize.define('PartesMedicos', {
         id: {
             type: DataType.INTEGER,
-            primaryKey:true,
+            primaryKey: true,
             autoIncrement: true
         },
         estadoVital: {
@@ -23,29 +23,29 @@ module.exports = (sequelize, DataType) => {
         comentario: {
             type: DataType.STRING,
             allowNull: true,
-        }, 
+        },
         fecha: {
             type: DataType.DATE,
             allowNull: false,
             validate: {
                 isDate: true
             },
-            defaultValue: new Date() 
+            defaultValue: new Date()
         },
         createdAt: {
-          type: DataType.DATE,
-          defaultValue: new Date()
+            type: DataType.DATE,
+            defaultValue: new Date()
         },
         updatedAt: {
-          type: DataType.DATE,
-          defaultValue: new Date()
+            type: DataType.DATE,
+            defaultValue: new Date()
         }
     });
 
     // Relacion uno a muchos
     ParteMedico.associate = (models) => {
         ParteMedico.belongsTo(models.Casos, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
-        ParteMedico.belongsToMany(models.Sintomas, {through: 'Sintomas_PartesMedicos',timestamps: false});
+        ParteMedico.belongsToMany(models.Sintomas, { through: 'Sintomas_PartesMedicos', timestamps: false });
     };
 
     return ParteMedico;

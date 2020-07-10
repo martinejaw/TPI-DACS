@@ -3,7 +3,7 @@ module.exports = (sequelize, DataType) => {
     const Sintomas = sequelize.define("Sintomas", {
         id: {
             type: DataType.INTEGER,
-            primaryKey:true,
+            primaryKey: true,
             autoIncrement: true
         },
         nombre: {
@@ -11,22 +11,22 @@ module.exports = (sequelize, DataType) => {
             allowNull: false,
             validate: {
                 notEmpty: true,
-                is: ["^[a-z]+$",'i']
+                is: ["^[a-z]+$", 'i']
             }
         },
         createdAt: {
-          type: DataType.DATE,
-          defaultValue: new Date()
+            type: DataType.DATE,
+            defaultValue: new Date()
         },
         updatedAt: {
-          type: DataType.DATE,
-          defaultValue: new Date()
+            type: DataType.DATE,
+            defaultValue: new Date()
         }
     });
 
     // Relaciones
     Sintomas.associate = (models) => {
-        Sintomas.belongsToMany(models.PartesMedicos, {through: 'Sintomas_PartesMedicos', timestamps: false })
+        Sintomas.belongsToMany(models.PartesMedicos, { through: 'Sintomas_PartesMedicos', timestamps: false })
     }
 
     return Sintomas;

@@ -4,7 +4,7 @@ module.exports = (sequelize, DataType) => {
     const Direccion = sequelize.define('Direcciones', {
         id: {
             type: DataType.INTEGER,
-            primaryKey:true,
+            primaryKey: true,
             autoIncrement: true
         },
         Numero: {
@@ -12,12 +12,12 @@ module.exports = (sequelize, DataType) => {
             allowNull: false,
         },
         createdAt: {
-          type: DataType.DATE,
-          defaultValue: new Date()
+            type: DataType.DATE,
+            defaultValue: new Date()
         },
         updatedAt: {
-          type: DataType.DATE,
-          defaultValue: new Date()
+            type: DataType.DATE,
+            defaultValue: new Date()
         }
     });
 

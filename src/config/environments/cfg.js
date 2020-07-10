@@ -1,3 +1,3 @@
 module.exports = {
-    SECRET: 'pass123'
-  };
+  SECRET: 'pass123'
+};

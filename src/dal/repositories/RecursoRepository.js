@@ -5,11 +5,11 @@ class RecursoRepository extends BaseRepository {
     super(db, "Recursos");
   }
 
-  update(id, CUIT, entity){
+  update(id, CUIT, entity) {
     return this._db.models[this.entity].update(entity, { where: { id, HospitaleCUIT: CUIT } });
   }
 
-  obtenerTodosRecursosHospital(CUIT){
+  obtenerTodosRecursosHospital(CUIT) {
     return this._db.models[this.entity].findAll({ where: { HospitaleCUIT: CUIT } });
   }
 }

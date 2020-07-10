@@ -2,40 +2,40 @@ const BaseService = require("./base.service");
 const { Prueba } = require("../domain/models");
 
 class PruebaService extends BaseService {
-    constructor({ UnitOfWork }){
-        super(UnitOfWork.PruebaRepository,Prueba);
+    constructor({ UnitOfWork }) {
+        super(UnitOfWork.PruebaRepository, Prueba);
     }
-    async updatePrueba(idPrueba,idCaso, entity) {
-        const updatedEntity = await this._entityRepository.updatePrueba(idPrueba,idCaso, entity);
+    async updatePrueba(idPrueba, idCaso, entity) {
+        const updatedEntity = await this._entityRepository.updatePrueba(idPrueba, idCaso, entity);
         return updatedEntity;
     }
-    
-    async contarPruebasRealizadas(CUIT){
+
+    async contarPruebasRealizadas(CUIT) {
         const cantidadPruebasRealizadas = await this._entityRepository.contarPruebasRealizadas(CUIT);
         return cantidadPruebasRealizadas;
     }
-    
-    async contarPruebasRealizadasSinResultados(CUIT){
+
+    async contarPruebasRealizadasSinResultados(CUIT) {
         const cantidadSinResultado = await this._entityRepository.contarPruebasRealizadasSinResultados(CUIT);
         return cantidadSinResultado;
     }
-    
-    async contarPruebasPositivas(CUIT){
+
+    async contarPruebasPositivas(CUIT) {
         const cantidadPruebasPositivas = await this._entityRepository.contarPruebasPositivas(CUIT);
         return cantidadPruebasPositivas;
     }
 
-    async contarPruebasNegativas(CUIT){
+    async contarPruebasNegativas(CUIT) {
         const cantidadPruebasNegativas = await this._entityRepository.contarPruebasNegativas(CUIT);
         return cantidadPruebasNegativas;
     }
 
-    async totalPruebas(CUIT){
+    async totalPruebas(CUIT) {
         const cantidadPruebasRealizadas = await this.contarPruebasRealizadas(CUIT).catch(e => { return 0; });
         const cantidadSinResultado = await this.contarPruebasRealizadasSinResultados(CUIT).catch(e => { return 0; });
         const cantidadPruebasPositivas = await this.contarPruebasPositivas(CUIT).catch(e => { return 0; });
         const cantidadPruebasNegativas = await this.contarPruebasNegativas(CUIT).catch(e => { return 0; });
-        const totalPruebas = 
+        const totalPruebas =
         {
             "realizadas": cantidadPruebasRealizadas,
             "sinResultado": cantidadSinResultado,
@@ -44,8 +44,8 @@ class PruebaService extends BaseService {
         };
         return totalPruebas;
     }
-    
-    async getPruebasDeCaso(casoId){
+
+    async getPruebasDeCaso(casoId) {
         const pruebasDelCaso = await this._entityRepository.getPruebasDeCaso(casoId);
         return pruebasDelCaso;
     }

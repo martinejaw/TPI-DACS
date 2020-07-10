@@ -7,14 +7,20 @@ class ConsultaRepository extends BaseRepository {
   }
 
   getSinResponder(medicodni) {
-    return this._db.models[this.entity].findAll({ where: {[Op.and]: 
-      [{MedicoDni: medicodni},{diagnostico: null}] }
+    return this._db.models[this.entity].findAll({
+      where: {
+        [Op.and]:
+        [{ MedicoDni: medicodni }, { diagnostico: null }]
+      }
     });
   }
 
   getRespondidas(medicodni) {
-    return this._db.models[this.entity].findAll({ where: {[Op.and]: 
-      [{MedicoDni: medicodni},{diagnostico: {[Op.ne]: null}}] }
+    return this._db.models[this.entity].findAll({
+      where: {
+        [Op.and]:
+        [{ MedicoDni: medicodni }, { diagnostico: { [Op.ne]: null } }]
+      }
     });
   }
 }

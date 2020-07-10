@@ -1,9 +1,9 @@
 const { Router } = require("express");
 
 
-module.exports = ( { CasoController } ) => {
+module.exports = ({ CasoController }) => {
     const router = Router();
-    
+
     /**
      * @swagger
      * /caso:
@@ -35,7 +35,7 @@ module.exports = ( { CasoController } ) => {
      *              description: Error
      */
     router.post("/", CasoController.createCaso.bind(CasoController));
-    
+
     /**
      * @swagger
      * /caso/{idCaso}:

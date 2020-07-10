@@ -6,7 +6,7 @@ class CasoRepository extends BaseRepository {
   }
 
   getbyMedicoDni(MedicoDni) {
-    return this._db.models[this.entity].findAll( { where: {MedicoDni}} );
+    return this._db.models[this.entity].findAll({ where: { MedicoDni } });
   }
 
 }

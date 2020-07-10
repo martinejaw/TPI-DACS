@@ -51,11 +51,6 @@ class LoginService extends BaseService{
                     
                     const payload = {
                         idSesion: sesion.uuid,
-                        rol: cuentaValida.rol, 
-                        dni: dni, 
-                        cuit: HospitalCuit, 
-                        nombre: nombre,
-                        hospital: nombreHospital,
                         iat: iat,
                         exp: exp,
                     }
@@ -72,7 +67,15 @@ class LoginService extends BaseService{
                     // const signature = jwt.encode(unsignedToken, cfg.SECRET, 'RS256') ;
                     // const token = unsignedToken + '.' + signature ;
 
-                    resolve(token);
+                    const datosPublicos = {
+                        rol: cuentaValida.rol, 
+                        dni: dni, 
+                        cuit: HospitalCuit, 
+                        nombre: nombre,
+                        hospital: nombreHospital,
+                    }
+
+                    resolve(token, datosPublicos);
                     
                 } else {
                     reject();

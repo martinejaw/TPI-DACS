@@ -7,4 +7,4 @@ module.exports = {
         dialect: 'mysql',
         host: 'db'
     }
-  };
+};

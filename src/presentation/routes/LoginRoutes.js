@@ -1,7 +1,6 @@
 const { Router } = require("express");
-const cors = require('cors');
 
-module.exports = ( { LoginController } ) => {
+module.exports = ({ LoginController }) => {
     const router = Router();
 
     /**
@@ -39,6 +38,6 @@ module.exports = ( { LoginController } ) => {
      *              description: Denegado
      */
     router.post('/logout', LoginController.logout.bind(LoginController));
-    
+
     return router;
 }

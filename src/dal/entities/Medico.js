@@ -1,14 +1,14 @@
 module.exports = (sequelize, DataType) => {
 
     // NOMBRE TABLA, Y SUS FILAS
-    const Medico = sequelize.define('Medicos',{
+    const Medico = sequelize.define('Medicos', {
         dni: {
             type: DataType.INTEGER,
-            primaryKey:true,
+            primaryKey: true,
             allowNull: false,
             validate: {
                 isNumeric: true,
-                len: [7,8]
+                len: [7, 8]
             }
         },
         matricula: {
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataType) => {
             allowNull: false,
             validate: {
                 notEmpty: true,
-                is: ["^[a-z]+$",'i']
+                is: ["^[a-z]+$", 'i']
             }
         },
         apellido: {
@@ -32,24 +32,24 @@ module.exports = (sequelize, DataType) => {
             allowNull: false,
             validate: {
                 notEmpty: true,
-                is: ["^[a-z]+$",'i']
-            }    
+                is: ["^[a-z]+$", 'i']
+            }
         },
         especialidad: {
             type: DataType.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true,
-                is: ["^[a-z]+$",'i']
-            }    
+                is: ["^[a-z]+$", 'i']
+            }
         },
         createdAt: {
-          type: DataType.DATE,
-          defaultValue: new Date()
+            type: DataType.DATE,
+            defaultValue: new Date()
         },
         updatedAt: {
-          type: DataType.DATE,
-          defaultValue: new Date()
+            type: DataType.DATE,
+            defaultValue: new Date()
         }
     });
 

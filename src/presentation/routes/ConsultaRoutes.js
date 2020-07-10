@@ -1,9 +1,9 @@
 const { Router } = require("express");
 
 
-module.exports = ( { ConsultaController } ) => {
+module.exports = ({ ConsultaController }) => {
     const router = Router();
-    
+
     router.get('/', ConsultaController.getConsultas.bind(ConsultaController));
 
     /**

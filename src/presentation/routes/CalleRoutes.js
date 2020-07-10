@@ -1,9 +1,9 @@
 const { Router } = require("express");
 
 
-module.exports = ( { CalleController } ) => {
+module.exports = ({ CalleController }) => {
     const router = Router();
-    
+
     /**
      * @swagger
      * /calle:
