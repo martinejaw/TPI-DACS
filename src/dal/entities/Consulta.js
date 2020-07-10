@@ -11,7 +11,6 @@ module.exports = (sequelize, DataType) => {
             allowNull: false,
             validate: {
                 isNumeric: true,
-                len: [7,8]
             }
         },
         comentario: {

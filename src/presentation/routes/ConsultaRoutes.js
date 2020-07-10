@@ -40,22 +40,6 @@ module.exports = ( { ConsultaController } ) => {
 
     /**
      * @swagger
-     * /consulta/consultaNueva/{estado}:
-     *  get:
-     *      description: PACIENTES - Recibir la lista de las nuevas consultas para visualizarlos
-     *      tags: ["PACIENTES"]
-     *      produces:
-     *          - aplication/json
-     *      responses:
-     *          '200':
-     *              description: Se obtuvo correctamente las consultas
-     *          '400':
-     *              description: Error
-     */
-    router.get("/consultaNueva/:estado", ConsultaController.recibirConsultaCompleta.bind(ConsultaController));
-
-    /**
-     * @swagger
      * /consulta/consultasinresponder/{medicodni}:
      *  get:
      *      description: Usar para obtener las consultas no contestadas de un medico

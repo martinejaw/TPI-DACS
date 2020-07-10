@@ -14,6 +14,7 @@ class ConsultaService extends BaseService {
         const entity = await this._entityRepository.getRespondidas(id);
         return entity;
     }
+
     async recibirConsultasId(){
         let consultasID = await axios({
             method: 'get',
@@ -24,6 +25,7 @@ class ConsultaService extends BaseService {
             console.log(error.message)});
         return consultasID.data;
     }
+
     async recibirConsultasCompleta(estado){
         let consultas;
         if (Number(estado) === 1) {
@@ -45,8 +47,19 @@ class ConsultaService extends BaseService {
                 console.log(error.message);
             })
         }
+        else {
+            consultas = await axios({
+                method: 'get',
+                timeout: 5000,
+                url: 'http://40.118.242.96:12600/api/FormularioParaAnalisis/GetFormulariosByEstado/0'
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+        }
         return consultas.data;
     }
+
     async setRecibido(id){
         let formularioId = {id};
         await axios({
@@ -59,6 +72,7 @@ class ConsultaService extends BaseService {
             console.log(error.message);
         })
     }
+
     async postDiagnostico(diag){
         let formulario = {
             id: diag.id,
@@ -73,6 +87,35 @@ class ConsultaService extends BaseService {
         .catch(error => {
             console.log(error.message);
         });
+    }
+
+    async consultaByID(id,consultasNuevas){
+        let consultaSolicitada;
+        for (const consulta of consultasNuevas){
+            if (consulta.id === Number(id)) {
+                consultaSolicitada = consulta;
+                console.log("Consulta solicitada",consultaSolicitada);
+            }  
+        }
+        console.log(consultaSolicitada);
+        return consultaSolicitada;
+    }
+
+    async consultaByDni(dni){
+        let consultasNuevas;
+        let consultaSolicitada;
+        await this.recibirConsultasCompleta(2)
+          .then(consultas => consultasNuevas = consultas)
+          .catch(error => {
+              res.json({msg: error.message})
+          });
+        for (const consulta of consultasNuevas){
+            if (Number(consulta.paciente.nroDeDocumento) === Number(dni)) {
+                consultaSolicitada = consulta;
+                console.log("Consulta solicitada",consultaSolicitada);
+            } 
+        }
+        return consultaSolicitada;
     }
 }
 
