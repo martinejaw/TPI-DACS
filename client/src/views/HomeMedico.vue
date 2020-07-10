@@ -6,7 +6,7 @@
       <a class="verconsultas btn btn-info btn-lg text-dark font-weight-bold
       display-2" @click="verconsultas">Ver Consultas</a>
       </router-link>
-
+      <a class="separador"></a>
       <router-link :to='{name: "Casos"}'>
       <a class="vercasos btn btn-info btn-lg text-dark font-weight-bold
       display-2" @click="vercasos">Ver Casos</a>
@@ -72,9 +72,12 @@ export default {
   height: 400px;
   text-decoration: black;
   text-align: center;
-  margin-left: 300px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: whitesmoke;
+}
+.separador {
+  margin-left: 175px;
+  margin-right: 175px;
 }
 
 /*.vercasos:after {

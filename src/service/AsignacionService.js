@@ -14,12 +14,18 @@ class AsignacionService{
           dni: undefined ,
         };
         const medicoParaAsignarDni = await this._medicoService.getMedicoLibre();
+        let consultasNuevas;
+        await this._consultaService.recibirConsultasCompleta(0)
+          .then(consultas => consultasNuevas = consultas)
+          .catch(error => {
+              res.json({msg: error.message})
+          });
         consultaNueva.id = Number(consultaID);
         consultaNueva.MedicoDni = medicoParaAsignarDni;
-        consultaNueva.dni = 40000000; //Arreglar despues
-        // const consultaNuevaAsignada = consulta.toObject(); // Mirar esto
+        let consultaObtenida = await this._consultaService.consultaByID(consultaNueva.id, consultasNuevas)
+            .catch(error => console.log()); 
+        consultaNueva.dni = Number(consultaObtenida.paciente.nroDeDocumento);
         return consultaNueva;
-        //consulta.asignarMedico(medicoParaAsignar); // Mirar esto
     }
 
 }

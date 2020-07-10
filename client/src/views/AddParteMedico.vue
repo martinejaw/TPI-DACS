@@ -170,7 +170,7 @@
         </div>
         <!--Form error-->
     <v-row justify="center">
-      <v-dialog v-model="errorBool" persistent max-width="500">
+      <v-dialog v-model="errorBool" width="unset">
         <v-card>
           <v-card-title class="headline"> {{ error }} </v-card-title>
           <v-card-actions>

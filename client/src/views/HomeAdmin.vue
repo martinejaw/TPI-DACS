@@ -1,9 +1,10 @@
 <template>
   <botones>
     <div class="botones justify-content-md-center">
-      <a class="vermedicos btn btn-info btn-lg text-dark font-weight-bold
+      <a class="vermedicos col-md-4 mb-6 btn btn-info btn-lg text-dark font-weight-bold
       display-2" @click="vermedicos">Ver Medicos</a>
-      <a class="verrecursos btn btn-info btn-lg text-dark font-weight-bold
+      <a class="separador"></a>
+      <a class="verrecursos col-md-4 mb-6 btn btn-info btn-lg text-dark font-weight-bold
       display-2" @click="verrecursos">Ver Recursos</a>
     </div>
   </botones>
@@ -73,9 +74,12 @@ export default {
   height: 400px;
   text-decoration: black;
   text-align: center;
-  margin-left: 300px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: whitesmoke;
+}
+.separador {
+  margin-left: 175px;
+  margin-right: 175px;
 }
 
 /*.vercasos:after {

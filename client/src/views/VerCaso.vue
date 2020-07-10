@@ -119,7 +119,7 @@
                       @click.stop="dialog = true"
                       > Agregar Prueba</v-btn>
                       <!--Form Agregar prueba-->
-                <v-dialog v-model="dialog" persistent max-width="600px">
+                <v-dialog v-model="dialog" width="unset">
                   <v-card>
                     <v-card-title>
                       <span class="headline">¿Desea agregar una Nueva Prueba?</span>
@@ -138,7 +138,7 @@
         </div>
         <!--Form error-->
     <v-row justify="center">
-      <v-dialog v-model="errorBool" persistent max-width="500">
+      <v-dialog v-model="errorBool" width="unset">
         <v-card>
           <v-card-title class="headline"> {{ error }} </v-card-title>
           <v-card-actions>
@@ -150,7 +150,7 @@
     </v-row>
 
 <!--Form Editar Prueba-->
-    <v-dialog v-model="edit" persistent max-width="600px">
+    <v-dialog v-model="edit" width="unset">
                           <v-card>
                             <v-card-title>
                               <span class="headline">Edicion de Prueba con id {{ idPrueba }}

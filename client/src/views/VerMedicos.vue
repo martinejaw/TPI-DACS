@@ -1,9 +1,8 @@
 <template>
   <div>
-    <hr class="my-2" />
-    <!--div class="jumbotron jumbotron-fluid"-->
+    <hr class="my-2"/>
     <div class="w3-container w3-teal">
-      <h1 class="display-4">Medicos Hospital</h1>
+      <h1 class="display-3">Medicos Hospital</h1>
       <hr class="my-4" />
       <form class="form-inline">
         <i class="fas fa-search" aria-hidden="true"></i>
