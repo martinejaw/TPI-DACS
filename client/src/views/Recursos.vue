@@ -1,39 +1,43 @@
 <template>
-  <v-app>
-    <div id="deep" class="w3-container w3-teal">
+  <div>
+    <hr class="my-2"/>
+    <div class="w3-container w3-teal">
       <h2 class="display-3">Recursos del Hospital</h2>
       <h3> CUIT: {{$store.state.cuit}} </h3>
       <hr class="my-4" />
       <!-- Tabla con Recuros -->
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Recurso</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(recurso, index) in recursos" v-bind:key="recurso">
-            <th scope="row">{{ index+1 }}</th>
-            <td>{{ recurso.nombre }}</td>
-            <td>{{ recurso.cantidad }}</td>
-            <td>
-              <v-btn
-                class="boton-modificar"
-                @click="recursoEdit=recurso.nombre;edit=true;value=recurso.cantidad;
-                recursoID=recurso.id"
-              >Modificar Cantidad</v-btn>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Recurso</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(recurso, index) in recursos" v-bind:key="recurso">
+              <th scope="row">{{ index+1 }}</th>
+              <td>{{ recurso.nombre }}</td>
+              <td>{{ recurso.cantidad }}</td>
+              <td>
+                <v-btn
+                  class="boton-modificar"
+                  @click="recursoEdit=recurso.nombre;edit=true;value=recurso.cantidad;
+                  recursoID=recurso.id"
+                >Modificar Cantidad</v-btn>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <hr class="my-2"/>
       <v-btn color="success" class="mr-4" v-on:click="pedidoBool = true">Realizar Pedido</v-btn>
       <!-- Fin Recursos -->
     </div>
 
-    <v-dialog v-model="edit" persistent max-width="400px">
+    <v-dialog v-model="edit" width="unset">
       <v-card>
         <v-card-title>
           <span class="headline">Recurso: {{ recursoEdit }}</span>
@@ -72,7 +76,7 @@
     </v-row>
 
     <!--Form pedido-->
-    <v-dialog v-model="pedidoBool" persistent max-width="600px">
+    <v-dialog v-model="pedidoBool" width="unset">
       <v-card>
         <v-card-title>
           <span class="headline">Pedido de Recursos</span>
@@ -107,7 +111,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-  </v-app>
+  </div>
 </template>
 
 <script>
@@ -178,7 +182,7 @@ body {
   font-weight: bold;
 }
 
-.display-4 {
+.display-3 {
   text-align: center;
 }
 

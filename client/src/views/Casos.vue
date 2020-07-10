@@ -2,7 +2,7 @@
   <!--div class="jumbotron jumbotron-fluid"-->
   <div class="w3-container w3-teal">
     <hr class="my-2" />
-    <h1 class="display-4">CASOS</h1>
+    <h1 class="display-3">CASOS</h1>
     <p class="lead">Casos de covid-19</p>
     <hr class="my-4" />
 
@@ -12,7 +12,7 @@
       <div class="col-md-6"></div>
 
       <!--Form nuevo caso-->
-      <v-dialog v-model="dialog" persistent max-width="600px">
+      <v-dialog v-model="dialog" persistent width="unset">
         <template v-slot:activator="{ on, attrs }">
           <v-btn
             class="btn btn-outline-success my-2 my-sm-0 col-md-2"
@@ -61,7 +61,7 @@
 
     <!--Form error-->
     <v-row justify="center">
-      <v-dialog v-model="errorBool" persistent max-width="500">
+      <v-dialog v-model="errorBool" persistent mwidth="unset">
         <v-card>
           <v-card-title class="headline"> {{ error }} </v-card-title>
           <v-card-actions>

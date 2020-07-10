@@ -108,8 +108,7 @@ export default {
 #inner {
   background-color: #efd199;
   padding: 50px;
-  min-width: 400px;
-  width: 25%;
+  max-width: 400px;
   margin: 50px auto;
   border-radius: 5px;
   box-shadow: 0px 4px 15px #444444;

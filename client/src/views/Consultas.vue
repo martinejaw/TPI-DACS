@@ -1,9 +1,8 @@
 <template>
   <div>
     <hr class="my-2" />
-    <!--div class="jumbotron jumbotron-fluid"-->
     <div class="w3-container w3-teal">
-      <h1 class="display-4">CONSULTAS</h1>
+      <h1 class="display-3">CONSULTAS</h1>
       <p class="lead">Consultas realizadas por personas con posibles sintomas de covid-19</p>
       <hr class="my-4" />
 
@@ -22,53 +21,55 @@
 
       <hr class="my-4" />
       <!-- inicio de la tabla de datos -->
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">ID Consulta</th>
-            <th scope="col">DNI Paciente</th>
-            <th scope="col">Fecha creación</th>
-            <th scope="col">Diagnostico y Comentario</th>
-          </tr>
-        </thead>
-        <tbody v-if="consultaSeleccionada">
-          <tr v-for="consulta in consultasSinResponder" v-bind:key="consulta">
-            <th scope="row">{{ consulta.id }}</th>
-            <td>{{ consulta.dni }}</td>
-            <td>{{ consulta.createdAt }}</td>
-            <router-link :to='{name: "ConsultaDiagnostico",
-            params: { consulta: consulta } }'>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">ID Consulta</th>
+              <th scope="col">DNI Paciente</th>
+              <th scope="col">Fecha creación</th>
+              <th scope="col">Diagnostico y Comentario</th>
+            </tr>
+          </thead>
+          <tbody v-if="consultaSeleccionada">
+            <tr v-for="consulta in consultasSinResponder" v-bind:key="consulta">
+              <th scope="row">{{ consulta.id }}</th>
+              <td>{{ consulta.dni }}</td>
+              <td>{{ consulta.createdAt }}</td>
+              <router-link :to='{name: "ConsultaDiagnostico",
+              params: { consulta: consulta } }'>
+                <v-btn
+                  class="btn btn-outline-success my-2 my-sm-0 col-md-8"
+                  color="primary"
+                  dark
+                  v-bind="attrs"
+                  v-on="on"
+                >Diagnosticar</v-btn>
+              </router-link>
+            </tr>
+          </tbody>
+          <tbody v-else>
+            <tr v-for="consulta in consultasRespondidas" v-bind:key="consulta">
+              <th scope="row">{{ consulta.id }}</th>
+              <td> {{ consulta.dni }} </td>
+              <td> {{ consulta.createdAt }} </td>
               <v-btn
                 class="btn btn-outline-success my-2 my-sm-0 col-md-8"
                 color="primary"
                 dark
                 v-bind="attrs"
+                @click="mostrarDiag = true; verD = consulta.diagnostico; verC = consulta.comentario"
                 v-on="on"
-              >Diagnosticar</v-btn>
-            </router-link>
-          </tr>
-        </tbody>
-        <tbody v-else>
-          <tr v-for="consulta in consultasRespondidas" v-bind:key="consulta">
-            <th scope="row">{{ consulta.id }}</th>
-            <td> {{ consulta.dni }} </td>
-            <td> {{ consulta.createdAt }} </td>
-            <v-btn
-              class="btn btn-outline-success my-2 my-sm-0 col-md-8"
-              color="primary"
-              dark
-              v-bind="attrs"
-              @click="mostrarDiag = true; verD = consulta.diagnostico; verC = consulta.comentario"
-              v-on="on"
-            >Mostrar</v-btn>
-          </tr>
-        </tbody>
-      </table>
+              >Mostrar Detalle</v-btn>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <!-- Fin de la tabla de datos -->
     </div>
     <!--Form Mostrar diagnostico-->
     <v-row justify="center">
-      <v-dialog v-model="mostrarDiag" persistent max-width="500">
+      <v-dialog v-model="mostrarDiag" width="unset">
         <v-card>
           <v-card-title class="headline">Comentario: {{ verC }}</v-card-title>
           <v-card-title class="headline">Diagnostico: {{ verD }}</v-card-title>
