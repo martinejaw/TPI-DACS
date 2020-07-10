@@ -61,7 +61,7 @@ class ConsultaService extends BaseService {
     }
 
     async setRecibido(id){
-        let formularioId = {id};
+        let formularioId = id;
         await axios({
             method: 'post',
             timeout: 10000,
@@ -73,10 +73,10 @@ class ConsultaService extends BaseService {
         })
     }
 
-    async postDiagnostico(diag){
+    async postDiagnostico(id, diag){
         let formulario = {
-            id: diag.id,
-            respuesta: diag.diagnostico
+            id: id,
+            respuesta: diag
         };
         await axios({
             method: 'post',
@@ -94,10 +94,8 @@ class ConsultaService extends BaseService {
         for (const consulta of consultasNuevas){
             if (consulta.id === Number(id)) {
                 consultaSolicitada = consulta;
-                console.log("Consulta solicitada",consultaSolicitada);
             }  
         }
-        console.log(consultaSolicitada);
         return consultaSolicitada;
     }
 
@@ -112,7 +110,6 @@ class ConsultaService extends BaseService {
         for (const consulta of consultasNuevas){
             if (Number(consulta.paciente.nroDeDocumento) === Number(dni)) {
                 consultaSolicitada = consulta;
-                console.log("Consulta solicitada",consultaSolicitada);
             } 
         }
         return consultaSolicitada;

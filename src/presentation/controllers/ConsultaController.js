@@ -58,20 +58,17 @@ class ConsultaController {
             });  
         }
         res.sendStatus(200);
-        //implementar lo de post de confirmacion
     }
 
     async diagnosticar(req, res) {
-        //await this._diagnosticoService.diagnosticar(req.body, res);
         let consultaDiagnosticada = req.body;
-
         if(consultaDiagnosticada.diagnostico == null){
             res.status(400).json({msg: "Diagnostico nulo no permitido"});
         } else {
             // Guardo la consulta diagnosticada en mi API
             await this._consultaService.update(consultaDiagnosticada.id, consultaDiagnosticada)
-            .then(consultaDiagnosticada => {
-              this._consultaService.postDiagnostico(consultaDiagnosticada);
+            .then(consulta => {
+              this._consultaService.postDiagnostico(consultaDiagnosticada.id, consultaDiagnosticada.diagnostico);
               res.status(201).json({msg: "Diagnostico Concretado"})
               })
             .catch(error => {  
