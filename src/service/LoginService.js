@@ -4,6 +4,16 @@ const moment = require('moment')
 const cfg = require('../config/environments/cfg')
 const jwt = require('jwt-simple')
 
+function create_UUID(){
+    var dt = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = (dt + Math.random()*16)%16 | 0;
+        dt = Math.floor(dt/16);
+        return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+    });
+    return uuid;
+}
+
 class LoginService extends BaseService{
     constructor({ UnitOfWork, MedicoService, SesionService, AdministradorService }){
         super(UnitOfWork.CuentaRepository,"Cuenta");
@@ -40,19 +50,11 @@ class LoginService extends BaseService{
                         nombre = consulta.nombre;
                         nombreHospital = consulta.Hospitale.nombre;
                     }
-
-                    const iat = moment().unix();
-                    const exp = moment().add(3, 'hours').unix();
-
-                    const sesion = await this._sesionService.create({
-                        usuario: cuentaValida.usuario,
-                        exp: exp,
-                    }).catch(e => reject(e));
                     
                     const payload = {
-                        idSesion: sesion.uuid,
-                        iat: iat,
-                        exp: exp,
+                        id: create_UUID(),
+                        iat: moment().unix(),
+                        exp: moment().add(3, 'hours').unix(),
                     }
 
                     const token = jwt.encode(payload, cfg.SECRET);
@@ -75,7 +77,9 @@ class LoginService extends BaseService{
                         hospital: nombreHospital,
                     }
 
-                    resolve(token, datosPublicos);
+                    const result = {token, datosPublicos}
+
+                    resolve(result);
                     
                 } else {
                     reject();
@@ -128,7 +132,6 @@ class LoginService extends BaseService{
                 const payload = jwt.decode(token, cfg.SECRET);
 
                 if (payload.exp > moment.unix()) {
-                    this._sesionService.borrar(payload.idSesion);
                     reject({
                         status: 403,
                         message: 'El token ha expirado'
@@ -149,11 +152,6 @@ class LoginService extends BaseService{
 
         return decodedPayload;
     }
-
-    async logout(payload) {
-        return this._sesionService.borrar(payload.idSesion);
-    }
-
 }
 
 module.exports = LoginService;

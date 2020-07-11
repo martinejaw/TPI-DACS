@@ -5,17 +5,8 @@ class LoginController {
 
     async login(req, res) {
         await this._loginService.validarRegistro(req.body)
-            .then(token, info =>
-                res.status(200).json({ token: token, info: info }))
-            .catch(error => {
-                res.status(400).json({ msg: error.message });
-            });
-    }
-
-    async logout(req, res) {
-        await this._loginService.logout(req.payload)
             .then(result =>
-                res.status(200).json({ message: 'Deslogueado' }))
+                res.status(200).json({ token: result.token, info: result.datosPublicos }))
             .catch(error => {
                 res.status(400).json({ msg: error.message });
             });

@@ -26,6 +26,11 @@ export default {
   methods: {
     cerrarsesion() {
       localStorage.removeItem('user-token');
+      localStorage.removeItem('rol');
+      localStorage.removeItem('dni');
+      localStorage.removeItem('cuit');
+      localStorage.removeItem('nombre');
+      localStorage.removeItem('hospital');
       this.$store.state.isAdmin = false;
       this.$store.state.isMedico = false;
       this.$router.push({ name: 'Login' });

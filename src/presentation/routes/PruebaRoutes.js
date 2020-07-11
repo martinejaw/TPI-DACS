@@ -22,7 +22,7 @@ module.exports = ({ PruebaController }) => {
 
     /**
      * @swagger
-     * /prueba/{casoId}:s
+     * /prueba/{casoId}:
      *  get:
      *      description: Usar para obtener todas las pruebas de un caso
      *      tags: ["HOSPITALES"]

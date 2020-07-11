@@ -1,5 +1,4 @@
 import Vue from 'vue';
-import jwt from 'jwt-simple';
 import axios from 'axios';
 import VueRouter from 'vue-router';
 import Register from '../views/Register.vue';
@@ -14,9 +13,6 @@ import ConsultaDiagnostico from '../views/ConsultaDiagnostico.vue';
 import Caso from '../views/VerCaso.vue';
 import ParteMedico from '../views/AddParteMedico.vue';
 import Administrador from '../views/HomeAdmin.vue';
-
-import cfg from '../config/cfg';
-
 import store from '../plugins/vuex_store';
 
 Vue.use(VueRouter);
@@ -152,26 +148,21 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const token = localStorage.getItem('user-token');
+  const info = localStorage.getItem('info');
   axios.defaults.headers.common.authorization = `Bearer ${token}`;
-  console.log(cfg.VAL_URL);
-  console.log(store.state.dni);
-  if (token != null) {
-    const user = jwt.decode(token, cfg.SECRET);
-    console.log(user);
-    if (user.rol === 'medico') {
-      store.commit('setMedico', true);
+
+  if (info != null) {
+    store.state.dni = localStorage.getItem('dni');
+    store.state.cuit = localStorage.getItem('cuit');
+    store.state.rol = localStorage.getItem('rol');
+    store.state.nombre = localStorage.getItem('nombre');
+    store.state.hospital = localStorage.getItem('hospital');
+    if (store.state.rol === 'medico') {
+      store.state.isMedico = true;
       store.state.isAdmin = false;
-      store.state.dni = user.dni;
-      store.state.cuit = user.cuit;
-      store.state.nombre = user.nombre;
-      store.state.hospital = user.hospital;
-    } else if (user.rol === 'admin') {
+    } else if (info.rol === 'admin') {
       store.state.isAdmin = true;
       store.state.isMedico = false;
-      store.state.cuit = user.cuit;
-      store.state.dni = user.dni;
-      store.state.nombre = user.nombre;
-      store.state.hospital = user.hospital;
     } else {
       store.state.isAdmin = false;
       store.state.isMedico = false;

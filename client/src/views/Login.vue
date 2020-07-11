@@ -96,6 +96,11 @@ export default {
       await axios.post(cfg.VAL_URL, { usuario: this.usuario, password: this.pass })
         .then((result) => {
           localStorage.setItem('user-token', result.data.token); // store the stoken in localstorage
+          localStorage.setItem('rol', result.data.info.rol);
+          localStorage.setItem('dni', result.data.info.dni);
+          localStorage.setItem('cuit', result.data.info.cuit);
+          localStorage.setItem('hospital', result.data.info.hospital);
+          localStorage.setItem('nombre', result.data.info.nombre);
           this.$router.push({ name: 'Home' });
         })
         .catch((error) => { this.error = error.message; this.errorBool = true; });
