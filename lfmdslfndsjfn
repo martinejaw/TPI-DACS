@@ -1,0 +1,1161 @@
+[33mcommit 3f43e0faa6301b727ef99e8ac5099265d223cdd1[m[33m ([m[1;36mHEAD -> [m[1;32mvue1406[m[33m, [m[1;31morigin/vue1406[m[33m)[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Sun Jun 14 21:58:22 2020 -0300
+
+    agregar parte medico .vue agregado
+
+[33mcommit 49150f959d364ef482350d95061924a399737934[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Sun Jun 14 21:11:26 2020 -0300
+
+    caso y consultadiagnostico .vue agregado
+
+[33mcommit 9eca9ced62040b3a68073aa3c60af0b0b2905d5a[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Sun Jun 14 20:24:16 2020 -0300
+
+    espacio blanco corregido
+
+[33mcommit 2edf5167d61e95813df44ca618fb296aac0c7eab[m[33m ([m[1;32mdevelop[m[33m)[m
+Merge: 65138a1 2563f5a
+Author: jazminteng <51136478+jazminteng@users.noreply.github.com>
+Date:   Sun Jun 14 19:54:55 2020 -0300
+
+    Merge pull request #14 from martinejaw/UI1306
+    
+    Ui1306 xd
+
+[33mcommit 2563f5a82f06a1f39626a762ae2b297063695327[m[33m ([m[1;31morigin/UI1306[m[33m)[m
+Merge: 4207b18 53d5eb2
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat Jun 13 21:39:38 2020 -0300
+
+    Merge branch 'UI1306' of https://github.com/martinejaw/TPI-DACS into UI1306
+
+[33mcommit 4207b18e10df0d2de157a358e177bbc64ed3a33f[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat Jun 13 21:39:26 2020 -0300
+
+    TOma
+
+[33mcommit 53d5eb2d25776e1032dddcec79a2ed3b2ea8529a[m
+Merge: 6a1c68b 9e394c8
+Author: ThouzeauHernan <thouzeau.hernan@gmail.com>
+Date:   Sat Jun 13 21:35:59 2020 -0300
+
+    Merge branch 'UI1306' of https://github.com/martinejaw/TPI-DACS into UI1306
+
+[33mcommit 6a1c68b807de09a27b1cb8a9dbe706eb878ac0c2[m
+Author: ThouzeauHernan <thouzeau.hernan@gmail.com>
+Date:   Sat Jun 13 21:35:33 2020 -0300
+
+    agregue vistas de agregar medico y agregar prueba
+
+[33mcommit 9e394c8f20ab44f3d5dccf5760cbc57ab641d3ab[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat Jun 13 21:33:11 2020 -0300
+
+    Vue: VerMedicos
+
+[33mcommit 65138a123245b3d6d362e79655bec192c2ba09de[m[33m ([m[1;31morigin/Martin[m[33m)[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat Jun 13 21:24:10 2020 -0300
+
+    Boton cambiante Consultas Medico
+
+[33mcommit 9beebb361f9f85eceebbe343c71b40b024faa1b9[m[33m ([m[1;32mUI1306[m[33m)[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Sat Jun 13 20:54:59 2020 -0300
+
+    Caso completado
+
+[33mcommit ea5411f41c0ac43279e680368efd872bc01e46ce[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat Jun 13 20:37:27 2020 -0300
+
+    Agregando form para nuevos casos
+
+[33mcommit 99c1f2c245d3208007f1c1e7172750c45f388a10[m
+Author: Exequiel Schuster <exe97as@gmail.com>
+Date:   Sat Jun 13 20:34:42 2020 -0300
+
+    HTML y CSS Pedido Recursos
+
+[33mcommit d3b4c7536bf489091e35949242654bbd1ffc625b[m
+Merge: 3bbb811 69fd9ce
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Sat Jun 13 20:10:12 2020 -0300
+
+    VerCaso.css conflicto solucionado
+
+[33mcommit 3bbb8114567bdbc3186e60c83439461321a38131[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Sat Jun 13 20:08:21 2020 -0300
+
+    AddParteMedico added, Caso en proceso y Consulta-Diagnostico modificado
+
+[33mcommit 69fd9ce9428c869a13daeed9e4dca3050c60a709[m
+Merge: 4a42af1 422e368
+Author: exequiel97sch <54806067+exequiel97sch@users.noreply.github.com>
+Date:   Sat Jun 13 18:26:28 2020 -0300
+
+    html y css Ver Medicos
+    
+    html y css Ver Medicos
+
+[33mcommit 422e36816446481168f878a73c902579a3ba0ec7[m[33m ([m[1;31morigin/Exequiel[m[33m)[m
+Author: Exequiel Schuster <exe97as@gmail.com>
+Date:   Sat Jun 13 18:25:08 2020 -0300
+
+    html y css Ver Medicos
+
+[33mcommit 4a42af17aa4f312534e31a086f2615f638ff9838[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Sat Jun 13 16:52:49 2020 -0300
+
+    Consulta-Diagnostico added
+
+[33mcommit c5764318cee51d4fabc8deae32d35644fae36fea[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat Jun 13 11:42:10 2020 -0300
+
+    Agregado cliente Vue
+
+[33mcommit d1cf8f403451ff6c2250846456980c36f1d03616[m
+Merge: b7e891b 15baa35
+Author: thouzeauhernan <62083333+thouzeauhernan@users.noreply.github.com>
+Date:   Sun Jun 7 21:14:26 2020 -0300
+
+    Merge pull request #11 from martinejaw/UI0606
+    
+    nuevas pantallas de casos, consultas
+
+[33mcommit 15baa3546296225bf6ea28b374687c47bc83e80d[m
+Merge: 49cd3ea b7e891b
+Author: thouzeauhernan <62083333+thouzeauhernan@users.noreply.github.com>
+Date:   Sun Jun 7 21:13:43 2020 -0300
+
+    Merge branch 'develop' into UI0606
+
+[33mcommit 49cd3ea8815a41b1f6574ee22f5d06027e7c5309[m
+Merge: db6617d e33f48f
+Author: exequiel97sch <54806067+exequiel97sch@users.noreply.github.com>
+Date:   Sun Jun 7 21:07:03 2020 -0300
+
+    HTML y CSS para Ver Recursos
+    
+    HTML y CSS para Ver Recursos
+
+[33mcommit e33f48f5ddbf5abd13b027f414aea23b19c6daf5[m
+Author: Exequiel Schuster <exe97as@gmail.com>
+Date:   Sun Jun 7 21:05:48 2020 -0300
+
+    HTML y CSS para Ver Recursos
+
+[33mcommit db6617dd0c86a9c2ab6b079082d8015046e306c9[m
+Merge: 137b4a4 54f65da
+Author: ThouzeauHernan <thouzeau.hernan@gmail.com>
+Date:   Sun Jun 7 20:55:48 2020 -0300
+
+    Merge branch 'UI0606' of https://github.com/martinejaw/TPI-DACS into UI0606
+
+[33mcommit 137b4a46e5038a4237e3d8ffe3c7538b51ec0ced[m
+Author: ThouzeauHernan <thouzeau.hernan@gmail.com>
+Date:   Sun Jun 7 20:55:10 2020 -0300
+
+    Termino la pantalla de CASOS
+
+[33mcommit 54f65dafdf855a9223e8fffbe497ea0e3a4e29b1[m
+Merge: 22a1f0a 2357179
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sun Jun 7 20:14:58 2020 -0300
+
+    Merge branch 'UI0606' of https://github.com/martinejaw/TPI-DACS into UI0606
+
+[33mcommit 22a1f0afb3cba501df8c2fb00219a874f37e11c1[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sun Jun 7 20:14:30 2020 -0300
+
+    cambio de la ruta /home por /
+
+[33mcommit b7e891bec7fdd72adff556e7d71bbdb0ae0114f6[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sun Jun 7 20:03:40 2020 -0300
+
+    Corregida responsabilidad Servicios/Repositorios
+
+[33mcommit 3794a1c1fc5b026173b0a76d6b14557d147183b9[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sun Jun 7 19:51:34 2020 -0300
+
+    Actualizada query para resumenCasos
+
+[33mcommit 23571799d9b70532fd4511b6ca55ecfd68475cb4[m
+Merge: 015d08f 61255eb
+Author: exequiel97sch <54806067+exequiel97sch@users.noreply.github.com>
+Date:   Sun Jun 7 19:50:41 2020 -0300
+
+    HTML y CSS de ventanas Inicio Medico e Inicio Admin
+    
+    html y css inicio medico y admin finalizados
+
+[33mcommit 61255eb783511f15d2a984393dede27daa2952b7[m
+Author: Exequiel Schuster <exe97as@gmail.com>
+Date:   Sun Jun 7 19:47:11 2020 -0300
+
+    html y css inicio medico y admin finalizados
+
+[33mcommit 015d08f1a30a0d8cd1e1c93c6b10013648388b8b[m
+Merge: 6e8d054 271b56c
+Author: exequiel97sch <54806067+exequiel97sch@users.noreply.github.com>
+Date:   Sun Jun 7 19:18:54 2020 -0300
+
+    Merge pull request #8 from martinejaw/Exequiel
+    
+    html y css inicio medico y admin
+
+[33mcommit 271b56cebd771f64f8bcf8dff4cf09aa1569aa20[m
+Author: Exequiel Schuster <exe97as@gmail.com>
+Date:   Sun Jun 7 19:17:44 2020 -0300
+
+    html y css inicio medico y admin
+
+[33mcommit 6e8d054a71ddbf6d1aeac6d79636ae50c107d6c1[m
+Merge: 2528892 fefac0e
+Author: ThouzeauHernan <thouzeau.hernan@gmail.com>
+Date:   Sun Jun 7 19:17:41 2020 -0300
+
+    Merge branch 'UI0606' of https://github.com/martinejaw/TPI-DACS into UI0606
+
+[33mcommit 2528892e3f927519c460c47e130f9edf11562255[m
+Author: ThouzeauHernan <thouzeau.hernan@gmail.com>
+Date:   Sun Jun 7 19:17:12 2020 -0300
+
+    pantalla de ver consultas terminada
+
+[33mcommit cfe570530d06b0dd7abc7c5f57996b99abc6655d[m
+Merge: cc1ab09 af8eeba
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sun Jun 7 19:16:49 2020 -0300
+
+    Merge branch 'Martin' into develop
+
+[33mcommit af8eeba2e1e105c7bb9946776d1d47f50d836be6[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sun Jun 7 19:16:25 2020 -0300
+
+    Actualizadas querys de Pruebas
+
+[33mcommit fefac0e399f7daca057287b3a3c086cd83699d6e[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sun Jun 7 18:03:05 2020 -0300
+
+    actualizacion del der
+
+[33mcommit cc1ab09708bcf31c74150458e1b494a1caba8aa7[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sun Jun 7 17:25:41 2020 -0300
+
+    agregada dependencia ejs-locals
+
+[33mcommit 1438417de52f5dab170aacbc2384eaed1ba2a71a[m
+Merge: ed8ba59 1782e1e
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sun Jun 7 17:18:53 2020 -0300
+
+    Merge branch 'develop' of https://github.com/martinejaw/TPI-DACS into develop
+
+[33mcommit cedbb86110c269515d421137cc98b3f624e6cfd4[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sun Jun 7 17:12:00 2020 -0300
+
+    eliminacion de cabeza.ejs
+
+[33mcommit 1782e1eede3c8462294ca1a13c4d4931509e44f4[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sun Jun 7 16:56:23 2020 -0300
+
+    Refactorizado top-page
+
+[33mcommit bbc2c238b2edb144009c53b9655961354daf9709[m
+Merge: 5209ba6 c04773e
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat Jun 6 22:48:37 2020 -0300
+
+    Merge Factorizar
+
+[33mcommit c04773eca2b47a03a45d9ce165973264d75ccff9[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat Jun 6 22:45:45 2020 -0300
+
+    Factorizando HTML con EJS
+
+[33mcommit 34b3ca8bde65222fccb64f7ea612c2c7c528ccda[m
+Merge: ec90660 a49252b
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sat Jun 6 22:45:31 2020 -0300
+
+    Merge branch 'UI0606' of https://github.com/martinejaw/TPI-DACS into UI0606
+
+[33mcommit ed8ba5970e57abb7930ceefdc12904c3b520330a[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sat Jun 6 22:43:57 2020 -0300
+
+    algo
+
+[33mcommit a49252b3208432f2467bea14515b4b6331b43b99[m
+Author: ThouzeauHernan <thouzeau.hernan@gmail.com>
+Date:   Sat Jun 6 22:41:50 2020 -0300
+
+    Terminado el home y se inicio el ver consultas
+
+[33mcommit ec90660ed2fe6c943ef5fd29de413107701fe7a3[m
+Merge: 70699e5 195700b
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sat Jun 6 22:34:07 2020 -0300
+
+    error
+
+[33mcommit 70699e51604ffe4b0d8b276393f63f7f57e5c3c8[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sat Jun 6 22:24:39 2020 -0300
+
+    conexion de pagina principal y redirect a login
+
+[33mcommit 195700b64933317f7eb09c87a5968d72a05786a0[m[33m ([m[1;31morigin/UI0606[m[33m, [m[1;32mUI0606[m[33m)[m
+Author: ThouzeauHernan <thouzeau.hernan@gmail.com>
+Date:   Sat Jun 6 22:00:28 2020 -0300
+
+    Termine home e inicie la de consultas
+
+[33mcommit 5209ba64bd35682f003c798f9bbe5fcb977378dd[m
+Merge: ccea5d4 98b4ee6
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sat Jun 6 20:48:17 2020 -0300
+
+    Merge branch 'develop' of https://github.com/martinejaw/TPI-DACS into develop
+
+[33mcommit ccea5d41e7dac6b1d56848810cfd8e1d75cf12ea[m
+Merge: ecb4896 fc4b955
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sat Jun 6 20:48:03 2020 -0300
+
+    encriptacion agregada
+
+[33mcommit 98b4ee65ac65f02734ce61cfd43738a5e28c0eda[m
+Author: martinejaw <54512126+martinejaw@users.noreply.github.com>
+Date:   Sat Jun 6 20:09:52 2020 -0300
+
+    Delete index.html
+
+[33mcommit 40018a1e36f2650356fe8fe0de4dfdc688122eb4[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat Jun 6 19:58:13 2020 -0300
+
+    Documentadas mas rutas
+
+[33mcommit a94dbb0622ac86025615d6a3eaae3ef9bc8d02be[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat Jun 6 19:49:45 2020 -0300
+
+    Arreglado obtener recursos
+
+[33mcommit cf5d11ce85082e68ff1ef4c1e68655442635d821[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Sat Jun 6 19:45:15 2020 -0300
+
+    home page added
+
+[33mcommit cfa66d92eb94f768346e077810b7df3e6ba81916[m
+Merge: e7be891 8ec8a3d
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat Jun 6 19:37:09 2020 -0300
+
+    Merge branch 'develop' of https://github.com/martinejaw/TPI-DACS into develop
+
+[33mcommit e7be891ceb454b6b1408074d5898ecdd9284264d[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat Jun 6 19:36:50 2020 -0300
+
+    Reporte para ministerio
+
+[33mcommit 8ec8a3d0e526400adc96bd6fb5cd252cf93d5401[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Sat Jun 6 17:59:52 2020 -0300
+
+    Carpeta html y css agregado
+
+[33mcommit 48b553c52a6bd21212b9d7f272811b9ce2bc2c27[m
+Author: martinejaw <54512126+martinejaw@users.noreply.github.com>
+Date:   Sat Jun 6 17:45:46 2020 -0300
+
+    Delete hospitales.db
+
+[33mcommit ecb489643346504ec2c6b45b3c055b840ac3038f[m
+Merge: 4c1ab19 6a00d22
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sat Jun 6 17:41:20 2020 -0300
+
+    agdsahdkas
+
+[33mcommit fc4b9555d061d8604a2aac1f562bf93af58bbab1[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat Jun 6 17:39:38 2020 -0300
+
+    Login exitoso
+
+[33mcommit 4c1ab1924c78d5c5a70904483b3a809279094f90[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sat Jun 6 17:14:25 2020 -0300
+
+    nada
+
+[33mcommit 6a00d22607deace4c91c00a145d08106c61a1a6e[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat Jun 6 12:54:09 2020 -0300
+
+    Agregada Dependencia axios
+
+[33mcommit 3371d8960139f4092e7db4ce5f192e3e7dbd692f[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat Jun 6 12:50:11 2020 -0300
+
+    Conexion Login comenzada
+
+[33mcommit 8c9f076f63c2ab3578d850ca37886eae13d46102[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Thu Jun 4 19:27:28 2020 -0300
+
+    correccion de errores
+
+[33mcommit 2a8462cd03e50f61c77e65af0fae0b6d9b8b3e70[m
+Merge: 7de8754 289e7e6
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Thu Jun 4 18:43:25 2020 -0300
+
+    Merge branch 'develop' of https://github.com/martinejaw/TPI-DACS into develop
+
+[33mcommit 7de875404e323c14934039c4e9b9cd7653552e90[m
+Merge: feb6e91 077f4cb
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Thu Jun 4 18:43:12 2020 -0300
+
+    merge
+
+[33mcommit 289e7e61063145f5139034db57cb6bc923553e9a[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Thu Jun 4 16:06:00 2020 -0300
+
+    Agregado boostrap y vue y agregadas rutas static
+
+[33mcommit feb6e9112454d057d1127f4a2e02ee4eb8c0fc55[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Thu Jun 4 15:00:40 2020 -0300
+
+    a
+
+[33mcommit 077f4cb26c3363292dc7c28ad1d40b316890b5de[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Thu Jun 4 14:58:51 2020 -0300
+
+    Inyectada la configuracion en toda la app
+
+[33mcommit 058917f1ad0f2284199be79b223f10288c8d174c[m
+Merge: 8a865d3 f24c129
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Thu Jun 4 12:55:40 2020 -0300
+
+    Merge branch 'develop' of https://github.com/martinejaw/TPI-DACS into develop
+
+[33mcommit 8a865d3c18f79c2cd30a27d9a0a28b67809e94ff[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Thu Jun 4 12:55:15 2020 -0300
+
+    Cambiado a dev - Revisar inyeccion
+
+[33mcommit f24c129bc0a283ce1584a6feee2e504f430132a6[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Thu Jun 4 11:12:02 2020 -0300
+
+    login color
+
+[33mcommit 8c022a1238f9279f2c2bf19267d5fc2b1620ce41[m
+Merge: 0c97b4b f724833
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Thu Jun 4 10:22:07 2020 -0300
+
+    Merge branch 'develop' into Martin
+
+[33mcommit 0c97b4b1dcf990fd0bff73ffb6e92c15f8a0cec2[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Thu Jun 4 10:21:32 2020 -0300
+
+    Jazmin me pidio que suba
+
+[33mcommit f72483380f0c81f399265e83edd4f2e53c3f8a3b[m
+Merge: a9e4fc3 990f194
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sun May 31 21:42:45 2020 -0300
+
+    agregado de docker compose y login
+
+[33mcommit a9e4fc3df40a6bbe5f3d9d140e142f4c9db01b5a[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sun May 31 21:37:08 2020 -0300
+
+    docker compose y login agregados
+
+[33mcommit 990f1947d757f5ed3172fa8f30026e2817d81448[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat May 30 22:23:19 2020 -0300
+
+    Agregado DockerCompose
+
+[33mcommit a09b8c920baecc6ef2abf2b1cfd2556ea4e0a3cd[m
+Merge: 6a9b0a1 6e48436
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat May 30 21:13:52 2020 -0300
+
+    Merge branch 'Martin' into develop
+
+[33mcommit 6e48436e8800f19ceac235a5ecbe323997c51232[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat May 30 21:12:50 2020 -0300
+
+    Empezado Pruebas del dia
+
+[33mcommit 6a9b0a141871291881d8efa44ed7a966e82a8fd7[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Sat May 30 21:03:06 2020 -0300
+
+    diagrama corregida con la parte de usuario
+
+[33mcommit 47815675d5e07bb574b36ae0ff85e25c23f33b6b[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat May 30 19:07:24 2020 -0300
+
+    Agregado mandado del diagnostico a pacientes
+
+[33mcommit 910a6c50ad79ef50194060754f2be8a788668216[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat May 30 17:52:38 2020 -0300
+
+    Arreglado GetMedicoLibre
+
+[33mcommit a82d42ecf19ca441a7915bb80ca0d8896d6214d3[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sun May 24 22:21:17 2020 -0300
+
+    Documentado Caso
+
+[33mcommit fca34dae66a8d0230d10bf883fe9c536828234a3[m
+Merge: 67a137f 51f2719
+Author: Exequiel Schuster <exe97as@gmail.com>
+Date:   Sun May 24 22:18:35 2020 -0300
+
+    actualizacion de pruebas
+
+[33mcommit 51f2719bfaf2fc4501607d0cae9aac145aed0019[m
+Author: Exequiel Schuster <exe97as@gmail.com>
+Date:   Sun May 24 22:15:24 2020 -0300
+
+    actualizacion de Pruebas
+
+[33mcommit 67a137fd7ded60ffa23367f4a55a960122b35624[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sun May 24 22:10:30 2020 -0300
+
+    Agregada documentacion de calle, ciudad, consulta y recursos
+
+[33mcommit 07cce52c9db2d3dbea7008044da4a466d868aa1c[m
+Merge: 045c0d6 a3bad8f
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sun May 24 21:43:10 2020 -0300
+
+    Merge branch 'Martin' into develop
+
+[33mcommit a3bad8f1c354b225b3e13897adde67e929332997[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sun May 24 21:42:31 2020 -0300
+
+    Agregado GET Medico por hospital
+
+[33mcommit 045c0d69e8318f2c798c10de264f60bd9b985985[m
+Merge: 2c4313a 9834d0e
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sun May 24 21:29:31 2020 -0300
+
+    merge
+
+[33mcommit 2c4313a00bb2fffac3a81c331def4477dcec9288[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sun May 24 21:27:52 2020 -0300
+
+    script para cargar datos en la bd
+
+[33mcommit 9834d0eb32d6a72ad4c79e687931c6c5aa4d23f5[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sun May 24 20:52:38 2020 -0300
+
+    Documentado Hospital, Medico y Recurso
+
+[33mcommit cf24f17e3bb1a68952eb5bb50eb2992a22c48639[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sun May 24 20:22:43 2020 -0300
+
+    Servicio de recursos segun hospital
+
+[33mcommit f4b32e5765872d11c4d68511160dbcb0be7317e4[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sun May 24 18:59:24 2020 -0300
+
+    Agregado servicio al ministerio
+
+[33mcommit 3a73ca1e3c4a9b132a26c7a8279c711c51e447fe[m
+Merge: bdb0ad2 7a0f940
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sun May 24 17:54:16 2020 -0300
+
+    Merge branch 'Martin' into develop
+
+[33mcommit 7a0f940e0587996d4f7608d376eebe3ffa44ea0d[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sun May 24 17:53:54 2020 -0300
+
+    DiagnosticoService
+
+[33mcommit bdb0ad2201dedc8960601e999ecbd1785bc60576[m
+Merge: 4c06c75 0a78aac
+Author: Exequiel Schuster <exe97as@gmail.com>
+Date:   Sun May 24 17:53:33 2020 -0300
+
+    Consulta sin responder sin testeo
+
+[33mcommit 4c06c7525b2e1aa52d7db44a840bfa84a2bf1f99[m
+Author: Exequiel Schuster <exe97as@gmail.com>
+Date:   Sun May 24 17:39:24 2020 -0300
+
+    Consultas sin responder sin test
+
+[33mcommit 0a78aac78188bc32d7ea1808f022fa776007b2ec[m[33m ([m[1;31mrepoDACS/develop[m[33m)[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sun May 24 16:49:30 2020 -0300
+
+    fix ConsultaRoutes
+
+[33mcommit 4108b237ebdd48ca3c0fe5a956844098648d9a06[m
+Merge: d3178b1 c0a24ae
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sun May 24 16:48:40 2020 -0300
+
+    merge con rama pruebaAWS
+
+[33mcommit c0a24ae57b816a859c889e10bb8943285215d549[m[33m ([m[1;31morigin/pruebaAWS[m[33m)[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sun May 24 00:19:04 2020 -0300
+
+    added uow
+
+[33mcommit d3178b18c96d91c60e7ba04374f3cf9545e27d96[m
+Merge: b085163 e37959a
+Author: Exequiel Schuster <exe97as@gmail.com>
+Date:   Sat May 23 22:33:31 2020 -0300
+
+    Consultas sin responder
+
+[33mcommit b085163691ae293b0679343050d9516f0ff1d095[m
+Author: Exequiel Schuster <exe97as@gmail.com>
+Date:   Sat May 23 22:32:36 2020 -0300
+
+    Consultas sin responder
+
+[33mcommit 060fe5109ac7be85ea6b4baa4fbe5d7e28ef3460[m[33m ([m[1;32mMartin[m[33m)[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat May 23 22:28:30 2020 -0300
+
+    Para jazmin
+
+[33mcommit 112f1fb95d66e67a22c7c2bf9d34404fd9e9dd85[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Sat May 23 22:05:45 2020 -0300
+
+    docker
+
+[33mcommit e37959a305c2e716f978795b2420c81caf72b9d3[m
+Merge: 96b8156 70ac443
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat May 23 20:39:59 2020 -0300
+
+    Merge branch 'Martin' into develop
+
+[33mcommit 70ac443f0f9d357d4eca6c02414e6f0c25d6e1f2[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Sat May 23 20:35:35 2020 -0300
+
+    Probando asignacion
+
+[33mcommit 96b81562a688a5612ae587cbd4d10df5a603490f[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Sat May 23 20:20:45 2020 -0300
+
+    fix bug
+
+[33mcommit d7aa77fa3acdf721230c465298cac3aaa04b3f19[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Sat May 23 20:17:29 2020 -0300
+
+    Relacion consulta - Medico added
+
+[33mcommit d4849a2f50f050c25eff6bff8a42ca73489c46c5[m
+Merge: ea20468 eb490a3
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Fri May 22 10:59:57 2020 -0300
+
+    Merge branch 'develop' of https://github.com/martinejaw/TPI-DACS into develop
+
+[33mcommit ea20468e29e3c773ff3e21fe879c300e18327a4a[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Fri May 22 10:58:48 2020 -0300
+
+    Agregados ejemplos de documentacion
+
+[33mcommit eb490a3470d58c7ba98e25edbbbe4ab5618e4462[m
+Merge: bf4e44e 4405bf2
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Thu May 21 21:30:45 2020 -0300
+
+    Merge branch 'develop' of https://github.com/martinejaw/TPI-DACS into develop
+    nose
+
+[33mcommit bf4e44e228499ddaf7cc68c3baa9802da844bdc2[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Thu May 21 21:29:54 2020 -0300
+
+    Diagramas añadidas al readme espero que funcione
+
+[33mcommit 4405bf20582caa0a0dec530d0ccea5922f28438a[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Thu May 21 14:51:49 2020 -0300
+
+    otra vez noooo
+
+[33mcommit 0ada6e159251c750cad81edc18bde77049d50855[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Thu May 21 14:50:49 2020 -0300
+
+    correcciones menores
+
+[33mcommit 8180da08f46d183281a818561decd0badef855dd[m
+Merge: ba04c8c c3b95ce
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Thu May 21 14:39:28 2020 -0300
+
+    Merge branch 'develop' of https://github.com/martinejaw/TPI-DACS into develop
+
+[33mcommit ba04c8cb3715fceb914c6baa849af65a29427c6d[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Thu May 21 14:39:08 2020 -0300
+
+    correccion bd
+
+[33mcommit c3b95ce5032ebe5ae4bb6635fa72dabeee3303b4[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Thu May 21 13:59:44 2020 -0300
+
+    Allow null false dni
+
+[33mcommit d84dfb696cf96cac3c031743f5e7d6212cf6ff18[m
+Merge: faa66c5 89c9044
+Author: martinejaw <54512126+martinejaw@users.noreply.github.com>
+Date:   Thu May 21 13:54:48 2020 -0300
+
+    Merge pull request #6 from martinejaw/Martin
+    
+    Error ruta prueba corregido
+
+[33mcommit 89c904432ad96b00b55bca3c1c7f16fbcb1f9fb2[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Thu May 21 13:54:08 2020 -0300
+
+    Error ruta prueba corregido
+
+[33mcommit faa66c593e396640e40d2f243f7c62753d6efe35[m
+Merge: 6b7bd7f a78aeac
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Thu May 21 13:44:09 2020 -0300
+
+    Merge branch 'develop' of https://github.com/martinejaw/TPI-DACS into develop
+
+[33mcommit 6b7bd7f21f4c0767c4fed0322484de2cf9a83642[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Thu May 21 13:43:45 2020 -0300
+
+    aceptar cambios
+
+[33mcommit a78aeac58719d77815b5cd4726dd8165fdc605ac[m
+Merge: 7c24c6b ef706e0
+Author: jazminteng <51136478+jazminteng@users.noreply.github.com>
+Date:   Thu May 21 13:43:17 2020 -0300
+
+    Merge pull request #1 from martinejaw/JT
+    
+    merge con JT
+
+[33mcommit ef706e0309f60bc8371f73fae2258cbbb74131b9[m
+Merge: c5d35ce 7c24c6b
+Author: jazminteng <51136478+jazminteng@users.noreply.github.com>
+Date:   Thu May 21 13:42:34 2020 -0300
+
+    Merge branch 'develop' into JT
+
+[33mcommit 7c24c6bfc2b739fd319322337a01fda7b465edcc[m
+Merge: 18d791c f305a09
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Thu May 21 13:33:22 2020 -0300
+
+    Merge branch 'develop' of https://github.com/martinejaw/TPI-DACS into develop
+
+[33mcommit 18d791c432267ce50c1dfdb3019925706744ffa7[m
+Merge: 58b4c41 d871d8c
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Thu May 21 13:32:53 2020 -0300
+
+    merge con rama juan
+
+[33mcommit d871d8c6bed64a16c8dc09736b081d25a292fff8[m[33m ([m[1;31morigin/Juan[m[33m)[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Thu May 21 13:30:33 2020 -0300
+
+    solucionado conflictos 2
+
+[33mcommit 8f78345ac3fcfb80077ca05bb190234cbe650a91[m
+Merge: 280e06e ff78670
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Thu May 21 13:29:52 2020 -0300
+
+    solucionado conflictos
+
+[33mcommit f305a09141680bac37710165d2102008106d1f57[m
+Merge: 58b4c41 987b451
+Author: martinejaw <54512126+martinejaw@users.noreply.github.com>
+Date:   Thu May 21 13:26:59 2020 -0300
+
+    Merge pull request #4 from martinejaw/Martin
+    
+    Agregado manejo de errores definitivo
+
+[33mcommit 987b451dc9c069c328041bf78f60074e0d371a2a[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Thu May 21 13:26:24 2020 -0300
+
+    Actualizados controladores
+
+[33mcommit 280e06ec96268c3f2634768ff3b9c37715032789[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Thu May 21 13:25:21 2020 -0300
+
+    cambios entidades de persistencia
+
+[33mcommit 9bcb49960363e5e9c975c4649fd177c75d0421d0[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Thu May 21 13:10:09 2020 -0300
+
+    Agregado manejo de errores definitivo
+
+[33mcommit 58b4c41e7aafb9ee40a60796d905a67ff0310998[m
+Author: ThouzeauHernan <thouzeau.hernan@gmail.com>
+Date:   Thu May 21 13:09:29 2020 -0300
+
+    ciudad id y calle id
+
+[33mcommit d701b168799b5620dbbe7793c74078a1c6be9b64[m
+Merge: d06fbc0 5f89d96
+Author: thouzeauhernan <62083333+thouzeauhernan@users.noreply.github.com>
+Date:   Thu May 21 12:26:05 2020 -0300
+
+    Merge pull request #3 from martinejaw/Hernan
+    
+    Agregue relacion de Ciudad Calle
+
+[33mcommit c5d35ce19cae0665926d846bb16a8eaf5466cdfa[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Thu May 21 12:19:53 2020 -0300
+
+    mappers bug fixed
+
+[33mcommit ff7867093243797591ce596c3b5e60510cbf04d6[m
+Author: Exequiel Schuster <exe97as@gmail.com>
+Date:   Thu May 21 12:06:18 2020 -0300
+
+    Mas Relaciones
+
+[33mcommit 5f89d96f9553477cef0e65f7d9d35385bedb866c[m
+Author: ThouzeauHernan <thouzeau.hernan@gmail.com>
+Date:   Thu May 21 12:00:46 2020 -0300
+
+    Agregue relacion de Ciudad Calle
+
+[33mcommit d06fbc072d0748463defd2470c93c03a9ec8a877[m
+Author: Exequiel Schuster <exe97as@gmail.com>
+Date:   Thu May 21 11:56:28 2020 -0300
+
+    Relaciones
+
+[33mcommit 4a0146d68261d08fe9c12f47cffc549933b00336[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Thu May 21 11:48:45 2020 -0300
+
+    Agregado manejo de errores genericos
+
+[33mcommit 4d6070fd730659627d713e932020eb82d872c2b9[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Thu May 21 10:50:50 2020 -0300
+
+    Caso, Consulta, Prueba and Recurso mappers added
+
+[33mcommit dbd07895025d17ebe44ae55b2bc85a351f5d8544[m[33m ([m[1;32mJuan[m[33m)[m
+Author: ThouzeauHernan <thouzeau.hernan@gmail.com>
+Date:   Wed May 20 18:40:41 2020 -0300
+
+    Agrege el CiudadRepository y el DireccionRepository
+
+[33mcommit ca760bd80a7b554419dc4c8e84531bb75e1cdd23[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Wed May 20 18:03:14 2020 -0300
+
+    actualizacion de atributos y relaciones en el modelo de persistencia y  atributos del modelo de dominio
+
+[33mcommit 53552b2b8d31b2cf048160a685fe62651baef215[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Tue May 19 22:42:12 2020 -0300
+
+    Controlador de Paciente, Medico, ParteMedico y Consulta agregada
+
+[33mcommit 0543e8bcb239afc813129dc9499b767239bc74dc[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Tue May 19 22:32:22 2020 -0300
+
+    Route y Service de Consulta, Medico, Paciente y ParteMedico agregado
+
+[33mcommit 8ba10564e73b2c0f355f2814d1bd5451a101c534[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Tue May 19 22:28:26 2020 -0300
+
+    Added Calle
+
+[33mcommit 8fc780956fafb9cc017994d9907734f249436ea3[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Tue May 19 22:23:57 2020 -0300
+
+    Added Recurso
+
+[33mcommit 36f2b5656c6ae2a2d9db53d967f5608ca9fbf7b0[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Tue May 19 22:19:44 2020 -0300
+
+    Consulta, Medico, Paciente and ParteMedico Repository added
+
+[33mcommit 1f0a486a6b7252d02bcc99ff1f8d682c974756d0[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Tue May 19 22:18:14 2020 -0300
+
+    Added Prueba
+
+[33mcommit d8d73a542ce2757d1e7fd725c2ef9ac1fc8b4118[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Tue May 19 22:13:34 2020 -0300
+
+    Added Caso
+
+[33mcommit bd01e9fc6f5c0c6f2d0c723baefe032b1ef214c0[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Tue May 19 22:05:14 2020 -0300
+
+    Added hospitales
+
+[33mcommit 9f3a846194c9c1bf42eaa036367b222b5723a595[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Mon May 18 13:13:01 2020 -0300
+
+    Ejemplo arreglado
+
+[33mcommit 3bf8ce4903a82d5d834c9fe08ec2ef223178b4c8[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Mon May 18 12:14:42 2020 -0300
+
+    Ejemplito
+
+[33mcommit 7a69095557678a44bee9c984342aa6b9e00e8973[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Fri May 15 11:13:46 2020 -0300
+
+    add Consulta, Prueba and ParteMedico domain models
+
+[33mcommit d765418ec6a13d9059773f98ec96d15da83bb81d[m
+Merge: 4536c06 b5f6ddb
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Fri May 15 11:11:13 2020 -0300
+
+    Merge branch 'master' of https://github.com/martinejaw/TPI-DACS
+
+[33mcommit 4536c061b9108901a519d5ce5fe042d2eab4af0a[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Fri May 15 11:10:38 2020 -0300
+
+    Added Hospital/Caso domain
+
+[33mcommit b5f6ddbe9c7e0ff8a0ae22b27975aa70befd6497[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Fri May 15 11:10:26 2020 -0300
+
+    Modelo de dominio de paciente y medico
+
+[33mcommit b4b6f7040774b59fae43a2fb6af655ba121040cd[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Fri May 15 10:41:49 2020 -0300
+
+    carpeta modelos de dominio
+
+[33mcommit 1d6574d4fa6d3b9dad66722f8d7fe0573deb9942[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Fri May 15 10:29:10 2020 -0300
+
+    carpetas
+
+[33mcommit 9d4dd1e1713f6984beaa8b1d93efa93a645c2875[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Fri May 15 10:26:39 2020 -0300
+
+    estructura del proyecto y mappers agregados
+
+[33mcommit 71c20affa9f6e4ea17fc9602d382c9dc0b7a737c[m
+Merge: c022666 5634773
+Author: Exequiel Schuster <exe97as@gmail.com>
+Date:   Sun May 3 16:42:25 2020 -0300
+
+    Merge branch 'ES'
+
+[33mcommit 563477319dc7dd2f6a3dd7619c678525257bafe4[m
+Author: Exequiel Schuster <exe97as@gmail.com>
+Date:   Sun May 3 16:40:34 2020 -0300
+
+    Prueba, Calle y Ciudad corregidos
+
+[33mcommit c0226661ef5cf904aa1e62da2470144798963a8e[m
+Merge: 1e68e51 eb9e3d6
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Sat May 2 16:48:11 2020 -0300
+
+    Merge branch 'JT'
+
+[33mcommit eb9e3d6d6947b44f3119aa077a3e3912e67f4eff[m
+Author: JazminTeng <jazminteng@gmail.com>
+Date:   Sat May 2 16:47:26 2020 -0300
+
+    consultas y casos
+
+[33mcommit 1e68e51bf0e128702b1a4c9852c5d5e8f5e4c806[m
+Merge: dd48767 77a34f2
+Author: Exequiel Schuster <exe97as@gmail.com>
+Date:   Sat May 2 09:39:18 2020 -0300
+
+    Merge branch 'ES'
+
+[33mcommit 77a34f26d16788e2007ab9d45bfa7171406462c5[m
+Author: Exequiel Schuster <exe97as@gmail.com>
+Date:   Sat May 2 09:36:25 2020 -0300
+
+    Prueba Ciudad Calle
+
+[33mcommit dd487676600e21b3d0781ab9c10b9d58ac5483a1[m
+Merge: be24c77 5b58025
+Author: ThouzeauHernan <thouzeau.hernan@gmail.com>
+Date:   Fri May 1 22:13:50 2020 -0300
+
+    Merge branch 'ThouzeauHernan'
+
+[33mcommit 5b580259d27b0b965ae2d1b18bd52fc0d926592f[m[33m ([m[1;31morigin/ThouzeauHernan[m[33m)[m
+Author: ThouzeauHernan <thouzeau.hernan@gmail.com>
+Date:   Fri May 1 22:11:25 2020 -0300
+
+    Agrego Hospital(a terminar) y ParteMedico (Determinar el estado)
+
+[33mcommit be24c77c38f1dcaa599589680a7354497f87f314[m
+Merge: f87e7bc c716a66
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Fri May 1 22:04:05 2020 -0300
+
+    Merge branch 'JB'
+
+[33mcommit f87e7bc8537a067e8061636274a92f23b49a449b[m
+Merge: e34af05 bba03f0
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Fri May 1 22:01:50 2020 -0300
+
+    Merge branch 'master' of https://github.com/martinejaw/TPI-DACS
+
+[33mcommit c716a663b648849546299e48f043b89d51abf7a8[m[33m ([m[1;31morigin/JB[m[33m)[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Fri May 1 21:58:27 2020 -0300
+
+    Agregamos modelo Paciente y Medico
+
+[33mcommit e34af051786545f61490ce0a111b632964464832[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Fri May 1 21:52:13 2020 -0300
+
+    Agregamos modelos Paciente y Medico
+
+[33mcommit bba03f09343dd63e5d9049f6226484cfdf535350[m
+Author: martinejaw <54512126+martinejaw@users.noreply.github.com>
+Date:   Fri May 1 20:17:29 2020 -0300
+
+    Update README.md
+
+[33mcommit ead73d02febf3619df684e27cd57d534e6a5a9ab[m[33m ([m[1;31morigin/ES[m[33m)[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Fri May 1 20:13:19 2020 -0300
+
+    agregada la dependcia sequelize
+
+[33mcommit 35206e5102f8b4caf7140b180ea8abd061a6a1b3[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Fri May 1 20:05:52 2020 -0300
+
+    Subido modelo de ejemplo
+
+[33mcommit a54d042efa93cfabf2a1f2dceb9da4fc44ab3f5e[m
+Author: martinejaw <martinezequieljaworski@gmail.com>
+Date:   Fri May 1 20:00:16 2020 -0300
+
+    Actualizado git ignore
+
+[33mcommit 9605353adc46ac52ffe318b18d24615a49a6f229[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Fri May 1 19:54:17 2020 -0300
+
+    setup de proyecto
+
+[33mcommit a9517045971108a31d16fa03587be7f8936c2037[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Fri May 1 19:38:24 2020 -0300
+
+    primer commit
+
+[33mcommit 3453a30fc3e7f82952c39f6aa6f3c41ca372ac73[m
+Author: bravinjuan <bravinjuan@gmail.com>
+Date:   Fri May 1 19:35:00 2020 -0300
+
+    primer commit
+
+[33mcommit 305f5ea3310ba2205fb5971ced6e15d7ffd8bf03[m
+Author: martinejaw <54512126+martinejaw@users.noreply.github.com>
+Date:   Fri May 1 11:38:33 2020 -0300
+
+    Update README.md
+
+[33mcommit 4ef2fa63907b37f59784934d71d54ade711e88a9[m
+Author: martinejaw <54512126+martinejaw@users.noreply.github.com>
+Date:   Fri May 1 11:34:03 2020 -0300
+
+    Initial commit
