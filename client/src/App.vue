@@ -15,6 +15,8 @@
   </v-app>
 </template>
 
+<script src="https://unpkg.com/vue-recaptcha@latest/dist/vue-recaptcha.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer></script>
 <script>
 import Navbar from './components/Navbar.vue';
 import NavbarAdmin from './components/NavbarAdmin.vue';

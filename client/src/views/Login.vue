@@ -28,24 +28,17 @@
       required
     ></v-text-field>
 
-    <v-checkbox
-      v-model="checkbox"
-      :rules="[v => !!v || 'Debes estar de acuerdo!']"
-      label="¿Estas de acuerdo?"
-      required
-    ></v-checkbox>
     <vue-recaptcha
-    id="g-recaptcha"
-    class="g-recaptcha"
-    :data-sitekey="sitekey"
-    ref="recaptcha"
-    @verify="submit"
-    required>
+      v-model="recaptcha"
+      required
+      sitekey="6LeE7bAZAAAAAJ-Hmb8FSXIGluea63AI3WxS0_A2" :loadRecaptchaScript="true"
+      @verify="mxVerify"
+      @expired= "expired">
     </vue-recaptcha>
       <!--site 6LeE7bAZAAAAAJ-Hmb8FSXIGluea63AI3WxS0_A2-->
       <!--secret 6LeE7bAZAAAAADxYppwdBzvh_QHSwD6AF_1hVgNm -->
     <v-btn
-      :disabled="!valid"
+      :disabled="!valid || !recaptcha"
       color="success"
       class="mb-4"
       @click="validate"
@@ -83,7 +76,6 @@ export default {
   name: 'Login',
   data: () => ({
     valid: true,
-    sitekey: '6LeE7bAZAAAAAJ-Hmb8FSXIGluea63AI3WxS0_A2',
     widgetId: 0,
     usuario: '',
     nameRules: [
@@ -101,8 +93,15 @@ export default {
       (v) => !!v || 'La contraseña es requerida',
       (v) => (v.split(' ').length <= 1) || 'Espacios en blanco no permitidos',
     ],
+    recaptcha: false,
   }),
   methods: {
+    expired() {
+      this.recaptcha = false;
+    },
+    mxVerify() {
+      this.recaptcha = true;
+    },
     async validate() {
       await axios.post(cfg.VAL_URL, { usuario: this.usuario, password: this.pass })
         .then((result) => {
@@ -116,38 +115,9 @@ export default {
         })
         .catch((error) => { this.error = error.message; this.errorBool = true; });
     },
-    execute() {
-      window.grecaptcha.execute(this.widgetId);
-    },
-    reset() {
-      window.grecaptcha.reset(this.widgetId);
-    },
-    render() {
-      if (window.grecaptcha) {
-        this.widgetId = window.grecaptcha.render('g-recaptcha', {
-          sitekey: this.sitekey,
-          size: 'invisible',
-          // the callback executed when the user solve the recaptcha
-          callback: (response) => {
-            // emit an event called verify with the response as payload
-            this.$emit('verify', response);
-            // reset the recaptcha widget so you can execute it again
-            this.reset();
-          },
-        });
-      }
-    },
-    submit(response) {
-      console.log(response);
-    },
   },
   components: {
     VueRecaptcha,
-  },
-  mounted() {
-    // render the recaptcha widget when the component is mounted
-    this.VueRecaptcha.execute();
-    this.render();
   },
 };
 </script>
