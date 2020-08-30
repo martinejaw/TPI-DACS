@@ -112,6 +112,7 @@ export default {
           localStorage.setItem('hospital', result.data.info.hospital);
           localStorage.setItem('nombre', result.data.info.nombre);
           this.$router.push({ name: 'Home' });
+          console.log(localStorage);
         })
         .catch((error) => { this.error = error.message; this.errorBool = true; });
     },

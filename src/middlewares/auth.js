@@ -9,6 +9,8 @@ class AuthMiddle {
     isAuth(req, res, next) {
         if (req.path === '/login') {    // En login no requiero autenticacion
             next();
+        } else if (req.path === '/registro') {
+            next();
         } else {
             if (!req.headers.authorization) {
                 return res.status(403).send({ message: 'Autenticación requerida' })

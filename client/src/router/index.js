@@ -148,10 +148,8 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const token = localStorage.getItem('user-token');
-  const info = localStorage.getItem('info');
   axios.defaults.headers.common.authorization = `Bearer ${token}`;
-
-  if (info != null) {
+  if (token != null) {
     store.state.dni = localStorage.getItem('dni');
     store.state.cuit = localStorage.getItem('cuit');
     store.state.rol = localStorage.getItem('rol');
@@ -160,7 +158,7 @@ router.beforeEach((to, from, next) => {
     if (store.state.rol === 'medico') {
       store.state.isMedico = true;
       store.state.isAdmin = false;
-    } else if (info.rol === 'admin') {
+    } else if (store.state.rol === 'admin') {
       store.state.isAdmin = true;
       store.state.isMedico = false;
     } else {

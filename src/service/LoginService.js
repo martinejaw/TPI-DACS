@@ -36,7 +36,6 @@ class LoginService extends BaseService{
                     let HospitalCuit;
                     let nombre;
                     let nombreHospital;
-
                     if (cuentaValida.rol === 'medico'){
                         const consulta = await this._medicoService.obtenerHospital(cuentaValida.MedicoDni).catch(e => reject(e));
                         dni = cuentaValida.MedicoDni;

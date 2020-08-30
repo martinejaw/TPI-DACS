@@ -1,5 +1,4 @@
-let url = 'http://54.237.73.187:3000';
-url = 'http://localhost:3000';
+const url = 'http://localhost:3000';
 
 const cfg = {
 
